@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+# SharpDevelop 5.0
+VisualStudioVersion = 12.0.20827.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADBC2", "ADBC2\ADBC2.csproj", "{D8406E3B-123E-4901-AEF8-871D2E741B3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBFilesClient.NET", "DBFilesClient.NET\DBFilesClient.NET.csproj", "{1DC6FA75-FB06-4395-B27A-52977F58AAEB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObjectListView", "ObjectListView\ObjectListView.csproj", "{18FEDA0C-D147-4286-B39A-01204808106A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D8406E3B-123E-4901-AEF8-871D2E741B3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8406E3B-123E-4901-AEF8-871D2E741B3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8406E3B-123E-4901-AEF8-871D2E741B3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8406E3B-123E-4901-AEF8-871D2E741B3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DC6FA75-FB06-4395-B27A-52977F58AAEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DC6FA75-FB06-4395-B27A-52977F58AAEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DC6FA75-FB06-4395-B27A-52977F58AAEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DC6FA75-FB06-4395-B27A-52977F58AAEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18FEDA0C-D147-4286-B39A-01204808106A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18FEDA0C-D147-4286-B39A-01204808106A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18FEDA0C-D147-4286-B39A-01204808106A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18FEDA0C-D147-4286-B39A-01204808106A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
