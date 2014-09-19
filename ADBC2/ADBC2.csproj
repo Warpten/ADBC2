@@ -79,7 +79,6 @@
     <Compile Include="Structures\Cataclysm\AchievementCategoryEntry.cs" />
     <Compile Include="Structures\Cataclysm\AchievementCriteriaEntry.cs" />
     <Compile Include="Structures\Cataclysm\AchievementEntry.cs" />
-    <Compile Include="Structures\Cataclysm\Cataclysm.cs" />
     <Compile Include="Structures\Cataclysm\ItemCurrencyCostEntry.cs" />
     <Compile Include="Structures\Cataclysm\ItemSparseEntry.cs" />
     <Compile Include="Structures\ClientVersionAttribute.cs" />
@@ -102,9 +101,9 @@
       <Project>{1DC6FA75-FB06-4395-B27A-52977F58AAEB}</Project>
       <Name>DBFilesClient.NET</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ObjectListView\ObjectListView.csproj">
+    <ProjectReference Include="..\ObjectListView\ObjectListView2012.csproj">
       <Project>{18FEDA0C-D147-4286-B39A-01204808106A}</Project>
-      <Name>ObjectListView</Name>
+      <Name>ObjectListView2012</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

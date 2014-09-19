@@ -8,7 +8,7 @@ namespace ADBC2.Structures.Cataclysm
     public sealed class AchievementEntry
     {
         private uint _Id;
-        // public uint Id { get { return _Id; } }
+        public uint Id { get { return _Id; } }
         
         private int _RequiredFaction;
         public int RequiredFaction { get { return _RequiredFaction; } }

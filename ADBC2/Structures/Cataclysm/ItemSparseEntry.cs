@@ -7,8 +7,8 @@ namespace ADBC2.Structures.Cataclysm
     [FileStructure("Item-sparse.db2")]
     public sealed class ItemSparseEntry
     {
-        /*private uint _Id;
-        public uint Id { get { return _Id; } }*/
+        private uint _Id;
+        public uint Id { get { return _Id; } }
         
         private uint _Quality;
         public uint Quality { get { return _Quality; } }

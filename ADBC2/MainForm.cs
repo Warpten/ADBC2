@@ -106,7 +106,7 @@ namespace ADBC2
             if (sender == null)
                 return;
 
-            Stopwatch watch = new Stopwatch();
+            var watch = new Stopwatch();
             watch.Start();
             
             var structure = _structures[sender.Text] as Type;
@@ -128,8 +128,8 @@ namespace ADBC2
             PropertyInfo[] props = structure.GetProperties();
             // Library code has been modified to allow using fields - not working yet, though
             // Legacy call: Generator.GenerateColumns(this.ContentListView, structure, true); 
-            Generator.GenerateColumns(this.ContentListView, structure, true, true);
-            ContentListView.SetObjects(_records, false, true);
+            Generator.GenerateColumns(this.ContentListView, structure, true);
+            ContentListView.SetObjects(_records, false);
             watch.Stop();
             StatusLabel.Text = String.Format("Loaded {0} records in {1} ms.", _records.Count, watch.ElapsedMilliseconds);
         }

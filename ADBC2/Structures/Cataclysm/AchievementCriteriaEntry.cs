@@ -8,7 +8,7 @@ namespace ADBC2.Structures.Cataclysm
     public sealed class AchievementCriteriaEntry
     {
         private uint _Id;
-        //public uint Id { get; set; }
+        public uint Id { get; set; }
         
         private uint _AchievementId;
         public uint AchievementId { get { return _AchievementId; } }
@@ -55,9 +55,6 @@ namespace ADBC2.Structures.Cataclysm
         [StoragePresence(StoragePresenceOption.Include, ArraySize = 2)]
         private uint[] _Unk_1;
         // public uint Unk_1 { get { return _Unk_1; } } // Unhide when meaning is found
-        
-        // private uint _Unk_2;
-        // public uint Unk_2 { get { return _Unk_2; } } // Unhide when meaning is found
         
         private uint _ExtraConditionType1;
         private uint _ExtraConditionType2;
