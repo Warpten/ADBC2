@@ -48,7 +48,7 @@ namespace BrightIdeasSoftware
     /// <remarks>
     /// All the attributes of this class match their equivilent properties on OLVColumn.
     /// </remarks>
-    [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field)]
+    [AttributeUsage(AttributeTargets.Property)]
     public class OLVColumnAttribute : Attribute
     {
         #region Constructor
@@ -318,7 +318,7 @@ namespace BrightIdeasSoftware
     /// <summary>
     /// Properties marked with [OLVChildren] will be used as the children source in a TreeListView.
     /// </summary>
-    [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field)]
+    [AttributeUsage(AttributeTargets.Property)]
     public class OLVChildrenAttribute : Attribute
     {
         
@@ -327,7 +327,7 @@ namespace BrightIdeasSoftware
     /// <summary>
     /// Properties marked with [OLVIgnore] will not have columns generated for them.
     /// </summary>
-    [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field)]
+    [AttributeUsage(AttributeTargets.Property)]
     public class OLVIgnoreAttribute : Attribute
     {
 

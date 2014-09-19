@@ -113,7 +113,7 @@ namespace BrightIdeasSoftware
             this.ShowGroups = false;
             this.PrimarySortColumn = null;
             this.PrimarySortOrder = SortOrder.None;
-            this.SetObjects(this.Objects, false, this.FromFields);
+            this.SetObjects(this.Objects);
         }
     }
 

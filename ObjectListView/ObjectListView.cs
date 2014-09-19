@@ -818,9 +818,6 @@ namespace BrightIdeasSoftware
         }
         private IModelFilter additionalFilter;
 
-        public virtual bool FromFields { get { return FromFields; } }
-        private bool? fromFields;
-        
         /// <summary>
         /// Get or set all the columns that this control knows about.
         /// Only those columns where IsVisible is true will be seen by the user.
@@ -2090,7 +2087,7 @@ namespace BrightIdeasSoftware
         /// <para>
         /// The contents of the control will be updated immediately after setting this property.
         /// </para>
-        /// <para>This method preserves selection, if possible. Use <see cref="SetObjects(IEnumerable, bool, bool)"/> if
+        /// <para>This method preserves selection, if possible. Use <see cref="SetObjects(IEnumerable, bool)"/> if
         /// you do not want to preserve the selection. Preserving selection is the slowest part of this
         /// code and performance is O(n) where n is the number of selected rows.</para>
         /// <para>This method is not thread safe.</para>
@@ -2103,7 +2100,7 @@ namespace BrightIdeasSoftware
          DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public virtual IEnumerable Objects {
             get { return this.objects; }
-            set { this.SetObjects(value, true, this.FromFields); }
+            set { this.SetObjects(value, true); }
         }
         private IEnumerable objects;
 
@@ -3886,7 +3883,7 @@ namespace BrightIdeasSoftware
             if (this.InvokeRequired)
                 this.Invoke(new MethodInvoker(this.ClearObjects));
             else
-                this.SetObjects(null, false, false);
+                this.SetObjects(null);
         }
 
         /// <summary>
@@ -4621,10 +4618,20 @@ namespace BrightIdeasSoftware
         /// <remark>This method can safely be called from background threads.</remark>
         /// <remarks>The list is updated immediately</remarks>
         /// <param name="collection">The objects to be displayed</param>
+        public virtual void SetObjects(IEnumerable collection) {
+            this.SetObjects(collection, false);
+        }
+
+        /// <summary>
+        /// Set the collection of objects that will be shown in this list view.
+        /// </summary>
+        /// <remark>This method can safely be called from background threads.</remark>
+        /// <remarks>The list is updated immediately</remarks>
+        /// <param name="collection">The objects to be displayed</param>
         /// <param name="preserveState">Should the state of the list be preserved as far as is possible.</param>
-        public virtual void SetObjects(IEnumerable collection, bool preserveState, bool fieldsOnly) {
+        public virtual void SetObjects(IEnumerable collection, bool preserveState) {
             if (this.InvokeRequired) {
-                this.Invoke((MethodInvoker)delegate { this.SetObjects(collection, preserveState, fieldsOnly); });
+                this.Invoke((MethodInvoker)delegate { this.SetObjects(collection, preserveState); });
                 return;
             }
 

@@ -128,7 +128,7 @@ namespace BrightIdeasSoftware
 
                 return objects;
             }
-            set { this.olv.SetObjects(value, false, false); } // TODO Fix FromFields
+            set { this.olv.SetObjects(value); }
         }
 
         /// <summary>

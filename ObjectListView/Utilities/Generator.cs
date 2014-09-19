@@ -65,7 +65,7 @@ namespace BrightIdeasSoftware
         /// <param name="olv">The ObjectListView to modify</param>
         /// <param name="type">The model type whose attributes will be considered.</param>
         /// <param name="allProperties">Will columns be generated for properties that are not marked with [OLVColumn].</param>
-        void GenerateAndReplaceColumns(ObjectListView olv, Type type, bool allProperties, bool fromFields);
+        void GenerateAndReplaceColumns(ObjectListView olv, Type type, bool allProperties);
 
         /// <summary>
         /// Generate a list of OLVColumns based on the attributes of the given type
@@ -74,9 +74,8 @@ namespace BrightIdeasSoftware
         /// </summary>
         /// <param name="type"></param>
         /// <param name="allProperties">Will columns be generated for properties that are not marked with [OLVColumn].</param>
-        /// <param name="fromFields">Will columns be generated from fields instead of properties.</param>
         /// <returns>A collection of OLVColumns matching the attributes of Type that have OLVColumnAttributes.</returns>
-        IList<OLVColumn> GenerateColumns(Type type, bool allProperties, bool fromFields);
+        IList<OLVColumn> GenerateColumns(Type type, bool allProperties);
     }
 
     /// <summary>
@@ -111,7 +110,7 @@ namespace BrightIdeasSoftware
         /// <param name="olv">The ObjectListView to modify</param>
         /// <param name="enumerable">The collection whose first element will be used to generate columns.</param>
         static public void GenerateColumns(ObjectListView olv, IEnumerable enumerable) {
-            Generator.GenerateColumns(olv, enumerable, false, false);
+            Generator.GenerateColumns(olv, enumerable, false);
         }
 
         /// <summary>
@@ -122,18 +121,17 @@ namespace BrightIdeasSoftware
         /// <param name="olv">The ObjectListView to modify</param>
         /// <param name="enumerable">The collection whose first element will be used to generate columns.</param>
         /// <param name="allProperties">Will columns be generated for properties that are not marked with [OLVColumn].</param>
-        /// <param name="fromFields">Will columns be generated from fields.</param>
-        static public void GenerateColumns(ObjectListView olv, IEnumerable enumerable, bool allProperties, bool fromFields) {
+        static public void GenerateColumns(ObjectListView olv, IEnumerable enumerable, bool allProperties) {
             // Generate columns based on the type of the first model in the collection and then quit
             if (enumerable != null) {
                 foreach (object model in enumerable) {
-                    Generator.Instance.GenerateAndReplaceColumns(olv, model.GetType(), allProperties, fromFields);
+                    Generator.Instance.GenerateAndReplaceColumns(olv, model.GetType(), allProperties);
                     return;
                 }
             }
 
             // If we reach here, the collection was empty, so we clear the list
-            Generator.Instance.GenerateAndReplaceColumns(olv, null, allProperties, fromFields);
+            Generator.Instance.GenerateAndReplaceColumns(olv, null, allProperties);
         }
 
         /// <summary>
@@ -142,8 +140,8 @@ namespace BrightIdeasSoftware
         /// </summary>
         /// <param name="olv">The ObjectListView to modify</param>
         /// <param name="type">The model type whose attributes will be considered.</param>
-        static public void GenerateColumns(ObjectListView olv, Type type, bool fromFields) {
-            Generator.Instance.GenerateAndReplaceColumns(olv, type, false, fromFields);
+        static public void GenerateColumns(ObjectListView olv, Type type) {
+            Generator.Instance.GenerateAndReplaceColumns(olv, type, false);
         }
 
         /// <summary>
@@ -153,8 +151,8 @@ namespace BrightIdeasSoftware
         /// <param name="olv">The ObjectListView to modify</param>
         /// <param name="type">The model type whose attributes will be considered.</param>
         /// <param name="allProperties">Will columns be generated for properties that are not marked with [OLVColumn].</param>
-        static public void GenerateColumns(ObjectListView olv, Type type, bool allProperties, bool fromFields) {
-            Generator.Instance.GenerateAndReplaceColumns(olv, type, allProperties, fromFields);
+        static public void GenerateColumns(ObjectListView olv, Type type, bool allProperties) {
+            Generator.Instance.GenerateAndReplaceColumns(olv, type, allProperties);
         }
 
         /// <summary>
@@ -163,8 +161,8 @@ namespace BrightIdeasSoftware
         /// </summary>
         /// <param name="type"></param>
         /// <returns>A collection of OLVColumns matching the attributes of Type that have OLVColumnAttributes.</returns>
-        static public IList<OLVColumn> GenerateColumns(Type type, bool fromFields) {
-            return Generator.Instance.GenerateColumns(type, false, fromFields);
+        static public IList<OLVColumn> GenerateColumns(Type type) {
+            return Generator.Instance.GenerateColumns(type, false);
         }
 
         #endregion
@@ -178,8 +176,8 @@ namespace BrightIdeasSoftware
         /// <param name="olv">The ObjectListView to modify</param>
         /// <param name="type">The model type whose attributes will be considered.</param>
         /// <param name="allProperties">Will columns be generated for properties that are not marked with [OLVColumn].</param>
-        public virtual void GenerateAndReplaceColumns(ObjectListView olv, Type type, bool allProperties, bool fromFields) {
-            IList<OLVColumn> columns = this.GenerateColumns(type, allProperties, fromFields);
+        public virtual void GenerateAndReplaceColumns(ObjectListView olv, Type type, bool allProperties) {
+            IList<OLVColumn> columns = this.GenerateColumns(type, allProperties);
             TreeListView tlv = olv as TreeListView;
             if (tlv != null)
                 this.TryGenerateChildrenDelegates(tlv, type);
@@ -194,41 +192,25 @@ namespace BrightIdeasSoftware
         /// <param name="type"></param>
         /// <param name="allProperties">Will columns be generated for properties that are not marked with [OLVColumn].</param>
         /// <returns>A collection of OLVColumns matching the attributes of Type that have OLVColumnAttributes.</returns>
-        public virtual IList<OLVColumn> GenerateColumns(Type type, bool allProperties, bool fromFields) {
+        public virtual IList<OLVColumn> GenerateColumns(Type type, bool allProperties) {
             List<OLVColumn> columns = new List<OLVColumn>();
             
             // Sanity
             if (type == null)
                 return columns;
 
-            if (fromFields)
-            {
-                foreach (FieldInfo finfo in type.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)) {
-                    if (Attribute.GetCustomAttribute(finfo, typeof(OLVIgnoreAttribute)) != null)
-                        continue;
-                    
-                    OLVColumnAttribute attr = Attribute.GetCustomAttribute(finfo, typeof(OLVColumnAttribute), false) as OLVColumnAttribute;
-                    if (attr == null)
-                        columns.Add(this.MakeColumnFromFieldInfo(finfo));
-                    else
-                        columns.Add(this.MakeColumnFromAttribute(finfo, attr));
-                }
-            }
-            else
-            {
-                // Iterate all public properties in the class and build columns from those that have
-                // an OLVColumn attribute and that are not ignored.
-                foreach (PropertyInfo pinfo in type.GetProperties()) {
-                    if (Attribute.GetCustomAttribute(pinfo, typeof(OLVIgnoreAttribute)) != null)
-                        continue;
-    
-                    OLVColumnAttribute attr = Attribute.GetCustomAttribute(pinfo, typeof(OLVColumnAttribute)) as OLVColumnAttribute;
-                    if (attr == null) {
-                        if (allProperties)
-                            columns.Add(this.MakeColumnFromPropertyInfo(pinfo));
-                    } else {
-                        columns.Add(this.MakeColumnFromAttribute(pinfo, attr));
-                    }
+            // Iterate all public properties in the class and build columns from those that have
+            // an OLVColumn attribute and that are not ignored.
+            foreach (PropertyInfo pinfo in type.GetProperties()) {
+                if (Attribute.GetCustomAttribute(pinfo, typeof(OLVIgnoreAttribute)) != null)
+                    continue;
+
+                OLVColumnAttribute attr = Attribute.GetCustomAttribute(pinfo, typeof(OLVColumnAttribute)) as OLVColumnAttribute;
+                if (attr == null) {
+                    if (allProperties)
+                        columns.Add(this.MakeColumnFromPropertyInfo(pinfo));
+                } else {
+                    columns.Add(this.MakeColumnFromAttribute(pinfo, attr));
                 }
             }
 
@@ -285,10 +267,6 @@ namespace BrightIdeasSoftware
             olv.RebuildColumns();
             olv.AutoSizeColumns();
         }
-        
-        protected virtual OLVColumn MakeColumnFromAttribute(FieldInfo finfo, OLVColumnAttribute attr) {
-            return MakeColumn(finfo.Name, DisplayNameToColumnTitle(finfo.Name), true, finfo.GetType(), attr);
-        }
 
         /// <summary>
         /// Create a column from the given PropertyInfo and OLVColumn attribute
@@ -298,10 +276,6 @@ namespace BrightIdeasSoftware
         /// <returns></returns>
         protected virtual OLVColumn MakeColumnFromAttribute(PropertyInfo pinfo, OLVColumnAttribute attr) {
             return MakeColumn(pinfo.Name, DisplayNameToColumnTitle(pinfo.Name), pinfo.CanWrite, pinfo.PropertyType, attr);
-        }
-        
-        protected virtual OLVColumn MakeColumnFromFieldInfo(FieldInfo finfo) {
-            return MakeColumn(finfo.Name, DisplayNameToColumnTitle(finfo.Name), false, finfo.GetType(), null);
         }
 
         /// <summary>

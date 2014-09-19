@@ -95,7 +95,7 @@ namespace BrightIdeasSoftware
                 return newValue;
             };
 
-            this.objectListView1.SetObjects(this.RearrangableColumns, false, false);
+            this.objectListView1.SetObjects(this.RearrangableColumns);
             this.EnableControls();
         }
         private List<OLVColumn> AllColumns = null;

@@ -496,7 +496,7 @@ namespace BrightIdeasSoftware
                 this.Invoke(new MethodInvoker(this.ClearObjects));
             else {
                 this.CheckStateMap.Clear();
-                this.SetObjects(new ArrayList(), false, false);
+                this.SetObjects(new ArrayList());
             }
         }
 
@@ -657,9 +657,9 @@ namespace BrightIdeasSoftware
         /// </summary>
         /// <param name="collection"></param>
         /// <param name="preserveState">Should the state of the list be preserved as far as is possible.</param>
-        public override void SetObjects(IEnumerable collection, bool preserveState, bool fromFields) {
+        public override void SetObjects(IEnumerable collection, bool preserveState) {
             if (this.InvokeRequired) {
-                this.Invoke((MethodInvoker)delegate { this.SetObjects(collection, preserveState, fromFields); });
+                this.Invoke((MethodInvoker)delegate { this.SetObjects(collection, preserveState); });
                 return;
             }
 
