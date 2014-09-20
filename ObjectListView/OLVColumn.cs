@@ -1331,9 +1331,7 @@ namespace BrightIdeasSoftware {
             string fmt = this.AspectToStringFormat;
             /*if (!value.GetType().IsArray)
             {*/
-                if (String.IsNullOrEmpty(fmt))
-                    return value.ToString();
-                return String.Format(fmt, value);
+			    return String.IsNullOrEmpty(fmt) ? value.ToString() : String.Format(fmt, value);
             /*}
 
             if (String.IsNullOrEmpty(fmt))

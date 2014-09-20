@@ -16,8 +16,8 @@ namespace ADBC2
     {
         public string SelectedBuild;
         public string SelectedFile;
-        private string filesPath;
-        private Type FileStructure;
+        string filesPath;
+        Type FileStructure;
         
         public Dictionary<string, object> _structures = new Dictionary<string, object>();
         
@@ -42,13 +42,52 @@ namespace ADBC2
         void ToIDA(object sender, EventArgs e)
         {
             var fields = FileStructure.GetFields(BindingFlags.Public | BindingFlags.Instance | BindingFlags.NonPublic)
-                .Where(field => !(field.Name.StartsWith("<") && field.Name.EndsWith(">k__BackingField")))
                 .ToArray();
-            var structureText = string.Empty;
-            foreach (var fieldInfo in fields)
+            var structureText = new string[fields.Count()];
+            for (var i = 0; i < fields.Length; ++i)
             {
+                var fieldInfo = fields[i];
+                var fieldType = fieldInfo.FieldType;
+                var isArray = fieldInfo.GetCustomAttribute(typeof(StoragePresenceAttribute)) != null;
+                var arrayLength = isArray
+                    ? (fieldInfo.GetCustomAttribute(typeof(StoragePresenceAttribute)) as StoragePresenceAttribute).ArraySize
+                    : 0;
                 
+                if (isArray)
+                    fieldType = fieldType.GetElementType();
+
+                var fmt = (isArray ? @"    {0} {1}[{2}];" : @"    {0} {1};") + Environment.NewLine;
+                var idaType = string.Empty;
+                switch (fieldType.ToString())
+                {
+                    case "System.Byte":
+                        structureText[i] = String.Format(fmt, "_BYTE", fieldInfo.Name, arrayLength);
+						break;
+                    case "System.UInt16":
+			        case "System.Int16":
+						structureText[i] = String.Format(fmt, "_WORD", fieldInfo.Name, arrayLength);
+						break;
+                    case "System.UInt32":
+			        case "System.Int32":
+						structureText[i] = String.Format(fmt, "_DWORD", fieldInfo.Name, arrayLength);
+						break;
+                    case "System.UInt64":
+			        case "System.Int64":
+						structureText[i] = String.Format(fmt, "_QWORD", fieldInfo.Name, arrayLength);
+						break;
+                    case "System.String":
+                        structureText[i] = String.Format(fmt, "char*", fieldInfo.Name, arrayLength);
+						break;
+                    case "System.Single":
+						structureText[i] = String.Format(fmt, "FLOAT", fieldInfo.Name, arrayLength);
+						break;
+                    default:
+						StatusLabel.Text = String.Format("Error while exporting: Unknown type {0}.", fieldType.ToString());
+						return;
+                }
             }
+            StatusLabel.Text = @"Structure saved to clipboard";
+            Clipboard.SetText(String.Join(Environment.NewLine, structureText));
         }
         #endregion
         
@@ -93,6 +132,14 @@ namespace ADBC2
                 
                 StatusLabel.Text = unhandledCount == 0 ? string.Empty : String.Format("{0} unhandled DBC files.", unhandledCount);
                 
+            }
+            catch (DirectoryNotFoundException dnfe)
+            {
+                loadFileToolStripMenuItem.DropDownItems.Clear();
+                loadFileToolStripMenuItem.Enabled = false;
+                exportAsSQLToolStripMenuItem.Enabled = false;
+                exportStructureToIDAToolStripMenuItem.Enabled = false;
+                StatusLabel.Text = dnfe.ToString();
             }
             catch (UnsupportedClientBuildException ucbe)
             {
@@ -144,5 +191,16 @@ namespace ADBC2
             exportAsSQLToolStripMenuItem.Enabled = true;
             exportStructureToIDAToolStripMenuItem.Enabled = true;
         }
+
+		void OnCellEditStart(object sender, CellEditEventArgs e)
+		{
+		    e.Cancel = true;
+		    // NYI (Hitting F2 on a cell = copy cell value)
+		}
+
+		void ShowHelp(object sender, EventArgs e)
+		{
+	
+		}
     }
 }

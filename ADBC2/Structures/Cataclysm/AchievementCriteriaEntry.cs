@@ -1,7 +1,6 @@
 ﻿using System;
 using BrightIdeasSoftware;
 using DBFilesClient.NET;
-using BrightIdeasSoftware;
 
 namespace ADBC2.Structures.Cataclysm
 {
