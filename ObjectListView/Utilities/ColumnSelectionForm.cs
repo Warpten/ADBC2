@@ -30,9 +30,9 @@ namespace BrightIdeasSoftware
     /// </remarks>
     public partial class ColumnSelectionForm : Form
     {
-    	/// <summary>
-    	/// Make a new ColumnSelectionForm
-    	/// </summary>
+        /// <summary>
+        /// Make a new ColumnSelectionForm
+        /// </summary>
         public ColumnSelectionForm()
         {
             InitializeComponent();

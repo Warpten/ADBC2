@@ -333,7 +333,7 @@ namespace BrightIdeasSoftware
         /// <returns></returns>
         protected bool HandleSetCursor(ref Message m) {
             if (this.IsCursorOverLockedDivider) {
-                m.Result = (IntPtr)1;	// Don't change the cursor
+                m.Result = (IntPtr)1;    // Don't change the cursor
                 return false;
             }
             return true;

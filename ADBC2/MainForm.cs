@@ -17,6 +17,7 @@ namespace ADBC2
         public string SelectedBuild;
         public string SelectedFile;
         private string filesPath;
+        private Type FileStructure;
         
         public Dictionary<string, object> _structures = new Dictionary<string, object>();
         
@@ -31,7 +32,8 @@ namespace ADBC2
         /// </summary>
         void ToSQL(object sender, EventArgs e)
         {
-            
+            // var items = ContentListView.Items;
+            // Console.Write("foo");
         }
         
         /// <summary>
@@ -39,7 +41,14 @@ namespace ADBC2
         /// </summary>
         void ToIDA(object sender, EventArgs e)
         {
-            
+            var fields = FileStructure.GetFields(BindingFlags.Public | BindingFlags.Instance | BindingFlags.NonPublic)
+                .Where(field => !(field.Name.StartsWith("<") && field.Name.EndsWith(">k__BackingField")))
+                .ToArray();
+            var structureText = string.Empty;
+            foreach (var fieldInfo in fields)
+            {
+                
+            }
         }
         #endregion
         
@@ -89,6 +98,8 @@ namespace ADBC2
             {
                 loadFileToolStripMenuItem.DropDownItems.Clear();
                 loadFileToolStripMenuItem.Enabled = false;
+                exportAsSQLToolStripMenuItem.Enabled = false;
+                exportStructureToIDAToolStripMenuItem.Enabled = false;
                 StatusLabel.Text = ucbe.ToString();
             }
             catch (Exception e)
@@ -109,29 +120,29 @@ namespace ADBC2
             var watch = new Stopwatch();
             watch.Start();
             
-            var structure = _structures[sender.Text] as Type;
+            this.FileStructure = _structures[sender.Text] as Type;
             
             var storageType = typeof(DBCStorage<>);
             if (Path.GetExtension(sender.Text) == @".db2")
                 storageType = typeof(DB2Storage<>);
             
-            storageType = storageType.MakeGenericType(new Type[] { structure });
+            storageType = storageType.MakeGenericType(new Type[] { FileStructure });
             var store = Activator.CreateInstance(storageType);
             using (var strm = new FileStream(String.Format(filesPath + "{0}", sender.Text), FileMode.Open))
                 storageType.GetMethod("Load", new Type[] { typeof(FileStream) }).Invoke(store, new[] { (object)strm });
             
-            dynamic _records = Activator.CreateInstance(typeof(List<>).MakeGenericType(structure));
+            dynamic _records = Activator.CreateInstance(typeof(List<>).MakeGenericType(FileStructure));
             using (dynamic dbcRecords = storageType.GetProperty("Records").GetValue(store))
                 foreach (var record in dbcRecords)
                     _records.Add(record);
 
-            PropertyInfo[] props = structure.GetProperties();
-            // Library code has been modified to allow using fields - not working yet, though
-            // Legacy call: Generator.GenerateColumns(this.ContentListView, structure, true); 
-            Generator.GenerateColumns(this.ContentListView, structure, true);
+            PropertyInfo[] props = FileStructure.GetProperties(); 
+            Generator.GenerateColumns(this.ContentListView, FileStructure, false);
             ContentListView.SetObjects(_records, false);
             watch.Stop();
             StatusLabel.Text = String.Format("Loaded {0} records in {1} ms.", _records.Count, watch.ElapsedMilliseconds);
+            exportAsSQLToolStripMenuItem.Enabled = true;
+            exportStructureToIDAToolStripMenuItem.Enabled = true;
         }
     }
 }

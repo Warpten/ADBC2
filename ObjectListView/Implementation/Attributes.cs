@@ -48,7 +48,7 @@ namespace BrightIdeasSoftware
     /// <remarks>
     /// All the attributes of this class match their equivilent properties on OLVColumn.
     /// </remarks>
-    [AttributeUsage(AttributeTargets.Property)]
+    [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field)]
     public class OLVColumnAttribute : Attribute
     {
         #region Constructor
@@ -325,9 +325,9 @@ namespace BrightIdeasSoftware
     }
 
     /// <summary>
-    /// Properties marked with [OLVIgnore] will not have columns generated for them.
+    /// Properties or fields marked with [OLVIgnore] will not have columns generated for them.
     /// </summary>
-    [AttributeUsage(AttributeTargets.Property)]
+    [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field)]
     public class OLVIgnoreAttribute : Attribute
     {
 

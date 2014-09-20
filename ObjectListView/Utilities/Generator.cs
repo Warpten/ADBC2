@@ -199,18 +199,40 @@ namespace BrightIdeasSoftware
             if (type == null)
                 return columns;
 
-            // Iterate all public properties in the class and build columns from those that have
-            // an OLVColumn attribute and that are not ignored.
-            foreach (PropertyInfo pinfo in type.GetProperties()) {
-                if (Attribute.GetCustomAttribute(pinfo, typeof(OLVIgnoreAttribute)) != null)
-                    continue;
+            if (allProperties)
+            {
+                // Iterate all public properties in the class and build columns from those that have
+                // an OLVColumn attribute and that are not ignored.
+                foreach (PropertyInfo pinfo in type.GetProperties()) {
+                    if (Attribute.GetCustomAttribute(pinfo, typeof(OLVIgnoreAttribute)) != null)
+                        continue;
+    
+                    OLVColumnAttribute attr = Attribute.GetCustomAttribute(pinfo, typeof(OLVColumnAttribute)) as OLVColumnAttribute;
+                    if (attr == null) {
+                        if (allProperties)
+                            columns.Add(this.MakeColumnFromPropertyInfo(pinfo));
+                    } else {
+                        columns.Add(this.MakeColumnFromAttribute(pinfo, attr));
+                    }
+                }
+            }
+            else
+            {
+                // Iterate all public fields in the class and build columns from those that have
+                // an OLVColumn attribute and that are not ignored.
+                const BindingFlags flags = BindingFlags.Public | BindingFlags.Instance | BindingFlags.NonPublic;
 
-                OLVColumnAttribute attr = Attribute.GetCustomAttribute(pinfo, typeof(OLVColumnAttribute)) as OLVColumnAttribute;
-                if (attr == null) {
-                    if (allProperties)
-                        columns.Add(this.MakeColumnFromPropertyInfo(pinfo));
-                } else {
-                    columns.Add(this.MakeColumnFromAttribute(pinfo, attr));
+                foreach (FieldInfo pinfo in type.GetFields(flags)) {
+                    if (Attribute.GetCustomAttribute(pinfo, typeof(OLVIgnoreAttribute)) != null)
+                        continue;
+    
+                    OLVColumnAttribute attr = Attribute.GetCustomAttribute(pinfo, typeof(OLVColumnAttribute)) as OLVColumnAttribute;
+                    if (attr == null) {
+                        if (!allProperties)
+                            columns.Add(this.MakeColumnFromFieldInfo(pinfo));
+                    } else {
+                        columns.Add(this.MakeColumnFromAttribute(pinfo, attr));
+                    }
                 }
             }
 
@@ -269,6 +291,16 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
+        /// Create a column from the given FieldInfo and OLVColumn attribute
+        /// </summary>
+        /// <param name="pinfo"></param>
+        /// <param name="attr"></param>
+        /// <returns></returns>
+        protected virtual OLVColumn MakeColumnFromAttribute(FieldInfo pinfo, OLVColumnAttribute attr) {
+            return MakeColumn(pinfo.Name, DisplayNameToColumnTitle(pinfo.Name), false, pinfo.GetType(), attr);
+        }
+        
+        /// <summary>
         /// Create a column from the given PropertyInfo and OLVColumn attribute
         /// </summary>
         /// <param name="pinfo"></param>
@@ -285,6 +317,15 @@ namespace BrightIdeasSoftware
         /// <returns></returns>
         protected virtual OLVColumn MakeColumnFromPropertyInfo(PropertyInfo pinfo) {
             return MakeColumn(pinfo.Name, DisplayNameToColumnTitle(pinfo.Name), pinfo.CanWrite, pinfo.PropertyType, null);
+        }
+        
+        /// <summary>
+        /// Make a column from the given FieldInfo
+        /// </summary>
+        /// <param name="pinfo"></param>
+        /// <returns></returns>
+        protected virtual OLVColumn MakeColumnFromFieldInfo(FieldInfo pinfo) {
+            return MakeColumn(pinfo.Name, DisplayNameToColumnTitle(pinfo.Name), false, pinfo.GetType(), null);
         }
 
         /// <summary>

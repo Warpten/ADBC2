@@ -33,6 +33,7 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.Collections;
 using System.Diagnostics;
+using System.Linq;
 
 namespace BrightIdeasSoftware {
 
@@ -70,11 +71,11 @@ namespace BrightIdeasSoftware {
     /// <remarks>
     /// The column knows how to:
     /// <list type="bullet">
-    ///	<item><description>extract its aspect from the row object</description></item>
-    ///	<item><description>convert an aspect to a string</description></item>
-    ///	<item><description>calculate the image for the row object</description></item>
-    ///	<item><description>extract a group "key" from the row object</description></item>
-    ///	<item><description>convert a group "key" into a title for the group</description></item>
+    ///    <item><description>extract its aspect from the row object</description></item>
+    ///    <item><description>convert an aspect to a string</description></item>
+    ///    <item><description>calculate the image for the row object</description></item>
+    ///    <item><description>extract a group "key" from the row object</description></item>
+    ///    <item><description>convert a group "key" into a title for the group</description></item>
     /// </list>
     /// <para>For sorting to work correctly, aspects from the same column
     /// must be of the same type, that is, the same aspect cannot sometimes
@@ -1326,12 +1327,18 @@ namespace BrightIdeasSoftware {
             // Without a converter, nulls become simple empty strings
             if (value == null)
                 return String.Empty;
-
+            
             string fmt = this.AspectToStringFormat;
-            if (String.IsNullOrEmpty(fmt))
-                return value.ToString();
-            else
+            /*if (!value.GetType().IsArray)
+            {*/
+                if (String.IsNullOrEmpty(fmt))
+                    return value.ToString();
                 return String.Format(fmt, value);
+            /*}
+
+            if (String.IsNullOrEmpty(fmt))
+                return "[ " + String.Join(", ", value) + " ]";
+            */
         }
 
         #endregion

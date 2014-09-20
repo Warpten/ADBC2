@@ -474,7 +474,7 @@
  * v1.3
  * 2007-03-01  JPP  - Added DataListView
  *                  - Added VirtualObjectListView
- * 					- Added Freeze/Unfreeze capabilities
+ *                     - Added Freeze/Unfreeze capabilities
  *                  - Allowed sort handler to be installed
  *                  - Simplified sort comparisons: handles 95% of cases with only 6 lines of code!
  *                  - Fixed bug with alternative line colors on unsorted lists (thanks to cmarlow)
@@ -482,7 +482,7 @@
  *                  - Non-OLVColumns are no longer allowed
  * 2007-01-04  JPP  - Clear sorter before rebuilding list. 10x faster! (thanks to aaberg)
  *                  - Include GetField in GetAspectByName() so field values can be Invoked too.
- * 					- Fixed subtle bug in RefreshItem() that erased background colors.
+ *                     - Fixed subtle bug in RefreshItem() that erased background colors.
  * 2006-11-01  JPP  - Added alternate line colouring
  * 2006-10-20  JPP  - Refactored all sorting comparisons and made it extendable. See ComparerManager.
  *                  - Improved IDE integration
@@ -3468,7 +3468,7 @@ namespace BrightIdeasSoftware
 
         /// <summary>
         /// Resize the columns to the maximum of the header width and the data.
-        /// </summary>		
+        /// </summary>        
         public virtual void AutoResizeColumns()
         {
             foreach (OLVColumn c in this.Columns)
