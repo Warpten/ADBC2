@@ -1329,14 +1329,9 @@ namespace BrightIdeasSoftware {
                 return String.Empty;
             
             string fmt = this.AspectToStringFormat;
-            /*if (!value.GetType().IsArray)
-            {*/
-			    return String.IsNullOrEmpty(fmt) ? value.ToString() : String.Format(fmt, value);
-            /*}
-
-            if (String.IsNullOrEmpty(fmt))
-                return "[ " + String.Join(", ", value) + " ]";
-            */
+            if (!value.GetType().IsArray)
+                return String.IsNullOrEmpty(fmt) ? value.ToString() : String.Format(fmt, value);
+            return "Array";
         }
 
         #endregion
