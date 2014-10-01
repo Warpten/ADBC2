@@ -3,8 +3,7 @@ using BrightIdeasSoftware;
 
 namespace ADBC2.Structures.Cataclysm
 {
-    [ClientVersion(15595)]
-    [FileStructure("Achievement.dbc")]
+    [DbFileInfoAttribute(15595, "Achievement.dbc")]
     public sealed class AchievementEntry
     {
         public uint Id;

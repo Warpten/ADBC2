@@ -80,10 +80,28 @@
     <Compile Include="Structures\Cataclysm\AchievementCategoryEntry.cs" />
     <Compile Include="Structures\Cataclysm\AchievementCriteriaEntry.cs" />
     <Compile Include="Structures\Cataclysm\AchievementEntry.cs" />
+    <Compile Include="Structures\Cataclysm\AreaGroupEntry.cs" />
+    <Compile Include="Structures\Cataclysm\AreaPOIEntry.cs" />
+    <Compile Include="Structures\Cataclysm\AreaTableEntry.cs" />
+    <Compile Include="Structures\Cataclysm\AreaTriggerEntry.cs" />
+    <Compile Include="Structures\Cataclysm\ArmorLocationEntry.cs" />
+    <Compile Include="Structures\Cataclysm\AuctionHouseEntry.cs" />
+    <Compile Include="Structures\Cataclysm\BankBagSlotPricesEntry.cs" />
+    <Compile Include="Structures\Cataclysm\BarberShopStyleEntry.cs" />
+    <Compile Include="Structures\Cataclysm\BattlemasterListEntry.cs" />
+    <Compile Include="Structures\Cataclysm\CameraModeEntry.cs" />
+    <Compile Include="Structures\Cataclysm\CameraShakesEntry.cs" />
+    <Compile Include="Structures\Cataclysm\CastableRaidBuffEntry.cs" />
+    <Compile Include="Structures\Cataclysm\CfgCategoriesEntry.cs" />
+    <Compile Include="Structures\Cataclysm\CfgConfigsEntry.cs" />
+    <Compile Include="Structures\Cataclysm\CharBaseInfoEntry.cs" />
     <Compile Include="Structures\Cataclysm\ItemCurrencyCostEntry.cs" />
+    <Compile Include="Structures\Cataclysm\ItemEntry.cs" />
+    <Compile Include="Structures\Cataclysm\ItemExtendedCostEntry.cs" />
     <Compile Include="Structures\Cataclysm\ItemSparseEntry.cs" />
-    <Compile Include="Structures\ClientVersionAttribute.cs" />
-    <Compile Include="Structures\FileStructureAttribute.cs" />
+    <Compile Include="Structures\Cataclysm\SpellMissileMotionEntry.cs" />
+    <Compile Include="Structures\DbFileInfoAttribute.cs" />
+    <Compile Include="XmlDefinitionReader.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

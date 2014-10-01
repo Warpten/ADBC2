@@ -39,4 +39,19 @@ namespace ADBC2
             return string.Format("Unsupported client build {0}", Build);
         }
     }
+    
+    public class DbcFileNameNotFoundException : Exception
+    {
+        protected string FileName;
+        
+        public DbcFileNameNotFoundException(string fileName)
+        {
+            FileName = fileName;
+        }
+        
+        public override string ToString()
+        {
+            return string.Format("Structure defined for file {0}, which does not exist.", FileName);
+        }
+    }
 }

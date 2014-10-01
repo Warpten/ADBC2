@@ -91,13 +91,14 @@ namespace ADBC2
         }
         #endregion
         
-        void OnBuildSelection(object sender, EventArgs ea)
+        void OnBuildSelection(object sender, ToolStripItemClickedEventArgs ea)
         {
             try {
-                var clientBuild = Convert.ToUInt32((sender as ToolStripMenuItem).Tag);
-                // Populate dropdown menus
-                var unhandledCount = 0;
+                var clientBuild = Convert.ToUInt32(ea.ClickedItem.Tag);
+                _structures.Clear();
                 
+                XmlDefinitionReader.Load("./structures.xml", clientBuild);
+
                 FilesPath = String.Format(@"dbc/{0}/", clientBuild);
                 string[] dbcNames = Directory.EnumerateFiles(FilesPath, "*.*", SearchOption.TopDirectoryOnly)
                     .Where(s => s.EndsWith(".dbc", StringComparison.CurrentCultureIgnoreCase) || s.EndsWith(".db2", StringComparison.CurrentCultureIgnoreCase))
@@ -107,82 +108,81 @@ namespace ADBC2
     
                 dbcNames = dbcNames.OrderBy(d => d).ToArray();
                 var structures = Assembly.GetExecutingAssembly().GetTypes()
-                    .Where(t => t.IsClass && t.IsSealed && t.GetCustomAttributes(typeof(ClientVersionAttribute), false).Length == 1 && (t.GetCustomAttributes(typeof(ClientVersionAttribute), false).First() as ClientVersionAttribute).Build == clientBuild && t.GetCustomAttributes(typeof(FileStructureAttribute), false).Length == 1)
-                    .ToArray();
+                    .Where(t => {
+                               var attr = Attribute.GetCustomAttribute(t, typeof(DbFileInfoAttribute), false) as DbFileInfoAttribute;
+                               return t.IsClass && t.IsSealed && attr != null && attr.Build == clientBuild && attr.Enabled;
+                           }).ToArray();
+
+                var xmlStructures = XmlDefinitionReader.GetStructures();
                 
                 if (structures.Length == 0)
                     throw new UnsupportedClientBuildException(clientBuild);
                 
-                var items = new ToolStripMenuItem[structures.Length];
-    
+                var items = new string[structures.Length];
                 for (var i = 0; i < structures.Length; ++i)
                 {
-                    var attr = structures[i].GetCustomAttributes(typeof(FileStructureAttribute), false).First() as FileStructureAttribute;
+                    var attr = structures[i].GetCustomAttributes(typeof(DbFileInfoAttribute), false).First() as DbFileInfoAttribute;
                     if (attr == null || !dbcNames.Contains(attr.FileName))
-                    {
-                        ++unhandledCount;
-                        continue;
-                    }
-                    
-                    items[i] = new ToolStripMenuItem(dbcNames.First(t => t == attr.FileName));
-                    _structures.Add(items[i].Text, structures[i]);
+                        throw new DbcFileNameNotFoundException(attr.FileName);
+
+
+                    items[i] = attr.FileName;
+                    if (!XmlOverrides.Checked || !xmlStructures.Keys.Contains(attr.FileName))
+                        _structures.Add(items[i], structures[i]);
+                    else
+                        _structures.Add(items[i], xmlStructures[attr.FileName].CreateType());
                 }
-                LoadFile.DropDownItems.AddRange(items);
-                LoadFile.Enabled = true;
-                
-                StatusLabel.Text = unhandledCount == 0 ? string.Empty : String.Format("{0} unhandled DBC files.", unhandledCount);
-                
+
+                FileSelectionBox.Enabled = true;
+                FileSelectionBox.Items.Clear();
+                FileSelectionBox.Items.AddRange(items);
+                StatusLabel.Text = String.Empty;
             }
             catch (DirectoryNotFoundException dnfe)
             {
-                LoadFile.DropDownItems.Clear();
-                LoadFile.Enabled = false;
+                FileSelectionBox.Enabled = false;
                 SqlExport.Enabled = false;
                 IdaExport.Enabled = false;
-                StatusLabel.Text = dnfe.ToString();
+                StatusLabel.Text = dnfe.Message;
             }
             catch (UnsupportedClientBuildException ucbe)
             {
-                LoadFile.DropDownItems.Clear();
-                LoadFile.Enabled = false;
+                FileSelectionBox.Enabled = false;
                 SqlExport.Enabled = false;
                 IdaExport.Enabled = false;
                 StatusLabel.Text = ucbe.ToString();
-            }
-            catch (Exception e)
-            {
-                throw e;
             }
         }
         
         /// <summary>
         /// Parses the selected file
         /// </summary>
-        void OnFileSelected(object so, ToolStripItemClickedEventArgs e)
+        void OnFileSelection(object unboxSender, EventArgs e)
         {
-            var sender = (e.ClickedItem as ToolStripMenuItem);
+            var sender = unboxSender as ComboBox;
             if (sender == null)
                 return;
 
             var watch = new Stopwatch();
             watch.Start();
             
-            FileStructure = _structures[sender.Text] as Type;
+            FileStructure = _structures[(string)sender.Items[sender.SelectedIndex]] as Type;
             
             var storageType = typeof(DBCStorage<>);
             if (Path.GetExtension(sender.Text) == @".db2")
                 storageType = typeof(DB2Storage<>);
             
-            storageType = storageType.MakeGenericType(new Type[] { FileStructure });
+            storageType = storageType.MakeGenericType(FileStructure);
+
             var store = Activator.CreateInstance(storageType);
             using (var strm = new FileStream(String.Format(FilesPath + "{0}", sender.Text), FileMode.Open))
-                storageType.GetMethod("Load", new Type[] { typeof(FileStream) }).Invoke(store, new[] { (object)strm });
+                storageType.GetMethod("Load", new [] { typeof(FileStream) }).Invoke(store, new[] { (object)strm });
             
             dynamic records = storageType.GetProperty("Records").GetValue(store);
 
             PropertyInfo[] props = FileStructure.GetProperties(); 
-            Generator.GenerateColumns(this.ContentListView, FileStructure, false);
-            ContentListView.SetObjects(records, false);
+            Generator.GenerateColumns(this.ContentView, FileStructure, false);
+            ContentView.SetObjects(records, false);
             watch.Stop();
             StatusLabel.Text = String.Format("Loaded {0} records in {1} ms.", records.Count, watch.ElapsedMilliseconds);
             SqlExport.Enabled = true;
@@ -203,7 +203,7 @@ namespace ADBC2
 
         void OnTooltipShow(object sender, ToolTipShowingEventArgs e)
         {
-            var item = ContentListView.GetItem(e.RowIndex);
+            var item = ContentView.GetItem(e.RowIndex);
             if (item == null)
                 return;
 
@@ -211,7 +211,7 @@ namespace ADBC2
             if (rowObject == null)
                 return;
                 
-            var columnHeader = ContentListView.GetColumn(e.ColumnIndex);
+            var columnHeader = ContentView.GetColumn(e.ColumnIndex);
             if (columnHeader == null)
                 return;
 
@@ -236,6 +236,17 @@ namespace ADBC2
         void OnSingleClick(object sender, EventArgs e)
         {
             // ContentListView.FullRowSelect = false;
+        }
+
+        void OpenSearchForm(object sender, EventArgs e)
+        {
+            
+        }
+
+        void OnXmlOverrideCheck(object sender, EventArgs e)
+        {
+            if (XmlOverrides.Checked)
+                MessageBox.Show("XML Definitions override enabled.\r\n\r\nWarning: this feature is experimental, and WILL break stuff.", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
     }
 }

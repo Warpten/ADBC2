@@ -40,26 +40,31 @@ namespace ADBC2
             this.clientVersionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.LoadFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SqlExport = new System.Windows.Forms.ToolStripMenuItem();
             this.IdaExport = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.xMLOverridesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.StatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.ContentListView = new BrightIdeasSoftware.FastObjectListView();
+            this.ContentView = new BrightIdeasSoftware.FastObjectListView();
             this.hotItemStyle1 = new BrightIdeasSoftware.HotItemStyle();
+            this.FileSelectionBox = new System.Windows.Forms.ComboBox();
+            this.XmlOverrides = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ContentListView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ContentView)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.clientVersionToolStripMenuItem,
-            this.LoadFile,
+            this.searchToolStripMenuItem,
             this.SqlExport,
             this.IdaExport,
+            this.settingsToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -75,6 +80,7 @@ namespace ADBC2
             this.clientVersionToolStripMenuItem.Name = "clientVersionToolStripMenuItem";
             this.clientVersionToolStripMenuItem.Size = new System.Drawing.Size(91, 20);
             this.clientVersionToolStripMenuItem.Text = "Client version";
+            this.clientVersionToolStripMenuItem.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.OnBuildSelection);
             // 
             // toolStripMenuItem2
             // 
@@ -82,7 +88,6 @@ namespace ADBC2
             this.toolStripMenuItem2.Size = new System.Drawing.Size(131, 22);
             this.toolStripMenuItem2.Tag = "12340";
             this.toolStripMenuItem2.Text = "3.3.5.12340";
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.OnBuildSelection);
             // 
             // toolStripMenuItem3
             // 
@@ -90,15 +95,13 @@ namespace ADBC2
             this.toolStripMenuItem3.Size = new System.Drawing.Size(131, 22);
             this.toolStripMenuItem3.Tag = "15595";
             this.toolStripMenuItem3.Text = "4.3.4.15595";
-            this.toolStripMenuItem3.Click += new System.EventHandler(this.OnBuildSelection);
             // 
-            // LoadFile
+            // searchToolStripMenuItem
             // 
-            this.LoadFile.Enabled = false;
-            this.LoadFile.Name = "LoadFile";
-            this.LoadFile.Size = new System.Drawing.Size(64, 20);
-            this.LoadFile.Text = "Load file";
-            this.LoadFile.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.OnFileSelected);
+            this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
+            this.searchToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.searchToolStripMenuItem.Text = "Search";
+            this.searchToolStripMenuItem.Click += new System.EventHandler(this.OpenSearchForm);
             // 
             // SqlExport
             // 
@@ -115,6 +118,20 @@ namespace ADBC2
             this.IdaExport.Size = new System.Drawing.Size(138, 20);
             this.IdaExport.Text = "Export structure to IDA";
             this.IdaExport.Click += new System.EventHandler(this.ToIDA);
+            // 
+            // settingsToolStripMenuItem
+            // 
+            this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.xMLOverridesToolStripMenuItem});
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.settingsToolStripMenuItem.Text = "Settings";
+            // 
+            // xMLOverridesToolStripMenuItem
+            // 
+            this.xMLOverridesToolStripMenuItem.Name = "xMLOverridesToolStripMenuItem";
+            this.xMLOverridesToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.xMLOverridesToolStripMenuItem.Text = "XML Overrides";
             // 
             // helpToolStripMenuItem
             // 
@@ -138,38 +155,67 @@ namespace ADBC2
             this.StatusLabel.Name = "StatusLabel";
             this.StatusLabel.Size = new System.Drawing.Size(0, 17);
             // 
-            // ContentListView
+            // ContentView
             // 
-            this.ContentListView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.ContentView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ContentListView.GridLines = true;
-            this.ContentListView.HeaderWordWrap = true;
-            this.ContentListView.IncludeColumnHeadersInCopy = true;
-            this.ContentListView.Location = new System.Drawing.Point(0, 28);
-            this.ContentListView.Name = "ContentListView";
-            this.ContentListView.ShowCommandMenuOnRightClick = true;
-            this.ContentListView.ShowGroups = false;
-            this.ContentListView.Size = new System.Drawing.Size(913, 314);
-            this.ContentListView.TabIndex = 3;
-            this.ContentListView.UseCompatibleStateImageBehavior = false;
-            this.ContentListView.View = System.Windows.Forms.View.Details;
-            this.ContentListView.VirtualMode = true;
-            this.ContentListView.CellEditStarting += new BrightIdeasSoftware.CellEditEventHandler(this.OnCellEditStart);
-            this.ContentListView.CellToolTipShowing += new System.EventHandler<BrightIdeasSoftware.ToolTipShowingEventArgs>(this.OnTooltipShow);
-            this.ContentListView.Click += new System.EventHandler(this.OnSingleClick);
-            this.ContentListView.DoubleClick += new System.EventHandler(this.OnDoubleClick);
+            this.ContentView.FullRowSelect = true;
+            this.ContentView.GridLines = true;
+            this.ContentView.HeaderUsesThemes = false;
+            this.ContentView.HeaderWordWrap = true;
+            this.ContentView.IncludeColumnHeadersInCopy = true;
+            this.ContentView.Location = new System.Drawing.Point(0, 28);
+            this.ContentView.Name = "ContentView";
+            this.ContentView.ShowCommandMenuOnRightClick = true;
+            this.ContentView.ShowGroups = false;
+            this.ContentView.Size = new System.Drawing.Size(913, 314);
+            this.ContentView.TabIndex = 3;
+            this.ContentView.UseCompatibleStateImageBehavior = false;
+            this.ContentView.UseFilterIndicator = true;
+            this.ContentView.UseFiltering = true;
+            this.ContentView.View = System.Windows.Forms.View.Details;
+            this.ContentView.VirtualMode = true;
+            this.ContentView.CellEditStarting += new BrightIdeasSoftware.CellEditEventHandler(this.OnCellEditStart);
+            this.ContentView.CellToolTipShowing += new System.EventHandler<BrightIdeasSoftware.ToolTipShowingEventArgs>(this.OnTooltipShow);
+            this.ContentView.Click += new System.EventHandler(this.OnSingleClick);
+            this.ContentView.DoubleClick += new System.EventHandler(this.OnDoubleClick);
             // 
             // hotItemStyle1
             // 
             this.hotItemStyle1.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            // 
+            // FileSelectionBox
+            // 
+            this.FileSelectionBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.FileSelectionBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.FileSelectionBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.FileSelectionBox.Enabled = false;
+            this.FileSelectionBox.FormattingEnabled = true;
+            this.FileSelectionBox.Location = new System.Drawing.Point(716, 3);
+            this.FileSelectionBox.MaxDropDownItems = 20;
+            this.FileSelectionBox.Name = "FileSelectionBox";
+            this.FileSelectionBox.Size = new System.Drawing.Size(185, 21);
+            this.FileSelectionBox.TabIndex = 4;
+            this.FileSelectionBox.SelectedIndexChanged += new System.EventHandler(this.OnFileSelection);
+            // 
+            // XmlOverrides
+            // 
+            this.XmlOverrides.Location = new System.Drawing.Point(687, 3);
+            this.XmlOverrides.Name = "XmlOverrides";
+            this.XmlOverrides.Size = new System.Drawing.Size(23, 24);
+            this.XmlOverrides.TabIndex = 5;
+            this.XmlOverrides.UseVisualStyleBackColor = true;
+            this.XmlOverrides.CheckedChanged += new System.EventHandler(this.OnXmlOverrideCheck);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(913, 367);
-            this.Controls.Add(this.ContentListView);
+            this.Controls.Add(this.XmlOverrides);
+            this.Controls.Add(this.FileSelectionBox);
+            this.Controls.Add(this.ContentView);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -179,7 +225,7 @@ namespace ADBC2
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ContentListView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ContentView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -188,13 +234,17 @@ namespace ADBC2
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem clientVersionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem LoadFile;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripMenuItem IdaExport;
         private System.Windows.Forms.ToolStripMenuItem SqlExport;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private BrightIdeasSoftware.FastObjectListView ContentListView;
+        private BrightIdeasSoftware.FastObjectListView ContentView;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private BrightIdeasSoftware.HotItemStyle hotItemStyle1;
+        private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem xMLOverridesToolStripMenuItem;
+        private System.Windows.Forms.ComboBox FileSelectionBox;
+        private System.Windows.Forms.CheckBox XmlOverrides;
     }
 }

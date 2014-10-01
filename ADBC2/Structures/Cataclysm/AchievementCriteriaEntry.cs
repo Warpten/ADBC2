@@ -4,8 +4,7 @@ using DBFilesClient.NET;
 
 namespace ADBC2.Structures.Cataclysm
 {
-    [ClientVersion(15595)]
-    [FileStructure("Achievement_Criteria.dbc")]
+    [DbFileInfoAttribute(15595, "Achievement_Criteria.dbc")]
     public sealed class AchievementCriteriaEntry
     {
         public uint Id;

@@ -4,8 +4,7 @@ using DBFilesClient.NET;
 
 namespace ADBC2.Structures.Cataclysm
 {
-    [ClientVersion(15595)]
-    [FileStructure("Item-sparse.db2")]
+    [DbFileInfoAttribute(15595, "Item-sparse.db2")]
     public sealed class ItemSparseEntry
     {
         public uint Id;
