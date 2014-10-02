@@ -4659,7 +4659,6 @@ namespace BrightIdeasSoftware
         /// <param name="modelObject">The model to be updated</param>
         /// <remarks>
         /// <para>
-        /// See <see cref="RemoveObjects()"/> for more details
         /// </para>
         /// <para>This method is thread-safe.</para>
         /// <para>This method will cause the list to be resorted.</para>
