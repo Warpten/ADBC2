@@ -2,7 +2,7 @@
 
 namespace ADBC2.Structures.Cataclysm
 {
-    [DbFileInfoAttribute(15595, "SpellMissileMotion.dbc")]
+    [DbFileInfo(15595, "SpellMissileMotion.dbc")]
     public sealed class SpellMissileMotionEntry
     {
         public uint Id;

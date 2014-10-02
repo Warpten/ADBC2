@@ -2,7 +2,7 @@
 
 namespace ADBC2.Structures.Cataclysm
 {
-    [DbFileInfoAttribute(15595, "BattlemasterList.dbc")]
+    [DbFileInfo(15595, "BattlemasterList.dbc")]
     public sealed class BattlemasterListEntry
     {
         public uint Id;

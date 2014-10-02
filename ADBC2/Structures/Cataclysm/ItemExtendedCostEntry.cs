@@ -2,7 +2,7 @@
 
 namespace ADBC2.Structures.Cataclysm
 {
-    [DbFileInfoAttribute(15595, "ItemExtendedCost.db2")]
+    [DbFileInfo(15595, "ItemExtendedCost.db2")]
     public sealed class ItemExtendedCostEntry
     {
         public uint Id;

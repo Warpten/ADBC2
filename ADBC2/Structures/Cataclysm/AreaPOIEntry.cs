@@ -2,7 +2,7 @@
 
 namespace ADBC2.Structures.Cataclysm
 {
-    [DbFileInfoAttribute(15595, "AreaPOI.dbc")]
+    [DbFileInfo(15595, "AreaPOI.dbc")]
     public sealed class AreaPOIEntry
     {
         public uint Id;              //0
