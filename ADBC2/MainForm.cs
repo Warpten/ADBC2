@@ -171,7 +171,7 @@ namespace ADBC2
             var storageType = typeof(DBCStorage<>);
             if (Path.GetExtension(sender.Text) == @".db2")
                 storageType = typeof(DB2Storage<>);
-            
+
             storageType = storageType.MakeGenericType(FileStructure);
 
             var store = Activator.CreateInstance(storageType);

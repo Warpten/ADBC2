@@ -37,5 +37,11 @@ namespace DBFilesClient.NET
         {
             this.Option = option;
         }
+
+        public StoragePresenceAttribute(StoragePresenceOption option, int arraySize)
+        {
+            this.Option = option;
+            this.ArraySize = arraySize;
+        }
     }
 }

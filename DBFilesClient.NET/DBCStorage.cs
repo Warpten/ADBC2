@@ -37,7 +37,7 @@ namespace DBFilesClient.NET
 
             var fieldCount = fields.Length;
             m_fields = new EntryFieldInfo[fieldCount];
-            
+
             for (int i = 0; i < fieldCount; i++)
             {
                 var attr = fields[i].Value;
