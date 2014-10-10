@@ -13,17 +13,16 @@ namespace ADBC2
 {
     public partial class MainForm : Form
     {
-        public string SelectedBuild;
-        public string SelectedFile;
-        string FilesPath;
-        Type FileStructure;
+        string PathToFiles;
+        Type SelectedFileType;
         
-        public Dictionary<string, object> _structures = new Dictionary<string, object>();
+        bool OverrideCoreDefinitions { get { return xMLOverridesToolStripMenuItem.Checked; } }
+        
+        Dictionary<string, object> _structures = new Dictionary<string, object>();
         
         public MainForm()
         {
             InitializeComponent();
-            // ContentListView.HotItemStyle = this.hotItemStyle1;
         }
         
         #region Exporters
@@ -41,7 +40,7 @@ namespace ADBC2
         /// </summary>
         void ToIDA(object sender, EventArgs e)
         {
-            var fields = FileStructure.GetFields(BindingFlags.Public | BindingFlags.Instance | BindingFlags.NonPublic)
+            var fields = SelectedFileType.GetFields(BindingFlags.Public | BindingFlags.Instance | BindingFlags.NonPublic)
                 .ToArray();
             var structureText = new string[fields.Count()];
             for (var i = 0; i < fields.Length; ++i)
@@ -97,13 +96,14 @@ namespace ADBC2
                 var clientBuild = Convert.ToUInt32(ea.ClickedItem.Tag);
                 _structures.Clear();
                 
+                // Load XML Structures
                 XmlDefinitionReader.Load("./structures.xml", clientBuild);
 
-                FilesPath = String.Format(@"dbc/{0}/", clientBuild);
-                string[] dbcNames = Directory.EnumerateFiles(FilesPath, "*.*", SearchOption.TopDirectoryOnly)
-                    .Where(s => s.EndsWith(".dbc", StringComparison.CurrentCultureIgnoreCase) || s.EndsWith(".db2", StringComparison.CurrentCultureIgnoreCase))
-                    .Select(Path.GetFileName).ToArray();
-                if (dbcNames.Length == 0)
+                // Look for dbc files
+                PathToFiles = String.Format(@"dbc/{0}/", clientBuild);
+                var dbcNames = FindFiles(PathToFiles);
+
+                if (dbcNames == null || dbcNames.Length == 0)
                     throw new DbcNotFoundException();
     
                 dbcNames = dbcNames.OrderBy(d => d).ToArray();
@@ -119,24 +119,40 @@ namespace ADBC2
                     throw new UnsupportedClientBuildException(clientBuild);
                 
                 var items = new string[structures.Length];
+                var coreStructuresCount = 0;
                 for (var i = 0; i < structures.Length; ++i)
                 {
                     var attr = structures[i].GetCustomAttributes(typeof(DbFileInfoAttribute), false).First() as DbFileInfoAttribute;
                     if (attr == null || !dbcNames.Contains(attr.FileName))
                         throw new DbcFileNameNotFoundException(attr.FileName);
 
-
                     items[i] = attr.FileName;
-                    if (!XmlOverrides.Checked || !xmlStructures.Keys.Contains(attr.FileName))
-                        _structures.Add(items[i], structures[i]);
+                    _structures.Add(items[i], structures[i]);
+                    ++coreStructuresCount;
+                }
+                
+                // Overwrite with XML structures
+                for (var i = 0; i < xmlStructures.Count; ++i)
+                {
+                    if (_structures.ContainsKey(xmlStructures.Keys.ElementAt(i)))
+                    {
+                        if (OverrideCoreDefinitions)
+                        {
+                            _structures[xmlStructures.Keys.ElementAt(i)] = xmlStructures.Values.ElementAt(i);
+                            --coreStructuresCount;
+                        }
+                    }
                     else
-                        _structures.Add(items[i], xmlStructures[attr.FileName].CreateType());
+                    {
+                        _structures.Add(xmlStructures.Keys.ElementAt(i), xmlStructures.Values.ElementAt(i));
+                        --coreStructuresCount;
+                    }
                 }
 
                 FileSelectionBox.Enabled = true;
                 FileSelectionBox.Items.Clear();
                 FileSelectionBox.Items.AddRange(items);
-                StatusLabel.Text = String.Empty;
+                StatusLabel.Text = String.Format(@"Version: {2}. {0} Core Definition(s) loaded. {1} XML Definition(s) loaded.", coreStructuresCount, items.Length - coreStructuresCount, clientBuild);
             }
             catch (DirectoryNotFoundException dnfe)
             {
@@ -150,7 +166,14 @@ namespace ADBC2
                 FileSelectionBox.Enabled = false;
                 SqlExport.Enabled = false;
                 IdaExport.Enabled = false;
-                StatusLabel.Text = ucbe.ToString();
+                StatusLabel.Text = ucbe.Message;
+            }
+            catch (DbcNotFoundException)
+            {
+                FileSelectionBox.Enabled = false;
+                SqlExport.Enabled = false;
+                IdaExport.Enabled = false;
+                StatusLabel.Text = @"No DBC file found in the provided path.";                
             }
         }
         
@@ -166,22 +189,22 @@ namespace ADBC2
             var watch = new Stopwatch();
             watch.Start();
             
-            FileStructure = _structures[(string)sender.Items[sender.SelectedIndex]] as Type;
+            SelectedFileType = _structures[(string)sender.Items[sender.SelectedIndex]] as Type;
             
             var storageType = typeof(DBCStorage<>);
             if (Path.GetExtension(sender.Text) == @".db2")
                 storageType = typeof(DB2Storage<>);
 
-            storageType = storageType.MakeGenericType(FileStructure);
-
+            storageType = storageType.MakeGenericType(SelectedFileType);
             var store = Activator.CreateInstance(storageType);
-            using (var strm = new FileStream(String.Format(FilesPath + "{0}", sender.Text), FileMode.Open))
+
+            using (var strm = new FileStream(String.Format(PathToFiles + "{0}", sender.Text), FileMode.Open))
                 storageType.GetMethod("Load", new [] { typeof(FileStream) }).Invoke(store, new[] { (object)strm });
             
             dynamic records = storageType.GetProperty("Records").GetValue(store);
 
-            PropertyInfo[] props = FileStructure.GetProperties(); 
-            Generator.GenerateColumns(this.ContentView, FileStructure, false);
+            PropertyInfo[] props = SelectedFileType.GetProperties(); 
+            Generator.GenerateColumns(ContentView, SelectedFileType, false);
             ContentView.SetObjects(records, false);
             watch.Stop();
             StatusLabel.Text = String.Format("Loaded {0} records in {1} ms.", records.Count, watch.ElapsedMilliseconds);
@@ -191,7 +214,7 @@ namespace ADBC2
 
         void OnCellEditStart(object sender, CellEditEventArgs e)
         {
-            e.Cancel = true;
+            // e.Cancel = true;
             // NYI (Hitting F2 on a cell = copy cell value)
         }
 
@@ -230,12 +253,9 @@ namespace ADBC2
 
         void OnDoubleClick(object sender, EventArgs e)
         {
-            // ContentListView.FullRowSelect = true;
-        }
-
-        void OnSingleClick(object sender, EventArgs e)
-        {
-            // ContentListView.FullRowSelect = false;
+            // TODO: Can only single-click the first cell.
+            ContentView.FullRowSelect = !ContentView.FullRowSelect;
+            ContentView.RedrawItems(ContentView.HotRowIndex, ContentView.HotRowIndex, true);
         }
 
         void OpenSearchForm(object sender, EventArgs e)
@@ -243,10 +263,40 @@ namespace ADBC2
             
         }
 
-        void OnXmlOverrideCheck(object sender, EventArgs e)
+		void OpenStructConverter(object sender, EventArgs e)
+		{
+		    var form = new StructConvertionForm();
+		    form.Show();
+		}
+
+		string[] FindFiles(string path)
+		{
+		    try
+		    {
+		        var dbcNames = Directory.EnumerateFiles(path, "*.*", SearchOption.TopDirectoryOnly)
+                    .Where(s => s.EndsWith(".dbc", StringComparison.CurrentCultureIgnoreCase) || s.EndsWith(".db2", StringComparison.CurrentCultureIgnoreCase))
+		            .Select(Path.GetFileName).ToArray();
+
+		        if (dbcNames.Count() == 0)
+		            throw new DirectoryNotFoundException();
+		        return dbcNames;
+		    }
+		    catch (DirectoryNotFoundException)
+		    {
+		        var ofd = new FolderBrowserDialog();
+		        ofd.Description = "Indicate the path to your *.dbc and *.db2 files";
+		        if (ofd.ShowDialog() == DialogResult.OK)
+		        {
+		            PathToFiles = ofd.SelectedPath;
+		            return FindFiles(ofd.SelectedPath);
+		        }
+		    }
+		    return null;
+		}
+        
+        void OnXmlOverridesToggle(object sender, EventArgs e)
         {
-            if (XmlOverrides.Checked)
-                MessageBox.Show("XML Definitions override enabled.\r\n\r\nWarning: this feature is experimental, and WILL break stuff.", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            xMLOverridesToolStripMenuItem.Checked = !xMLOverridesToolStripMenuItem.Checked;
         }
     }
 }

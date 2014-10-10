@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Xml;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
 using System.Collections.Generic;
-using System.Dynamic;
 using System.Reflection;
 using System.Reflection.Emit;
 using System.IO;
@@ -15,7 +12,7 @@ namespace ADBC2
     public static class XmlDefinitionReader
     {
         static XmlDocument _reader = null;
-        static IDictionary<string, TypeBuilder> _structures = new Dictionary<string, TypeBuilder>();
+        static IDictionary<string, Type> _structures = new Dictionary<string, Type>();
     
         public static void Load(string fileName, uint clientBuild)
         {
@@ -28,12 +25,12 @@ namespace ADBC2
 
         public static int Count { get { return _structures.Count; } }
         
-        public static IDictionary<string, TypeBuilder> GetStructures()
+        public static IDictionary<string, Type> GetStructures()
         {
             return _structures;
         }
 
-        public static TypeBuilder GetStructure(string dbcName)
+        public static Type GetStructure(string dbcName)
         {
             return _structures[dbcName];
         }
@@ -55,28 +52,33 @@ namespace ADBC2
             if (filteredNodes.Count == 0)
                 return false;
                 
+            _structures.Clear();
+            
+            var builders = new Dictionary<string, TypeBuilder>();
+                
             // Construct type infos
             foreach (var node in filteredNodes) {
                 var childNodes = node.ChildNodes;
                 var fileName = node.Attributes["name"].Value;
-                _structures[fileName] = DynamicStructureBuilder.CreateStructure(Path.GetFileNameWithoutExtension(fileName) + "Entry");
+                builders[fileName] = DynamicStructureBuilder.CreateStructure(Path.GetFileNameWithoutExtension(fileName) + "Entry");
 
                 foreach (XmlNode childNode in childNodes)
                 {
                     if (childNode.Name != "field")
                         continue;
-                        
-                    var arraySize = childNode.Attributes["array"] != null ? Convert.ToInt32(childNode.Attributes["array"].Value) : 0;
-                    var isArray = arraySize > 0;
+                    
+                    var arraySize = 0;
+                    if (childNode.Attributes["array"] != null)
+                        arraySize = Convert.ToInt32(childNode.Attributes["array"].Value);
 
                     Type fieldType; // Triggers type
                     switch (childNode.Attributes["type"].Value)
                     {
                         case "u32": case "uint32": case "uint":
-                            fieldType = !isArray ? typeof(uint) : typeof(uint[]);
+                            fieldType = arraySize == 0 ? typeof(uint) : typeof(uint[]);
                             break;
                         case "i32": case "int32": case "int":
-                            fieldType = !isArray ? typeof(int) : typeof(int[]);
+                            fieldType = arraySize == 0 ? typeof(int) : typeof(int[]);
                             break;
                         // Apparently DBCs do not hold any 16 bits type.
                         // case "u16": case "uint16": case "ushort":
@@ -86,32 +88,33 @@ namespace ADBC2
                         //     fieldType = typeof(short);
                         //     break;
                         case "u8": case "uint8": case "byte":
-                            fieldType = !isArray ? typeof(byte) : typeof(byte[]);
+                            fieldType = arraySize == 0 ? typeof(byte) : typeof(byte[]);
                             break;
                         case "i8": case "int8": case "sbyte":
-                            fieldType = !isArray ? typeof(sbyte) : typeof(sbyte[]);
+                            fieldType = arraySize == 0 ? typeof(sbyte) : typeof(sbyte[]);
                             break;
                         // Nor doubles.
                         // case "double": case "d":
                         //     fieldType = !isArray ? typeof(double) : typeof(double[]);
                         //     break;
                         case "float": case "f":
-                            fieldType = !isArray ? typeof(float) : typeof(float[]);
+                            fieldType = arraySize == 0 ? typeof(float) : typeof(float[]);
                             break;
                         case "string":
-                            fieldType = !isArray ? typeof(string) : typeof(string[]);
+                            fieldType = arraySize == 0 ? typeof(string) : typeof(string[]);
                             break;
                         case "ulong": case "u64":
-                            fieldType = !isArray ? typeof(ulong) : typeof(ulong[]);
+                            fieldType = arraySize == 0 ? typeof(ulong) : typeof(ulong[]);
                             break;
                         case "long": case "i64":
-                            fieldType = !isArray ? typeof(long) : typeof(long[]);
+                            fieldType = arraySize == 0 ? typeof(long) : typeof(long[]);
                             break;
                         default:
                             throw new ArgumentOutOfRangeException(String.Format("Field type {0} is not handled.", childNode.Attributes["type"]));
                     }
-                    var fieldBuilder = _structures[fileName].DefineField(childNode.Attributes["name"].Value, fieldType, FieldAttributes.Public);
-                    if (isArray)
+
+                    var fieldBuilder = builders[fileName].DefineField(childNode.Attributes["name"].Value, fieldType, FieldAttributes.Public);
+                    if (arraySize > 0)
                     {
                         var attrBuilder = new CustomAttributeBuilder(
                             typeof(StoragePresenceAttribute).GetConstructor(
@@ -121,6 +124,9 @@ namespace ADBC2
                     }
                 }
             }
+            
+            for (var i = 0; i < builders.Count; ++i)
+                _structures.Add(builders.Keys.ElementAt(i), builders.Values.ElementAt(i).CreateType());
             
             return true;
         }

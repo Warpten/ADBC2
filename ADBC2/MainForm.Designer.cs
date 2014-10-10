@@ -40,18 +40,17 @@ namespace ADBC2
             this.clientVersionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SqlExport = new System.Windows.Forms.ToolStripMenuItem();
             this.IdaExport = new System.Windows.Forms.ToolStripMenuItem();
+            this.StructConverter = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xMLOverridesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.StatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.ContentView = new BrightIdeasSoftware.FastObjectListView();
-            this.hotItemStyle1 = new BrightIdeasSoftware.HotItemStyle();
             this.FileSelectionBox = new System.Windows.Forms.ComboBox();
-            this.XmlOverrides = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ContentView)).BeginInit();
@@ -60,12 +59,10 @@ namespace ADBC2
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.clientVersionToolStripMenuItem,
-            this.searchToolStripMenuItem,
-            this.SqlExport,
-            this.IdaExport,
-            this.settingsToolStripMenuItem,
-            this.helpToolStripMenuItem});
+                                    this.clientVersionToolStripMenuItem,
+                                    this.toolsToolStripMenuItem,
+                                    this.settingsToolStripMenuItem,
+                                    this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(913, 24);
@@ -75,8 +72,8 @@ namespace ADBC2
             // clientVersionToolStripMenuItem
             // 
             this.clientVersionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem2,
-            this.toolStripMenuItem3});
+                                    this.toolStripMenuItem2,
+                                    this.toolStripMenuItem3});
             this.clientVersionToolStripMenuItem.Name = "clientVersionToolStripMenuItem";
             this.clientVersionToolStripMenuItem.Size = new System.Drawing.Size(91, 20);
             this.clientVersionToolStripMenuItem.Text = "Client version";
@@ -96,33 +93,43 @@ namespace ADBC2
             this.toolStripMenuItem3.Tag = "15595";
             this.toolStripMenuItem3.Text = "4.3.4.15595";
             // 
-            // searchToolStripMenuItem
+            // toolsToolStripMenuItem
             // 
-            this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
-            this.searchToolStripMenuItem.Text = "Search";
-            this.searchToolStripMenuItem.Click += new System.EventHandler(this.OpenSearchForm);
+            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+                                    this.SqlExport,
+                                    this.IdaExport,
+                                    this.StructConverter});
+            this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.toolsToolStripMenuItem.Text = "Tools";
             // 
             // SqlExport
             // 
             this.SqlExport.Enabled = false;
             this.SqlExport.Name = "SqlExport";
-            this.SqlExport.Size = new System.Drawing.Size(90, 20);
-            this.SqlExport.Text = "Export as SQL";
+            this.SqlExport.Size = new System.Drawing.Size(193, 22);
+            this.SqlExport.Text = "Export content as SQL";
             this.SqlExport.Click += new System.EventHandler(this.ToSQL);
             // 
             // IdaExport
             // 
             this.IdaExport.Enabled = false;
             this.IdaExport.Name = "IdaExport";
-            this.IdaExport.Size = new System.Drawing.Size(138, 20);
+            this.IdaExport.Size = new System.Drawing.Size(193, 22);
             this.IdaExport.Text = "Export structure to IDA";
             this.IdaExport.Click += new System.EventHandler(this.ToIDA);
+            // 
+            // StructConverter
+            // 
+            this.StructConverter.Name = "StructConverter";
+            this.StructConverter.Size = new System.Drawing.Size(193, 22);
+            this.StructConverter.Text = "Convert structures...";
+            this.StructConverter.Click += new System.EventHandler(this.OpenStructConverter);
             // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.xMLOverridesToolStripMenuItem});
+                                    this.xMLOverridesToolStripMenuItem});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.settingsToolStripMenuItem.Text = "Settings";
@@ -132,6 +139,8 @@ namespace ADBC2
             this.xMLOverridesToolStripMenuItem.Name = "xMLOverridesToolStripMenuItem";
             this.xMLOverridesToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.xMLOverridesToolStripMenuItem.Text = "XML Overrides";
+            this.xMLOverridesToolStripMenuItem.ToolTipText = "XML Structures will override built-in types.";
+            this.xMLOverridesToolStripMenuItem.Click += new System.EventHandler(this.OnXmlOverridesToggle);
             // 
             // helpToolStripMenuItem
             // 
@@ -143,7 +152,7 @@ namespace ADBC2
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.StatusLabel});
+                                    this.StatusLabel});
             this.statusStrip1.Location = new System.Drawing.Point(0, 345);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(913, 22);
@@ -158,8 +167,9 @@ namespace ADBC2
             // ContentView
             // 
             this.ContentView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+                                    | System.Windows.Forms.AnchorStyles.Left) 
+                                    | System.Windows.Forms.AnchorStyles.Right)));
+            this.ContentView.CellEditActivation = BrightIdeasSoftware.ObjectListView.CellEditActivateMode.F2Only;
             this.ContentView.FullRowSelect = true;
             this.ContentView.GridLines = true;
             this.ContentView.HeaderUsesThemes = false;
@@ -178,12 +188,7 @@ namespace ADBC2
             this.ContentView.VirtualMode = true;
             this.ContentView.CellEditStarting += new BrightIdeasSoftware.CellEditEventHandler(this.OnCellEditStart);
             this.ContentView.CellToolTipShowing += new System.EventHandler<BrightIdeasSoftware.ToolTipShowingEventArgs>(this.OnTooltipShow);
-            this.ContentView.Click += new System.EventHandler(this.OnSingleClick);
             this.ContentView.DoubleClick += new System.EventHandler(this.OnDoubleClick);
-            // 
-            // hotItemStyle1
-            // 
-            this.hotItemStyle1.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             // 
             // FileSelectionBox
             // 
@@ -199,21 +204,11 @@ namespace ADBC2
             this.FileSelectionBox.TabIndex = 4;
             this.FileSelectionBox.SelectedIndexChanged += new System.EventHandler(this.OnFileSelection);
             // 
-            // XmlOverrides
-            // 
-            this.XmlOverrides.Location = new System.Drawing.Point(687, 3);
-            this.XmlOverrides.Name = "XmlOverrides";
-            this.XmlOverrides.Size = new System.Drawing.Size(23, 24);
-            this.XmlOverrides.TabIndex = 5;
-            this.XmlOverrides.UseVisualStyleBackColor = true;
-            this.XmlOverrides.CheckedChanged += new System.EventHandler(this.OnXmlOverrideCheck);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(913, 367);
-            this.Controls.Add(this.XmlOverrides);
             this.Controls.Add(this.FileSelectionBox);
             this.Controls.Add(this.ContentView);
             this.Controls.Add(this.statusStrip1);
@@ -228,7 +223,6 @@ namespace ADBC2
             ((System.ComponentModel.ISupportInitialize)(this.ContentView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
         private System.Windows.Forms.ToolStripStatusLabel StatusLabel;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
@@ -236,15 +230,14 @@ namespace ADBC2
         private System.Windows.Forms.ToolStripMenuItem clientVersionToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripMenuItem IdaExport;
-        private System.Windows.Forms.ToolStripMenuItem SqlExport;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private BrightIdeasSoftware.FastObjectListView ContentView;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-        private BrightIdeasSoftware.HotItemStyle hotItemStyle1;
-        private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem xMLOverridesToolStripMenuItem;
         private System.Windows.Forms.ComboBox FileSelectionBox;
-        private System.Windows.Forms.CheckBox XmlOverrides;
+        private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem SqlExport;
+        private System.Windows.Forms.ToolStripMenuItem StructConverter;
     }
 }

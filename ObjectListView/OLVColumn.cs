@@ -1331,7 +1331,7 @@ namespace BrightIdeasSoftware {
             string fmt = this.AspectToStringFormat;
             if (!value.GetType().IsArray)
                 return String.IsNullOrEmpty(fmt) ? value.ToString() : String.Format(fmt, value);
-            return "Array";
+            return "Array"; // TODO: detect cases where this is called by ctrl+c and return actual data ("[...]")
         }
 
         #endregion
