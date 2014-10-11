@@ -41,7 +41,7 @@ namespace ADBC2
                 {
                     hasBinding = true;
                     if (OldFormatXml)
-                        xmlRtb.AppendFormatLine("<{0}{2} build={1}{2}>",
+                        xmlRtb.AppendFormatLine("<{0}{2} build=\"{1}\">",
                                                 fileName = Path.GetFileNameWithoutExtension(matchSet.Groups[2].Value),
                                                 matchSet.Groups[1].Value,
                                                 matchSet.Groups[2].Value.IndexOf(".db2") != -1 ? @" db2=""1""" : String.Empty
