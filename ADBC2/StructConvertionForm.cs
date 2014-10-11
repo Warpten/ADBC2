@@ -15,20 +15,20 @@ namespace ADBC2
             InitializeComponent();
         }
 
-		void ToXML(object sender, EventArgs e)
-		{
-	
-		}
+        void ToXML(object sender, EventArgs e)
+        {
+    
+        }
 
-		void ToCSharp(object sender, EventArgs e)
-		{
-	
-		}
+        void ToCSharp(object sender, EventArgs e)
+        {
+    
+        }
 
-		void OnLoad(object sender, EventArgs e)
-		{
-		    xmlToCsButton.Text = char.ConvertFromUtf32(8592);
-		    csToXmlButton.Text = char.ConvertFromUtf32(8594);
-		}
+        void OnLoad(object sender, EventArgs e)
+        {
+            xmlToCsButton.Text = char.ConvertFromUtf32(8592);
+            csToXmlButton.Text = char.ConvertFromUtf32(8594);
+        }
     }
 }

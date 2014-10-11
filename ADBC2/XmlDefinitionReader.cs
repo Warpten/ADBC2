@@ -37,9 +37,14 @@ namespace ADBC2
         
         static bool GenerateTypes(uint build)
         {
+            _structures.Clear();
+            // TOM_RUS structures format? (Nayd, this is for you.)
+            if (_reader.GetElementsByTagName("DBFilesClient").Count > 0)
+                return ParseOldFormat(build);
+
             if (!_reader["Definitions"].HasChildNodes)
                 return false;
-                
+
             var nodes = _reader["Definitions"].GetElementsByTagName(@"file");
             if (nodes.Count == 0)
                 return false;
@@ -51,16 +56,14 @@ namespace ADBC2
             
             if (filteredNodes.Count == 0)
                 return false;
-                
-            _structures.Clear();
-            
+
             var builders = new Dictionary<string, TypeBuilder>();
                 
-            // Construct type infos
+            #region Construct type infos
             foreach (var node in filteredNodes) {
                 var childNodes = node.ChildNodes;
                 var fileName = node.Attributes["name"].Value;
-                builders[fileName] = DynamicStructureBuilder.CreateStructure(Path.GetFileNameWithoutExtension(fileName) + "Entry");
+                builders[fileName] = DynamicStructureBuilder.CreateStructure(Path.GetFileNameWithoutExtension(fileName) + "XmlEntry");
 
                 foreach (XmlNode childNode in childNodes)
                 {
@@ -71,7 +74,8 @@ namespace ADBC2
                     if (childNode.Attributes["array"] != null)
                         arraySize = Convert.ToInt32(childNode.Attributes["array"].Value);
 
-                    Type fieldType; // Triggers type
+                    #region Field type generation
+                    Type fieldType;
                     switch (childNode.Attributes["type"].Value)
                     {
                         case "u32": case "uint32": case "uint":
@@ -112,6 +116,7 @@ namespace ADBC2
                         default:
                             throw new ArgumentOutOfRangeException(String.Format("Field type {0} is not handled.", childNode.Attributes["type"]));
                     }
+                    #endregion
 
                     var fieldBuilder = builders[fileName].DefineField(childNode.Attributes["name"].Value, fieldType, FieldAttributes.Public);
                     if (arraySize > 0)
@@ -124,11 +129,85 @@ namespace ADBC2
                     }
                 }
             }
-            
+            #endregion
+
             for (var i = 0; i < builders.Count; ++i)
                 _structures.Add(builders.Keys.ElementAt(i), builders.Values.ElementAt(i).CreateType());
             
             return true;
+        }
+
+        static bool ParseOldFormat(uint build)
+        {
+            if (!_reader["DBFilesClient"].HasChildNodes)
+                return false;
+
+            var nodes = _reader["DBFilesClient"].ChildNodes;
+            var builders = new Dictionary<string, TypeBuilder>();
+            foreach (XmlNode node in nodes)
+            {
+                if (node.Attributes["build"] != null
+                    && node.Attributes["build"].Value != build.ToString())
+                    continue;
+                var fileName = String.Format(@"{0}.{1}", node.Name, node.Attributes["DB2"] != null ? "db2" : "dbc");
+                builders[fileName] = DynamicStructureBuilder.CreateStructure(node.Name + "XmlEntry");
+
+                var fields = node.ChildNodes;
+                foreach (XmlNode field in fields)
+                {
+                    if (field.Name != "field")
+                        continue;
+
+                    var fieldName = field.Attributes["name"].Value;
+                    Type fieldType;
+                    switch (field.Attributes["type"].Value)
+                    {
+                        case "uint":
+                            fieldType = typeof(uint);
+                            break;
+                        case "int":
+                            fieldType = typeof(int);
+                            break;
+                        // Apparently DBCs do not hold any 16 bits type.
+                        // case "ushort":
+                        //     fieldType = typeof(ushort);
+                        //     break;
+                        // case "short":
+                        //     fieldType = typeof(short);
+                        //     break;
+                        case "byte":
+                            fieldType = typeof(byte);
+                            break;
+                        case "sbyte":
+                            fieldType = typeof(sbyte);
+                            break;
+                        // Nor doubles.
+                        // case "double":
+                        //     fieldType = !isArray ? typeof(double);
+                        //     break;
+                        case "float":
+                            fieldType = typeof(float);
+                            break;
+                        case "string":
+                            fieldType = typeof(string);
+                            break;
+                        case "ulong":
+                            fieldType = typeof(ulong);
+                            break;
+                        case "long":
+                            fieldType = typeof(long);
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException(String.Format("Field type {0} is not handled.", field.Attributes["type"]));
+                    }
+
+                    builders[fileName].DefineField(field.Name, fieldType, FieldAttributes.Public);
+                }
+            }
+
+            for (var i = 0; i < builders.Count; ++i)
+                _structures.Add(builders.Keys.ElementAt(i), builders.Values.ElementAt(i).CreateType());
+            return _structures.Count == 0;
         }
     }
 

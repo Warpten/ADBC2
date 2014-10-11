@@ -263,36 +263,36 @@ namespace ADBC2
             
         }
 
-		void OpenStructConverter(object sender, EventArgs e)
-		{
-		    var form = new StructConvertionForm();
-		    form.Show();
-		}
+        void OpenStructConverter(object sender, EventArgs e)
+        {
+            var form = new StructConvertionForm();
+            form.Show();
+        }
 
-		string[] FindFiles(string path)
-		{
-		    try
-		    {
-		        var dbcNames = Directory.EnumerateFiles(path, "*.*", SearchOption.TopDirectoryOnly)
+        string[] FindFiles(string path)
+        {
+            try
+            {
+                var dbcNames = Directory.EnumerateFiles(path, "*.*", SearchOption.TopDirectoryOnly)
                     .Where(s => s.EndsWith(".dbc", StringComparison.CurrentCultureIgnoreCase) || s.EndsWith(".db2", StringComparison.CurrentCultureIgnoreCase))
-		            .Select(Path.GetFileName).ToArray();
+                    .Select(Path.GetFileName).ToArray();
 
-		        if (dbcNames.Count() == 0)
-		            throw new DirectoryNotFoundException();
-		        return dbcNames;
-		    }
-		    catch (DirectoryNotFoundException)
-		    {
-		        var ofd = new FolderBrowserDialog();
-		        ofd.Description = "Indicate the path to your *.dbc and *.db2 files";
-		        if (ofd.ShowDialog() == DialogResult.OK)
-		        {
-		            PathToFiles = ofd.SelectedPath;
-		            return FindFiles(ofd.SelectedPath);
-		        }
-		    }
-		    return null;
-		}
+                if (dbcNames.Count() == 0)
+                    throw new DirectoryNotFoundException();
+                return dbcNames;
+            }
+            catch (DirectoryNotFoundException)
+            {
+                var ofd = new FolderBrowserDialog();
+                ofd.Description = "Indicate the path to your *.dbc and *.db2 files";
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    PathToFiles = ofd.SelectedPath;
+                    return FindFiles(ofd.SelectedPath);
+                }
+            }
+            return null;
+        }
         
         void OnXmlOverridesToggle(object sender, EventArgs e)
         {
