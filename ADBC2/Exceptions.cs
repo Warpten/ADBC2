@@ -54,4 +54,19 @@ namespace ADBC2
             return string.Format("Structure defined for file {0}, which does not exist.", FileName);
         }
     }
+
+    public class InvalidCoreStructure : Exception
+    {
+        protected string Message;
+
+        public InvalidCoreStructure(string message, params object[] args)
+        {
+            this.Message = String.Format(message, args);
+        }
+
+        public override string ToString()
+        {
+            return Message;
+        }
+    }
 }
