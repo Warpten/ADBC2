@@ -130,7 +130,7 @@ namespace ADBC2
             {
                 case "i32": case "int32":
                     return "int";
-                case "u32": case "u32":
+                case "u32": case "uint32":
                     return "uint";
                 case "i64": case "int64":
                     return "long";
