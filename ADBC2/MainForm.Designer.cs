@@ -38,9 +38,6 @@ namespace ADBC2
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.clientVersionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SqlExport = new System.Windows.Forms.ToolStripMenuItem();
             this.IdaExport = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,36 +69,11 @@ namespace ADBC2
             // 
             // clientVersionToolStripMenuItem
             // 
-            this.clientVersionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-                                    this.toolStripMenuItem2,
-                                    this.toolStripMenuItem3,
-                                    this.toolStripMenuItem4});
             this.clientVersionToolStripMenuItem.Name = "clientVersionToolStripMenuItem";
             this.clientVersionToolStripMenuItem.Size = new System.Drawing.Size(91, 20);
             this.clientVersionToolStripMenuItem.Tag = "";
             this.clientVersionToolStripMenuItem.Text = "Client version";
             this.clientVersionToolStripMenuItem.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.OnBuildSelection);
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(131, 22);
-            this.toolStripMenuItem2.Tag = "12340";
-            this.toolStripMenuItem2.Text = "3.3.5.12340";
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(131, 22);
-            this.toolStripMenuItem3.Tag = "15595";
-            this.toolStripMenuItem3.Text = "4.3.4.15595";
-            // 
-            // toolStripMenuItem4
-            // 
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(131, 22);
-            this.toolStripMenuItem4.Tag = "18179";
-            this.toolStripMenuItem4.Text = "6.0.1.18179";
             // 
             // toolsToolStripMenuItem
             // 
@@ -149,7 +121,7 @@ namespace ADBC2
             this.xMLOverridesToolStripMenuItem.Checked = true;
             this.xMLOverridesToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.xMLOverridesToolStripMenuItem.Name = "xMLOverridesToolStripMenuItem";
-            this.xMLOverridesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.xMLOverridesToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.xMLOverridesToolStripMenuItem.Text = "XML Overrides";
             this.xMLOverridesToolStripMenuItem.ToolTipText = "XML Structures will override built-in types.";
             this.xMLOverridesToolStripMenuItem.Click += new System.EventHandler(this.OnXmlOverridesToggle);
@@ -228,6 +200,7 @@ namespace ADBC2
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "ADBC2";
+            this.Load += new System.EventHandler(this.OnFormLoad);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
@@ -236,10 +209,7 @@ namespace ADBC2
             this.ResumeLayout(false);
             this.PerformLayout();
         }
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
         private System.Windows.Forms.ToolStripStatusLabel StatusLabel;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem clientVersionToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripMenuItem IdaExport;

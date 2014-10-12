@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Linq;
 using System.IO;
 using ADBC2.Structures;
+using ADBC2.Properties;
 using DBFilesClient.NET;
 using BrightIdeasSoftware;
 
@@ -277,10 +278,7 @@ namespace ADBC2
             }
             catch (DbcNotFoundException)
             {
-                FileSelectionBox.Enabled = false;
-                SqlExport.Enabled = false;
-                IdaExport.Enabled = false;
-                StatusLabel.Text = @"No DBC file found in the provided path.";                
+                StatusLabel.Text = @"No DBC file found in the provided path. Action cancelled.";                
             }
         }
         
@@ -404,6 +402,16 @@ namespace ADBC2
         void OnXmlOverridesToggle(object sender, EventArgs e)
         {
             xMLOverridesToolStripMenuItem.Checked = !xMLOverridesToolStripMenuItem.Checked;
+        }
+        
+        void OnFormLoad(object sender, EventArgs e)
+        {
+            foreach (var buildStr in Properties.ADBC2.Default.ExtraBuilds.Split(new[] { ';' }))
+            {
+                ToolStripMenuItem tsmi = new ToolStripMenuItem(buildStr);
+                tsmi.Tag = buildStr.Split(new[] { '.' }).Last();
+                clientVersionToolStripMenuItem.DropDownItems.Add(tsmi);
+            }
         }
     }
 }

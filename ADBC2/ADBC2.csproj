@@ -76,6 +76,10 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="Properties\ADBC2.Designer.cs">
+      <DependentUpon>ADBC2.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StructConvertionForm.cs" />
     <Compile Include="StructConvertionForm.Designer.cs">
@@ -109,6 +113,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Properties\ADBC2.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>ADBC2.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="HelpForm.resx">
@@ -137,6 +145,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ProfilingSessions\Session20141002_200820.sdps" />
+    <Content Include="ProfilingSessions\Session20141012_172409.sdps" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
