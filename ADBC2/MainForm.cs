@@ -24,17 +24,125 @@ namespace ADBC2
         {
             InitializeComponent();
         }
-        
+
+        protected string GenerateSqlHeader()
+        {
+            var fields = SelectedFileType.GetFields(BindingFlags.Public | BindingFlags.Instance | BindingFlags.NonPublic)
+                .ToArray();
+
+            var output = new List<string>();
+            foreach (var field in fields)
+            {
+                var fieldType = field.FieldType.ToString();
+                var arraySize = 1;
+                if (field.GetCustomAttribute(typeof(StoragePresenceAttribute)) != null)
+                {
+                    arraySize = (Attribute.GetCustomAttribute(field, typeof(StoragePresenceAttribute)) as StoragePresenceAttribute).ArraySize;
+                    fieldType = field.FieldType.GetElementType().ToString();
+                }
+
+                for (var i = 0; i < arraySize; ++i)
+                {
+                    var fmtString = @"  `{0}";
+                    if (i > 0) fmtString += @"_{2}";
+                    fmtString += @"` {1},";
+                    switch (fieldType)
+                    {
+                        case "System.Byte":
+                            output.Add(String.Format(fmtString, field.Name, "TINYINT", i));
+                            break;
+                        case "System.UInt16":
+                        case "System.Int16":
+                            output.Add(String.Format(fmtString, field.Name, "SMALLINT", i));
+                            break;
+                        case "System.UInt32":
+                        case "System.Int32":
+                            output.Add(String.Format(fmtString, field.Name, "INT", i));
+                            break;
+                        case "System.UInt64":
+                        case "System.Int64":
+                            output.Add(String.Format(fmtString, field.Name, "BIGINT", i));
+                            break;
+                        case "System.Single":
+                            output.Add(String.Format(fmtString, field.Name, "FLOAT", i));
+                            break;
+                        case "System.String":
+                            output.Add(String.Format(fmtString, field.Name, "TEXT", i));
+                            break;
+                        default:
+                            StatusLabel.Text = String.Format("Error while exporting: Unknown type {0}.", fieldType.ToString());
+                            return String.Empty;
+                    }
+                }
+            }
+
+            output[output.Count - 1] = output[output.Count - 1].TrimEnd(new[] { ',' });
+            return String.Join(Environment.NewLine, output.ToArray());
+        }
+
         #region Exporters
         /// <summary>
         /// Exports content to SQL file.
         /// </summary>
         void ToSQL(object sender, EventArgs e)
         {
-            // var items = ContentListView.Items;
-            // Console.Write("foo");
+            var sfd = new SaveFileDialog();
+            sfd.Filter = "SQL File|*.sql";
+            if (sfd.ShowDialog() != DialogResult.OK)
+                return;
+
+            File.Delete(sfd.FileName);
+            using (var fileStream = new StreamWriter(sfd.OpenFile()))
+            {
+                var recordCount = 0;
+                fileStream.WriteLine(String.Join(Environment.NewLine, new string[] {
+                    @"DROP TABLE IF EXISTS `DBC_" + FileSelectionBox.Text + @"`;",
+                    @"CREATE TABLE `DBC_" + FileSelectionBox.Text + @"` (",
+                    GenerateSqlHeader(),
+                    @");",
+                    ""
+                }));
+                var fields = SelectedFileType.GetFields(BindingFlags.Public | BindingFlags.Instance | BindingFlags.NonPublic)
+                    .ToArray();
+                var recordLine = new List<string>();
+                foreach (var record in ContentView.Objects)
+                {
+                    if (recordCount % 500 == 0)
+                        fileStream.WriteLine("INSERT INTO `DBC_" + FileSelectionBox.Text + @"` VALUES");
+
+                    recordLine.Clear();
+                    foreach (var field in fields)
+                    {
+                        var arraySize = 1;
+                        var fieldType = field.FieldType;
+                        if (field.FieldType.IsArray)
+                        {
+                            arraySize = (Attribute.GetCustomAttribute(field, typeof(StoragePresenceAttribute)) as StoragePresenceAttribute).ArraySize;
+                            fieldType = field.FieldType.GetElementType();
+                        }
+
+                        dynamic fValue = field.GetValue(record); // Just so we do not use another variable name (my lazy ass won)
+                        if (arraySize > 1)
+                            fValue = ((Array)field.GetValue(record)).Cast<object>().ToArray();
+
+                        for (var i = 0; i < arraySize; ++i)
+                        {
+                            var fieldFormat = (fieldType == typeof(string)) ? @"""{0}""" : @"{0}";
+                            recordLine.Add(String.Format(fieldFormat, arraySize > 1 ? fValue[i] : fValue));
+                        }
+                    }
+
+                    fileStream.Write(String.Format("({0})", String.Join(@", ", recordLine.ToArray())));
+                    fileStream.WriteLine(((recordCount + 1) % 500 == 0 || (recordCount + 1) == ContentView.GetItemCount()) ? ";" : ",");
+                    if ((recordCount + 1) % 500 == 0)
+                        fileStream.WriteLine();
+
+                    ++recordCount;
+                }
+            }
+            StatusLabel.Text = String.Format("SQL saved to {0}.", sfd.FileName);
         }
-        
+
         /// <summary>
         /// Exports DBC signature as IDA Structure to clipboard.
         /// </summary>
@@ -56,7 +164,6 @@ namespace ADBC2
                     fieldType = fieldType.GetElementType();
 
                 var fmt = (isArray ? @"    {0} {1}[{2}];" : @"    {0} {1};") + Environment.NewLine;
-                var idaType = string.Empty;
                 switch (fieldType.ToString())
                 {
                     case "System.Byte":
