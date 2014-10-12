@@ -40,6 +40,7 @@ namespace ADBC2
             this.clientVersionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SqlExport = new System.Windows.Forms.ToolStripMenuItem();
             this.IdaExport = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,7 +52,6 @@ namespace ADBC2
             this.StatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.ContentView = new BrightIdeasSoftware.FastObjectListView();
             this.FileSelectionBox = new System.Windows.Forms.ComboBox();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ContentView)).BeginInit();
@@ -85,16 +85,23 @@ namespace ADBC2
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(131, 22);
             this.toolStripMenuItem2.Tag = "12340";
             this.toolStripMenuItem2.Text = "3.3.5.12340";
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(131, 22);
             this.toolStripMenuItem3.Tag = "15595";
             this.toolStripMenuItem3.Text = "4.3.4.15595";
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(131, 22);
+            this.toolStripMenuItem4.Tag = "18179";
+            this.toolStripMenuItem4.Text = "6.0.1.18179";
             // 
             // toolsToolStripMenuItem
             // 
@@ -139,8 +146,10 @@ namespace ADBC2
             // 
             // xMLOverridesToolStripMenuItem
             // 
+            this.xMLOverridesToolStripMenuItem.Checked = true;
+            this.xMLOverridesToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.xMLOverridesToolStripMenuItem.Name = "xMLOverridesToolStripMenuItem";
-            this.xMLOverridesToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.xMLOverridesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.xMLOverridesToolStripMenuItem.Text = "XML Overrides";
             this.xMLOverridesToolStripMenuItem.ToolTipText = "XML Structures will override built-in types.";
             this.xMLOverridesToolStripMenuItem.Click += new System.EventHandler(this.OnXmlOverridesToggle);
@@ -206,13 +215,6 @@ namespace ADBC2
             this.FileSelectionBox.Size = new System.Drawing.Size(185, 21);
             this.FileSelectionBox.TabIndex = 4;
             this.FileSelectionBox.SelectedIndexChanged += new System.EventHandler(this.OnFileSelection);
-            // 
-            // toolStripMenuItem4
-            // 
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItem4.Tag = "18179";
-            this.toolStripMenuItem4.Text = "6.0.1.18179";
             // 
             // MainForm
             // 

@@ -44,6 +44,8 @@ namespace ADBC2
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.filterBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -139,6 +141,8 @@ namespace ADBC2
             this.tableLayoutPanel1.Controls.Add(this.label2, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.filterBox, 2, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(13, 13);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
@@ -163,6 +167,23 @@ namespace ADBC2
             this.tableLayoutPanel2.Size = new System.Drawing.Size(101, 69);
             this.tableLayoutPanel2.TabIndex = 7;
             // 
+            // label3
+            // 
+            this.label3.Location = new System.Drawing.Point(270, 305);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(101, 35);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Only convert build";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // filterBox
+            // 
+            this.filterBox.Location = new System.Drawing.Point(377, 312);
+            this.filterBox.Margin = new System.Windows.Forms.Padding(3, 7, 3, 3);
+            this.filterBox.Name = "filterBox";
+            this.filterBox.Size = new System.Drawing.Size(100, 20);
+            this.filterBox.TabIndex = 9;
+            // 
             // StructConvertionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -177,9 +198,12 @@ namespace ADBC2
             this.Text = "Struct Converter";
             this.Load += new System.EventHandler(this.OnLoad);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
         }
+        private System.Windows.Forms.TextBox filterBox;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.CheckBox checkBox1;

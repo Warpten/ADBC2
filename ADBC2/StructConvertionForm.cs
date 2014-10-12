@@ -14,6 +14,8 @@ namespace ADBC2
     public partial class StructConvertionForm : Form
     {
         bool OldFormatXml { get { return checkBox1.Checked; } }
+        string FilterBuildValue { get { return filterBox.Text; } }
+        bool FilterBuild { get { return !String.IsNullOrEmpty(filterBox.Text); } }
 
         static Regex _dbFileInfo = new Regex(@"\[DbFileInfo\(([0-9]+), ""(.+)""\)\]", RegexOptions.IgnoreCase);
         static Regex _fieldInfo = new Regex(@"public ([a-z]+)(\[\])? (.+);", RegexOptions.IgnoreCase);
@@ -31,14 +33,25 @@ namespace ADBC2
             var fileName = String.Empty;
             var arraySize = 0;
 
-            var hasBinding = false;
+            var hasBinding = false; //< TODO: Use for logging
             var hasFields = false;
+            var ignore = false;
 
             foreach (var line in structure)
             {
                 Match matchSet = null;
+                // Skip to next line if ignoring and this doesnt mark end of structure.
+                if (ignore && line.IndexOf("}") == -1)
+                    continue;
+
                 if ((matchSet = _dbFileInfo.Match(line)).Success)
                 {
+                    if (FilterBuild && FilterBuildValue != matchSet.Groups[1].Value)
+                    {
+                        ignore = true;
+                        continue; // Skip to next line
+                    }
+
                     hasBinding = true;
                     if (OldFormatXml)
                         xmlRtb.AppendFormatLine("<{0}{2} build=\"{1}\">",
@@ -86,10 +99,13 @@ namespace ADBC2
 
                     arraySize = 0;
                 }
-                else if (line.IndexOf("}") != -1)
+                if (line.IndexOf("}") != -1)
                 {
-                    xmlRtb.AppendFormatLine(OldFormatXml ? "</{0}>" : "</file>", fileName);
-                    xmlRtb.AppendLine();
+                    if (!ignore)
+                    {
+                        xmlRtb.AppendFormatLine(OldFormatXml ? "</{0}>" : "</file>", fileName);
+                        xmlRtb.AppendLine();
+                    }
 
                     // TODO Log errors
                     // if (!hasBinding)
@@ -97,6 +113,7 @@ namespace ADBC2
 
                     hasBinding = false;
                     hasFields  = false;
+                    ignore = false;
                 }
             }
         }
@@ -142,7 +159,7 @@ namespace ADBC2
                     return "byte";
                 case "f": return "float";
             }
-            return sourceType; // TODO Implement i32 etc
+            return sourceType;
         }
 
         protected void ToCSharpFromOldFormat(XmlDocument document)
@@ -151,6 +168,8 @@ namespace ADBC2
             foreach (XmlNode structure in structures)
             {
                 var build = structure.Attributes["build"].Value;
+                if (FilterBuild && build != FilterBuildValue)
+                    continue;
                 var fileName = String.Format(@"{0}.{1}", structure.Name, structure.Attributes["DB2"] != null ? "db2" : "dbc");
 
                 csRtb.AppendFormatLine("[DbFileInfo({0}, \"{1}\")]", build, fileName);
@@ -175,6 +194,8 @@ namespace ADBC2
             foreach (XmlNode structure in structures)
             {
                 var build = structure.Attributes["build"].Value;
+                if (FilterBuild && build != FilterBuildValue)
+                    continue;
                 var fileName = structure.Attributes["name"].Value;
 
                 csRtb.AppendFormatLine("[DbFileInfo({0}, \"{1}\")]", build, fileName);
