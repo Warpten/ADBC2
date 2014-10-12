@@ -40,6 +40,7 @@ namespace ADBC2
             this.clientVersionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SqlExport = new System.Windows.Forms.ToolStripMenuItem();
+            this.SqlFilteredExport = new System.Windows.Forms.ToolStripMenuItem();
             this.IdaExport = new System.Windows.Forms.ToolStripMenuItem();
             this.StructConverter = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -79,6 +80,7 @@ namespace ADBC2
             // 
             this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
                                     this.SqlExport,
+                                    this.SqlFilteredExport,
                                     this.IdaExport,
                                     this.StructConverter});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
@@ -89,22 +91,32 @@ namespace ADBC2
             // 
             this.SqlExport.Enabled = false;
             this.SqlExport.Name = "SqlExport";
-            this.SqlExport.Size = new System.Drawing.Size(193, 22);
+            this.SqlExport.Size = new System.Drawing.Size(229, 22);
+            this.SqlExport.Tag = "0";
             this.SqlExport.Text = "Export content as SQL";
             this.SqlExport.Click += new System.EventHandler(this.ToSQL);
+            // 
+            // SqlFilteredExport
+            // 
+            this.SqlFilteredExport.Enabled = false;
+            this.SqlFilteredExport.Name = "SqlFilteredExport";
+            this.SqlFilteredExport.Size = new System.Drawing.Size(229, 22);
+            this.SqlFilteredExport.Tag = "1";
+            this.SqlFilteredExport.Text = "Export filtered content as SQL";
+            this.SqlFilteredExport.Click += new System.EventHandler(this.ToSQL);
             // 
             // IdaExport
             // 
             this.IdaExport.Enabled = false;
             this.IdaExport.Name = "IdaExport";
-            this.IdaExport.Size = new System.Drawing.Size(193, 22);
+            this.IdaExport.Size = new System.Drawing.Size(229, 22);
             this.IdaExport.Text = "Export structure to IDA";
             this.IdaExport.Click += new System.EventHandler(this.ToIDA);
             // 
             // StructConverter
             // 
             this.StructConverter.Name = "StructConverter";
-            this.StructConverter.Size = new System.Drawing.Size(193, 22);
+            this.StructConverter.Size = new System.Drawing.Size(229, 22);
             this.StructConverter.Text = "Convert structures...";
             this.StructConverter.Click += new System.EventHandler(this.OpenStructConverter);
             // 
@@ -209,6 +221,7 @@ namespace ADBC2
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+        private System.Windows.Forms.ToolStripMenuItem SqlFilteredExport;
         private System.Windows.Forms.ToolStripStatusLabel StatusLabel;
         private System.Windows.Forms.ToolStripMenuItem clientVersionToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;

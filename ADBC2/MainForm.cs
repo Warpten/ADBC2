@@ -106,7 +106,8 @@ namespace ADBC2
                 var fields = SelectedFileType.GetFields(BindingFlags.Public | BindingFlags.Instance | BindingFlags.NonPublic)
                     .ToArray();
                 var recordLine = new List<string>();
-                foreach (var record in ContentView.Objects)
+                var objects = (sender as ToolStripMenuItem).Tag.ToString() == "1" ? ContentView.FilteredObjects : ContentView.Objects;
+                foreach (var record in objects)
                 {
                     if (recordCount % 500 == 0)
                         fileStream.WriteLine("INSERT INTO `DBC_" + FileSelectionBox.Text + @"` VALUES");
@@ -265,14 +266,14 @@ namespace ADBC2
             catch (DirectoryNotFoundException dnfe)
             {
                 FileSelectionBox.Enabled = false;
-                SqlExport.Enabled = false;
+                SqlExport.Enabled = SqlFilteredExport.Enabled = false;
                 IdaExport.Enabled = false;
                 StatusLabel.Text = dnfe.Message;
             }
             catch (UnsupportedClientBuildException ucbe)
             {
                 FileSelectionBox.Enabled = false;
-                SqlExport.Enabled = false;
+                SqlExport.Enabled = SqlFilteredExport.Enabled = false;
                 IdaExport.Enabled = false;
                 StatusLabel.Text = ucbe.Message;
             }
@@ -314,6 +315,7 @@ namespace ADBC2
             watch.Stop();
             StatusLabel.Text = String.Format("Loaded {0} records in {1} ms.", records.Count, watch.ElapsedMilliseconds);
             SqlExport.Enabled = true;
+            SqlFilteredExport.Enabled = true;
             IdaExport.Enabled = true;
         }
 
@@ -412,6 +414,8 @@ namespace ADBC2
                 tsmi.Tag = buildStr.Split(new[] { '.' }).Last();
                 clientVersionToolStripMenuItem.DropDownItems.Add(tsmi);
             }
+            // TODO Fix
+            // ContentView.VirtualListDataSource = new ListDataSource(ContentView);
         }
     }
 }
