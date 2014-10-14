@@ -138,6 +138,7 @@
     <Compile Include="Structures\Version15595\ResearchSiteEntry.cs" />
     <Compile Include="Structures\Version15595\SpellMissileMotionEntry.cs" />
     <Compile Include="Structures\DbFileInfoAttribute.cs" />
+    <Compile Include="Structures\Version18179\DbcDump.cs" />
     <Compile Include="XmlDefinitionReader.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -161,7 +162,7 @@
   <ItemGroup>
     <Folder Include="Structures" />
     <Folder Include="Structures\Version15595" />
-    <Folder Include="Structures\New Folder" />
+    <Folder Include="Structures\Version18179" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DBFilesClient.NET\DBFilesClient.NET.csproj">
