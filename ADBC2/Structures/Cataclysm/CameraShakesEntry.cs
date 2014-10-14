@@ -2,9 +2,6 @@
 
 namespace ADBC2.Structures.Cataclysm
 {
-    /// <summary>
-    /// Description of CameraShakesEntry.
-    /// </summary>
     [DbFileInfo(15595, "CameraShakes.dbc")]
     public sealed class CameraShakesEntry
     {

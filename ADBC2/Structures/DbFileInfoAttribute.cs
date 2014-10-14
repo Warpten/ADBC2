@@ -11,7 +11,9 @@ namespace ADBC2.Structures
         
         public enum ClientBuild
         {
-            V4_3_4_15595 = 15595
+            V3_3_5_12340 = 12340,
+            V4_3_4_15595 = 15595,
+            V6_0_1_18179 = 18179
         }
 
         public DbFileInfoAttribute(int build, string fileName, bool enabled = true)

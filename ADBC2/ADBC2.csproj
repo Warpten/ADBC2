@@ -104,10 +104,38 @@
     <Compile Include="Structures\Cataclysm\CfgCategoriesEntry.cs" />
     <Compile Include="Structures\Cataclysm\CfgConfigsEntry.cs" />
     <Compile Include="Structures\Cataclysm\CharBaseInfoEntry.cs" />
+    <Compile Include="Structures\Cataclysm\CharSectionsEntry.cs" />
+    <Compile Include="Structures\Cataclysm\CharTitlesEntry.cs" />
+    <Compile Include="Structures\Cataclysm\ChatChannelEntry.cs" />
+    <Compile Include="Structures\Cataclysm\ChatProfanityEntry.cs" />
+    <Compile Include="Structures\Cataclysm\ChrRacesEntry.cs" />
+    <Compile Include="Structures\Cataclysm\ChrClassesEntry.cs" />
+    <Compile Include="Structures\Cataclysm\ChrClassesXPowerTypeEntry.cs" />
+    <Compile Include="Structures\Cataclysm\CinematicCameraEntry.cs" />
+    <Compile Include="Structures\Cataclysm\CinematicSequencesEntry.cs" />
+    <Compile Include="Structures\Cataclysm\CreatureDisplayInfo.cs" />
+    <Compile Include="Structures\Cataclysm\CreatureFamilyEntry.cs" />
+    <Compile Include="Structures\Cataclysm\CreatureMovementInfoEntry.cs" />
+    <Compile Include="Structures\Cataclysm\CreatureSpellDataEntry.cs" />
+    <Compile Include="Structures\Cataclysm\CreatureTypeEntry.cs" />
+    <Compile Include="Structures\Cataclysm\CurrencyCategoryEntry.cs" />
+    <Compile Include="Structures\Cataclysm\DestructibleModelDataEntry.cs" />
+    <Compile Include="Structures\Cataclysm\FactionEntry.cs" />
+    <Compile Include="Structures\Cataclysm\GameObjectDisplayInfoEntry.cs" />
     <Compile Include="Structures\Cataclysm\ItemCurrencyCostEntry.cs" />
     <Compile Include="Structures\Cataclysm\ItemEntry.cs" />
     <Compile Include="Structures\Cataclysm\ItemExtendedCostEntry.cs" />
     <Compile Include="Structures\Cataclysm\ItemSparseEntry.cs" />
+    <Compile Include="Structures\Cataclysm\MapEntry.cs" />
+    <Compile Include="Structures\Cataclysm\PhaseEntry.cs" />
+    <Compile Include="Structures\Cataclysm\PhaseShiftZoneSoundEntry.cs" />
+    <Compile Include="Structures\Cataclysm\PhaseXPhaseGroupEntry.cs" />
+    <Compile Include="Structures\Cataclysm\QuestPOIBlobEntry.cs" />
+    <Compile Include="Structures\Cataclysm\QuestPOIPointEntry.cs" />
+    <Compile Include="Structures\Cataclysm\ResearchBranchEntry.cs" />
+    <Compile Include="Structures\Cataclysm\ResearchFieldEntry.cs" />
+    <Compile Include="Structures\Cataclysm\ResearchProjectEntry.cs" />
+    <Compile Include="Structures\Cataclysm\ResearchSiteEntry.cs" />
     <Compile Include="Structures\Cataclysm\SpellMissileMotionEntry.cs" />
     <Compile Include="Structures\DbFileInfoAttribute.cs" />
     <Compile Include="XmlDefinitionReader.cs" />
@@ -143,10 +171,6 @@
       <Project>{18FEDA0C-D147-4286-B39A-01204808106A}</Project>
       <Name>ObjectListView2012</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="ProfilingSessions\Session20141002_200820.sdps" />
-    <Content Include="ProfilingSessions\Session20141012_172409.sdps" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
