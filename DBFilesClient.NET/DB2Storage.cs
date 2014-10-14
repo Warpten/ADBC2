@@ -28,7 +28,7 @@ namespace DBFilesClient.NET
 
                 if (header->RecordSize != m_entrySize)
                     throw new ArgumentException("This DB2 file has wrong record size ("
-                        + header->RecordSize + ", expected is " + m_entrySize + ").");
+                        + m_entrySize + ", expected is " + header->RecordSize + ").");
 
                 m_records = header->Records;
                 this.Hash = header->Hash;
