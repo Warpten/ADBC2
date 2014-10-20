@@ -86,6 +86,7 @@
     <Compile Include="StructConvertionForm.Designer.cs">
       <DependentUpon>StructConvertionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Structures\Version12340\XmlImport.cs" />
     <Compile Include="Structures\Version15595\AchievementCategoryEntry.cs" />
     <Compile Include="Structures\Version15595\AchievementCriteriaEntry.cs" />
     <Compile Include="Structures\Version15595\AchievementEntry.cs" />
@@ -120,6 +121,8 @@
     <Compile Include="Structures\Version15595\CreatureTypeEntry.cs" />
     <Compile Include="Structures\Version15595\CurrencyCategoryEntry.cs" />
     <Compile Include="Structures\Version15595\DestructibleModelDataEntry.cs" />
+    <Compile Include="Structures\Version15595\DungeonMapEntry.cs" />
+    <Compile Include="Structures\Version15595\EmotesEntry.cs" />
     <Compile Include="Structures\Version15595\FactionEntry.cs" />
     <Compile Include="Structures\Version15595\GameObjectDisplayInfoEntry.cs" />
     <Compile Include="Structures\Version15595\ItemCurrencyCostEntry.cs" />
@@ -136,8 +139,10 @@
     <Compile Include="Structures\Version15595\ResearchFieldEntry.cs" />
     <Compile Include="Structures\Version15595\ResearchProjectEntry.cs" />
     <Compile Include="Structures\Version15595\ResearchSiteEntry.cs" />
+    <Compile Include="Structures\Version15595\SpellEntry.cs" />
     <Compile Include="Structures\Version15595\SpellMissileMotionEntry.cs" />
     <Compile Include="Structures\DbFileInfoAttribute.cs" />
+    <Compile Include="Structures\Version15595\SpellVisualEntry.cs" />
     <Compile Include="Structures\Version18179\DbcDump.cs" />
     <Compile Include="XmlDefinitionReader.cs" />
   </ItemGroup>
@@ -161,6 +166,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Structures" />
+    <Folder Include="Structures\Version12340" />
     <Folder Include="Structures\Version15595" />
     <Folder Include="Structures\Version18179" />
   </ItemGroup>

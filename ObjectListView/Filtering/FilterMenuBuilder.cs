@@ -110,13 +110,13 @@ namespace BrightIdeasSoftware {
         /// will consider. This should be large enough to collect all unique clusters,
         /// but small enough to finish in a reasonable time.
         /// </summary>
-        /// <remarks>The default value is 10,000. This should be perfectly
+        /// <remarks>The default value is 50,000. This should be perfectly
         /// acceptable for almost all lists.</remarks>
         public int MaxObjectsToConsider {
             get { return maxObjectsToConsider; }
             set { maxObjectsToConsider = value; }
         }
-        private int maxObjectsToConsider = 10000;
+        private int maxObjectsToConsider = 50000;
 
         #endregion
 

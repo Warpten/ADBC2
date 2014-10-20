@@ -150,9 +150,9 @@ namespace BrightIdeasSoftware
         /// </summary>
         /// <param name="olv">The ObjectListView to modify</param>
         /// <param name="type">The model type whose attributes will be considered.</param>
-        /// <param name="allProperties">Will columns be generated for properties that are not marked with [OLVColumn].</param>
-        static public void GenerateColumns(ObjectListView olv, Type type, bool allProperties) {
-            Generator.Instance.GenerateAndReplaceColumns(olv, type, allProperties);
+        /// <param name="useProperties">Will columns be generated from properties or fields.</param>
+        static public void GenerateColumns(ObjectListView olv, Type type, bool useProperties) {
+            Generator.Instance.GenerateAndReplaceColumns(olv, type, useProperties);
         }
 
         /// <summary>
@@ -175,9 +175,9 @@ namespace BrightIdeasSoftware
         /// </summary>
         /// <param name="olv">The ObjectListView to modify</param>
         /// <param name="type">The model type whose attributes will be considered.</param>
-        /// <param name="allProperties">Will columns be generated for properties that are not marked with [OLVColumn].</param>
-        public virtual void GenerateAndReplaceColumns(ObjectListView olv, Type type, bool allProperties) {
-            IList<OLVColumn> columns = this.GenerateColumns(type, allProperties);
+        /// <param name="useProperties">Will columns be generated from properties or fields.</param>
+        public virtual void GenerateAndReplaceColumns(ObjectListView olv, Type type, bool useProperties) {
+            IList<OLVColumn> columns = this.GenerateColumns(type, useProperties);
             TreeListView tlv = olv as TreeListView;
             if (tlv != null)
                 this.TryGenerateChildrenDelegates(tlv, type);
@@ -190,16 +190,16 @@ namespace BrightIdeasSoftware
         /// If allProperties is false, only properties that have a OLVColumn attribute will have a column generated.
         /// </summary>
         /// <param name="type"></param>
-        /// <param name="allProperties">Will columns be generated for properties that are not marked with [OLVColumn].</param>
+        /// <param name="useProperties">Will columns be generated from properties or fields.</param>
         /// <returns>A collection of OLVColumns matching the attributes of Type that have OLVColumnAttributes.</returns>
-        public virtual IList<OLVColumn> GenerateColumns(Type type, bool allProperties) {
+        public virtual IList<OLVColumn> GenerateColumns(Type type, bool useProperties) {
             List<OLVColumn> columns = new List<OLVColumn>();
             
             // Sanity
             if (type == null)
                 return columns;
 
-            if (allProperties)
+            if (useProperties)
             {
                 // Iterate all public properties in the class and build columns from those that have
                 // an OLVColumn attribute and that are not ignored.
@@ -209,7 +209,7 @@ namespace BrightIdeasSoftware
     
                     OLVColumnAttribute attr = Attribute.GetCustomAttribute(pinfo, typeof(OLVColumnAttribute)) as OLVColumnAttribute;
                     if (attr == null) {
-                        if (allProperties)
+                        if (useProperties)
                             columns.Add(this.MakeColumnFromPropertyInfo(pinfo));
                     } else {
                         columns.Add(this.MakeColumnFromAttribute(pinfo, attr));
@@ -228,7 +228,7 @@ namespace BrightIdeasSoftware
     
                     OLVColumnAttribute attr = Attribute.GetCustomAttribute(pinfo, typeof(OLVColumnAttribute)) as OLVColumnAttribute;
                     if (attr == null) {
-                        if (!allProperties)
+                        if (!useProperties)
                             columns.Add(this.MakeColumnFromFieldInfo(pinfo));
                     } else {
                         columns.Add(this.MakeColumnFromAttribute(pinfo, attr));
@@ -325,7 +325,7 @@ namespace BrightIdeasSoftware
         /// <param name="pinfo"></param>
         /// <returns></returns>
         protected virtual OLVColumn MakeColumnFromFieldInfo(FieldInfo pinfo) {
-            return MakeColumn(pinfo.Name, DisplayNameToColumnTitle(pinfo.Name), false, pinfo.GetType(), null);
+            return MakeColumn(pinfo.Name, DisplayNameToColumnTitle(pinfo.Name), true, pinfo.GetType(), null);
         }
 
         /// <summary>

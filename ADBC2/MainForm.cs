@@ -310,8 +310,11 @@ namespace ADBC2
             dynamic records = storageType.GetProperty("Records").GetValue(store);
 
             PropertyInfo[] props = SelectedFileType.GetProperties(); 
+            ContentView.ResetColumnFiltering();
             Generator.GenerateColumns(ContentView, SelectedFileType, false);
             ContentView.SetObjects(records, false);
+            // Go over the columns and mark them as editable
+            
             watch.Stop();
             StatusLabel.Text = String.Format("Loaded {0} records in {1} ms.", records.Count, watch.ElapsedMilliseconds);
             SqlExport.Enabled = true;

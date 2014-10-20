@@ -43,7 +43,7 @@ namespace BrightIdeasSoftware {
         /// </summary>
         public ToolStripCheckedListBox()
             : base(new CheckedListBox()) {
-            this.CheckedListBoxControl.MaximumSize = new Size(400, 700);
+            this.CheckedListBoxControl.MaximumSize = new Size(400, 650);
             this.CheckedListBoxControl.ThreeDCheckBoxes = true;
             this.CheckedListBoxControl.CheckOnClick = true;
             this.CheckedListBoxControl.SelectionMode = SelectionMode.One;

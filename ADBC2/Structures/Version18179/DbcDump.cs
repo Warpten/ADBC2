@@ -3904,20 +3904,34 @@ namespace ADBC2.Structures.Version18179
         public int ID;
         public int spellID;
         public int difficultyID;
-        public int attributes1;
-        public int attributes2;
-        public int attributes3;
-        public int attributes4;
-        public int attributes5;
-        public int attributes6;
-        public int attributes7;
-        public int attributes8;
-        public int attributes9;
-        public int attributes10;
-        public int attributes11;
-        public int attributes12;
-        public int attributes13;
-        public int attributes14;
+        [OLVColumn(AspectToStringFormat = "0x{0:X8}")]
+        public uint attributes1;
+        [OLVColumn(AspectToStringFormat = "0x{0:X8}")]
+        public uint attributes2;
+        [OLVColumn(AspectToStringFormat = "0x{0:X8}")]
+        public uint attributes3;
+        [OLVColumn(AspectToStringFormat = "0x{0:X8}")]
+        public uint attributes4;
+        [OLVColumn(AspectToStringFormat = "0x{0:X8}")]
+        public uint attributes5;
+        [OLVColumn(AspectToStringFormat = "0x{0:X8}")]
+        public uint attributes6;
+        [OLVColumn(AspectToStringFormat = "0x{0:X8}")]
+        public uint attributes7;
+        [OLVColumn(AspectToStringFormat = "0x{0:X8}")]
+        public uint attributes8;
+        [OLVColumn(AspectToStringFormat = "0x{0:X8}")]
+        public uint attributes9;
+        [OLVColumn(AspectToStringFormat = "0x{0:X8}")]
+        public uint attributes10;
+        [OLVColumn(AspectToStringFormat = "0x{0:X8}")]
+        public uint attributes11;
+        [OLVColumn(AspectToStringFormat = "0x{0:X8}")]
+        public uint attributes12;
+        [OLVColumn(AspectToStringFormat = "0x{0:X8}")]
+        public uint attributes13;
+        [OLVColumn(AspectToStringFormat = "0x{0:X8}")]
+        public uint attributes14;
         public int castingTimeIndex;
         public int durationIndex;
         public int rangeIndex;
