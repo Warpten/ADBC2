@@ -9,7 +9,7 @@
  * 2006-10-10   JPP  - Initial version
  *
  * To do:
- * 
+ *
  * Copyright (C) 2006-2012 Phillip Piper
  *
  * This program is free software: you can redistribute it and/or modify
@@ -615,7 +615,7 @@ namespace BrightIdeasSoftware
         /// The ListView must have its handle created before calling this.
         /// </para>
         /// <para>
-        /// This doesn't work very well. Specifically, it doesn't play well with owner drawn, 
+        /// This doesn't work very well. Specifically, it doesn't play well with owner drawn,
         /// and grid lines are drawn over it.
         /// </para>
         /// </remarks>
@@ -957,7 +957,7 @@ namespace BrightIdeasSoftware
         /// <param name="value">The OLVColumn or null to clear</param>
         /// <remarks>
         /// This method works, but it prevents subitems in the given column from having
-        /// back colors. 
+        /// back colors.
         /// </remarks>
         static public void SetSelectedColumn(ListView objectListView, ColumnHeader value) {
             NativeMethods.SendMessage(objectListView.Handle,

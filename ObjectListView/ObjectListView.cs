@@ -26,22 +26,22 @@
  *                    wouldn't be removed until the mouse was released.
  * 2012-07-03  JPP  - Fixed bug with SingleClick cell edit mode where the cell editing would not begin until the
  *                    mouse moved after the click.
- * 2012-06-25  JPP  - Fixed bug where removing a column from a LargeIcon or SmallIcon view would crash the control. 
+ * 2012-06-25  JPP  - Fixed bug where removing a column from a LargeIcon or SmallIcon view would crash the control.
  * 2012-06-15  JPP  - Added Reset() method, which definitively removes all rows *and* columns from an ObjectListView.
  * 2012-06-11  JPP  - Added FilteredObjects property which returns the collection of objects that survives any installed filters.
  * 2012-06-04  JPP  - [Big] Added UseNotifyPropertyChanged to allow OLV to listen for INotifyPropertyChanged events on models.
- * 2012-05-30  JPP  - Added static property ObjectListView.IgnoreMissingAspects. If this is set to true, all 
+ * 2012-05-30  JPP  - Added static property ObjectListView.IgnoreMissingAspects. If this is set to true, all
  *                    ObjectListViews will silently ignore missing aspect errors. Read the remarks to see why this would be useful.
- * 2012-05-23  JPP  - Setting UseFilterIndicator to true now sets HeaderUsesTheme to false. 
+ * 2012-05-23  JPP  - Setting UseFilterIndicator to true now sets HeaderUsesTheme to false.
  *                    Also, changed default value of UseFilterIndicator to false. Previously, HeaderUsesTheme and UseFilterIndicator
- *                    defaulted to true, which was pointless since when the HeaderUsesTheme is true, UseFilterIndicator does nothing.  
+ *                    defaulted to true, which was pointless since when the HeaderUsesTheme is true, UseFilterIndicator does nothing.
  * v2.5.1
  * 2012-05-06  JPP  - Fix bug where collapsing the first group would cause decorations to stop being drawn (SR #3502608)
  * 2012-04-23  JPP  - Trigger GroupExpandingCollapsing event to allow the expand/collapse to be cancelled
  *                  - Fixed SetGroupSpacing() so it corrects updates the space between all groups.
  *                  - ResizeLastGroup() now does nothing since it was broken and I can't remember what it was
  *                    even supposed to do :)
- * 2012-04-18  JPP  - Upgraded hit testing to include hits on groups. 
+ * 2012-04-18  JPP  - Upgraded hit testing to include hits on groups.
  *                  - HotItemChanged is now correctly recalculated on each mouse move. Includes "hot" group information.
  * 2012-04-14  JPP  - Added GroupStateChanged event. Useful for knowing when a group is collapsed/expanded.
  *                  - Added AdditionalFilter property. This filter is combined with the Excel-like filtering that
@@ -53,7 +53,7 @@
  * 2012-02-05  JPP  - Fixed bug when selecting a separator on a drop down menu
  * 2011-06-24  JPP  - Added CanUseApplicationIdle property to cover cases where Application.Idle events
  *                    are not triggered. For example, when used within VS (and probably Office) extensions
- *                    Application.Idle is never triggered. Set CanUseApplicationIdle to false to handle 
+ *                    Application.Idle is never triggered. Set CanUseApplicationIdle to false to handle
  *                    these cases.
  *                  - Handle cases where a second tool tip is installed onto the ObjectListView.
  *                  - Correctly recolour rows after an Insert or Move
@@ -66,16 +66,16 @@
  *                  - Deprecated GetSelectedObject() and GetSelectedObjects()
  * 2011-04-25  JPP  - Added SubItemChecking event
  *                  - Fixed bug in handling of NewValue on CellEditFinishing event
- * 2011-04-12  JPP  - Added UseFilterIndicator 
+ * 2011-04-12  JPP  - Added UseFilterIndicator
  *                  - Added some more localizable messages
  * 2011-04-10  JPP  - FormatCellEventArgs now has a CellValue property, which is the model value displayed
- *                    by the cell. For example, for the Birthday column, the CellValue might be 
+ *                    by the cell. For example, for the Birthday column, the CellValue might be
  *                    DateTime(1980, 12, 31), whereas the cell's text might be 'Dec 31, 1980'.
  * 2011-04-04  JPP  - Tweaked UseTranslucentSelection and UseTranslucentHotItem to look (a little) more
  *                    like Vista/Win7.
  *                  - Alternate colours are now only applied in Details view (as they always should have been)
  *                  - Alternate colours are now correctly recalculated after removing objects
- * 2011-03-29  JPP  - Added SelectColumnsOnRightClickBehaviour to allow the selecting of columns mechanism 
+ * 2011-03-29  JPP  - Added SelectColumnsOnRightClickBehaviour to allow the selecting of columns mechanism
  *                    to be changed. Can now be InlineMenu (the default), SubMenu, or ModelDialog.
  *                  - ColumnSelectionForm was moved from the demo into the ObjectListView project itself.
  *                  - Ctrl-C copying is now able to use the DragSource to create the data transfer object.
@@ -85,8 +85,8 @@
  * 2011-03-07  JPP  - [Big] Added Excel-style filtering. Right click on a header to show a Filtering menu.
  *                  - Added CellEditKeyEngine to allow key handling when cell editing to be completely customised.
  *                    Add CellEditTabChangesRows and CellEditEnterChangesRows to show some of these abilities.
- * 2011-03-06  JPP  - Added OLVColumn.AutoCompleteEditorMode in preference to AutoCompleteEditor 
- *                    (which is now just a wrapper). Thanks to Clive Haskins 
+ * 2011-03-06  JPP  - Added OLVColumn.AutoCompleteEditorMode in preference to AutoCompleteEditor
+ *                    (which is now just a wrapper). Thanks to Clive Haskins
  *                  - Added lots of docs to new classes
  * 2011-02-25  JPP  - Preserve word wrap settings on TreeListView
  *                  - Resize last group to keep it on screen (thanks to ?)
@@ -102,7 +102,7 @@
  *                  - In IDE, all ObjectListView properties are now in a single "ObjectListView" category,
  *                    rather than splitting them between "Appearance" and "Behavior" categories.
  *                  - Added GroupingParameters.GroupComparer to allow groups to be sorted in a customizable fashion.
- *                  - Sorting of items within a group can be disabled by setting 
+ *                  - Sorting of items within a group can be disabled by setting
  *                    GroupingParameters.PrimarySortOrder to None.
  * 2010-08-24  JPP  - Added OLVColumn.IsHeaderVertical to make a column draw its header vertical.
  *                  - Added OLVColumn.HeaderTextAlign to control the alignment of a column's header text.
@@ -118,7 +118,7 @@
  *                  - Added EditingCellBorderDecoration to make it clearer which cell is being edited.
  * 2010-08-01  JPP  - Added ObjectListView.SmoothingMode to control the smoothing of all graphics
  *                    operations
- *                  - Columns now cache their group item format strings so that they still work as 
+ *                  - Columns now cache their group item format strings so that they still work as
  *                    grouping columns after they have been removed from the listview. This cached
  *                    value is only used when the column is not part of the listview.
  * 2010-07-25  JPP  - Correctly trigger a Click event when the mouse is clicked.
@@ -133,7 +133,7 @@
  *                  - Renamed IsVista property to IsVistaOrLater which more accurately describes its function.
  * v2.4
  * 2010-04-14  JPP  - Prevent object disposed errors when mouse event handlers cause the
- *                    ObjectListView to be destroyed (e.g. closing a form during a 
+ *                    ObjectListView to be destroyed (e.g. closing a form during a
  *                    double click event).
  *                  - Avoid checkbox munging bug in standard ListView when shift clicking on non-primary
  *                    columns when FullRowSelect is true.
@@ -144,7 +144,7 @@
  *                  - ShowHeaderInAllViews is better but still not working reliably.
  *                    See comments on property for more details.
  * 2010-03-23  JPP  - Added ObjectListView.HeaderFormatStyle and OLVColumn.HeaderFormatStyle.
- *                    This makes HeaderFont and HeaderForeColor properties unnecessary -- 
+ *                    This makes HeaderFont and HeaderForeColor properties unnecessary --
  *                    they will be marked obsolete in the next version and removed after that.
  * 2010-03-16  JPP  - Changed object checking so that objects can be pre-checked before they
  *                    are added to the list. Normal ObjectListViews managed "checkedness" in
@@ -535,7 +535,7 @@ namespace BrightIdeasSoftware
     /// </summary>
     /// <remarks>
     /// <para>
-    /// An ObjectListView automatically populates a ListView control with information taken 
+    /// An ObjectListView automatically populates a ListView control with information taken
     /// from a given collection of objects. It can do this because each column is configured
     /// to know which bit of the model object (the "aspect") it should be displaying. Columns similarly
     /// understand how to sort the list based on their aspect, and how to construct groups
@@ -548,13 +548,13 @@ namespace BrightIdeasSoftware
     /// Aspects can also be extracted by installing a delegate.
     /// </para>
     /// <para>
-    /// An ObjectListView can show a "this list is empty" message when there is nothing to show in the list, 
+    /// An ObjectListView can show a "this list is empty" message when there is nothing to show in the list,
     /// so that the user knows the control is supposed to be empty.
     /// </para>
     /// <para>
     /// Right clicking on a column header should present a menu which can contain:
     /// commands (sort, group, ungroup); filtering; and column selection. Whether these
-    /// parts of the menu appear is controlled by ShowCommandMenuOnRightClick, 
+    /// parts of the menu appear is controlled by ShowCommandMenuOnRightClick,
     /// ShowFilterMenuOnRightClick and SelectColumnsOnRightClick respectively.
     /// </para>
     /// <para>
@@ -563,11 +563,11 @@ namespace BrightIdeasSoftware
     /// interfaces, these groups can even on virtual lists.
     /// </para>
     /// <para>
-    /// ObjectListView supports dragging rows to other places, including other application. 
-    /// Special support is provide for drops from other ObjectListViews in the same application. 
-    /// In many cases, an ObjectListView becomes a full drag source by setting <see cref="IsSimpleDragSource"/> to 
-    /// true. Similarly, to accept drops, it is usually enough to set <see cref="IsSimpleDropSink"/> to true, 
-    /// and then handle the <see cref="CanDrop"/>  and <see cref="Dropped"/>  events (or the <see cref="ModelCanDrop"/>  and 
+    /// ObjectListView supports dragging rows to other places, including other application.
+    /// Special support is provide for drops from other ObjectListViews in the same application.
+    /// In many cases, an ObjectListView becomes a full drag source by setting <see cref="IsSimpleDragSource"/> to
+    /// true. Similarly, to accept drops, it is usually enough to set <see cref="IsSimpleDropSink"/> to true,
+    /// and then handle the <see cref="CanDrop"/>  and <see cref="Dropped"/>  events (or the <see cref="ModelCanDrop"/>  and
     /// <see cref="ModelDropped"/> events, if you only want to handle drops from other ObjectListViews in your application).
     /// </para>
     /// <para>
@@ -581,11 +581,11 @@ namespace BrightIdeasSoftware
     /// <item><description>System.Windows.Forms (obviously)</description></item>
     /// </list>
     /// </remarks>
-    [Designer(typeof(BrightIdeasSoftware.Design.ObjectListViewDesigner))]   
+    [Designer(typeof(BrightIdeasSoftware.Design.ObjectListViewDesigner))]
     public partial class ObjectListView : ListView, ISupportInitialize {
-        
+
         #region Life and death
-        
+
         /// <summary>
         /// Create an ObjectListView
         /// </summary>
@@ -613,7 +613,7 @@ namespace BrightIdeasSoftware
         protected override void Dispose(bool disposing) {
             base.Dispose(disposing);
 
-            if (!disposing) 
+            if (!disposing)
                 return;
 
             foreach (GlassPanelForm glassPanel in this.glassPanels) {
@@ -747,7 +747,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// Return whether or not the given enumerable is empty. A string is regarded as 
+        /// Return whether or not the given enumerable is empty. A string is regarded as
         /// an empty collection.
         /// </summary>
         /// <param name="collection"></param>
@@ -766,7 +766,7 @@ namespace BrightIdeasSoftware
         /// <para>
         /// By default, if an ObjectListView is asked to display an aspect
         /// (i.e. a field/property/method)
-        /// that does not exist from a model, it displays an error message in that cell, since that 
+        /// that does not exist from a model, it displays an error message in that cell, since that
         /// condition is normally a programming error. There are some use cases where
         /// this is not an error -- in those cases, set this to true and ObjectListView will
         /// simply display an empty cell.
@@ -840,7 +840,7 @@ namespace BrightIdeasSoftware
         private List<OLVColumn> allColumns = new List<OLVColumn>();
 
         /// <summary>
-        /// Gets or sets the background color of every second row 
+        /// Gets or sets the background color of every second row
         /// </summary>
         [Category("ObjectListView"),
          Description("If using alternate colors, what color should the background of alterate rows be?"),
@@ -909,7 +909,7 @@ namespace BrightIdeasSoftware
         DefaultValue(CellEditActivateMode.None)]
         public virtual CellEditActivateMode CellEditActivation {
             get { return cellEditActivation; }
-            set { 
+            set {
                 cellEditActivation = value;
                 if (this.Created)
                     this.Invalidate();
@@ -943,8 +943,8 @@ namespace BrightIdeasSoftware
         /// <summary>
         /// Gets or sets the behaviour of the Tab key when editing a cell on the left or right
         /// edge of the control. If this is false (the default), pressing Tab will wrap to the other side
-        /// of the same row. If this is true, pressing Tab when editing the right most cell will advance 
-        /// to the next row 
+        /// of the same row. If this is true, pressing Tab when editing the right most cell will advance
+        /// to the next row
         /// and Shift-Tab when editing the left-most cell will change to the previous row.
         /// </summary>
         [Category("ObjectListView"),
@@ -1225,7 +1225,7 @@ namespace BrightIdeasSoftware
         /// Gets or sets whether the Control-C copy to clipboard functionality should use
         /// the installed DragSource to create the data object that is placed onto the clipboard.
         /// </summary>
-        /// <remarks>This is normally what is desired, unless a custom DragSource is installed 
+        /// <remarks>This is normally what is desired, unless a custom DragSource is installed
         /// that does some very specialized drag-drop behaviour.</remarks>
         [Category("ObjectListView"),
         Description("Should the Ctrl-C copy process use the DragSource to create the Clipboard data object?"),
@@ -1413,8 +1413,8 @@ namespace BrightIdeasSoftware
         /// </summary>
         /// <remarks>
         /// <para>
-        /// This collection is the result of filtering the current list of objects. 
-        /// It is not a snapshot of the filtered list that was last used to build the control. 
+        /// This collection is the result of filtering the current list of objects.
+        /// It is not a snapshot of the filtered list that was last used to build the control.
         /// </para>
         /// <para>
         /// Normal warnings apply when using this with virtual lists. It will work, but it
@@ -1427,7 +1427,7 @@ namespace BrightIdeasSoftware
             get {
                 if (this.IsFiltering)
                     return this.FilterObjects(this.Objects, this.ModelFilter, this.ListFilter);
-                
+
                 return this.Objects;
             }
         }
@@ -1632,7 +1632,7 @@ namespace BrightIdeasSoftware
         private int headerMaximumHeight = -1;
 
         /// <summary>
-        /// Gets or sets whether the header will be drawn strictly according to the OS's theme. 
+        /// Gets or sets whether the header will be drawn strictly according to the OS's theme.
         /// </summary>
         /// <remarks>
         /// <para>
@@ -1646,7 +1646,7 @@ namespace BrightIdeasSoftware
         /// </para>
         /// <para>
         /// The effect of not being themed will be different from OS to OS. At
-        /// very least, the sort indicator will not be standard. 
+        /// very least, the sort indicator will not be standard.
         /// </para>
         /// </remarks>
         [Category("ObjectListView"),
@@ -1992,7 +1992,7 @@ namespace BrightIdeasSoftware
         /// Gets or  sets the filter that is applied to our whole list of objects.
         /// </summary>
         /// <remarks>
-        /// The list is updated immediately to reflect this filter. 
+        /// The list is updated immediately to reflect this filter.
         /// </remarks>
         [Browsable(false),
         DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -2014,7 +2014,7 @@ namespace BrightIdeasSoftware
         /// since AdditionalFilter combines with column filtering at runtime. Setting this property simply
         /// replaces any column filter the user may have given.</para>
         /// <para>
-        /// The list is updated immediately to reflect this filter. 
+        /// The list is updated immediately to reflect this filter.
         /// </para>
         /// </remarks>
         [Browsable(false),
@@ -2041,7 +2041,7 @@ namespace BrightIdeasSoftware
             private set { mouseMoveHitTest = value; }
         }
         private OlvListViewHitTestInfo mouseMoveHitTest;
-        
+
         /// <summary>
         /// Gets or sets the list of groups shown by the listview.
         /// </summary>
@@ -2306,7 +2306,7 @@ namespace BrightIdeasSoftware
                     case View.LargeIcon:
                         if (this.LargeImageList == null)
                             return this.Font.Height;
-                        
+
                         return Math.Max(this.LargeImageList.ImageSize.Height, this.Font.Height);
 
                     default:
@@ -2469,7 +2469,7 @@ namespace BrightIdeasSoftware
         private Color selectedColumnTint = Color.Empty;
 
         /// <summary>
-        /// Gets or sets the index of the row that is currently selected. 
+        /// Gets or sets the index of the row that is currently selected.
         /// When getting the index, if no row is selected,or more than one is selected, return -1.
         /// </summary>
         [Browsable(false),
@@ -2500,9 +2500,9 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// Gets the model object from the currently selected row, if there is only one row selected. 
+        /// Gets the model object from the currently selected row, if there is only one row selected.
         /// If no row is selected, or more than one is selected, returns null.
-        /// When setting, this will select the row that is displaying the given model object and focus on it. 
+        /// When setting, this will select the row that is displaying the given model object and focus on it.
         /// All other rows are deselected.
         /// </summary>
         [Browsable(false),
@@ -2518,7 +2518,7 @@ namespace BrightIdeasSoftware
                     return;
 
                 this.SelectedIndices.Clear();
-                this.SelectObject(value, true); 
+                this.SelectObject(value, true);
             }
         }
 
@@ -2537,7 +2537,7 @@ namespace BrightIdeasSoftware
             }
             set {
                 this.SelectedIndices.Clear();
-                this.SelectObjects(value); 
+                this.SelectObjects(value);
             }
         }
 
@@ -2577,7 +2577,7 @@ namespace BrightIdeasSoftware
             get { return base.ShowGroups; }
             set {
                 this.GroupImageList = this.GroupImageList;
-                base.ShowGroups = value; 
+                base.ShowGroups = value;
             }
         }
 
@@ -2651,8 +2651,8 @@ namespace BrightIdeasSoftware
         /// are complicated. If it is off and we want it on, we have
         /// to change the View and the header will appear. If it is currently
         /// on and we want to turn it off, we have to both change the view
-        /// AND recreate the handle. Recreating the handle is a problem 
-        /// since it makes our checkbox style disappear. 
+        /// AND recreate the handle. Recreating the handle is a problem
+        /// since it makes our checkbox style disappear.
         /// </para>
         /// </remarks>
         [Category("ObjectListView"),
@@ -2672,9 +2672,9 @@ namespace BrightIdeasSoftware
 
                 // If the header is being hidden, we have to recreate the control
                 // to remove the style (not sure why this is)
-                if (showHeaderInAllViews) 
+                if (showHeaderInAllViews)
                     this.ApplyExtendedStyles();
-                else 
+                else
                     this.RecreateHandle();
 
                 // Still more complications. The change doesn't become visible until the View is changed
@@ -2821,12 +2821,12 @@ namespace BrightIdeasSoftware
             get {
                 if (this.View == View.Details && this.IsHandleCreated)
                     return NativeMethods.GetTopIndex(this);
-                
+
                 return -1;
             }
             set {
                 int newTopIndex = Math.Min(value, this.GetItemCount() - 1);
-                if (this.View != View.Details || newTopIndex < 0) 
+                if (this.View != View.Details || newTopIndex < 0)
                     return;
 
                 try {
@@ -2853,11 +2853,11 @@ namespace BrightIdeasSoftware
         /// <remarks>
         /// <para>
         /// If you have a space filling column
-        /// is in the left of the column that is being resized, this will look odd: 
+        /// is in the left of the column that is being resized, this will look odd:
         /// the right edge of the column will be dragged, but
         /// its <b>left</b> edge will move since the space filling column is shrinking.
         /// </para>
-        /// <para>This is logical behaviour -- it just looks wrong.   
+        /// <para>This is logical behaviour -- it just looks wrong.
         /// </para>
         /// <para>
         /// Given the above behavior is probably best to turn this property off if your space filling
@@ -2980,7 +2980,7 @@ namespace BrightIdeasSoftware
         private bool useCustomSelectionColors;
 
         /// <summary>
-        /// Gets or sets whether this ObjectListView will use the same hot item and selection 
+        /// Gets or sets whether this ObjectListView will use the same hot item and selection
         /// mechanism that Vista Explorer does.
         /// </summary>
         /// <remarks>This property has many imperfections:
@@ -2992,7 +2992,7 @@ namespace BrightIdeasSoftware
         /// <item><description>It does not play well with HotItemStyles.</description></item>
         /// <item><description>It looks a little bit silly is FullRowSelect is false.</description></item>
         /// </list>
-        /// But if you absolutely have to look like Vista, this is your property. 
+        /// But if you absolutely have to look like Vista, this is your property.
         /// Do not complain if settings this messes up other things.
         /// </remarks>
         [Category("ObjectListView"),
@@ -3147,7 +3147,7 @@ namespace BrightIdeasSoftware
             }
         }
         private bool useTranslucentSelection;
-        
+
         /// <summary>
         /// Gets or sets if the ObjectListView will use a translucent hot row highlighting mechanism like Vista.
         /// </summary>
@@ -3468,7 +3468,7 @@ namespace BrightIdeasSoftware
 
         /// <summary>
         /// Resize the columns to the maximum of the header width and the data.
-        /// </summary>        
+        /// </summary>
         public virtual void AutoResizeColumns()
         {
             foreach (OLVColumn c in this.Columns)
@@ -3479,8 +3479,8 @@ namespace BrightIdeasSoftware
 
 
         /// <summary>
-        /// Set up any automatically initialized column widths (columns that 
-        /// have a width of 0 or -1 will be resized to the width of their 
+        /// Set up any automatically initialized column widths (columns that
+        /// have a width of 0 or -1 will be resized to the width of their
         /// contents or header respectively).
         /// </summary>
         public virtual void AutoSizeColumns() {
@@ -3591,7 +3591,7 @@ namespace BrightIdeasSoftware
                 return;
 
             // If the event didn't create them for us, use our default strategy
-            if (args.Groups == null) 
+            if (args.Groups == null)
                 args.Groups = this.MakeGroups(parms);
 
             // Give the world a chance to munge the groups before they are created
@@ -3615,7 +3615,7 @@ namespace BrightIdeasSoftware
         /// <returns></returns>
         protected virtual GroupingParameters CollectGroupingParameters(OLVColumn groupByColumn, SortOrder groupByOrder,
             OLVColumn sortByColumn, SortOrder sortByOrder, OLVColumn secondaryColumn, SortOrder secondaryOrder) {
-            
+
             // If the user tries to group by a non-groupable column, keep the current group by
             // settings, but use the non-groupable column for sorting
             if (!groupByColumn.Groupable && lastGroupingParameters != null) {
@@ -3657,7 +3657,7 @@ namespace BrightIdeasSoftware
             // Sort the items within each group (unless specifically turned off)
             OLVColumn sortColumn = parms.SortItemsByPrimaryColumn ? parms.ListView.GetColumn(0) : parms.PrimarySort;
             if (sortColumn != null && parms.PrimarySortOrder != SortOrder.None) {
-                IComparer<OLVListItem> itemSorter = parms.ItemComparer ?? 
+                IComparer<OLVListItem> itemSorter = parms.ItemComparer ??
                     new ColumnComparer(sortColumn, parms.PrimarySortOrder, parms.SecondarySort, parms.SecondarySortOrder);
                 foreach (object key in map.Keys) {
                     map[key].Sort(itemSorter);
@@ -3791,7 +3791,7 @@ namespace BrightIdeasSoftware
         /// <para>
         /// Normally, we would override CreateParms property and update
         /// the ExStyle member, but ListView seems to ignore all ExStyles that
-        /// it doesn't already know about. Worse, when we set the LVS_EX_HEADERINALLVIEWS 
+        /// it doesn't already know about. Worse, when we set the LVS_EX_HEADERINALLVIEWS
         /// value, bad things happen (the control crashes!).
         /// </para>
         /// </remarks>
@@ -3851,10 +3851,10 @@ namespace BrightIdeasSoftware
                     if (columns[index].LastDisplayIndex == -1)
                         columns[index].LastDisplayIndex = index;
                 }
-                // ListView will ignore DisplayIndex FOR ALL COLUMNS if there are any errors, 
-                // e.g. duplicates (two columns with the same DisplayIndex) or gaps. 
+                // ListView will ignore DisplayIndex FOR ALL COLUMNS if there are any errors,
+                // e.g. duplicates (two columns with the same DisplayIndex) or gaps.
                 // LastDisplayIndex isn't guaranteed to be unique, so we just sort the columns by
-                // the last position they were displayed and use that to generate a sequence 
+                // the last position they were displayed and use that to generate a sequence
                 // we can use for the DisplayIndex values.
                 List<OLVColumn> columnsInDisplayOrder = new List<OLVColumn>(columns);
                 columnsInDisplayOrder.Sort(delegate(OLVColumn x, OLVColumn y) { return (x.LastDisplayIndex - y.LastDisplayIndex); });
@@ -3994,7 +3994,7 @@ namespace BrightIdeasSoftware
         public virtual OLVListItem GetLastItemInDisplayOrder() {
             if (!this.ShowGroups)
                 return this.GetItem(this.GetItemCount() - 1);
-            
+
             if (this.Groups.Count > 0) {
                 ListViewGroup lastGroup = this.Groups[this.Groups.Count - 1];
                 if (lastGroup.Items.Count > 0)
@@ -4063,7 +4063,7 @@ namespace BrightIdeasSoftware
                     foreach (OLVListItem lvi in group.Items) {
                         if (lvi == itemToFind)
                             return previousItem;
-                        
+
                         previousItem = lvi;
                     }
                 }
@@ -4178,7 +4178,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// Return a point that represents the current horizontal and vertical scroll positions 
+        /// Return a point that represents the current horizontal and vertical scroll positions
         /// </summary>
         public Point LowLevelScrollPosition {
             get {
@@ -4470,7 +4470,7 @@ namespace BrightIdeasSoftware
             for (int i = 0; i < this.Columns.Count; i++) {
                 OLVColumn col = this.GetColumn(i);
                 ImageRenderer renderer = col.Renderer as ImageRenderer;
-                if (renderer != null) 
+                if (renderer != null)
                     renderer.Paused = isPause;
             }
         }
@@ -4559,7 +4559,7 @@ namespace BrightIdeasSoftware
         /// <remarks>
         /// <para>
         /// This method uses ListView's native ability to display a background image.
-        /// It has a few limitations: 
+        /// It has a few limitations:
         /// </para>
         /// <list type="bullet">
         /// <item><description>It doesn't work well with owner drawn mode. In owner drawn mode, each cell draws itself,
@@ -4588,7 +4588,7 @@ namespace BrightIdeasSoftware
         /// <para>This has the same limitations as described in <see cref="SetNativeBackgroundWatermark"/>. Make sure those limitations
         /// are understood before using the method.</para>
         /// <para>This is very similar to setting the <see cref="System.Windows.Forms.Control.BackgroundImage"/> property of the standard .NET ListView, except that the standard
-        /// BackgroundImage does not handle images with transparent areas properly -- it renders transparent areas as black. This 
+        /// BackgroundImage does not handle images with transparent areas properly -- it renders transparent areas as black. This
         /// method does not have that problem.</para>
         /// <para>Setting this clears any background watermark.</para>
         /// </remarks>
@@ -4700,7 +4700,7 @@ namespace BrightIdeasSoftware
                 foreach (object modelObject in modelObjects) {
                     if (modelObject != null) {
                         int i = ourObjects.IndexOf(modelObject);
-                        if (i < 0) 
+                        if (i < 0)
                             objectsToAdd.Add(modelObject);
                         else {
                             ourObjects[i] = modelObject;
@@ -4752,7 +4752,7 @@ namespace BrightIdeasSoftware
         /// This should be set before calling SetObjects(). If you set this to false,
         /// ObjectListView will unsubscribe to all current model objects.
         /// </para>
-        /// <para>If you set this to true on a virtual list, the ObjectListView will 
+        /// <para>If you set this to true on a virtual list, the ObjectListView will
         /// walk all the objects in the list trying to subscribe to change notifications.
         /// If you have 10,000,000 items in your virtual list, this may take some time.</para>
         /// </remarks>
@@ -5987,8 +5987,8 @@ namespace BrightIdeasSoftware
             switch (nmhdr.code) {
                 case NM_CLICK:
                     // The standard ListView does some strange stuff here when the list has checkboxes.
-                    // If you shift click on non-primary columns when FullRowSelect is true, the 
-                    // checkedness of the selected rows changes. 
+                    // If you shift click on non-primary columns when FullRowSelect is true, the
+                    // checkedness of the selected rows changes.
                     // We avoid all that by just saying we've handled this message.
                     //System.Diagnostics.Debug.WriteLine("NM_CLICK");
                     isMsgHandled = true;
@@ -6349,7 +6349,7 @@ namespace BrightIdeasSoftware
             this.OnColumnRightClick(eventArgs);
 
             // TODO: Allow users to say they have handled this event
-            
+
             return this.ShowHeaderRightClickMenu(columnIndex, Cursor.Position);
         }
 
@@ -6383,7 +6383,7 @@ namespace BrightIdeasSoftware
             if (columnIndex >= 0 && this.UseFiltering && this.ShowFilterMenuOnRightClick)
                 m = this.MakeFilteringMenu(m, columnIndex);
 
-            if (columnIndex >= 0 && this.ShowCommandMenuOnRightClick) 
+            if (columnIndex >= 0 && this.ShowCommandMenuOnRightClick)
                 m = this.MakeColumnCommandMenu(m, columnIndex);
 
             if (this.SelectColumnsOnRightClickBehaviour != ColumnSelectBehaviour.None) {
@@ -6441,7 +6441,7 @@ namespace BrightIdeasSoftware
         private string menuLabelSortAscending = "Sort ascending by '{0}'";
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [Category("Labels - ObjectListView"), DefaultValue("Sort descending by '{0}'"), Localizable(true)]
         public string MenuLabelSortDescending {
@@ -6451,7 +6451,7 @@ namespace BrightIdeasSoftware
         private string menuLabelSortDescending = "Sort descending by '{0}'";
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [Category("Labels - ObjectListView"), DefaultValue("Group by '{0}'"), Localizable(true)]
         public string MenuLabelGroupBy {
@@ -6461,7 +6461,7 @@ namespace BrightIdeasSoftware
         private string menuLabelGroupBy = "Group by '{0}'";
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [Category("Labels - ObjectListView"), DefaultValue("Lock grouping on '{0}'"), Localizable(true)]
         public string MenuLabelLockGroupingOn {
@@ -6471,7 +6471,7 @@ namespace BrightIdeasSoftware
         private string menuLabelLockGroupingOn = "Lock grouping on '{0}'";
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [Category("Labels - ObjectListView"), DefaultValue("Unlock grouping from '{0}'"), Localizable(true)]
         public string MenuLabelUnlockGroupingOn {
@@ -6481,7 +6481,7 @@ namespace BrightIdeasSoftware
         private string menuLabelUnlockGroupingOn = "Unlock grouping from '{0}'";
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [Category("Labels - ObjectListView"), DefaultValue("Turn off groups"), Localizable(true)]
         public string MenuLabelTurnOffGroups {
@@ -6491,7 +6491,7 @@ namespace BrightIdeasSoftware
         private string menuLabelTurnOffGroups = "Turn off groups";
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [Category("Labels - ObjectListView"), DefaultValue("Unsort"), Localizable(true)]
         public string MenuLabelUnsort {
@@ -6501,7 +6501,7 @@ namespace BrightIdeasSoftware
         private string menuLabelUnsort = "Unsort";
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [Category("Labels - ObjectListView"), DefaultValue("Columns"), Localizable(true)]
         public string MenuLabelColumns {
@@ -6511,7 +6511,7 @@ namespace BrightIdeasSoftware
         private string menuLabelColumns = "Columns";
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [Category("Labels - ObjectListView"), DefaultValue("Select Columns..."), Localizable(true)]
         public string MenuLabelSelectColumns {
@@ -6646,7 +6646,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// Create the menu items that will allow columns to be choosen and add them to the 
+        /// Create the menu items that will allow columns to be choosen and add them to the
         /// given collection
         /// </summary>
         /// <param name="items"></param>
@@ -6919,7 +6919,7 @@ namespace BrightIdeasSoftware
         /// <param name="rowObject"></param>
         /// <param name="column"></param>
         public virtual bool IsSubItemChecked(object rowObject, OLVColumn column) {
-            if (column == null || rowObject == null || !column.CheckBoxes) 
+            if (column == null || rowObject == null || !column.CheckBoxes)
                 return false;
             return (column.GetCheckState(rowObject) == CheckState.Checked);
         }
@@ -6931,7 +6931,7 @@ namespace BrightIdeasSoftware
         /// <param name="modelObject"></param>
         /// <returns></returns>
         protected virtual CheckState? GetCheckState(Object modelObject) {
-            if (this.CheckStateGetter != null) 
+            if (this.CheckStateGetter != null)
                 return this.CheckStateGetter(modelObject);
             return this.PersistentCheckBoxes ? this.GetPersistentCheckState(modelObject) : (CheckState?)null;
         }
@@ -6945,7 +6945,7 @@ namespace BrightIdeasSoftware
         /// <returns>The check state that was recorded and that should be used to update
         /// the control.</returns>
         protected virtual CheckState PutCheckState(Object modelObject, CheckState state) {
-            if (this.CheckStatePutter != null) 
+            if (this.CheckStatePutter != null)
                 return this.CheckStatePutter(modelObject, state);
             return this.PersistentCheckBoxes ? this.SetPersistentCheckState(modelObject, state) : state;
         }
@@ -7135,9 +7135,9 @@ namespace BrightIdeasSoftware
         /// <param name="index">Index of the item to be returned</param>
         /// <returns>An OLVListItem</returns>
         public virtual OLVListItem GetItem(int index) {
-            if (index < 0 || index >= this.GetItemCount()) 
+            if (index < 0 || index >= this.GetItemCount())
                 return null;
-            
+
             return (OLVListItem)this.Items[index];
         }
 
@@ -7309,7 +7309,7 @@ namespace BrightIdeasSoftware
         /// </para>
         /// <para>
         /// If you want the given model object to replace the pre-existing model,
-        /// use <see cref="UpdateObject"/>. 
+        /// use <see cref="UpdateObject"/>.
         /// </para>
         /// </remarks>
         public virtual void RefreshObject(object modelObject) {
@@ -8239,7 +8239,7 @@ namespace BrightIdeasSoftware
             }
 
             // The internal logic of ListView cycles through the state images when the primary
-            // checkbox is clicked. So we have to get exactly the right number of images in the 
+            // checkbox is clicked. So we have to get exactly the right number of images in the
             // image list.
             if (this.StateImageList.Images.Count == 0)
                 this.AddCheckStateBitmap(this.StateImageList, UNCHECKED_KEY, CheckBoxState.UncheckedNormal);
@@ -8280,7 +8280,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// Make sure the small image list for this control has checkbox images 
+        /// Make sure the small image list for this control has checkbox images
         /// (used for sub-item checkboxes).
         /// </summary>
         /// <remarks>
@@ -8289,7 +8289,7 @@ namespace BrightIdeasSoftware
         /// </para>
         /// <para>
         /// ObjectListView has to manage checkboxes on subitems separate from the checkboxes on each row.
-        /// The underlying ListView knows about the per-row checkboxes, and to make them work, OLV has to 
+        /// The underlying ListView knows about the per-row checkboxes, and to make them work, OLV has to
         /// correctly configure the StateImageList. However, the ListView cannot do checkboxes in subitems,
         /// so ObjectListView has to handle them in a differnt fashion. So, per-row checkboxes are controlled
         /// by images in the StateImageList, but per-cell checkboxes are handled by images in the SmallImageList.
@@ -8509,11 +8509,11 @@ namespace BrightIdeasSoftware
                 return;
 
             // We only start the edit if the user clicked on the image or text.
-            if (args.HitTest.HitTestLocation == HitTestLocation.Nothing) 
+            if (args.HitTest.HitTestLocation == HitTestLocation.Nothing)
                 return;
 
             // We don't edit the primary column by single clicks -- only subitems.
-            if (this.CellEditActivation == CellEditActivateMode.SingleClick && args.ColumnIndex <= 0) 
+            if (this.CellEditActivation == CellEditActivateMode.SingleClick && args.ColumnIndex <= 0)
                 return;
 
             // Don't start a cell edit operation when the user clicks on the background of a checkbox column -- it just looks wrong.
@@ -8694,7 +8694,7 @@ namespace BrightIdeasSoftware
         /// <returns></returns>
         protected override bool ProcessDialogKey(Keys keyData) {
 
-            if (this.IsCellEditing) 
+            if (this.IsCellEditing)
                 return this.CellEditKeyEngine.HandleKey(this, keyData);
 
             // Treat F2 as a request to edit the primary column
@@ -8703,7 +8703,7 @@ namespace BrightIdeasSoftware
                 return base.ProcessDialogKey(keyData);
             }
 
-            // Treat Ctrl-C as Copy To Clipboard. 
+            // Treat Ctrl-C as Copy To Clipboard.
             if (this.CopySelectionOnControlC && keyData == (Keys.C | Keys.Control)) {
                 this.CopySelectionToClipboard();
                 return true;
@@ -8717,7 +8717,7 @@ namespace BrightIdeasSoftware
 
             return base.ProcessDialogKey(keyData);
         }
-        
+
         /// <summary>
         /// Start an editing operation on the first editable column of the given model.
         /// </summary>
@@ -8791,7 +8791,7 @@ namespace BrightIdeasSoftware
             // The event handler may have completely changed the control, so we need to remember it
             this.cellEditor = this.cellEditEventArgs.Control;
 
-            // If the control isn't the height of the cell, centre it vertically. 
+            // If the control isn't the height of the cell, centre it vertically.
             // We don't do this in OwnerDrawn mode since the renderer already aligns the control correctly.
             // We also dont need to do this when in Tile view.
             if (this.View != View.Tile && !this.OwnerDraw && this.cellEditor.Height != r.Height) {
@@ -8820,7 +8820,7 @@ namespace BrightIdeasSoftware
                 r = this.GetItemRect(item.Index, ItemBoundsPortion.Label);
             if (this.OwnerDraw)
                 return CalculateCellEditorBoundsOwnerDrawn(item, subItemIndex, r, preferredSize);
-            
+
             return CalculateCellEditorBoundsStandard(item, subItemIndex, r, preferredSize);
         }
 
@@ -8859,7 +8859,7 @@ namespace BrightIdeasSoftware
             if (this.View != View.Details)
                 return cellBounds;
 
-            // Allow for image (if there is one). 
+            // Allow for image (if there is one).
             int offset = 0;
             object imageSelector = null;
             if (subItemIndex == 0)
@@ -9160,7 +9160,7 @@ namespace BrightIdeasSoftware
         /// process can cause the finishing to be aborted. Developers should check the return value
         /// or use IsCellEditing property after calling this method to see if the user is still
         /// editing a cell.</remarks>
-        /// <param name="expectingCellEdit">True if it is likely that another cell is going to be 
+        /// <param name="expectingCellEdit">True if it is likely that another cell is going to be
         /// edited immediately after this cell finishes editing</param>
         public virtual bool PossibleFinishCellEditing(bool expectingCellEdit) {
             if (!this.IsCellEditing)
@@ -9192,7 +9192,7 @@ namespace BrightIdeasSoftware
         /// </summary>
         /// <remarks>This method does not trigger a Validating event, so it always finishes
         /// the cell edit.</remarks>
-        /// <param name="expectingCellEdit">True if it is likely that another cell is going to be 
+        /// <param name="expectingCellEdit">True if it is likely that another cell is going to be
         /// edited immediately after this cell finishes editing</param>
         public virtual void FinishCellEdit(bool expectingCellEdit) {
             if (!this.IsCellEditing)
@@ -9214,7 +9214,7 @@ namespace BrightIdeasSoftware
         /// <summary>
         /// Remove all trace of any existing cell edit operation
         /// </summary>
-        /// <param name="expectingCellEdit">True if it is likely that another cell is going to be 
+        /// <param name="expectingCellEdit">True if it is likely that another cell is going to be
         /// edited immediately after this cell finishes editing</param>
         /// <param name="disposeOfCellEditor">True if the cell editor should be disposed </param>
         protected virtual void CleanupCellEdit(bool expectingCellEdit, bool disposeOfCellEditor) {
@@ -9226,7 +9226,7 @@ namespace BrightIdeasSoftware
             Control soonToBeOldCellEditor = this.cellEditor;
             this.cellEditor = null;
 
-            // Delay cleaning up the cell editor so that if we are immediately going to 
+            // Delay cleaning up the cell editor so that if we are immediately going to
             // start a new cell edit (because the user pressed Tab) the new cell editor
             // has a chance to grab the focus. Without this, the ListView gains focus
             // momentarily (after the cell editor is remove and before the new one is created)
@@ -9250,7 +9250,7 @@ namespace BrightIdeasSoftware
             // to be edited. Otherwise, we remove the control immediately.
             if (expectingCellEdit)
                 this.RunWhenIdle(toBeRun);
-            else 
+            else
                 toBeRun(null, null);
         }
 
@@ -9496,7 +9496,7 @@ namespace BrightIdeasSoftware
         #region Drag and drop
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="e"></param>
         protected override void OnItemDrag(ItemDragEventArgs e) {
@@ -9513,7 +9513,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="args"></param>
         protected override void OnDragEnter(DragEventArgs args) {
@@ -9524,7 +9524,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="args"></param>
         protected override void OnDragOver(DragEventArgs args) {
@@ -9535,7 +9535,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="args"></param>
         protected override void OnDragDrop(DragEventArgs args) {
@@ -9546,7 +9546,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="e"></param>
         protected override void OnDragLeave(EventArgs e) {
@@ -9557,7 +9557,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="args"></param>
         protected override void OnGiveFeedback(GiveFeedbackEventArgs args) {
@@ -9568,7 +9568,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="args"></param>
         protected override void OnQueryContinueDrag(QueryContinueDragEventArgs args) {
@@ -9975,7 +9975,7 @@ namespace BrightIdeasSoftware
 
         private List<GlassPanelForm> glassPanels = new List<GlassPanelForm>(); // The transparent panel that draws overlays
         private Dictionary<string, bool> visitedUrlMap = new Dictionary<string, bool>(); // Which urls have been visited?
-        
+
         // TODO
         //private CheckBoxSettings checkBoxSettings = new CheckBoxSettings();
 

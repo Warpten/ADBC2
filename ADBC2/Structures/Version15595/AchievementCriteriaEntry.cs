@@ -22,11 +22,11 @@ namespace ADBC2.Structures.Cataclysm
         public uint TimedCriteriaMiscId;
         public uint TimerLimit;
         public uint ShowOrder;
-        
+    
         [StoragePresence(StoragePresenceOption.Include, ArraySize = 2)]
         [OLVIgnore]
         public uint[] _Unk_1;
-        
+    
         public uint ExtraConditionType_1;
         public uint ExtraConditionType_2;
         public uint ExtraConditionType_3;

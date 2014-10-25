@@ -1,5 +1,5 @@
 ﻿using System;
-using BrightIdeasSoftware; 
+using BrightIdeasSoftware;
 
 namespace ADBC2.Structures.Cataclysm
 {

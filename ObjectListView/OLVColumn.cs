@@ -8,7 +8,7 @@
  * 2011-05-27  JPP  - Added Sortable, Hideable, Groupable, Searchable, ShowTextInHeader properties
  * 2011-04-12  JPP  - Added HasFilterIndicator
  * 2011-03-31  JPP  - Split into its own file
- * 
+ *
  * Copyright (C) 2011-2012 Phillip Piper
  *
  * This program is free software: you can redistribute it and/or modify
@@ -103,7 +103,7 @@ namespace BrightIdeasSoftware {
             this.AspectName = aspect;
         }
 
-        #endregion 
+        #endregion
 
         #region Public Properties
 
@@ -252,7 +252,7 @@ namespace BrightIdeasSoftware {
         /// <remarks>
         /// <para>
         /// This setting only takes effect when the control is owner drawn.
-        /// </para>        
+        /// </para>
         /// <para>
         /// If this is not set, the value from the control itself will be used.
         /// </para>
@@ -295,12 +295,12 @@ namespace BrightIdeasSoftware {
         private bool checkBoxes;
 
         /// <summary>
-        /// Gets or sets the clustering strategy used for this column. 
+        /// Gets or sets the clustering strategy used for this column.
         /// </summary>
         /// <remarks>
         /// <para>
-        /// The clustering strategy is used to build a Filtering menu for this item. 
-        /// If this is null, a useful default will be chosen. 
+        /// The clustering strategy is used to build a Filtering menu for this item.
+        /// If this is null, a useful default will be chosen.
         /// </para>
         /// <para>
         /// To disable filtering on this colummn, set UseFiltering to false.
@@ -768,7 +768,7 @@ namespace BrightIdeasSoftware {
         /// Get/set whether this column should be used when the view is switched to tile view.
         /// </summary>
         /// <remarks>Column 0 is always included in tileview regardless of this setting.
-        /// Tile views do not work well with many "columns" of information. 
+        /// Tile views do not work well with many "columns" of information.
         /// Two or three works best.</remarks>
         [Category("ObjectListView"),
          Description("Will this column be used when the view is switched to tile view"),
@@ -924,7 +924,7 @@ namespace BrightIdeasSoftware {
         private bool showTextInHeader = true;
 
         /// <summary>
-        /// Gets or sets whether the contents of the list will be resorted when the user clicks the 
+        /// Gets or sets whether the contents of the list will be resorted when the user clicks the
         /// header of this column.
         /// </summary>
         /// <remarks>
@@ -1122,7 +1122,7 @@ namespace BrightIdeasSoftware {
 
                 BaseRenderer baseRenderer = this.Renderer as BaseRenderer;
 
-                // If there is a custom renderer (not descended from BaseRenderer), 
+                // If there is a custom renderer (not descended from BaseRenderer),
                 // we leave it up to them to implement wrapping
                 if (baseRenderer == null)
                     return;
@@ -1313,7 +1313,7 @@ namespace BrightIdeasSoftware {
         /// </summary>
         /// <remarks>
         /// If the column has been given a AspectToStringConverter, that will be used to do
-        /// the conversion, otherwise just use ToString(). 
+        /// the conversion, otherwise just use ToString().
         /// The returned value will not be null. Nulls are always converted
         /// to empty strings.
         /// </remarks>
@@ -1327,11 +1327,11 @@ namespace BrightIdeasSoftware {
             // Without a converter, nulls become simple empty strings
             if (value == null)
                 return String.Empty;
-            
+
             string fmt = this.AspectToStringFormat;
             if (!value.GetType().IsArray)
                 return String.IsNullOrEmpty(fmt) ? value.ToString() : String.Format(fmt, value);
-            return "Array"; // TODO: detect cases where this is called by ctrl+c and return actual data ("[...]")
+            return "Array";
         }
 
         #endregion

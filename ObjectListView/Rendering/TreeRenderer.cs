@@ -56,7 +56,7 @@ namespace BrightIdeasSoftware {
                 set { isShowLines = value; }
             }
             private bool isShowLines = true;
-            
+
             /// <summary>
             /// How many pixels will be reserved for each level of indentation?
             /// </summary>
@@ -84,7 +84,7 @@ namespace BrightIdeasSoftware {
                 if (this.IsShowLines)
                     this.DrawLines(g, r, this.LinePen, br, expandGlyphRectangleMidVertical);
 
-                if (br.CanExpand) 
+                if (br.CanExpand)
                     this.DrawExpansionGlyph(g, expandGlyphRectangle, br.IsExpanded);
 
                 int indent = br.Level * PIXELS_PER_LEVEL;

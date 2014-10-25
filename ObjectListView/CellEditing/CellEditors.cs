@@ -14,7 +14,7 @@
  * 2008-01-16   JPP  - Added EditorRegistry
  * v2.0.1
  * 2008-10-20   JPP  - Separated from ObjectListView.cs
- * 
+ *
  * Copyright (C) 2006-2012 Phillip Piper
  *
  * This program is free software: you can redistribute it and/or modify
@@ -49,7 +49,7 @@ namespace BrightIdeasSoftware
     public class ComboBoxItem
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="key"></param>
         /// <param name="description"></param>
@@ -60,7 +60,7 @@ namespace BrightIdeasSoftware
         private readonly String description;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Object Key {
             get { return key; }
@@ -70,13 +70,13 @@ namespace BrightIdeasSoftware
         public override string ToString() {
             return this.description;
         }
-    } 
+    }
 
     //-----------------------------------------------------------------------
     // Cell editors
     // These classes are simple cell editors that make it easier to get and set
     // the value that the control is showing.
-    // In many cases, you can intercept the CellEditStarting event to 
+    // In many cases, you can intercept the CellEditStarting event to
     // change the characteristics of the editor. For example, changing
     // the acceptable range for a numeric editor or changing the strings
     // that respresent true and false values for a boolean editor.
@@ -117,7 +117,7 @@ namespace BrightIdeasSoftware
     public class EnumCellEditor : ComboBox
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="type"></param>
         public EnumCellEditor(Type type) {
@@ -139,7 +139,7 @@ namespace BrightIdeasSoftware
     public class IntUpDown : NumericUpDown
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public IntUpDown() {
             this.DecimalPlaces = 0;
@@ -184,7 +184,7 @@ namespace BrightIdeasSoftware
     public class BooleanCellEditor : ComboBox
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public BooleanCellEditor() {
             this.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -212,12 +212,12 @@ namespace BrightIdeasSoftware
                 switch (this.CheckState) {
                     case CheckState.Checked: return true;
                     case CheckState.Indeterminate: return null;
-                    case CheckState.Unchecked: 
+                    case CheckState.Unchecked:
                     default: return false;
                 }
             }
             set {
-                if (value.HasValue) 
+                if (value.HasValue)
                     this.CheckState = value.Value ? CheckState.Checked : CheckState.Unchecked;
                 else
                     this.CheckState = CheckState.Indeterminate;
@@ -232,7 +232,7 @@ namespace BrightIdeasSoftware
                 switch (this.CheckAlign) {
                     case ContentAlignment.MiddleRight: return HorizontalAlignment.Right;
                     case ContentAlignment.MiddleCenter: return HorizontalAlignment.Center;
-                    case ContentAlignment.MiddleLeft: 
+                    case ContentAlignment.MiddleLeft:
                     default: return HorizontalAlignment.Left;
                 }
             }
@@ -262,7 +262,7 @@ namespace BrightIdeasSoftware
     public class FloatCellEditor : NumericUpDown
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public FloatCellEditor() {
             this.DecimalPlaces = 2;

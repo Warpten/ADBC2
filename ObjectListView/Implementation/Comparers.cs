@@ -2,7 +2,7 @@
  * Comparers - Various Comparer classes used within ObjectListView
  *
  * Author: Phillip Piper
- * Date: 25/11/2008 17:15 
+ * Date: 25/11/2008 17:15
  *
  * Change log:
  * v2.3

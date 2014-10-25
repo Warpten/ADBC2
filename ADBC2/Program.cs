@@ -3,7 +3,7 @@
  * User: Warpten
  * Date: 15/09/2014
  * Time: 19:07
- * 
+ *
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
@@ -26,6 +26,6 @@ namespace ADBC2
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
         }
-        
+
     }
 }

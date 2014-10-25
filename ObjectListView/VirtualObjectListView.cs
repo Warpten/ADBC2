@@ -37,14 +37,14 @@
  * v2.1
  * 2009-02-24   JPP  - Removed redundant OnMouseDown() since checkbox
  *                     handling is now handled in the base class
- * 2009-01-07   JPP  - Made all public and protected methods virtual 
+ * 2009-01-07   JPP  - Made all public and protected methods virtual
  * 2008-12-07   JPP  - Trigger Before/AfterSearching events
  * 2008-11-15   JPP  - Fixed some caching issues
  * 2008-11-05   JPP  - Rewrote handling of check boxes
  * 2008-10-28   JPP  - Handle SetSelectedObjects(null)
  * 2008-10-02   JPP  - MAJOR CHANGE: Use IVirtualListDataSource
  * 2008-09-27   JPP  - Separated from ObjectListView.cs
- * 
+ *
  * Copyright (C) 2006-2012 Phillip Piper
  *
  * This program is free software: you can redistribute it and/or modify
@@ -88,11 +88,11 @@ namespace BrightIdeasSoftware
     /// In any case, you really do not want to keep state information for 10 million animations!</para>
     /// <para>
     /// Although it isn't documented, .NET virtual lists cannot have checkboxes. This class codes around this limitation,
-    /// but you must use the functions provided by ObjectListView: CheckedObjects, CheckObject(), UncheckObject() and their friends. 
+    /// but you must use the functions provided by ObjectListView: CheckedObjects, CheckObject(), UncheckObject() and their friends.
     /// If you use the normal check box properties (CheckedItems or CheckedIndicies), they will throw an exception, since the
     /// list is in virtual mode, and .NET "knows" it can't handle checkboxes in virtual mode.
     /// </para>
-    /// <para>Due to the limits of the underlying Windows control, virtual lists do not trigger ItemCheck/ItemChecked events. 
+    /// <para>Due to the limits of the underlying Windows control, virtual lists do not trigger ItemCheck/ItemChecked events.
     /// Use a CheckStatePutter instead.</para>
     /// <para>To enable grouping, you must provide an implmentation of IVirtualGroups interface, via the GroupingStrategy property.</para>
     /// <para>Similarly, to enable filtering on the list, your VirtualListDataSource must also implement the IFilterableDataSource interface.</para>
@@ -115,7 +115,7 @@ namespace BrightIdeasSoftware
 
             this.VirtualListDataSource = new VirtualListVersion1DataSource(this);
 
-            // Virtual lists have to manage their own check state, since the normal ListView control 
+            // Virtual lists have to manage their own check state, since the normal ListView control
             // doesn't even allow checkboxes on virtual lists
             this.PersistentCheckBoxes = true;
         }
@@ -202,7 +202,7 @@ namespace BrightIdeasSoftware
                 ArrayList objects = new ArrayList();
                 foreach (KeyValuePair<Object, CheckState> kvp in this.CheckStateMap)
                 {
-                    if (kvp.Value == CheckState.Checked && 
+                    if (kvp.Value == CheckState.Checked &&
                         (!this.CheckedObjectsMustStillExistInList ||
                          this.VirtualListDataSource.GetObjectIndex(kvp.Key) >= 0))
                         objects.Add(kvp.Key);
@@ -296,7 +296,7 @@ namespace BrightIdeasSoftware
         /// you do not want to preserve the selection. Preserving selection is the slowest part of this
         /// code -- performance is O(n) where n is the number of selected rows.</para>
         /// <para>This method is not thread safe.</para>
-        /// <para>The property DOES work on virtual lists, but if you try to iterate through a list 
+        /// <para>The property DOES work on virtual lists, but if you try to iterate through a list
         /// of 10 million objects, it may take some time :)</para>
         /// </remarks>
         [Browsable(false),
@@ -341,7 +341,7 @@ namespace BrightIdeasSoftware
             }
             set {
                 this.showGroups = value;
-                if (this.Created && !value) 
+                if (this.Created && !value)
                     this.DisableVirtualGroups();
             }
         }
@@ -373,7 +373,7 @@ namespace BrightIdeasSoftware
         /// Gets or sets the number of rows in this virtual list.
         /// </summary>
         /// <remarks>
-        /// There is an annoying feature/bug in the .NET ListView class. 
+        /// There is an annoying feature/bug in the .NET ListView class.
         /// When you change the VirtualListSize property, it always scrolls so
         /// that the focused item is the top item. This is annoying since it makes
         /// the virtual list seem to flicker as the control scrolls to show the focused
@@ -854,7 +854,7 @@ namespace BrightIdeasSoftware
         /// <param name="itemToFind">The item that is before the item that is returned, or null</param>
         /// <returns>A OLVListItem</returns>
         public override OLVListItem GetNextItem(OLVListItem itemToFind) {
-            if (!this.ShowGroups) 
+            if (!this.ShowGroups)
                 return base.GetNextItem(itemToFind);
 
             // Sanity
@@ -873,7 +873,7 @@ namespace BrightIdeasSoftware
             // If it's not the last member, just return the next member
             if (indexWithinGroup < this.OLVGroups[groupIndex].VirtualItemCount - 1)
                 return this.GetItem(this.GroupingStrategy.GetGroupMember(this.OLVGroups[groupIndex], indexWithinGroup + 1));
-            
+
             // The item is the last member of its group. Return the first member of the next group
             // (unless there isn't a next group)
             if (groupIndex < this.OLVGroups.Count - 1)
@@ -890,7 +890,7 @@ namespace BrightIdeasSoftware
         /// <param name="itemToFind">The item that is before the item that is returned</param>
         /// <returns>A ListViewItem</returns>
         public override OLVListItem GetPreviousItem(OLVListItem itemToFind) {
-            if (!this.ShowGroups) 
+            if (!this.ShowGroups)
                 return base.GetPreviousItem(itemToFind);
 
             // Sanity
@@ -992,8 +992,8 @@ namespace BrightIdeasSoftware
             this.ClearCachedInfo();
 
             // There is a bug in .NET when a virtual ListView is cleared
-            // (i.e. VirtuaListSize set to 0) AND it is scrolled vertically: the scroll position 
-            // is wrong when the list is next populated. To avoid this, before 
+            // (i.e. VirtuaListSize set to 0) AND it is scrolled vertically: the scroll position
+            // is wrong when the list is next populated. To avoid this, before
             // clearing a virtual list, we make sure the list is scrolled to the top.
             // [6 weeks later] Damn this is a pain! There are cases where this can also throw exceptions!
             try {

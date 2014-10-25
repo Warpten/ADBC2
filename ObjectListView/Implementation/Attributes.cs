@@ -11,12 +11,12 @@
  *                  - OLV attributes can now only be set on properties
  * v2.4
  * 2010-04-14  JPP  - Allow Name property to be set
- * 
+ *
  * v2.3
  * 2009-08-15  JPP  - Initial version
  *
  * To do:
- * 
+ *
  * Copyright (C) 2009-2012 Phillip Piper
  *
  * This program is free software: you can redistribute it and/or modify
@@ -76,7 +76,7 @@ namespace BrightIdeasSoftware
         #region Public properties
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public string AspectToStringFormat {
             get { return aspectToStringFormat; }
@@ -85,7 +85,7 @@ namespace BrightIdeasSoftware
         private string aspectToStringFormat;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool CheckBoxes {
             get { return checkBoxes; }
@@ -98,7 +98,7 @@ namespace BrightIdeasSoftware
         internal bool IsCheckBoxesSet = false;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public int DisplayIndex {
             get { return displayIndex; }
@@ -107,7 +107,7 @@ namespace BrightIdeasSoftware
         private int displayIndex = -1;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool FillsFreeSpace {
             get { return fillsFreeSpace; }
@@ -116,7 +116,7 @@ namespace BrightIdeasSoftware
         private bool fillsFreeSpace;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public int FreeSpaceProportion {
             get { return freeSpaceProportion; }
@@ -130,7 +130,7 @@ namespace BrightIdeasSoftware
 
         /// <summary>
         /// An array of IComparables that mark the cutoff points for values when
-        /// grouping on this column. 
+        /// grouping on this column.
         /// </summary>
         public object[] GroupCutoffs {
             get { return groupCutoffs; }
@@ -139,7 +139,7 @@ namespace BrightIdeasSoftware
         private object[] groupCutoffs;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public string[] GroupDescriptions {
             get { return groupDescriptions; }
@@ -148,7 +148,7 @@ namespace BrightIdeasSoftware
         private string[] groupDescriptions;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public string GroupWithItemCountFormat {
             get { return groupWithItemCountFormat; }
@@ -157,7 +157,7 @@ namespace BrightIdeasSoftware
         private string groupWithItemCountFormat;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public string GroupWithItemCountSingularFormat {
             get { return groupWithItemCountSingularFormat; }
@@ -166,7 +166,7 @@ namespace BrightIdeasSoftware
         private string groupWithItemCountSingularFormat;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Hyperlink {
             get { return hyperlink; }
@@ -175,7 +175,7 @@ namespace BrightIdeasSoftware
         private bool hyperlink;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public string ImageAspectName {
             get { return imageAspectName; }
@@ -184,7 +184,7 @@ namespace BrightIdeasSoftware
         private string imageAspectName;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool IsEditable {
             get { return isEditable; }
@@ -197,7 +197,7 @@ namespace BrightIdeasSoftware
         internal bool IsEditableSet = false;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool IsVisible {
             get { return isVisible; }
@@ -206,7 +206,7 @@ namespace BrightIdeasSoftware
         private bool isVisible = true;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool IsTileViewColumn {
             get { return isTileViewColumn; }
@@ -215,7 +215,7 @@ namespace BrightIdeasSoftware
         private bool isTileViewColumn;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public int MaximumWidth {
             get { return maximumWidth; }
@@ -224,7 +224,7 @@ namespace BrightIdeasSoftware
         private int maximumWidth = -1;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public int MinimumWidth {
             get { return minimumWidth; }
@@ -233,7 +233,7 @@ namespace BrightIdeasSoftware
         private int minimumWidth = -1;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public String Name {
             get { return name; }
@@ -242,7 +242,7 @@ namespace BrightIdeasSoftware
         private String name;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public HorizontalAlignment TextAlign {
             get { return this.textAlign; }
@@ -255,7 +255,7 @@ namespace BrightIdeasSoftware
         internal bool IsTextAlignSet = false;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public String Tag {
             get { return tag; }
@@ -264,7 +264,7 @@ namespace BrightIdeasSoftware
         private String tag;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public String Title {
             get { return title; }
@@ -273,7 +273,7 @@ namespace BrightIdeasSoftware
         private String title;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public String ToolTipText {
             get { return toolTipText; }
@@ -282,11 +282,11 @@ namespace BrightIdeasSoftware
         private String toolTipText;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TriStateCheckBoxes {
             get { return triStateCheckBoxes; }
-            set { 
+            set {
                 triStateCheckBoxes = value;
                 this.IsTriStateCheckBoxesSet = true;
             }
@@ -295,7 +295,7 @@ namespace BrightIdeasSoftware
         internal bool IsTriStateCheckBoxesSet = false;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool UseInitialLetterForGroup {
             get { return useInitialLetterForGroup; }
@@ -304,7 +304,7 @@ namespace BrightIdeasSoftware
         private bool useInitialLetterForGroup;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public int Width {
             get { return width; }
@@ -321,7 +321,7 @@ namespace BrightIdeasSoftware
     [AttributeUsage(AttributeTargets.Property)]
     public class OLVChildrenAttribute : Attribute
     {
-        
+
     }
 
     /// <summary>

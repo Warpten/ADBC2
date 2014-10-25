@@ -26,7 +26,7 @@
  * 2012-10-25  JPP  - Circumvent annoying bug in ListView control where changing
  *                    selection would leave artefacts on the control.
  * 2012-08-10  JPP  - Don't trigger selection changed events during expands
- * 
+ *
  * v2.5.1
  * 2012-04-30  JPP  - Fixed bug where CheckedObjects would return model objects that had been filtered out.
  *                  - Allow any column to render the tree, not just column 0 (still not sure about this one)
@@ -64,13 +64,13 @@
  *                    expanded branch as possible.
  * 2009-01-13  JPP  - Changed TreeRenderer to work with visual styles are disabled
  * v2.0.1
- * 2009-01-07  JPP  - Made all public and protected methods virtual 
+ * 2009-01-07  JPP  - Made all public and protected methods virtual
  *                  - Changed some classes from 'internal' to 'protected' so that they
  *                    can be accessed by subclasses of TreeListView.
  * 2008-12-22  JPP  - Added UseWaitCursorWhenExpanding property
  *                  - Made TreeRenderer public so that it can be subclassed
- *                  - Added LinePen property to TreeRenderer to allow the connection drawing 
- *                    pen to be changed 
+ *                  - Added LinePen property to TreeRenderer to allow the connection drawing
+ *                    pen to be changed
  *                  - Fixed some rendering issues where the text highlight rect was miscalculated
  *                  - Fixed connection line problem when there is only a single root
  * v2.0
@@ -87,7 +87,7 @@
  * 2008-09-23  JPP  Initial version
  *
  * TO DO:
- * 
+ *
  * Copyright (C) 2006-2013 Phillip Piper
  *
  * This program is free software: you can redistribute it and/or modify
@@ -125,16 +125,16 @@ namespace BrightIdeasSoftware
     /// <item>
     /// <term>
     /// CanExpandGetter
-    /// </term> 
+    /// </term>
     /// <description>
     /// This delegate must accept a model object and return a boolean indicating
-    /// if that model should be expandable. 
+    /// if that model should be expandable.
     /// </description>
     /// </item>
     /// <item>
     /// <term>
     /// ChildrenGetter
-    /// </term> 
+    /// </term>
     /// <description>
     /// This delegate must accept a model object and return an IEnumerable of model
     /// objects that will be displayed as children of the parent model. This delegate will only be called
@@ -144,22 +144,22 @@ namespace BrightIdeasSoftware
     /// <item>
     /// <term>
     /// ParentGetter
-    /// </term> 
+    /// </term>
     /// <description>
-    /// This delegate must accept a model object and return the parent model. 
-    /// This delegate will only be called when HierarchicalCheckboxes is true OR when Reveal() is called. 
+    /// This delegate must accept a model object and return the parent model.
+    /// This delegate will only be called when HierarchicalCheckboxes is true OR when Reveal() is called.
     /// </description>
     /// </item>
     /// </list>
     /// <para>
-    /// The top level branches of the tree are set via the Roots property. SetObjects(), AddObjects() 
+    /// The top level branches of the tree are set via the Roots property. SetObjects(), AddObjects()
     /// and RemoveObjects() are interpreted as operations on this collection of roots.
     /// </para>
     /// <para>
     /// To add new children to an existing branch, make changes to your model objects and then
     /// call RefreshObject() on the parent.
     /// </para>
-    /// <para>The tree must be a directed acyclic graph -- no cycles are allowed. Put more mundanely, 
+    /// <para>The tree must be a directed acyclic graph -- no cycles are allowed. Put more mundanely,
     /// each model object must appear only once in the tree. If the same model object appears in two
     /// places in the tree, the control will become confused.</para>
     /// </remarks>
@@ -208,7 +208,7 @@ namespace BrightIdeasSoftware
         /// <summary>
         /// This is the delegate that will be used to fetch the children of a model object
         /// </summary>
-        /// <remarks>This delegate will only be called if the CanExpand delegate has 
+        /// <remarks>This delegate will only be called if the CanExpand delegate has
         /// returned true for the model object.</remarks>
         [Browsable(false),
         DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -220,7 +220,7 @@ namespace BrightIdeasSoftware
         /// <summary>
         /// This is the delegate that will be used to fetch the parent of a model object
         /// </summary>
-        /// <returns>The parent of the given model, or null if the model doesn't exist or 
+        /// <returns>The parent of the given model, or null if the model doesn't exist or
         /// if the model is a root</returns>
         [Browsable(false),
         DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -354,7 +354,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// After expanding a branch, should the TreeListView attempts to show as much of the 
+        /// After expanding a branch, should the TreeListView attempts to show as much of the
         /// revealed descendents as possible.
         /// </summary>
         [Category("ObjectListView"),
@@ -383,11 +383,11 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// Make sure that at least one column is displaying a tree. 
+        /// Make sure that at least one column is displaying a tree.
         /// If no columns is showing the tree, make column 0 do it.
         /// </summary>
         protected virtual void EnsureTreeRendererPresent(TreeRenderer renderer) {
-            if (this.Columns.Count == 0) 
+            if (this.Columns.Count == 0)
                 return;
 
             foreach (OLVColumn col in this.Columns) {
@@ -442,8 +442,8 @@ namespace BrightIdeasSoftware
         /// <summary>
         /// Should a wait cursor be shown when a branch is being expanded?
         /// </summary>
-        /// <remarks>When this is true, the wait cursor will be shown whilst the children of the 
-        /// branch are being fetched. If the children of the branch have already been cached, 
+        /// <remarks>When this is true, the wait cursor will be shown whilst the children of the
+        /// branch are being fetched. If the children of the branch have already been cached,
         /// the cursor will not change.</remarks>
         [Category("ObjectListView"),
         Description("Should a wait cursor be shown when a branch is being expaned?"),
@@ -464,7 +464,7 @@ namespace BrightIdeasSoftware
         DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Tree TreeModel {
             get { return this.treeModel; }
-            protected set { this.treeModel = value; } 
+            protected set { this.treeModel = value; }
         }
         private Tree treeModel;
 
@@ -491,7 +491,7 @@ namespace BrightIdeasSoftware
         public virtual void Collapse(Object model) {
             if (this.GetItemCount() == 0)
                 return;
-            
+
             OLVListItem item = this.ModelToItem(model);
             TreeBranchCollapsingEventArgs args = new TreeBranchCollapsingEventArgs(model, item);
             this.OnCollapsing(args);
@@ -622,7 +622,7 @@ namespace BrightIdeasSoftware
 
             IList selection = this.SelectedObjects;
             int index = this.TreeModel.ExpandAll();
-            if (index < 0) 
+            if (index < 0)
                 return;
 
             this.UpdateVirtualListSize();
@@ -777,8 +777,8 @@ namespace BrightIdeasSoftware
         /// <param name="state"></param>
         /// <returns>True if the checkedness of the model changed</returns>
         protected override bool SetObjectCheckedness(object modelObject, CheckState state) {
-            // If the checkedness of the given model changes AND this tree has 
-            // hierarchical checkboxes, then we need to update the checkedness of 
+            // If the checkedness of the given model changes AND this tree has
+            // hierarchical checkboxes, then we need to update the checkedness of
             // its children, and recalculate the checkedness of the parent (recursively)
             if (!base.SetObjectCheckedness(modelObject, state))
                 return false;
@@ -850,7 +850,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// Return the collection of model objects that are the children of the 
+        /// Return the collection of model objects that are the children of the
         /// given model as they exist in the tree at the moment.
         /// </summary>
         /// <param name="model"></param>
@@ -872,7 +872,7 @@ namespace BrightIdeasSoftware
             Branch br = this.TreeModel.GetBranch(model);
             if (br == null || !br.CanExpand)
                 return new ArrayList();
-            
+
             br.FetchChildren();
 
             return br.Children;
@@ -1114,9 +1114,9 @@ namespace BrightIdeasSoftware
         protected override bool IsInputKey(Keys keyData) {
             // We want to handle Left and Right keys within the control
             Keys key = keyData & Keys.KeyCode;
-            if (key == Keys.Left || key == Keys.Right) 
+            if (key == Keys.Left || key == Keys.Right)
                 return true;
-            
+
             return base.IsInputKey(keyData);
         }
 
@@ -1172,7 +1172,7 @@ namespace BrightIdeasSoftware
         // Support classes
 
         /// <summary>
-        /// A Tree object represents a tree structure data model that supports both 
+        /// A Tree object represents a tree structure data model that supports both
         /// tree and flat list operations as well as fast access to branches.
         /// </summary>
         /// <remarks>If you create a subclass of Tree, you must install it in the TreeListView
@@ -1204,7 +1204,7 @@ namespace BrightIdeasSoftware
             /// <summary>
             /// This is the delegate that will be used to fetch the children of a model object
             /// </summary>
-            /// <remarks>This delegate will only be called if the CanExpand delegate has 
+            /// <remarks>This delegate will only be called if the CanExpand delegate has
             /// returned true for the model object.</remarks>
             public ChildrenGetterDelegate ChildrenGetter {
                 get { return childrenGetter; }
@@ -1279,7 +1279,7 @@ namespace BrightIdeasSoftware
             /// <summary>
             /// Expand the subtree underneath the given model object
             /// </summary>
-            /// <param name="model">The model to be expanded.</param> 
+            /// <param name="model">The model to be expanded.</param>
             /// <returns>The index of the model in flat list version of the tree</returns>
             /// <remarks>
             /// If the model isn't in the tree,
@@ -1452,7 +1452,7 @@ namespace BrightIdeasSoftware
             #region IVirtualListDataSource Members
 
             /// <summary>
-            /// 
+            ///
             /// </summary>
             /// <param name="n"></param>
             /// <returns></returns>
@@ -1461,7 +1461,7 @@ namespace BrightIdeasSoftware
             }
 
             /// <summary>
-            /// 
+            ///
             /// </summary>
             /// <returns></returns>
             public virtual int GetObjectCount() {
@@ -1469,7 +1469,7 @@ namespace BrightIdeasSoftware
             }
 
             /// <summary>
-            /// 
+            ///
             /// </summary>
             /// <param name="model"></param>
             /// <returns></returns>
@@ -1483,7 +1483,7 @@ namespace BrightIdeasSoftware
             }
 
             /// <summary>
-            /// 
+            ///
             /// </summary>
             /// <param name="first"></param>
             /// <param name="last"></param>
@@ -1491,7 +1491,7 @@ namespace BrightIdeasSoftware
             }
 
             /// <summary>
-            /// 
+            ///
             /// </summary>
             /// <param name="value"></param>
             /// <param name="first"></param>
@@ -1523,17 +1523,17 @@ namespace BrightIdeasSoftware
             }
 
             /// <summary>
-            /// 
+            ///
             /// </summary>
             /// <returns></returns>
             protected virtual BranchComparer GetBranchComparer() {
                 if (this.lastSortColumn == null)
                     return null;
-                
+
                 return new BranchComparer(new ModelObjectComparer(
-                    this.lastSortColumn, 
+                    this.lastSortColumn,
                     this.lastSortOrder,
-                    this.treeView.SecondarySortColumn ?? this.treeView.GetColumn(0), 
+                    this.treeView.SecondarySortColumn ?? this.treeView.GetColumn(0),
                     this.treeView.SecondarySortColumn == null ? this.lastSortOrder : this.treeView.SecondarySortOrder));
             }
 
@@ -1590,7 +1590,7 @@ namespace BrightIdeasSoftware
             #region IFilterableDataSource Members
 
             /// <summary>
-            /// 
+            ///
             /// </summary>
             /// <param name="modelFilter"></param>
             /// <param name="listFilter"></param>
@@ -1639,11 +1639,11 @@ namespace BrightIdeasSoftware
             private Branch trunk;
 
             /// <summary>
-            /// 
+            ///
             /// </summary>
             protected IModelFilter modelFilter;
             /// <summary>
-            /// 
+            ///
             /// </summary>
             protected IListFilter listFilter;
         }
@@ -2025,7 +2025,7 @@ namespace BrightIdeasSoftware
             /// Force a refresh of all children recursively
             /// </summary>
             public virtual void RefreshChildren() {
-                if (!this.IsExpanded || !this.CanExpand) 
+                if (!this.IsExpanded || !this.CanExpand)
                     return;
 
                 this.ClearCachedInfo();

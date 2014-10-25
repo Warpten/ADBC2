@@ -33,7 +33,7 @@ namespace BrightIdeasSoftware
         /// </summary>
         /// <remarks>
         /// <para>
-        /// The value contained by this column must be unique across all rows 
+        /// The value contained by this column must be unique across all rows
         /// in the data source. Odd and unpredictable things will happen if two
         /// rows have the same id.
         /// </para>
@@ -122,7 +122,7 @@ namespace BrightIdeasSoftware
         #region Implementation properties
 
         /// <summary>
-        /// Gets the DataTreeListView that is being managed 
+        /// Gets the DataTreeListView that is being managed
         /// </summary>
         protected DataTreeListView TreeListView {
             get { return treeListView; }
@@ -152,11 +152,11 @@ namespace BrightIdeasSoftware
 
         protected override void HandleListChangedItemChanged(System.ComponentModel.ListChangedEventArgs e) {
             // If the id or the parent id of a row changes, we just rebuild everything.
-            // We can't do anything more specific. We don't know what the previous values, so we can't 
+            // We can't do anything more specific. We don't know what the previous values, so we can't
             // tell the previous parent to refresh itself. If the id itself has changed, things that used
             // to be children will no longer be children. Just rebuild everything.
             // It seems PropertyDescriptor is only filled in .NET 4 :(
-            if (e.PropertyDescriptor != null && 
+            if (e.PropertyDescriptor != null &&
                 (e.PropertyDescriptor.Name == this.KeyAspectName ||
                  e.PropertyDescriptor.Name == this.ParentKeyAspectName))
                 this.InitializeDataSource();
@@ -216,7 +216,7 @@ namespace BrightIdeasSoftware
 
         private object CalculateParent(object model) {
             object parentValue = this.GetParentValue(model);
-            if (parentValue == null) 
+            if (parentValue == null)
                 return null;
 
             foreach (object x in this.CurrencyManager.List) {

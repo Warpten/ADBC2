@@ -6,7 +6,7 @@
  *
  * Change log:
  * 2011-03-31  JPP  - Split into its own file
- * 
+ *
  * Copyright (C) 2011-2012 Phillip Piper
  *
  * This program is free software: you can redistribute it and/or modify
@@ -65,7 +65,7 @@ namespace BrightIdeasSoftware {
         /// </summary>
         public enum ColumnSelectBehaviour {
             /// <summary>
-            /// No column selection will be presented 
+            /// No column selection will be presented
             /// </summary>
             None,
 
@@ -87,12 +87,12 @@ namespace BrightIdeasSoftware {
             /*
              * NonModelDialog is just a little bit tricky since the OLV can change views while the dialog is showing
              * So, just comment this out for the time being.
-             
+
             /// <summary>
             /// A non-model dialog will be presented to allow the user to choose columns
             /// </summary>
             NonModelDialog
-             * 
+             *
              */
         }
     }

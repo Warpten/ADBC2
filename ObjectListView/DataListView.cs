@@ -9,12 +9,12 @@
  *                     can be used by FastDataListView too)
  * v2.3
  * 2009-01-18   JPP  - Boolean columns are now handled as checkboxes
- *                   - Auto-generated columns would fail if the data source was 
+ *                   - Auto-generated columns would fail if the data source was
  *                     reseated, even to the same data source
  * v2.0.1
- * 2009-01-07   JPP  - Made all public and protected methods virtual 
+ * 2009-01-07   JPP  - Made all public and protected methods virtual
  * 2008-10-03   JPP  - Separated from ObjectListView.cs
- * 
+ *
  * Copyright (C) 2006-2012 Phillip Piper
  *
  * This program is free software: you can redistribute it and/or modify
@@ -74,7 +74,7 @@ namespace BrightIdeasSoftware
 
         /// <summary>
         /// Gets or sets whether or not columns will be automatically generated to show the
-        /// columns when the DataSource is set. 
+        /// columns when the DataSource is set.
         /// </summary>
         /// <remarks>This must be set before the DataSource is set. It has no effect afterwards.</remarks>
         [Category("Data"),
@@ -142,7 +142,7 @@ namespace BrightIdeasSoftware
         protected DataSourceAdapter Adapter {
             get {
                 Debug.Assert(adapter != null, "Data adapter should not be null");
-                return adapter; 
+                return adapter;
             }
             set { adapter = value; }
         }

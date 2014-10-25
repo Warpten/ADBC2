@@ -1,5 +1,5 @@
 /*
- * FlagClusteringStrategy - Implements a clustering strategy for a field which is a single integer 
+ * FlagClusteringStrategy - Implements a clustering strategy for a field which is a single integer
  *                          containing an XOR'ed collection of bit flags
  *
  * Author: Phillip Piper
@@ -7,7 +7,7 @@
  *
  * Change log:
  * 2012-03-23  JPP  - First version
- * 
+ *
  * Copyright (C) 2012 Phillip Piper
  *
  * This program is free software: you can redistribute it and/or modify

@@ -6,7 +6,7 @@
  *
  * Change log:
  * 2012-08-07  JPP  Initial code
- * 
+ *
  * Copyright (C) 2012 Phillip Piper
  *
  * This program is free software: you can redistribute it and/or modify
@@ -153,7 +153,7 @@ namespace BrightIdeasSoftware {
         }
 
         /// <summary>
-        /// Convert 
+        /// Convert
         /// </summary>
         public void Convert() {
 
@@ -166,7 +166,7 @@ namespace BrightIdeasSoftware {
             // Include column headers
             if (this.IncludeColumnHeaders) {
                 List<string> strings = new List<string>();
-                foreach (OLVColumn col in columns) 
+                foreach (OLVColumn col in columns)
                     strings.Add(col.Text);
 
                 WriteOneRow(sbText, strings, "", "\t", "", null);
@@ -205,7 +205,7 @@ namespace BrightIdeasSoftware {
             sb.AppendLine(endRow);
         }
 
-        private Dictionary<ExportFormat, string> results; 
+        private Dictionary<ExportFormat, string> results;
 
         #endregion
 

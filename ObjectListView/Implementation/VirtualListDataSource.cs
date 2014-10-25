@@ -77,7 +77,7 @@ namespace BrightIdeasSoftware
         /// Find the first row that "matches" the given text in the given range.
         /// </summary>
         /// <param name="value">The text typed by the user</param>
-        /// <param name="first">Start searching from this index. This may be greater than the 'to' parameter, 
+        /// <param name="first">Start searching from this index. This may be greater than the 'to' parameter,
         /// in which case the search should descend</param>
         /// <param name="last">Do not search beyond this index. This may be less than the 'from' parameter.</param>
         /// <param name="column">The column that should be considered when looking for a match.</param>
@@ -154,7 +154,7 @@ namespace BrightIdeasSoftware
         protected VirtualObjectListView listView;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="n"></param>
         /// <returns></returns>
@@ -163,7 +163,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <returns></returns>
         public virtual int GetObjectCount() {
@@ -171,7 +171,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
@@ -180,7 +180,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="from"></param>
         /// <param name="to"></param>
@@ -188,7 +188,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="value"></param>
         /// <param name="first"></param>
@@ -200,7 +200,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="column"></param>
         /// <param name="order"></param>
@@ -208,21 +208,21 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="modelObjects"></param>
         public virtual void AddObjects(ICollection modelObjects) {
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="modelObjects"></param>
         public virtual void RemoveObjects(ICollection modelObjects) {
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="collection"></param>
         public virtual void SetObjects(IEnumerable collection) {
@@ -267,7 +267,7 @@ namespace BrightIdeasSoftware
         #region IFilterableDataSource Members
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="modelFilter"></param>
         /// <param name="listFilter"></param>
@@ -306,7 +306,7 @@ namespace BrightIdeasSoftware
         #region IVirtualListDataSource implementation
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="n"></param>
         /// <returns></returns>
@@ -318,7 +318,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="value"></param>
         /// <param name="first"></param>

@@ -10,7 +10,7 @@
  *                   - Added CSV to formats exported to Clipboard
  * v2.4
  * 2011-03-29   JPP  - Initial version
- * 
+ *
  * Copyright (C) 2011-2012 Phillip Piper
  *
  * This program is free software: you can redistribute it and/or modify
@@ -34,7 +34,7 @@ using System.Collections;
 using System.Windows.Forms;
 
 namespace BrightIdeasSoftware {
-    
+
     /// <summary>
     /// A data transfer object that knows how to transform a list of model
     /// objects into a text and HTML representation.
@@ -51,7 +51,7 @@ namespace BrightIdeasSoftware {
         }
 
         /// <summary>
-        /// Create a data object which operates on the given model objects 
+        /// Create a data object which operates on the given model objects
         /// in the given ObjectListView
         /// </summary>
         /// <param name="olv">The source of the data object</param>

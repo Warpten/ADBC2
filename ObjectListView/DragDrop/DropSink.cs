@@ -21,7 +21,7 @@
  *                   - Tweaked the appearance of the drop-on-background feedback
  * 2009-04-15   JPP  - Separated DragDrop.cs into DropSink.cs
  * 2009-03-17   JPP  - Initial version
- * 
+ *
  * Copyright (C) 2009-2012 Phillip Piper
  *
  * This program is free software: you can redistribute it and/or modify
@@ -65,7 +65,7 @@ namespace BrightIdeasSoftware
         /// <remarks>
         /// Any drawing is done over the top of the ListView. This operation should disturb
         /// the Graphic as little as possible. Specifically, do not erase the area into which
-        /// you draw. 
+        /// you draw.
         /// </remarks>
         /// <param name="g">A Graphic for drawing</param>
         /// <param name="bounds">The contents bounds of the ListView (not including any header)</param>
@@ -138,7 +138,7 @@ namespace BrightIdeasSoftware
         /// <remarks>
         /// Any drawing is done over the top of the ListView. This operation should disturb
         /// the Graphic as little as possible. Specifically, do not erase the area into which
-        /// you draw. 
+        /// you draw.
         /// </remarks>
         /// <param name="g">A Graphic for drawing</param>
         /// <param name="bounds">The contents bounds of the ListView (not including any header)</param>
@@ -199,7 +199,7 @@ namespace BrightIdeasSoftware
         /// You only need to override this if you want the user to be able
         /// to end the drop in some non-standard way, e.g. dragging to a
         /// certain point even without releasing the mouse, or going outside
-        /// the bounds of the application. 
+        /// the bounds of the application.
         /// </remarks>
         /// <param name="args"></param>
         public virtual void QueryContinue(QueryContinueDragEventArgs args) {
@@ -313,7 +313,7 @@ namespace BrightIdeasSoftware
             set { this.acceptableLocations = value; }
         }
         private DropTargetLocation acceptableLocations;
-        
+
         /// <summary>
         /// Gets or sets whether this sink allows model objects to be dragged from other lists
         /// </summary>
@@ -335,7 +335,7 @@ namespace BrightIdeasSoftware
 
         /// <summary>
         /// Gets the billboard overlay that will be used to display feedback
-        /// messages during a drag operation. 
+        /// messages during a drag operation.
         /// </summary>
         /// <remarks>Set this to null to stop the feedback.</remarks>
         public BillboardOverlay Billboard {
@@ -352,7 +352,7 @@ namespace BrightIdeasSoftware
             set {
                 if (value)
                     this.AcceptableLocations |= DropTargetLocation.BetweenItems;
-                else 
+                else
                     this.AcceptableLocations &= ~DropTargetLocation.BetweenItems;
             }
         }
@@ -566,7 +566,7 @@ namespace BrightIdeasSoftware
         #region DropSink Interface
 
         /// <summary>
-        /// Cleanup the drop sink when the mouse has left the control or 
+        /// Cleanup the drop sink when the mouse has left the control or
         /// the drag has finished.
         /// </summary>
         protected override void Cleanup() {
@@ -581,7 +581,7 @@ namespace BrightIdeasSoftware
         /// <remarks>
         /// Any drawing is done over the top of the ListView. This operation should disturb
         /// the Graphic as little as possible. Specifically, do not erase the area into which
-        /// you draw. 
+        /// you draw.
         /// </remarks>
         /// <param name="g">A Graphic for drawing</param>
         /// <param name="bounds">The contents bounds of the ListView (not including any header)</param>
@@ -627,16 +627,16 @@ namespace BrightIdeasSoftware
         public override void Enter(DragEventArgs args) {
             //System.Diagnostics.Debug.WriteLine("Enter");
 
-            /* 
+            /*
              * When FullRowSelect is true, we have two problems:
              * 1) GetItemRect(ItemOnly) returns the whole row rather than just the icon/text, which messes
              *    up our calculation of the drop rectangle.
              * 2) during the drag, the Timer events will not fire! This is the major problem, since without
-             *    those events we can't autoscroll. 
-             * 
-             * The first problem we can solve through coding, but the second is more difficult. 
+             *    those events we can't autoscroll.
+             *
+             * The first problem we can solve through coding, but the second is more difficult.
              * We avoid both problems by turning off FullRowSelect during the drop operation.
-             */    
+             */
             this.originalFullRowSelect = this.ListView.FullRowSelect;
             this.ListView.FullRowSelect = false;
 
@@ -677,7 +677,7 @@ namespace BrightIdeasSoftware
         }
 
         #endregion
-        
+
         #region Events
 
         /// <summary>
@@ -688,7 +688,7 @@ namespace BrightIdeasSoftware
             this.dropEventArgs.Handled = false;
 
             // If the source is an ObjectListView, trigger the ModelDropped event
-            if (this.dropEventArgs.SourceListView != null) 
+            if (this.dropEventArgs.SourceListView != null)
                 this.OnModelDropped(this.dropEventArgs);
 
             if (!this.dropEventArgs.Handled)
@@ -755,7 +755,7 @@ namespace BrightIdeasSoftware
         protected virtual void HandleTimerTick() {
 
             // If the mouse has been released, stop scrolling.
-            // This is only necessary if the mouse is released outside of the control. 
+            // This is only necessary if the mouse is released outside of the control.
             // If the mouse is released inside the control, we would receive a Drop event.
             if ((this.IsLeftMouseButtonDown && (Control.MouseButtons & MouseButtons.Left) != MouseButtons.Left) ||
                 (this.IsMiddleMouseButtonDown && (Control.MouseButtons & MouseButtons.Middle) != MouseButtons.Middle) ||
@@ -913,7 +913,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// Update the state of our sink to reflect the information that 
+        /// Update the state of our sink to reflect the information that
         /// may have been written into the drop event args.
         /// </summary>
         /// <param name="args"></param>
@@ -1035,7 +1035,7 @@ namespace BrightIdeasSoftware
         protected virtual Rectangle CalculateDropTargetRectangle(OLVListItem item, int subItem) {
             if (subItem > 0)
                 return item.SubItems[subItem].Bounds;
-            
+
             Rectangle r = this.ListView.CalculateCellTextBounds(item, subItem);
 
             // Allow for indent
@@ -1379,7 +1379,7 @@ namespace BrightIdeasSoftware
         /// </summary>
         public IList SourceModels {
             get { return this.dragModels; }
-            internal set { 
+            internal set {
                 this.dragModels = value;
                 TreeListView tlv = this.SourceListView as TreeListView;
                 if (tlv != null) {

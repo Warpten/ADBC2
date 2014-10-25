@@ -12,7 +12,7 @@
  * v2.2
  * 2009-04-15   JPP  - Separated DragSource.cs into DropSink.cs
  * 2009-03-17   JPP  - Initial version
- * 
+ *
  * Copyright (C) 2009-2012 Phillip Piper
  *
  * This program is free software: you can redistribute it and/or modify
@@ -47,7 +47,7 @@ namespace BrightIdeasSoftware
     public interface IDragSource
     {
         /// <summary>
-        /// A drag operation is beginning. Return the data object that will be used 
+        /// A drag operation is beginning. Return the data object that will be used
         /// for data transfer. Return null to prevent the drag from starting. The data
         /// object will normally include all the selected objects.
         /// </summary>
@@ -57,7 +57,7 @@ namespace BrightIdeasSoftware
         /// </remarks>
         /// <param name="olv">What ObjectListView is being dragged from.</param>
         /// <param name="button">Which mouse button is down?</param>
-        /// <param name="item">What item was directly dragged by the user? There may be more than just this 
+        /// <param name="item">What item was directly dragged by the user? There may be more than just this
         /// item selected.</param>
         /// <returns>The data object that will be used for data transfer. This will often be a subclass
         /// of DataObject, but does not need to be.</returns>
@@ -119,7 +119,7 @@ namespace BrightIdeasSoftware
     /// <summary>
     /// A reasonable implementation of IDragSource that provides normal
     /// drag source functionality. It creates a data object that supports
-    /// inter-application dragging of text and HTML representation of 
+    /// inter-application dragging of text and HTML representation of
     /// the dragged rows. It can optionally force a refresh of all dragged
     /// rows when the drag is complete.
     /// </summary>
@@ -149,7 +149,7 @@ namespace BrightIdeasSoftware
         #region Public properties
 
         /// <summary>
-        /// Gets or sets whether the dragged rows should be refreshed when the 
+        /// Gets or sets whether the dragged rows should be refreshed when the
         /// drag operation is complete.
         /// </summary>
         public bool RefreshAfterDrop {

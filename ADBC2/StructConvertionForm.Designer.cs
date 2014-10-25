@@ -13,7 +13,7 @@ namespace ADBC2
         private System.Windows.Forms.RichTextBox xmlRtb;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        
+    
         /// <summary>
         /// Disposes resources used by the form.
         /// </summary>
@@ -27,7 +27,7 @@ namespace ADBC2
             }
             base.Dispose(disposing);
         }
-        
+    
         /// <summary>
         /// This method is required for Windows Forms designer support.
         /// Do not change the method contents inside the source code editor. The Forms designer might
@@ -49,9 +49,9 @@ namespace ADBC2
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
-            // 
+            //
             // csToXmlButton
-            // 
+            //
             this.csToXmlButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.csToXmlButton.Location = new System.Drawing.Point(13, 37);
             this.csToXmlButton.Name = "csToXmlButton";
@@ -59,9 +59,9 @@ namespace ADBC2
             this.csToXmlButton.TabIndex = 0;
             this.csToXmlButton.UseVisualStyleBackColor = true;
             this.csToXmlButton.Click += new System.EventHandler(this.ToXML);
-            // 
+            //
             // xmlToCsButton
-            // 
+            //
             this.xmlToCsButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.xmlToCsButton.Location = new System.Drawing.Point(13, 3);
             this.xmlToCsButton.Name = "xmlToCsButton";
@@ -69,11 +69,11 @@ namespace ADBC2
             this.xmlToCsButton.TabIndex = 1;
             this.xmlToCsButton.UseVisualStyleBackColor = true;
             this.xmlToCsButton.Click += new System.EventHandler(this.ToCSharp);
-            // 
+            //
             // csRtb
-            // 
-            this.csRtb.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-                                    | System.Windows.Forms.AnchorStyles.Left) 
+            //
+            this.csRtb.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                                    | System.Windows.Forms.AnchorStyles.Left)
                                     | System.Windows.Forms.AnchorStyles.Right)));
             this.csRtb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.csRtb.Location = new System.Drawing.Point(3, 33);
@@ -81,11 +81,11 @@ namespace ADBC2
             this.csRtb.Size = new System.Drawing.Size(261, 269);
             this.csRtb.TabIndex = 2;
             this.csRtb.Text = "";
-            // 
+            //
             // xmlRtb
-            // 
-            this.xmlRtb.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-                                    | System.Windows.Forms.AnchorStyles.Left) 
+            //
+            this.xmlRtb.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                                    | System.Windows.Forms.AnchorStyles.Left)
                                     | System.Windows.Forms.AnchorStyles.Right)));
             this.xmlRtb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.xmlRtb.Location = new System.Drawing.Point(377, 33);
@@ -93,10 +93,10 @@ namespace ADBC2
             this.xmlRtb.Size = new System.Drawing.Size(262, 269);
             this.xmlRtb.TabIndex = 3;
             this.xmlRtb.Text = "";
-            // 
+            //
             // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            //
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                                     | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
@@ -104,10 +104,10 @@ namespace ADBC2
             this.label1.TabIndex = 4;
             this.label1.Text = "C# Structures";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
+            //
             // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            //
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                                     | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.Location = new System.Drawing.Point(377, 0);
             this.label2.Name = "label2";
@@ -115,9 +115,9 @@ namespace ADBC2
             this.label2.TabIndex = 5;
             this.label2.Text = "XML Structures";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
+            //
             // checkBox1
-            // 
+            //
             this.checkBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.checkBox1.Location = new System.Drawing.Point(3, 309);
             this.checkBox1.Name = "checkBox1";
@@ -125,11 +125,11 @@ namespace ADBC2
             this.checkBox1.TabIndex = 6;
             this.checkBox1.Text = "Export C# as old style XML";
             this.checkBox1.UseVisualStyleBackColor = true;
-            // 
+            //
             // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-                                    | System.Windows.Forms.AnchorStyles.Left) 
+            //
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                                    | System.Windows.Forms.AnchorStyles.Left)
                                     | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.66666F));
@@ -151,9 +151,9 @@ namespace ADBC2
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(642, 340);
             this.tableLayoutPanel1.TabIndex = 7;
-            // 
+            //
             // tableLayoutPanel2
-            // 
+            //
             this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -166,26 +166,26 @@ namespace ADBC2
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(101, 69);
             this.tableLayoutPanel2.TabIndex = 7;
-            // 
+            //
             // label3
-            // 
+            //
             this.label3.Location = new System.Drawing.Point(270, 305);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(101, 35);
             this.label3.TabIndex = 8;
             this.label3.Text = "Only convert build";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
+            //
             // filterBox
-            // 
+            //
             this.filterBox.Location = new System.Drawing.Point(377, 312);
             this.filterBox.Margin = new System.Windows.Forms.Padding(3, 7, 3, 3);
             this.filterBox.Name = "filterBox";
             this.filterBox.Size = new System.Drawing.Size(100, 20);
             this.filterBox.TabIndex = 9;
-            // 
+            //
             // StructConvertionForm
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(667, 365);

@@ -19,7 +19,7 @@ using System.Windows.Forms;
 namespace BrightIdeasSoftware
 {
     /// <summary>
-    /// This form is an example of how an application could allows the user to select which columns 
+    /// This form is an example of how an application could allows the user to select which columns
     /// an ObjectListView will display, as well as select which order the columns are displayed in.
     /// </summary>
     /// <remarks>
@@ -59,7 +59,7 @@ namespace BrightIdeasSoftware
                 return;
 
             this.InitializeForm(olv, view);
-            if (this.ShowDialog() == DialogResult.OK) 
+            if (this.ShowDialog() == DialogResult.OK)
                 this.Apply(olv, view);
         }
 
@@ -87,7 +87,7 @@ namespace BrightIdeasSoftware
             this.objectListView1.BooleanCheckStatePutter = delegate(Object rowObject, bool newValue) {
                 // Some columns should always be shown, so ignore attempts to hide them
                 OLVColumn column = (OLVColumn)rowObject;
-                if (!column.CanBeHidden) 
+                if (!column.CanBeHidden)
                     return true;
 
                 this.MapColumnToVisible[column] = newValue;
@@ -132,7 +132,7 @@ namespace BrightIdeasSoftware
                     col.DisplayIndex = visibleColumns.IndexOf((OLVColumn)col);
                 }
             } else {
-                // In Tile view, DisplayOrder does nothing. So to change the display order, we have to change the 
+                // In Tile view, DisplayOrder does nothing. So to change the display order, we have to change the
                 // order of the columns in the Columns property.
                 // Remember, the primary column is special and has to remain first!
                 OLVColumn primaryColumn = this.AllColumns[0];

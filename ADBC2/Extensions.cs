@@ -8,7 +8,7 @@ namespace ADBC2
     /// Description of Extensions.
     /// </summary>
     public static class Extensions
-    {   
+    {
         public const String DefaultFamily = "Arial Unicode MS";
         public const float  DefaultSize   = 9f;
 

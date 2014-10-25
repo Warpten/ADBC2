@@ -15,7 +15,7 @@
  * - These should be more generally available. It should be possible to do something like this:
  *       this.olv.GetItem(i).Style = new ItemStyle();
  *       this.olv.GetItem(i).GetSubItem(j).Style = new CellStyle();
- * 
+ *
  * Copyright (C) 2009-2012 Phillip Piper
  *
  * This program is free software: you can redistribute it and/or modify

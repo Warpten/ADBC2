@@ -21,9 +21,9 @@ namespace ADBC2
             richTextBox1.SetBold(false);
             richTextBox1.AppendLine(@"- Hovering a cell containing a string will display the complete string in a tooltip.");
             richTextBox1.AppendLine("- Hovering a cell containing the word \"Array\" will display the array's content in a tooltip.");
-            richTextBox1.AppendLine("- Double-clicking a cell will switch between a full row select or a single cell select.");
+            richTextBox1.AppendLine("- Double-clicking a cell will start editing its content.");
             richTextBox1.AppendLine("- Hitting Ctrl+C with either a row or a cell selected will copy the cell(s) and its/their header(s) to the clipboard.");
-            
+
             richTextBox1.AppendLine();
             richTextBox1.AppendLine(@"© ® Warpten 2014, for TrinityCore.");
             richTextBox1.AppendLine(@"Visit the code on https://www.github.com/Warpten/ADBC2");

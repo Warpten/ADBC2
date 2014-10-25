@@ -4,7 +4,7 @@
  * Author: Phillip Piper
  * Date: 27/09/2008 9:15 AM
  *
- * Change log: 
+ * Change log:
  * 2013-04-29   JPP  - Fixed bug where Images were not vertically aligned
  * v2.6
  * 2012-10-26   JPP  - Hit detection will no longer report check box hits on columns without checkboxes.
@@ -24,7 +24,7 @@
  * 2009-09-28   JPP  - Added DescribedTaskRenderer
  * 2009-09-01   JPP  - Correctly handle an ImageRenderer's handling of an aspect that holds
  *                     the image to be displayed at Byte[].
- * 2009-08-29   JPP  - Fixed bug where some of a cell's background was not erased. 
+ * 2009-08-29   JPP  - Fixed bug where some of a cell's background was not erased.
  * 2009-08-15   JPP  - Correctly MeasureText() using the appropriate graphic context
  *                   - Handle translucent selection setting
  * v2.2.1
@@ -33,7 +33,7 @@
  *                     (previously subitems were indented in the same way as the primary column)
  * v2.2
  * 2009-06-06   JPP  - Tweaked text rendering so that column 0 isn't ellipsed unnecessarily.
- * 2009-05-05   JPP  - Added Unfocused foreground and background colors 
+ * 2009-05-05   JPP  - Added Unfocused foreground and background colors
  *                     (thanks to Christophe Hosten)
  * 2009-04-21   JPP  - Fixed off-by-1 error when calculating text widths. This caused
  *                     middle and right aligned columns to always wrap one character
@@ -55,7 +55,7 @@
  *                     when the control doesn't have focus.
  *                   - Commented out experimental animations. Still needs work.
  * 2009-01-19   JPP  - Changed to draw text using GDI routines. Looks more like
- *                     native control this way. Set UseGdiTextRendering to false to 
+ *                     native control this way. Set UseGdiTextRendering to false to
  *                     revert to previous behavior.
  * 2009-01-15   JPP  - Draw background correctly when control is disabled
  *                   - Render checkboxes using CheckBoxRenderer
@@ -66,9 +66,9 @@
  * v2.0
  * 2008-10-26   JPP  - Don't owner draw when in Design mode
  * 2008-09-27   JPP  - Separated from ObjectListView.cs
- * 
+ *
  * Copyright (C) 2006-2012 Phillip Piper
- * 
+ *
  * TO DO:
  * - Hit detection on renderers doesn't change the controls standard selection behavior
  *
@@ -259,7 +259,7 @@ namespace BrightIdeasSoftware
          DefaultValue(false)]
         public bool CanWrap {
             get { return canWrap; }
-            set { 
+            set {
                 canWrap = value;
                 if (canWrap)
                     this.UseGdiTextRendering = false;
@@ -469,7 +469,7 @@ namespace BrightIdeasSoftware
 
                 if (this.SubItem == null || this.ListItem.UseItemStyleForSubItems)
                     return this.ListItem.Font;
-                
+
                     return this.SubItem.Font;
             }
             set {
@@ -594,7 +594,7 @@ namespace BrightIdeasSoftware
         /// </summary>
         /// <remarks>
         /// <para>
-        /// If this is true, the renderer will use the images from the 
+        /// If this is true, the renderer will use the images from the
         /// StateImageList to represent checkboxes. 0 - unchecked, 1 - checked, 2 - indeterminate.
         /// </para>
         /// <para>If this is false (the default), then the renderer will use .NET's standard
@@ -644,7 +644,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// Calculate the left edge of the rectangle that aligns the outer rectangle with the inner one 
+        /// Calculate the left edge of the rectangle that aligns the outer rectangle with the inner one
         /// according to this renderer's horizontal alignement
         /// </summary>
         /// <param name="outer"></param>
@@ -710,7 +710,7 @@ namespace BrightIdeasSoftware
             width += this.CalculateImageWidth(g, this.GetImageSelector());
             width += this.CalculateTextWidth(g, this.GetText());
 
-            // If the combined width is greater than the whole cell, 
+            // If the combined width is greater than the whole cell,
             // we just use the cell itself
             if (width >= r.Width)
                 return r;
@@ -740,7 +740,7 @@ namespace BrightIdeasSoftware
         /// <param name="g"></param>
         /// <returns></returns>
         protected virtual int CalculateCheckBoxWidth(Graphics g) {
-            if (!this.ListView.CheckBoxes || !this.ColumnIsPrimary) 
+            if (!this.ListView.CheckBoxes || !this.ColumnIsPrimary)
                 return 0;
 
             if (UseCustomCheckboxImages && this.ListView.StateImageList != null)
@@ -815,14 +815,14 @@ namespace BrightIdeasSoftware
             if (this.IsItemSelected && !this.ListView.UseTranslucentSelection && this.ListView.FullRowSelect) {
                 if (this.ListView.Focused)
                     return this.ListView.HighlightBackgroundColorOrDefault;
-                
+
                     if (!this.ListView.HideSelection)
                         return this.ListView.UnfocusedHighlightBackgroundColorOrDefault;
             }
 
             if (this.SubItem == null || this.ListItem.UseItemStyleForSubItems)
                 return this.ListItem.BackColor;
-            
+
             return this.SubItem.BackColor;
         }
 
@@ -872,7 +872,7 @@ namespace BrightIdeasSoftware
                     Int32 index = (Int32)imageSelector;
                     if (index < 0 || index >= il.Images.Count)
                         return null;
-                    
+
                         return il.Images[index];
                 }
 
@@ -880,7 +880,7 @@ namespace BrightIdeasSoftware
                 if (str != null) {
                     if (il.Images.ContainsKey(str))
                         return il.Images[str];
-                    
+
                         return null;
                 }
             }
@@ -908,7 +908,7 @@ namespace BrightIdeasSoftware
         /// <returns>The background color of the subitem's text</returns>
         protected virtual Color GetTextBackgroundColor() {
             //TODO: Refactor with GetBackgroundColor() - they are almost identical
-            if (this.IsItemSelected && !this.ListView.UseTranslucentSelection 
+            if (this.IsItemSelected && !this.ListView.UseTranslucentSelection
                 && (this.ColumnIsPrimary || this.ListView.FullRowSelect)) {
                 if (this.ListView.Focused)
                     return this.ListView.HighlightBackgroundColorOrDefault;
@@ -1042,8 +1042,8 @@ namespace BrightIdeasSoftware
             if (this.ListView.View == View.Details) {
                 this.Render(g, r);
                 return true;
-            } 
-            
+            }
+
                 return false;
         }
 
@@ -1168,8 +1168,8 @@ namespace BrightIdeasSoftware
                 width = r3.Width;
             }
 
-            // Did they hit the image? If they hit the image of a 
-            // non-primary column that has a checkbox, it counts as a 
+            // Did they hit the image? If they hit the image of a
+            // non-primary column that has a checkbox, it counts as a
             // checkbox hit
             r.X += width;
             r.Width -= width;
@@ -1223,7 +1223,7 @@ namespace BrightIdeasSoftware
                 width += (indentWidth*this.ListItem.IndentCount);
             }
 
-            // If there was either a check box or an image, 
+            // If there was either a check box or an image,
             // take the check box and the image out of the rectangle, but ensure that
             // there is minimum width to the editor
             if (width > 0) {
@@ -1317,7 +1317,7 @@ namespace BrightIdeasSoftware
             if (this.IsPrinting || this.UseCustomCheckboxImages) {
                 if (this.ListView.StateImageList == null || imageIndex < 0)
                     return 0;
-                
+
                 return this.DrawImage(g, r, this.ListView.StateImageList.Images[imageIndex]) + 4;
             }
 
@@ -1542,8 +1542,8 @@ namespace BrightIdeasSoftware
             TextFormatFlags flags = TextFormatFlags.EndEllipsis | TextFormatFlags.NoPrefix |
                 TextFormatFlags.PreserveGraphicsTranslateTransform |
                 this.CellVerticalAlignmentAsTextFormatFlag;
-            
-            // I think there is a bug in the TextRenderer. Setting or not setting SingleLine doesn't make 
+
+            // I think there is a bug in the TextRenderer. Setting or not setting SingleLine doesn't make
             // any difference -- it is always single line.
             if (!this.CanWrap)
                 flags |= TextFormatFlags.SingleLine;
@@ -1623,7 +1623,7 @@ namespace BrightIdeasSoftware
 
 
     /// <summary>
-    /// This renderer highlights substrings that match a given text filter. 
+    /// This renderer highlights substrings that match a given text filter.
     /// </summary>
     public class HighlightTextRenderer : BaseRenderer
     {
@@ -1686,7 +1686,7 @@ namespace BrightIdeasSoftware
         /// Gets or sets the filter that is filtering the ObjectListView and for
         /// which this renderer should highlight text
         /// </summary>
-        [Browsable(false), 
+        [Browsable(false),
          DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public TextMatchFilter Filter {
             get { return filter; }
@@ -1817,7 +1817,7 @@ namespace BrightIdeasSoftware
                 float textToHighlightTop = this.AlignVertically(r, textToHighlightSize.Height);
 
                 // Draw a filled frame around our substring
-                this.DrawSubstringFrame(g, textToHighlightLeft, textToHighlightTop, textToHighlightSize.Width, textToHighlightSize.Height); 
+                this.DrawSubstringFrame(g, textToHighlightLeft, textToHighlightTop, textToHighlightSize.Width, textToHighlightSize.Height);
             }
         }
 
@@ -1867,7 +1867,7 @@ namespace BrightIdeasSoftware
         protected virtual void DrawGdiPlusTextHighlighting(Graphics g, Rectangle r, string txt) {
             // Find the substrings we want to highlight
             List<CharacterRange> ranges = new List<CharacterRange>(this.Filter.FindAllMatchedRanges(txt));
-            
+
             if (ranges.Count == 0)
                 return;
 
@@ -1901,7 +1901,7 @@ namespace BrightIdeasSoftware
         /// </summary>
         /// <returns>A round cornered rectagle path</returns>
         /// <remarks>If I could rely on people using C# 3.0+, this should be
-        /// an extension method of GraphicsPath.</remarks>        
+        /// an extension method of GraphicsPath.</remarks>
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <param name="width"></param>
@@ -2162,7 +2162,7 @@ namespace BrightIdeasSoftware
     /// <para>If an image is an animated GIF, it's state is stored in the SubItem object.</para>
     /// <para>By default, the image renderer does not render animations (it begins life with animations paused).
     /// To enable animations, you must call Unpause().</para>
-    /// <para>In the current implementation (2009-09), each column showing animated gifs must have a 
+    /// <para>In the current implementation (2009-09), each column showing animated gifs must have a
     /// different instance of ImageRenderer assigned to it. You cannot share the same instance of
     /// an image renderer between two animated gif columns. If you do, only the last column will be
     /// animated.</para>
@@ -2202,7 +2202,7 @@ namespace BrightIdeasSoftware
         public bool Paused {
             get { return isPaused; }
             set {
-                if (this.isPaused == value) 
+                if (this.isPaused == value)
                     return;
 
                 this.isPaused = value;
@@ -2285,7 +2285,7 @@ namespace BrightIdeasSoftware
         /// <remarks>The strategy is:<list type="bullet">
         /// <item><description>If its a byte array, we treat it as an in-memory image</description></item>
         /// <item><description>If it's an int, we use that as an index into our image list</description></item>
-        /// <item><description>If it's a string, we try to load a file by that name. If we can't, 
+        /// <item><description>If it's a string, we try to load a file by that name. If we can't,
         /// we use the string as an index into our image list.</description></item>
         ///</list></remarks>
         /// <returns>An image</returns>
@@ -2351,7 +2351,7 @@ namespace BrightIdeasSoftware
         /// </summary>
         /// <param name="state">not used</param>
         public void OnTimer(Object state) {
-            if (this.ListView == null || this.Paused) 
+            if (this.ListView == null || this.Paused)
                 return;
 
             if (this.ListView.InvokeRequired)
@@ -2605,7 +2605,7 @@ namespace BrightIdeasSoftware
         private int padding = 2;
 
         /// <summary>
-        /// What color will be used to fill the interior of the control before the 
+        /// What color will be used to fill the interior of the control before the
         /// progress bar is drawn?
         /// </summary>
         [Category("ObjectListView"),
@@ -3085,7 +3085,7 @@ namespace BrightIdeasSoftware
             foreach (Int32 key in this.keysInOrder) {
                 if ((v2 & key) == key) {
                     Image image = this.GetImage(this.imageMap[key]);
-                    if (image != null) 
+                    if (image != null)
                         images.Add(image);
                 }
             }

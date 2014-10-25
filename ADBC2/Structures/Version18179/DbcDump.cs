@@ -11,7 +11,7 @@ namespace ADBC2.Structures.Version18179
         public string name_lang;
         public int ui_order;
     }
-    
+
     [DbFileInfo(18179, "Achievement.dbc")]
     public sealed class AchievementEntry
     {
@@ -32,7 +32,7 @@ namespace ADBC2.Structures.Version18179
         public int shares_criteria;
         public int criteria_tree;
     }
-    
+
     [DbFileInfo(18179, "AnimKitBoneSetAlias.dbc")]
     public sealed class AnimKitBoneSetAliasEntry
     {
@@ -40,7 +40,7 @@ namespace ADBC2.Structures.Version18179
         public int boneDataID;
         public int animKitBoneSetID;
     }
-    
+
     [DbFileInfo(18179, "AnimKitBoneSet.dbc")]
     public sealed class AnimKitBoneSetEntry
     {
@@ -51,7 +51,7 @@ namespace ADBC2.Structures.Version18179
         public int extraBoneCount;
         public int altAnimKitBoneSetID;
     }
-    
+
     [DbFileInfo(18179, "AnimKitConfigBoneSet.dbc")]
     public sealed class AnimKitConfigBoneSetEntry
     {
@@ -60,21 +60,21 @@ namespace ADBC2.Structures.Version18179
         public int animKitBoneSetID;
         public int animKitPriorityID;
     }
-    
+
     [DbFileInfo(18179, "AnimKitConfig.dbc")]
     public sealed class AnimKitConfigEntry
     {
         public int ID;
         public int configFlags;
     }
-    
+
     [DbFileInfo(18179, "AnimKitPriority.dbc")]
     public sealed class AnimKitPriorityEntry
     {
         public int ID;
         public int priority;
     }
-    
+
     [DbFileInfo(18179, "AnimKit.dbc")]
     public sealed class AnimKitEntry
     {
@@ -83,7 +83,7 @@ namespace ADBC2.Structures.Version18179
         public int oneShotStopAnimKitID;
         public int lowDefAnimKitID;
     }
-    
+
     [DbFileInfo(18179, "AnimKitSegment.dbc")]
     public sealed class AnimKitSegmentEntry
     {
@@ -105,7 +105,7 @@ namespace ADBC2.Structures.Version18179
         public int overrideConfigFlags;
         public int loopToSegmentIndex;
     }
-    
+
     [DbFileInfo(18179, "AnimReplacement.dbc")]
     public sealed class AnimReplacementEntry
     {
@@ -114,14 +114,14 @@ namespace ADBC2.Structures.Version18179
         public int dstAnimID;
         public int parentAnimReplacementSetID;
     }
-    
+
     [DbFileInfo(18179, "AnimReplacementSet.dbc")]
     public sealed class AnimReplacementSetEntry
     {
         public int ID;
         public int execOrder;
     }
-    
+
     [DbFileInfo(18179, "AreaAssignment.dbc")]
     public sealed class AreaAssignmentEntry
     {
@@ -130,7 +130,7 @@ namespace ADBC2.Structures.Version18179
         public int ChunkX;
         public int ChunkY;
     }
-    
+
     [DbFileInfo(18179, "AreaGroup.dbc")]
     public sealed class AreaGroupEntry
     {
@@ -143,7 +143,7 @@ namespace ADBC2.Structures.Version18179
         public int areaID6;
         public int nextAreaID;
     }
-    
+
     [DbFileInfo(18179, "AreaPOI.dbc")]
     public sealed class AreaPOIEntry
     {
@@ -172,7 +172,7 @@ namespace ADBC2.Structures.Version18179
         public int worldMapLink;
         public int portLocID;
     }
-    
+
     [DbFileInfo(18179, "AreaTriggerActionSet.dbc")]
     public sealed class AreaTriggerActionSetEntry
     {
@@ -180,7 +180,7 @@ namespace ADBC2.Structures.Version18179
         [OLVColumn(AspectToStringFormat = "0x{0:X8}")]
         public uint Flags;
     }
-    
+
     [DbFileInfo(18179, "AreaTriggerBox.dbc")]
     public sealed class AreaTriggerBoxEntry
     {
@@ -189,7 +189,7 @@ namespace ADBC2.Structures.Version18179
         public float extents2;
         public float extents3;
     }
-    
+
     [DbFileInfo(18179, "AreaTriggerCylinder.dbc")]
     public sealed class AreaTriggerCylinderEntry
     {
@@ -197,7 +197,7 @@ namespace ADBC2.Structures.Version18179
         public float radius;
         public float height;
     }
-    
+
     [DbFileInfo(18179, "AreaTrigger.dbc")]
     public sealed class AreaTriggerEntry
     {
@@ -220,14 +220,14 @@ namespace ADBC2.Structures.Version18179
         [OLVColumn(AspectToStringFormat = "0x{0:X8}")]
         public uint Flags;
     }
-    
+
     [DbFileInfo(18179, "AreaTriggerSphere.dbc")]
     public sealed class AreaTriggerSphereEntry
     {
         public int ID;
         public float maxRadius;
     }
-    
+
     [DbFileInfo(18179, "ArmorLocation.dbc")]
     public sealed class ArmorLocationEntry
     {
@@ -238,7 +238,7 @@ namespace ADBC2.Structures.Version18179
         public float platemodifier;
         public float modifier;
     }
-    
+
     [DbFileInfo(18179, "AuctionHouse.dbc")]
     public sealed class AuctionHouseEntry
     {
@@ -248,14 +248,14 @@ namespace ADBC2.Structures.Version18179
         public int consignmentRate;
         public string name_lang;
     }
-    
+
     [DbFileInfo(18179, "BankBagSlotPrices.dbc")]
     public sealed class BankBagSlotPricesEntry
     {
         public int ID;
         public int Cost;
     }
-    
+
     [DbFileInfo(18179, "BannedAddOns.dbc")]
     public sealed class BannedAddOnsEntry
     {
@@ -272,7 +272,7 @@ namespace ADBC2.Structures.Version18179
         [OLVColumn(AspectToStringFormat = "0x{0:X8}")]
         public uint Flags;
     }
-    
+
     [DbFileInfo(18179, "BarberShopStyle.dbc")]
     public sealed class BarberShopStyleEntry
     {
@@ -285,7 +285,7 @@ namespace ADBC2.Structures.Version18179
         public int sex;
         public int data;
     }
-    
+
     [DbFileInfo(18179, "BattlemasterList.dbc")]
     public sealed class BattlemasterListEntry
     {
@@ -321,7 +321,7 @@ namespace ADBC2.Structures.Version18179
         public int iconFileDataID;
         public string gametype_lang;
     }
-    
+
     [DbFileInfo(18179, "CameraMode.dbc")]
     public sealed class CameraModeEntry
     {
@@ -344,7 +344,7 @@ namespace ADBC2.Structures.Version18179
         public int lockedTargetOffsetBase;
         public int lockedTargetOffsetDirection;
     }
-    
+
     [DbFileInfo(18179, "CameraShakes.dbc")]
     public sealed class CameraShakesEntry
     {
@@ -359,7 +359,7 @@ namespace ADBC2.Structures.Version18179
         [OLVColumn(AspectToStringFormat = "0x{0:X8}")]
         public uint Flags;
     }
-    
+
     [DbFileInfo(18179, "CastableRaidBuffs.dbc")]
     public sealed class CastableRaidBuffsEntry
     {
@@ -367,7 +367,7 @@ namespace ADBC2.Structures.Version18179
         public int spellID;
         public int castingSpellID;
     }
-    
+
     [DbFileInfo(18179, "Cfg_Categories.dbc")]
     public sealed class CfgCategoriesEntry
     {
@@ -379,7 +379,7 @@ namespace ADBC2.Structures.Version18179
         public uint Flags;
         public string name_lang;
     }
-    
+
     [DbFileInfo(18179, "Cfg_Configs.dbc")]
     public sealed class CfgConfigsEntry
     {
@@ -390,7 +390,7 @@ namespace ADBC2.Structures.Version18179
         public int playerAttackSpeedBase;
         public int maxDamageReductionPctPhysical;
     }
-    
+
     [DbFileInfo(18179, "Cfg_Regions.dbc")]
     public sealed class CfgRegionsEntry
     {
@@ -399,7 +399,7 @@ namespace ADBC2.Structures.Version18179
         public int region_group_mask;
         public int rulesetID;
     }
-    
+
     [DbFileInfo(18179, "CharacterFacialHairStyles.dbc")]
     public sealed class CharacterFacialHairStylesEntry
     {
@@ -412,7 +412,7 @@ namespace ADBC2.Structures.Version18179
         public int Geoset4;
         public int Geoset5;
     }
-    
+
     [DbFileInfo(18179, "CharacterLoadoutItem.dbc")]
     public sealed class CharacterLoadoutItemEntry
     {
@@ -422,7 +422,7 @@ namespace ADBC2.Structures.Version18179
         public int itemDisplayInfoID;
         public int itemInventoryType;
     }
-    
+
     [DbFileInfo(18179, "CharacterLoadout.dbc")]
     public sealed class CharacterLoadoutEntry
     {
@@ -431,14 +431,14 @@ namespace ADBC2.Structures.Version18179
         public int purpose;
         public int racemask;
     }
-    
+
     [DbFileInfo(18179, "CharBaseInfo.dbc")]
     public sealed class CharBaseInfoEntry
     {
         public int raceID;
         public int classID;
     }
-    
+
     [DbFileInfo(18179, "CharBaseSection.dbc")]
     public sealed class CharBaseSectionEntry
     {
@@ -446,7 +446,7 @@ namespace ADBC2.Structures.Version18179
         public int fallbackID;
         public int layoutResType;
     }
-    
+
     [DbFileInfo(18179, "CharComponentTextureLayouts.dbc")]
     public sealed class CharComponentTextureLayoutsEntry
     {
@@ -454,7 +454,7 @@ namespace ADBC2.Structures.Version18179
         public int width;
         public int height;
     }
-    
+
     [DbFileInfo(18179, "CharComponentTextureSections.dbc")]
     public sealed class CharComponentTextureSectionsEntry
     {
@@ -466,7 +466,7 @@ namespace ADBC2.Structures.Version18179
         public int width;
         public int height;
     }
-    
+
     [DbFileInfo(18179, "CharHairGeosets.dbc")]
     public sealed class CharHairGeosetsEntry
     {
@@ -480,7 +480,7 @@ namespace ADBC2.Structures.Version18179
         public int Showscalp;
         public int ColorIndex;
     }
-    
+
     [DbFileInfo(18179, "CharSections.dbc")]
     public sealed class CharSectionsEntry
     {
@@ -496,7 +496,7 @@ namespace ADBC2.Structures.Version18179
         public int variationIndex;
         public int colorIndex;
     }
-    
+
     [DbFileInfo(18179, "CharStartOutfit.dbc")]
     public sealed class CharStartOutfitEntry
     {
@@ -580,7 +580,7 @@ namespace ADBC2.Structures.Version18179
         public int petDisplayID;
         public int petFamilyID;
     }
-    
+
     [DbFileInfo(18179, "CharTitles.dbc")]
     public sealed class CharTitlesEntry
     {
@@ -592,7 +592,7 @@ namespace ADBC2.Structures.Version18179
         [OLVColumn(AspectToStringFormat = "0x{0:X8}")]
         public uint Flags;
     }
-    
+
     [DbFileInfo(18179, "ChatChannels.dbc")]
     public sealed class ChatChannelsEntry
     {
@@ -603,7 +603,7 @@ namespace ADBC2.Structures.Version18179
         public string name_lang;
         public string shortcut_lang;
     }
-    
+
     [DbFileInfo(18179, "ChatProfanity.dbc")]
     public sealed class ChatProfanityEntry
     {
@@ -611,7 +611,7 @@ namespace ADBC2.Structures.Version18179
         public string text;
         public int Language;
     }
-    
+
     [DbFileInfo(18179, "ChrClasses.dbc")]
     public sealed class ChrClassesEntry
     {
@@ -635,14 +635,14 @@ namespace ADBC2.Structures.Version18179
         public int lowResScreenFileDataID;
         public int iconFileDataID;
     }
-    
+
     [DbFileInfo(18179, "ChrClassesXPowerTypes.dbc")]
     public sealed class ChrClassesXPowerTypesEntry
     {
         public int classID;
         public int powerType;
     }
-    
+
     [DbFileInfo(18179, "ChrRaces.dbc")]
     public sealed class ChrRacesEntry
     {
@@ -687,7 +687,7 @@ namespace ADBC2.Structures.Version18179
         public int HighResFemaleDisplayId;
         public int charComponentTexLayoutHiResID;
     }
-    
+
     [DbFileInfo(18179, "ChrSpecialization.dbc")]
     public sealed class ChrSpecializationEntry
     {
@@ -710,7 +710,7 @@ namespace ADBC2.Structures.Version18179
         public int primaryStatOrder2;
         public int primaryStatOrder3;
     }
-    
+
     [DbFileInfo(18179, "CinematicCamera.dbc")]
     public sealed class CinematicCameraEntry
     {
@@ -722,7 +722,7 @@ namespace ADBC2.Structures.Version18179
         public float origin3;
         public float originFacing;
     }
-    
+
     [DbFileInfo(18179, "CinematicSequences.dbc")]
     public sealed class CinematicSequencesEntry
     {
@@ -737,7 +737,7 @@ namespace ADBC2.Structures.Version18179
         public int camera7;
         public int camera8;
     }
-    
+
     [DbFileInfo(18179, "CombatCondition.dbc")]
     public sealed class CombatConditionEntry
     {
@@ -760,7 +760,7 @@ namespace ADBC2.Structures.Version18179
         public int enemyConditionCount2;
         public int enemyConditionLogic;
     }
-    
+
     [DbFileInfo(18179, "ConsoleScripts.dbc")]
     public sealed class ConsoleScriptsEntry
     {
@@ -768,7 +768,7 @@ namespace ADBC2.Structures.Version18179
         public string name;
         public string script;
     }
-    
+
     [DbFileInfo(18179, "CreatureDisplayInfoExtra.dbc")]
     public sealed class CreatureDisplayInfoExtraEntry
     {
@@ -796,7 +796,7 @@ namespace ADBC2.Structures.Version18179
         public int fileDataID;
         public int hdFileDataID;
     }
-    
+
     [DbFileInfo(18179, "CreatureDisplayInfo.dbc")]
     public sealed class CreatureDisplayInfoEntry
     {
@@ -823,7 +823,7 @@ namespace ADBC2.Structures.Version18179
         public int gender;
         public int stateSpellVisualKitID;
     }
-    
+
     [DbFileInfo(18179, "CreatureFamily.dbc")]
     public sealed class CreatureFamilyEntry
     {
@@ -840,7 +840,7 @@ namespace ADBC2.Structures.Version18179
         public string name_lang;
         public string iconFile;
     }
-    
+
     [DbFileInfo(18179, "CreatureImmunities.dbc")]
     public sealed class CreatureImmunitiesEntry
     {
@@ -876,7 +876,7 @@ namespace ADBC2.Structures.Version18179
         [OLVColumn(AspectToStringFormat = "0x{0:X8}")]
         public uint Flags;
     }
-    
+
     [DbFileInfo(18179, "CreatureModelData.dbc")]
     public sealed class CreatureModelDataEntry
     {
@@ -916,14 +916,14 @@ namespace ADBC2.Structures.Version18179
         public int creatureGeosetDataID;
         public float hoverHeight;
     }
-    
+
     [DbFileInfo(18179, "CreatureMovementInfo.dbc")]
     public sealed class CreatureMovementInfoEntry
     {
         public int ID;
         public float smoothFacingChaseRate;
     }
-    
+
     [DbFileInfo(18179, "CreatureSoundData.dbc")]
     public sealed class CreatureSoundDataEntry
     {
@@ -968,7 +968,7 @@ namespace ADBC2.Structures.Version18179
         public int transformSoundID;
         public int transformAnimatedSoundID;
     }
-    
+
     [DbFileInfo(18179, "CreatureSpellData.dbc")]
     public sealed class CreatureSpellDataEntry
     {
@@ -982,7 +982,7 @@ namespace ADBC2.Structures.Version18179
         public int availability3;
         public int availability4;
     }
-    
+
     [DbFileInfo(18179, "CreatureType.dbc")]
     public sealed class CreatureTypeEntry
     {
@@ -991,7 +991,7 @@ namespace ADBC2.Structures.Version18179
         [OLVColumn(AspectToStringFormat = "0x{0:X8}")]
         public uint Flags;
     }
-    
+
     [DbFileInfo(18179, "Criteria.dbc")]
     public sealed class CriteriaEntry
     {
@@ -1009,7 +1009,7 @@ namespace ADBC2.Structures.Version18179
         public int eligibility_world_state_ID;
         public int eligibility_world_state_value;
     }
-    
+
     [DbFileInfo(18179, "CriteriaTree.dbc")]
     public sealed class CriteriaTreeEntry
     {
@@ -1024,7 +1024,7 @@ namespace ADBC2.Structures.Version18179
         public string description_lang;
         public int orderIndex;
     }
-    
+
     [DbFileInfo(18179, "CriteriaTreeXEffect.dbc")]
     public sealed class CriteriaTreeXEffectEntry
     {
@@ -1032,7 +1032,7 @@ namespace ADBC2.Structures.Version18179
         public int criteriaTreeID;
         public int worldEffectID;
     }
-    
+
     [DbFileInfo(18179, "CurrencyCategory.dbc")]
     public sealed class CurrencyCategoryEntry
     {
@@ -1041,7 +1041,7 @@ namespace ADBC2.Structures.Version18179
         public uint Flags;
         public string name_lang;
     }
-    
+
     [DbFileInfo(18179, "CurrencyTypes.dbc")]
     public sealed class CurrencyTypesEntry
     {
@@ -1059,7 +1059,7 @@ namespace ADBC2.Structures.Version18179
         public int quality;
         public string description_lang;
     }
-    
+
     [DbFileInfo(18179, "DeathThudLookups.dbc")]
     public sealed class DeathThudLookupsEntry
     {
@@ -1069,7 +1069,7 @@ namespace ADBC2.Structures.Version18179
         public int SoundEntryID;
         public int SoundEntryIDWater;
     }
-    
+
     [DbFileInfo(18179, "DeclinedWordCases.dbc")]
     public sealed class DeclinedWordCasesEntry
     {
@@ -1078,14 +1078,14 @@ namespace ADBC2.Structures.Version18179
         public int caseIndex;
         public string declinedWord;
     }
-    
+
     [DbFileInfo(18179, "DeclinedWord.dbc")]
     public sealed class DeclinedWordEntry
     {
         public int ID;
         public string word;
     }
-    
+
     [DbFileInfo(18179, "DestructibleModelData.dbc")]
     public sealed class DestructibleModelDataEntry
     {
@@ -1114,7 +1114,7 @@ namespace ADBC2.Structures.Version18179
         public int healEffect;
         public int healEffectSpeed;
     }
-    
+
     [DbFileInfo(18179, "Difficulty.dbc")]
     public sealed class DifficultyEntry
     {
@@ -1132,7 +1132,7 @@ namespace ADBC2.Structures.Version18179
         public int groupSizeSpellPointsCurveID;
         public string name_lang;
     }
-    
+
     [DbFileInfo(18179, "DungeonEncounter.dbc")]
     public sealed class DungeonEncounterEntry
     {
@@ -1147,7 +1147,7 @@ namespace ADBC2.Structures.Version18179
         [OLVColumn(AspectToStringFormat = "0x{0:X8}")]
         public uint Flags;
     }
-    
+
     [DbFileInfo(18179, "DungeonMapChunk.dbc")]
     public sealed class DungeonMapChunkEntry
     {
@@ -1158,7 +1158,7 @@ namespace ADBC2.Structures.Version18179
         public float minZ;
         public int doodadPlacementID;
     }
-    
+
     [DbFileInfo(18179, "DungeonMap.dbc")]
     public sealed class DungeonMapEntry
     {
@@ -1173,7 +1173,7 @@ namespace ADBC2.Structures.Version18179
         [OLVColumn(AspectToStringFormat = "0x{0:X8}")]
         public uint Flags;
     }
-    
+
     [DbFileInfo(18179, "DurabilityCosts.dbc")]
     public sealed class DurabilityCostsEntry
     {
@@ -1208,14 +1208,14 @@ namespace ADBC2.Structures.Version18179
         public int armorSubClassCost7;
         public int armorSubClassCost8;
     }
-    
+
     [DbFileInfo(18179, "DurabilityQuality.dbc")]
     public sealed class DurabilityQualityEntry
     {
         public int ID;
         public float data;
     }
-    
+
     [DbFileInfo(18179, "Emotes.dbc")]
     public sealed class EmotesEntry
     {
@@ -1228,14 +1228,14 @@ namespace ADBC2.Structures.Version18179
         public int EventSoundID;
         public int SpellVisualKitID;
     }
-    
+
     [DbFileInfo(18179, "EmotesTextData.dbc")]
     public sealed class EmotesTextDataEntry
     {
         public int ID;
         public string text_lang;
     }
-    
+
     [DbFileInfo(18179, "EmotesText.dbc")]
     public sealed class EmotesTextEntry
     {
@@ -1259,7 +1259,7 @@ namespace ADBC2.Structures.Version18179
         public int emoteText15;
         public int emoteText16;
     }
-    
+
     [DbFileInfo(18179, "EmotesTextSound.dbc")]
     public sealed class EmotesTextSoundEntry
     {
@@ -1269,7 +1269,7 @@ namespace ADBC2.Structures.Version18179
         public int sexID;
         public int soundID;
     }
-    
+
     [DbFileInfo(18179, "EnvironmentalDamage.dbc")]
     public sealed class EnvironmentalDamageEntry
     {
@@ -1277,7 +1277,7 @@ namespace ADBC2.Structures.Version18179
         public int EnumID;
         public int VisualkitID;
     }
-    
+
     [DbFileInfo(18179, "Exhaustion.dbc")]
     public sealed class ExhaustionEntry
     {
@@ -1290,7 +1290,7 @@ namespace ADBC2.Structures.Version18179
         public float threshold;
         public string combatLogText;
     }
-    
+
     [DbFileInfo(18179, "FactionGroup.dbc")]
     public sealed class FactionGroupEntry
     {
@@ -1299,7 +1299,7 @@ namespace ADBC2.Structures.Version18179
         public string internalName;
         public string name_lang;
     }
-    
+
     [DbFileInfo(18179, "Faction.dbc")]
     public sealed class FactionEntry
     {
@@ -1333,7 +1333,7 @@ namespace ADBC2.Structures.Version18179
         public uint Flags;
         public int friendshipRepID;
     }
-    
+
     [DbFileInfo(18179, "FactionTemplate.dbc")]
     public sealed class FactionTemplateEntry
     {
@@ -1353,7 +1353,7 @@ namespace ADBC2.Structures.Version18179
         public int friend3;
         public int friend4;
     }
-    
+
     [DbFileInfo(18179, "FootstepTerrainLookup.dbc")]
     public sealed class FootstepTerrainLookupEntry
     {
@@ -1363,7 +1363,7 @@ namespace ADBC2.Structures.Version18179
         public int SoundID;
         public int SoundIDSplash;
     }
-    
+
     [DbFileInfo(18179, "FriendshipRepReaction.dbc")]
     public sealed class FriendshipRepReactionEntry
     {
@@ -1372,7 +1372,7 @@ namespace ADBC2.Structures.Version18179
         public int reactionThreshold;
         public string reaction_lang;
     }
-    
+
     [DbFileInfo(18179, "FriendshipReputation.dbc")]
     public sealed class FriendshipReputationEntry
     {
@@ -1381,7 +1381,7 @@ namespace ADBC2.Structures.Version18179
         public int textureFileID;
         public string description_lang;
     }
-    
+
     [DbFileInfo(18179, "GameObjectArtKit.dbc")]
     public sealed class GameObjectArtKitEntry
     {
@@ -1394,7 +1394,7 @@ namespace ADBC2.Structures.Version18179
         public string attachModel3;
         public string attachModel4;
     }
-    
+
     [DbFileInfo(18179, "GameObjectDiffAnimMap.dbc")]
     public sealed class GameObjectDiffAnimMapEntry
     {
@@ -1404,7 +1404,7 @@ namespace ADBC2.Structures.Version18179
         public int animation;
         public int attachmentDisplayID;
     }
-    
+
     [DbFileInfo(18179, "GameObjectDisplayInfo.dbc")]
     public sealed class GameObjectDisplayInfoEntry
     {
@@ -1430,7 +1430,7 @@ namespace ADBC2.Structures.Version18179
         public float overrideLootEffectScale;
         public float overrideNameScale;
     }
-    
+
     [DbFileInfo(18179, "GameTables.dbc")]
     public sealed class GameTablesEntry
     {
@@ -1438,7 +1438,7 @@ namespace ADBC2.Structures.Version18179
         public int numRows;
         public int numColumns;
     }
-    
+
     [DbFileInfo(18179, "GameTips.dbc")]
     public sealed class GameTipsEntry
     {
@@ -1447,7 +1447,7 @@ namespace ADBC2.Structures.Version18179
         public int min_level;
         public int max_level;
     }
-    
+
     [DbFileInfo(18179, "GarrUiAnimClassInfo.dbc")]
     public sealed class GarrUiAnimClassInfoEntry
     {
@@ -1457,7 +1457,7 @@ namespace ADBC2.Structures.Version18179
         public int movementType;
         public float impactDelaySecs;
     }
-    
+
     [DbFileInfo(18179, "GarrUiAnimRaceInfo.dbc")]
     public sealed class GarrUiAnimRaceInfoEntry
     {
@@ -1468,7 +1468,7 @@ namespace ADBC2.Structures.Version18179
         public float singleModelScale;
         public float singleModelHeight;
     }
-    
+
     [DbFileInfo(18179, "GemProperties.dbc")]
     public sealed class GemPropertiesEntry
     {
@@ -1479,7 +1479,7 @@ namespace ADBC2.Structures.Version18179
         public int type;
         public int min_item_level;
     }
-    
+
     [DbFileInfo(18179, "GlueScreenEmote.dbc")]
     public sealed class GlueScreenEmoteEntry
     {
@@ -1492,7 +1492,7 @@ namespace ADBC2.Structures.Version18179
         public int animKitId;
         public int spellVisualKitId;
     }
-    
+
     [DbFileInfo(18179, "GlyphProperties.dbc")]
     public sealed class GlyphPropertiesEntry
     {
@@ -1502,7 +1502,7 @@ namespace ADBC2.Structures.Version18179
         public int spellIconID;
         public int glyphExclusiveCategoryID;
     }
-    
+
     [DbFileInfo(18179, "GlyphSlot.dbc")]
     public sealed class GlyphSlotEntry
     {
@@ -1510,7 +1510,7 @@ namespace ADBC2.Structures.Version18179
         public int type;
         public int tooltip;
     }
-    
+
     [DbFileInfo(18179, "GMSurveyAnswers.dbc")]
     public sealed class GMSurveyAnswersEntry
     {
@@ -1519,21 +1519,21 @@ namespace ADBC2.Structures.Version18179
         public int GMSurveyQuestionID;
         public string Answer_lang;
     }
-    
+
     [DbFileInfo(18179, "GMSurveyCurrentSurvey.dbc")]
     public sealed class GMSurveyCurrentSurveyEntry
     {
         public int LANGID;
         public int GMSURVEY_ID;
     }
-    
+
     [DbFileInfo(18179, "GMSurveyQuestions.dbc")]
     public sealed class GMSurveyQuestionsEntry
     {
         public int ID;
         public string Question_lang;
     }
-    
+
     [DbFileInfo(18179, "GMSurveySurveys.dbc")]
     public sealed class GMSurveySurveysEntry
     {
@@ -1554,14 +1554,14 @@ namespace ADBC2.Structures.Version18179
         public int Q14;
         public int Q15;
     }
-    
+
     [DbFileInfo(18179, "GMTicketCategory.dbc")]
     public sealed class GMTicketCategoryEntry
     {
         public int ID;
         public string category_lang;
     }
-    
+
     [DbFileInfo(18179, "GroundEffectTexture.dbc")]
     public sealed class GroundEffectTextureEntry
     {
@@ -1577,122 +1577,122 @@ namespace ADBC2.Structures.Version18179
         public int density;
         public int sound;
     }
-    
+
     [DbFileInfo(18179, "gtArmorMitigationByLvl.dbc")]
     public sealed class gtArmorMitigationByLvlEntry
     {
         public float data;
     }
-    
+
     [DbFileInfo(18179, "gtBarberShopCostBase.dbc")]
     public sealed class gtBarberShopCostBaseEntry
     {
         public float data;
     }
-    
+
     [DbFileInfo(18179, "gtBattlePetTypeDamageMod.dbc")]
     public sealed class gtBattlePetTypeDamageModEntry
     {
         public float data;
     }
-    
+
     [DbFileInfo(18179, "gtBattlePetXP.dbc")]
     public sealed class gtBattlePetXPEntry
     {
         public float data;
     }
-    
+
     [DbFileInfo(18179, "gtChanceToMeleeCritBase.dbc")]
     public sealed class gtChanceToMeleeCritBaseEntry
     {
         public float data;
     }
-    
+
     [DbFileInfo(18179, "gtChanceToMeleeCrit.dbc")]
     public sealed class gtChanceToMeleeCritEntry
     {
         public float data;
     }
-    
+
     [DbFileInfo(18179, "gtChanceToSpellCritBase.dbc")]
     public sealed class gtChanceToSpellCritBaseEntry
     {
         public float data;
     }
-    
+
     [DbFileInfo(18179, "gtChanceToSpellCrit.dbc")]
     public sealed class gtChanceToSpellCritEntry
     {
         public float data;
     }
-    
+
     [DbFileInfo(18179, "gtCombatRatings.dbc")]
     public sealed class gtCombatRatingsEntry
     {
         public float data;
     }
-    
+
     [DbFileInfo(18179, "gtItemSocketCostPerLevel.dbc")]
     public sealed class gtItemSocketCostPerLevelEntry
     {
         public float data;
     }
-    
+
     [DbFileInfo(18179, "gtNPCManaCostScaler.dbc")]
     public sealed class gtNPCManaCostScalerEntry
     {
         public float data;
     }
-    
+
     [DbFileInfo(18179, "gtOCTBaseHPByClass.dbc")]
     public sealed class gtOCTBaseHPByClassEntry
     {
         public float data;
     }
-    
+
     [DbFileInfo(18179, "gtOCTBaseMPByClass.dbc")]
     public sealed class gtOCTBaseMPByClassEntry
     {
         public float data;
     }
-    
+
     [DbFileInfo(18179, "gtOCTClassCombatRatingScalar.dbc")]
     public sealed class gtOCTClassCombatRatingScalarEntry
     {
         public int ID;
         public float data;
     }
-    
+
     [DbFileInfo(18179, "gtOCTHpPerStamina.dbc")]
     public sealed class gtOCTHpPerStaminaEntry
     {
         public float data;
     }
-    
+
     [DbFileInfo(18179, "gtOCTLevelExperience.dbc")]
     public sealed class gtOCTLevelExperienceEntry
     {
         public float data;
     }
-    
+
     [DbFileInfo(18179, "gtRegenMPPerSpt.dbc")]
     public sealed class gtRegenMPPerSptEntry
     {
         public float data;
     }
-    
+
     [DbFileInfo(18179, "gtResilienceDR.dbc")]
     public sealed class gtResilienceDREntry
     {
         public float data;
     }
-    
+
     [DbFileInfo(18179, "gtSpellScaling.dbc")]
     public sealed class gtSpellScalingEntry
     {
         public float data;
     }
-    
+
     [DbFileInfo(18179, "GuildColorBackground.dbc")]
     public sealed class GuildColorBackgroundEntry
     {
@@ -1701,7 +1701,7 @@ namespace ADBC2.Structures.Version18179
         public int green;
         public int blue;
     }
-    
+
     [DbFileInfo(18179, "GuildColorBorder.dbc")]
     public sealed class GuildColorBorderEntry
     {
@@ -1710,7 +1710,7 @@ namespace ADBC2.Structures.Version18179
         public int green;
         public int blue;
     }
-    
+
     [DbFileInfo(18179, "GuildColorEmblem.dbc")]
     public sealed class GuildColorEmblemEntry
     {
@@ -1719,7 +1719,7 @@ namespace ADBC2.Structures.Version18179
         public int green;
         public int blue;
     }
-    
+
     [DbFileInfo(18179, "GuildPerkSpells.dbc")]
     public sealed class GuildPerkSpellsEntry
     {
@@ -1727,7 +1727,7 @@ namespace ADBC2.Structures.Version18179
         public int guildLevel;
         public int spellID;
     }
-    
+
     [DbFileInfo(18179, "HelmetAnimScaling.dbc")]
     public sealed class HelmetAnimScalingEntry
     {
@@ -1736,7 +1736,7 @@ namespace ADBC2.Structures.Version18179
         public int raceID;
         public float amount;
     }
-    
+
     [DbFileInfo(18179, "HelmetGeosetVisData.dbc")]
     public sealed class HelmetGeosetVisDataEntry
     {
@@ -1749,21 +1749,21 @@ namespace ADBC2.Structures.Version18179
         public int hideGeoset6;
         public int hideGeoset7;
     }
-    
+
     [DbFileInfo(18179, "HolidayDescriptions.dbc")]
     public sealed class HolidayDescriptionsEntry
     {
         public int ID;
         public string description_lang;
     }
-    
+
     [DbFileInfo(18179, "HolidayNames.dbc")]
     public sealed class HolidayNamesEntry
     {
         public int ID;
         public string name_lang;
     }
-    
+
     [DbFileInfo(18179, "Holidays.dbc")]
     public sealed class HolidaysEntry
     {
@@ -1824,7 +1824,7 @@ namespace ADBC2.Structures.Version18179
         [OLVColumn(AspectToStringFormat = "0x{0:X8}")]
         public uint Flags;
     }
-    
+
     [DbFileInfo(18179, "ImportPriceArmor.dbc")]
     public sealed class ImportPriceArmorEntry
     {
@@ -1834,28 +1834,28 @@ namespace ADBC2.Structures.Version18179
         public float ChainModifier;
         public float PlateModifier;
     }
-    
+
     [DbFileInfo(18179, "ImportPriceQuality.dbc")]
     public sealed class ImportPriceQualityEntry
     {
         public int ID;
         public float data;
     }
-    
+
     [DbFileInfo(18179, "ImportPriceShield.dbc")]
     public sealed class ImportPriceShieldEntry
     {
         public int ID;
         public float data;
     }
-    
+
     [DbFileInfo(18179, "ImportPriceWeapon.dbc")]
     public sealed class ImportPriceWeaponEntry
     {
         public int ID;
         public float data;
     }
-    
+
     [DbFileInfo(18179, "ItemArmorQuality.dbc")]
     public sealed class ItemArmorQualityEntry
     {
@@ -1869,7 +1869,7 @@ namespace ADBC2.Structures.Version18179
         public float qualitymod7;
         public int itemLevel;
     }
-    
+
     [DbFileInfo(18179, "ItemArmorShield.dbc")]
     public sealed class ItemArmorShieldEntry
     {
@@ -1883,7 +1883,7 @@ namespace ADBC2.Structures.Version18179
         public float quality6;
         public float quality7;
     }
-    
+
     [DbFileInfo(18179, "ItemArmorTotal.dbc")]
     public sealed class ItemArmorTotalEntry
     {
@@ -1894,14 +1894,14 @@ namespace ADBC2.Structures.Version18179
         public float mail;
         public float plate;
     }
-    
+
     [DbFileInfo(18179, "ItemBagFamily.dbc")]
     public sealed class ItemBagFamilyEntry
     {
         public int ID;
         public string name_lang;
     }
-    
+
     [DbFileInfo(18179, "ItemClass.dbc")]
     public sealed class ItemClassEntry
     {
@@ -1911,7 +1911,7 @@ namespace ADBC2.Structures.Version18179
         public float priceModifier;
         public string className_lang;
     }
-    
+
     [DbFileInfo(18179, "ItemDamageAmmo.dbc")]
     public sealed class ItemDamageAmmoEntry
     {
@@ -1925,7 +1925,7 @@ namespace ADBC2.Structures.Version18179
         public float quality7;
         public int itemLevel;
     }
-    
+
     [DbFileInfo(18179, "ItemDamageOneHandCaster.dbc")]
     public sealed class ItemDamageOneHandCasterEntry
     {
@@ -1939,7 +1939,7 @@ namespace ADBC2.Structures.Version18179
         public float quality7;
         public int itemLevel;
     }
-    
+
     [DbFileInfo(18179, "ItemDamageOneHand.dbc")]
     public sealed class ItemDamageOneHandEntry
     {
@@ -1953,7 +1953,7 @@ namespace ADBC2.Structures.Version18179
         public float quality7;
         public int itemLevel;
     }
-    
+
     [DbFileInfo(18179, "ItemDamageRanged.dbc")]
     public sealed class ItemDamageRangedEntry
     {
@@ -1967,7 +1967,7 @@ namespace ADBC2.Structures.Version18179
         public float quality7;
         public int itemLevel;
     }
-    
+
     [DbFileInfo(18179, "ItemDamageThrown.dbc")]
     public sealed class ItemDamageThrownEntry
     {
@@ -1981,7 +1981,7 @@ namespace ADBC2.Structures.Version18179
         public float quality7;
         public int itemLevel;
     }
-    
+
     [DbFileInfo(18179, "ItemDamageTwoHandCaster.dbc")]
     public sealed class ItemDamageTwoHandCasterEntry
     {
@@ -1995,7 +1995,7 @@ namespace ADBC2.Structures.Version18179
         public float quality7;
         public int itemLevel;
     }
-    
+
     [DbFileInfo(18179, "ItemDamageTwoHand.dbc")]
     public sealed class ItemDamageTwoHandEntry
     {
@@ -2009,7 +2009,7 @@ namespace ADBC2.Structures.Version18179
         public float quality7;
         public int itemLevel;
     }
-    
+
     [DbFileInfo(18179, "ItemDamageWand.dbc")]
     public sealed class ItemDamageWandEntry
     {
@@ -2023,7 +2023,7 @@ namespace ADBC2.Structures.Version18179
         public float quality7;
         public int itemLevel;
     }
-    
+
     [DbFileInfo(18179, "ItemDisenchantLoot.dbc")]
     public sealed class ItemDisenchantLootEntry
     {
@@ -2035,7 +2035,7 @@ namespace ADBC2.Structures.Version18179
         public int maxLevel;
         public int skillRequired;
     }
-    
+
     [DbFileInfo(18179, "ItemDisplayInfo.dbc")]
     public sealed class ItemDisplayInfoEntry
     {
@@ -2064,7 +2064,7 @@ namespace ADBC2.Structures.Version18179
         public int itemVisual;
         public int particleColorID;
     }
-    
+
     [DbFileInfo(18179, "ItemGroupSounds.dbc")]
     public sealed class ItemGroupSoundsEntry
     {
@@ -2074,7 +2074,7 @@ namespace ADBC2.Structures.Version18179
         public int sound3;
         public int sound4;
     }
-    
+
     [DbFileInfo(18179, "ItemLimitCategory.dbc")]
     public sealed class ItemLimitCategoryEntry
     {
@@ -2084,7 +2084,7 @@ namespace ADBC2.Structures.Version18179
         [OLVColumn(AspectToStringFormat = "0x{0:X8}")]
         public uint Flags;
     }
-    
+
     [DbFileInfo(18179, "ItemNameDescription.dbc")]
     public sealed class ItemNameDescriptionEntry
     {
@@ -2092,14 +2092,14 @@ namespace ADBC2.Structures.Version18179
         public string description_lang;
         public int color;
     }
-    
+
     [DbFileInfo(18179, "ItemPetFood.dbc")]
     public sealed class ItemPetFoodEntry
     {
         public int ID;
         public string Name_lang;
     }
-    
+
     [DbFileInfo(18179, "ItemPriceBase.dbc")]
     public sealed class ItemPriceBaseEntry
     {
@@ -2108,7 +2108,7 @@ namespace ADBC2.Structures.Version18179
         public float armor;
         public float weapon;
     }
-    
+
     [DbFileInfo(18179, "ItemPurchaseGroup.dbc")]
     public sealed class ItemPurchaseGroupEntry
     {
@@ -2123,7 +2123,7 @@ namespace ADBC2.Structures.Version18179
         public int itemID8;
         public string name_lang;
     }
-    
+
     [DbFileInfo(18179, "ItemRandomProperties.dbc")]
     public sealed class ItemRandomPropertiesEntry
     {
@@ -2136,7 +2136,7 @@ namespace ADBC2.Structures.Version18179
         public int Enchantment5;
         public string name_lang;
     }
-    
+
     [DbFileInfo(18179, "ItemRandomSuffix.dbc")]
     public sealed class ItemRandomSuffixEntry
     {
@@ -2154,7 +2154,7 @@ namespace ADBC2.Structures.Version18179
         public int allocationPct4;
         public int allocationPct5;
     }
-    
+
     [DbFileInfo(18179, "ItemSet.dbc")]
     public sealed class ItemSetEntry
     {
@@ -2180,7 +2180,7 @@ namespace ADBC2.Structures.Version18179
         public int requiredSkill;
         public int requiredSkillRank;
     }
-    
+
     [DbFileInfo(18179, "ItemSetSpell.dbc")]
     public sealed class ItemSetSpellEntry
     {
@@ -2190,7 +2190,7 @@ namespace ADBC2.Structures.Version18179
         public int threshold;
         public int chrSpecID;
     }
-    
+
     [DbFileInfo(18179, "ItemSpecOverride.dbc")]
     public sealed class ItemSpecOverrideEntry
     {
@@ -2198,7 +2198,7 @@ namespace ADBC2.Structures.Version18179
         public int itemID;
         public int specID;
     }
-    
+
     [DbFileInfo(18179, "ItemSpec.dbc")]
     public sealed class ItemSpecEntry
     {
@@ -2210,7 +2210,7 @@ namespace ADBC2.Structures.Version18179
         public int secondaryStat;
         public int specializationID;
     }
-    
+
     [DbFileInfo(18179, "ItemSubClassMask.dbc")]
     public sealed class ItemSubClassMaskEntry
     {
@@ -2218,7 +2218,7 @@ namespace ADBC2.Structures.Version18179
         public int mask;
         public string name_lang;
     }
-    
+
     [DbFileInfo(18179, "ItemSubClass.dbc")]
     public sealed class ItemSubClassEntry
     {
@@ -2236,20 +2236,20 @@ namespace ADBC2.Structures.Version18179
         public string displayName_lang;
         public string verboseName_lang;
     }
-    
+
     [DbFileInfo(18179, "ItemUpgradePath.dbc")]
     public sealed class ItemUpgradePathEntry
     {
         public int id;
     }
-    
+
     [DbFileInfo(18179, "ItemVisualEffects.dbc")]
     public sealed class ItemVisualEffectsEntry
     {
         public int ID;
         public string Model;
     }
-    
+
     [DbFileInfo(18179, "ItemVisuals.dbc")]
     public sealed class ItemVisualsEntry
     {
@@ -2260,7 +2260,7 @@ namespace ADBC2.Structures.Version18179
         public int Slot4;
         public int Slot5;
     }
-    
+
     [DbFileInfo(18179, "JournalEncounterCreature.dbc")]
     public sealed class JournalEncounterCreatureEntry
     {
@@ -2272,7 +2272,7 @@ namespace ADBC2.Structures.Version18179
         public string name_lang;
         public string description_lang;
     }
-    
+
     [DbFileInfo(18179, "JournalEncounterItem.dbc")]
     public sealed class JournalEncounterItemEntry
     {
@@ -2284,7 +2284,7 @@ namespace ADBC2.Structures.Version18179
         [OLVColumn(AspectToStringFormat = "0x{0:X8}")]
         public uint Flags;
     }
-    
+
     [DbFileInfo(18179, "JournalEncounter.dbc")]
     public sealed class JournalEncounterEntry
     {
@@ -2302,7 +2302,7 @@ namespace ADBC2.Structures.Version18179
         [OLVColumn(AspectToStringFormat = "0x{0:X8}")]
         public uint Flags;
     }
-    
+
     [DbFileInfo(18179, "JournalEncounterSection.dbc")]
     public sealed class JournalEncounterSectionEntry
     {
@@ -2323,7 +2323,7 @@ namespace ADBC2.Structures.Version18179
         public int spellID;
         public int iconFileDataID;
     }
-    
+
     [DbFileInfo(18179, "JournalEncounterXDifficulty.dbc")]
     public sealed class JournalEncounterXDifficultyEntry
     {
@@ -2331,7 +2331,7 @@ namespace ADBC2.Structures.Version18179
         public int journalEncounterID;
         public int difficultyID;
     }
-    
+
     [DbFileInfo(18179, "JournalInstance.dbc")]
     public sealed class JournalInstanceEntry
     {
@@ -2345,7 +2345,7 @@ namespace ADBC2.Structures.Version18179
         public string name_lang;
         public string description_lang;
     }
-    
+
     [DbFileInfo(18179, "JournalItemXDifficulty.dbc")]
     public sealed class JournalItemXDifficultyEntry
     {
@@ -2353,7 +2353,7 @@ namespace ADBC2.Structures.Version18179
         public int journalEncounterItemID;
         public int difficultyID;
     }
-    
+
     [DbFileInfo(18179, "JournalSectionXDifficulty.dbc")]
     public sealed class JournalSectionXDifficultyEntry
     {
@@ -2361,28 +2361,28 @@ namespace ADBC2.Structures.Version18179
         public int journalEncounterSectionID;
         public int difficultyID;
     }
-    
+
     [DbFileInfo(18179, "JournalTier.dbc")]
     public sealed class JournalTierEntry
     {
         public int ID;
         public string name_lang;
     }
-    
+
     [DbFileInfo(18179, "JournalTierXInstance.dbc")]
     public sealed class JournalTierXInstanceEntry
     {
         public int journalTierID;
         public int journalInstanceID;
     }
-    
+
     [DbFileInfo(18179, "Languages.dbc")]
     public sealed class LanguagesEntry
     {
         public int ID;
         public string name_lang;
     }
-    
+
     [DbFileInfo(18179, "LanguageWords.dbc")]
     public sealed class LanguageWordsEntry
     {
@@ -2390,7 +2390,7 @@ namespace ADBC2.Structures.Version18179
         public int languageID;
         public string word;
     }
-    
+
     [DbFileInfo(18179, "LfgDungeonExpansion.dbc")]
     public sealed class LfgDungeonExpansionEntry
     {
@@ -2403,7 +2403,7 @@ namespace ADBC2.Structures.Version18179
         public int target_level_min;
         public int target_level_max;
     }
-    
+
     [DbFileInfo(18179, "LfgDungeonGroup.dbc")]
     public sealed class LfgDungeonGroupEntry
     {
@@ -2413,7 +2413,7 @@ namespace ADBC2.Structures.Version18179
         public int parent_group_id;
         public int typeid;
     }
-    
+
     [DbFileInfo(18179, "LfgDungeonsGroupingMap.dbc")]
     public sealed class LfgDungeonsGroupingMapEntry
     {
@@ -2422,7 +2422,7 @@ namespace ADBC2.Structures.Version18179
         public int random_lfgDungeonsID;
         public int group_id;
     }
-    
+
     [DbFileInfo(18179, "LfgDungeons.dbc")]
     public sealed class LfgDungeonsEntry
     {
@@ -2457,7 +2457,7 @@ namespace ADBC2.Structures.Version18179
         public int mentorCharLevel;
         public int mentorItemLevel;
     }
-    
+
     [DbFileInfo(18179, "LoadingScreens.dbc")]
     public sealed class LoadingScreensEntry
     {
@@ -2466,7 +2466,7 @@ namespace ADBC2.Structures.Version18179
         public string fileName;
         public int hasWideScreen;
     }
-    
+
     [DbFileInfo(18179, "LoadingScreenTaxiSplines.dbc")]
     public sealed class LoadingScreenTaxiSplinesEntry
     {
@@ -2495,7 +2495,7 @@ namespace ADBC2.Structures.Version18179
         public int LegIndex;
         public int LoadingScreenID;
     }
-    
+
     [DbFileInfo(18179, "Lock.dbc")]
     public sealed class LockEntry
     {
@@ -2533,7 +2533,7 @@ namespace ADBC2.Structures.Version18179
         public int Action7;
         public int Action8;
     }
-    
+
     [DbFileInfo(18179, "LockType.dbc")]
     public sealed class LockTypeEntry
     {
@@ -2543,7 +2543,7 @@ namespace ADBC2.Structures.Version18179
         public string verb_lang;
         public string cursorName;
     }
-    
+
     [DbFileInfo(18179, "MailTemplate.dbc")]
     public sealed class MailTemplateEntry
     {
@@ -2551,13 +2551,13 @@ namespace ADBC2.Structures.Version18179
         public string subject_lang;
         public string body_lang;
     }
-    
+
     [DbFileInfo(18179, "ManifestInterfaceActionIcon.dbc")]
     public sealed class ManifestInterfaceActionIconEntry
     {
         public int ID;
     }
-    
+
     [DbFileInfo(18179, "ManifestInterfaceData.dbc")]
     public sealed class ManifestInterfaceDataEntry
     {
@@ -2565,20 +2565,20 @@ namespace ADBC2.Structures.Version18179
         public string FilePath;
         public string FileName;
     }
-    
+
     [DbFileInfo(18179, "ManifestInterfaceItemIcon.dbc")]
     public sealed class ManifestInterfaceItemIconEntry
     {
         public int ID;
     }
-    
+
     [DbFileInfo(18179, "ManifestInterfaceTOCData.dbc")]
     public sealed class ManifestInterfaceTOCDataEntry
     {
         public int ID;
         public string FilePath;
     }
-    
+
     [DbFileInfo(18179, "MapDifficulty.dbc")]
     public sealed class MapDifficultyEntry
     {
@@ -2590,7 +2590,7 @@ namespace ADBC2.Structures.Version18179
         public int maxPlayers;
         public int lockID;
     }
-    
+
     [DbFileInfo(18179, "Material.dbc")]
     public sealed class MaterialEntry
     {
@@ -2601,7 +2601,7 @@ namespace ADBC2.Structures.Version18179
         public int sheatheSoundID;
         public int unsheatheSoundID;
     }
-    
+
     [DbFileInfo(18179, "MinorTalent.dbc")]
     public sealed class MinorTalentEntry
     {
@@ -2610,7 +2610,7 @@ namespace ADBC2.Structures.Version18179
         public int spellID;
         public int orderIndex;
     }
-    
+
     [DbFileInfo(18179, "ModifierTree.dbc")]
     public sealed class ModifierTreeEntry
     {
@@ -2622,7 +2622,7 @@ namespace ADBC2.Structures.Version18179
         public int amount;
         public int parent;
     }
-    
+
     [DbFileInfo(18179, "MountCapability.dbc")]
     public sealed class MountCapabilityEntry
     {
@@ -2636,7 +2636,7 @@ namespace ADBC2.Structures.Version18179
         public int modSpellAuraID;
         public int reqMapID;
     }
-    
+
     [DbFileInfo(18179, "MountType.dbc")]
     public sealed class MountTypeEntry
     {
@@ -2666,14 +2666,14 @@ namespace ADBC2.Structures.Version18179
         public int capability23;
         public int capability24;
     }
-    
+
     [DbFileInfo(18179, "MovieFileData.dbc")]
     public sealed class MovieFileDataEntry
     {
         public int FileDataID;
         public int resolution;
     }
-    
+
     [DbFileInfo(18179, "MovieOverlays.dbc")]
     public sealed class MovieOverlaysEntry
     {
@@ -2682,7 +2682,7 @@ namespace ADBC2.Structures.Version18179
         public int overlayRangeBegin;
         public int overlayRangeEnd;
     }
-    
+
     [DbFileInfo(18179, "Movie.dbc")]
     public sealed class MovieEntry
     {
@@ -2692,7 +2692,7 @@ namespace ADBC2.Structures.Version18179
         public int audioFileDataID;
         public int subtitleFileDataID;
     }
-    
+
     [DbFileInfo(18179, "MovieVariation.dbc")]
     public sealed class MovieVariationEntry
     {
@@ -2701,7 +2701,7 @@ namespace ADBC2.Structures.Version18179
         public int fileDataID;
         public int OverlayFileDataID;
     }
-    
+
     [DbFileInfo(18179, "NameGen.dbc")]
     public sealed class NameGenEntry
     {
@@ -2710,7 +2710,7 @@ namespace ADBC2.Structures.Version18179
         public int raceID;
         public int sex;
     }
-    
+
     [DbFileInfo(18179, "NamesProfanity.dbc")]
     public sealed class NamesProfanityEntry
     {
@@ -2718,7 +2718,7 @@ namespace ADBC2.Structures.Version18179
         public string Name;
         public int Language;
     }
-    
+
     [DbFileInfo(18179, "NamesReservedLocale.dbc")]
     public sealed class NamesReservedLocaleEntry
     {
@@ -2726,14 +2726,14 @@ namespace ADBC2.Structures.Version18179
         public string Name;
         public int LocaleMask;
     }
-    
+
     [DbFileInfo(18179, "NamesReserved.dbc")]
     public sealed class NamesReservedEntry
     {
         public int ID;
         public string Name;
     }
-    
+
     [DbFileInfo(18179, "NPCSounds.dbc")]
     public sealed class NPCSoundsEntry
     {
@@ -2743,14 +2743,14 @@ namespace ADBC2.Structures.Version18179
         public int SoundID3;
         public int SoundID4;
     }
-    
+
     [DbFileInfo(18179, "ObjectEffectGroup.dbc")]
     public sealed class ObjectEffectGroupEntry
     {
         public int ID;
         public string name;
     }
-    
+
     [DbFileInfo(18179, "ObjectEffectModifier.dbc")]
     public sealed class ObjectEffectModifierEntry
     {
@@ -2763,7 +2763,7 @@ namespace ADBC2.Structures.Version18179
         public float param3;
         public float param4;
     }
-    
+
     [DbFileInfo(18179, "ObjectEffectPackageElem.dbc")]
     public sealed class ObjectEffectPackageElemEntry
     {
@@ -2772,14 +2772,14 @@ namespace ADBC2.Structures.Version18179
         public int objectEffectGroupID;
         public int stateType;
     }
-    
+
     [DbFileInfo(18179, "ObjectEffectPackage.dbc")]
     public sealed class ObjectEffectPackageEntry
     {
         public int ID;
         public string name;
     }
-    
+
     [DbFileInfo(18179, "ObjectEffect.dbc")]
     public sealed class ObjectEffectEntry
     {
@@ -2796,7 +2796,7 @@ namespace ADBC2.Structures.Version18179
         public float offset3;
         public int objectEffectModifierID;
     }
-    
+
     [DbFileInfo(18179, "OverrideSpellData.dbc")]
     public sealed class OverrideSpellDataEntry
     {
@@ -2815,7 +2815,7 @@ namespace ADBC2.Structures.Version18179
         public uint Flags;
         public int playerActionbarFileDataID;
     }
-    
+
     [DbFileInfo(18179, "Package.dbc")]
     public sealed class PackageEntry
     {
@@ -2824,14 +2824,14 @@ namespace ADBC2.Structures.Version18179
         public int cost;
         public string name_lang;
     }
-    
+
     [DbFileInfo(18179, "PageTextMaterial.dbc")]
     public sealed class PageTextMaterialEntry
     {
         public int ID;
         public string name;
     }
-    
+
     [DbFileInfo(18179, "PaperDollItemFrame.dbc")]
     public sealed class PaperDollItemFrameEntry
     {
@@ -2839,7 +2839,7 @@ namespace ADBC2.Structures.Version18179
         public string SlotIcon;
         public int SlotNumber;
     }
-    
+
     [DbFileInfo(18179, "ParticleColor.dbc")]
     public sealed class ParticleColorEntry
     {
@@ -2854,7 +2854,7 @@ namespace ADBC2.Structures.Version18179
         public int end2;
         public int end3;
     }
-    
+
     [DbFileInfo(18179, "Phase.dbc")]
     public sealed class PhaseEntry
     {
@@ -2863,7 +2863,7 @@ namespace ADBC2.Structures.Version18179
         [OLVColumn(AspectToStringFormat = "0x{0:X8}")]
         public uint Flags;
     }
-    
+
     [DbFileInfo(18179, "PhaseShiftZoneSounds.dbc")]
     public sealed class PhaseShiftZoneSoundsEntry
     {
@@ -2882,7 +2882,7 @@ namespace ADBC2.Structures.Version18179
         public int UWSoundAmbienceID;
         public int UWSoundProviderPreferencesID;
     }
-    
+
     [DbFileInfo(18179, "PhaseXPhaseGroup.dbc")]
     public sealed class PhaseXPhaseGroupEntry
     {
@@ -2890,7 +2890,7 @@ namespace ADBC2.Structures.Version18179
         public int phaseID;
         public int phaseGroupID;
     }
-    
+
     [DbFileInfo(18179, "PlayerCondition.dbc")]
     public sealed class PlayerConditionEntry
     {
@@ -3032,7 +3032,7 @@ namespace ADBC2.Structures.Version18179
         public int powerTypeComp;
         public int powerTypeValue;
     }
-    
+
     [DbFileInfo(18179, "PowerDisplay.dbc")]
     public sealed class PowerDisplayEntry
     {
@@ -3043,7 +3043,7 @@ namespace ADBC2.Structures.Version18179
         public int green;
         public int blue;
     }
-    
+
     [DbFileInfo(18179, "PvpDifficulty.dbc")]
     public sealed class PvpDifficultyEntry
     {
@@ -3053,7 +3053,7 @@ namespace ADBC2.Structures.Version18179
         public int minLevel;
         public int maxLevel;
     }
-    
+
     [DbFileInfo(18179, "QuestFactionReward.dbc")]
     public sealed class QuestFactionRewardEntry
     {
@@ -3069,7 +3069,7 @@ namespace ADBC2.Structures.Version18179
         public int Difficulty9;
         public int Difficulty10;
     }
-    
+
     [DbFileInfo(18179, "QuestFeedbackEffect.dbc")]
     public sealed class QuestFeedbackEffectEntry
     {
@@ -3081,14 +3081,14 @@ namespace ADBC2.Structures.Version18179
         [OLVColumn(AspectToStringFormat = "0x{0:X8}")]
         public uint Flags;
     }
-    
+
     [DbFileInfo(18179, "QuestInfo.dbc")]
     public sealed class QuestInfoEntry
     {
         public int ID;
         public string InfoName_lang;
     }
-    
+
     [DbFileInfo(18179, "QuestMoneyReward.dbc")]
     public sealed class QuestMoneyRewardEntry
     {
@@ -3104,7 +3104,7 @@ namespace ADBC2.Structures.Version18179
         public int difficulty9;
         public int difficulty10;
     }
-    
+
     [DbFileInfo(18179, "QuestPOIBlob.dbc")]
     public sealed class QuestPOIBlobEntry
     {
@@ -3113,7 +3113,7 @@ namespace ADBC2.Structures.Version18179
         public int MapID;
         public int WorldMapAreaID;
     }
-    
+
     [DbFileInfo(18179, "QuestPOIPoint.dbc")]
     public sealed class QuestPOIPointEntry
     {
@@ -3122,21 +3122,21 @@ namespace ADBC2.Structures.Version18179
         public int Y;
         public int QuestPOIBlobID;
     }
-    
+
     [DbFileInfo(18179, "QuestSort.dbc")]
     public sealed class QuestSortEntry
     {
         public int ID;
         public string SortName_lang;
     }
-    
+
     [DbFileInfo(18179, "QuestV2.dbc")]
     public sealed class QuestV2Entry
     {
         public int ID;
         public int UniqueBitFlag;
     }
-    
+
     [DbFileInfo(18179, "QuestXP.dbc")]
     public sealed class QuestXPEntry
     {
@@ -3152,7 +3152,7 @@ namespace ADBC2.Structures.Version18179
         public int difficulty9;
         public int difficulty10;
     }
-    
+
     [DbFileInfo(18179, "RacialMounts.dbc")]
     public sealed class RacialMountsEntry
     {
@@ -3160,7 +3160,7 @@ namespace ADBC2.Structures.Version18179
         public int race;
         public int spell_id;
     }
-    
+
     [DbFileInfo(18179, "RandPropPoints.dbc")]
     public sealed class RandPropPointsEntry
     {
@@ -3181,7 +3181,7 @@ namespace ADBC2.Structures.Version18179
         public int Good4;
         public int Good5;
     }
-    
+
     [DbFileInfo(18179, "ResearchBranch.dbc")]
     public sealed class ResearchBranchEntry
     {
@@ -3192,7 +3192,7 @@ namespace ADBC2.Structures.Version18179
         public string texture;
         public int itemID;
     }
-    
+
     [DbFileInfo(18179, "ResearchField.dbc")]
     public sealed class ResearchFieldEntry
     {
@@ -3200,7 +3200,7 @@ namespace ADBC2.Structures.Version18179
         public string name_lang;
         public int slot;
     }
-    
+
     [DbFileInfo(18179, "ResearchProject.dbc")]
     public sealed class ResearchProjectEntry
     {
@@ -3214,7 +3214,7 @@ namespace ADBC2.Structures.Version18179
         public string texture;
         public int requiredWeight;
     }
-    
+
     [DbFileInfo(18179, "ResearchSite.dbc")]
     public sealed class ResearchSiteEntry
     {
@@ -3224,7 +3224,7 @@ namespace ADBC2.Structures.Version18179
         public string name_lang;
         public int areaPOIIconEnum;
     }
-    
+
     [DbFileInfo(18179, "Resistances.dbc")]
     public sealed class ResistancesEntry
     {
@@ -3233,7 +3233,7 @@ namespace ADBC2.Structures.Version18179
         public int FizzleSoundID;
         public string name_lang;
     }
-    
+
     [DbFileInfo(18179, "RulesetRaidOverride.dbc")]
     public sealed class RulesetRaidOverrideEntry
     {
@@ -3244,7 +3244,7 @@ namespace ADBC2.Structures.Version18179
         public int sharedLock;
         public int raidduration;
     }
-    
+
     [DbFileInfo(18179, "ScalingStatDistribution.dbc")]
     public sealed class ScalingStatDistributionEntry
     {
@@ -3272,7 +3272,7 @@ namespace ADBC2.Structures.Version18179
         public int minlevel;
         public int maxlevel;
     }
-    
+
     [DbFileInfo(18179, "ScalingStatValues.dbc")]
     public sealed class ScalingStatValuesEntry
     {
@@ -3326,7 +3326,7 @@ namespace ADBC2.Structures.Version18179
         public int armorBack;
         public int armorShield;
     }
-    
+
     [DbFileInfo(18179, "ScenarioEventEntry.dbc")]
     public sealed class ScenarioEventEntryEntry
     {
@@ -3334,7 +3334,7 @@ namespace ADBC2.Structures.Version18179
         public int triggerType;
         public int triggerAsset;
     }
-    
+
     [DbFileInfo(18179, "Scenario.dbc")]
     public sealed class ScenarioEntry
     {
@@ -3343,7 +3343,7 @@ namespace ADBC2.Structures.Version18179
         [OLVColumn(AspectToStringFormat = "0x{0:X8}")]
         public uint Flags;
     }
-    
+
     [DbFileInfo(18179, "ScenarioStep.dbc")]
     public sealed class ScenarioStepEntry
     {
@@ -3359,7 +3359,7 @@ namespace ADBC2.Structures.Version18179
         public int supersedes;
         public int rewardQuestID;
     }
-    
+
     [DbFileInfo(18179, "ScreenEffect.dbc")]
     public sealed class ScreenEffectEntry
     {
@@ -3379,21 +3379,21 @@ namespace ADBC2.Structures.Version18179
         public int timeOfDayOverride;
         public int effectMask;
     }
-    
+
     [DbFileInfo(18179, "ScreenLocation.dbc")]
     public sealed class ScreenLocationEntry
     {
         public int ID;
         public string name;
     }
-    
+
     [DbFileInfo(18179, "ServerMessages.dbc")]
     public sealed class ServerMessagesEntry
     {
         public int ID;
         public string Text_lang;
     }
-    
+
     [DbFileInfo(18179, "SkillLineAbility.dbc")]
     public sealed class SkillLineAbilityEntry
     {
@@ -3411,14 +3411,14 @@ namespace ADBC2.Structures.Version18179
         public int uniqueBit;
         public int tradeSkillCategoryID;
     }
-    
+
     [DbFileInfo(18179, "SkillLineAbilitySortedSpell.dbc")]
     public sealed class SkillLineAbilitySortedSpellEntry
     {
         public int ID;
         public int spell;
     }
-    
+
     [DbFileInfo(18179, "SkillLine.dbc")]
     public sealed class SkillLineEntry
     {
@@ -3433,7 +3433,7 @@ namespace ADBC2.Structures.Version18179
         [OLVColumn(AspectToStringFormat = "0x{0:X8}")]
         public uint Flags;
     }
-    
+
     [DbFileInfo(18179, "SkillRaceClassInfo.dbc")]
     public sealed class SkillRaceClassInfoEntry
     {
@@ -3447,7 +3447,7 @@ namespace ADBC2.Structures.Version18179
         public int minLevel;
         public int skillTierID;
     }
-    
+
     [DbFileInfo(18179, "SkillTiers.dbc")]
     public sealed class SkillTiersEntry
     {
@@ -3469,7 +3469,7 @@ namespace ADBC2.Structures.Version18179
         public int value15;
         public int value16;
     }
-    
+
     [DbFileInfo(18179, "SoundAmbienceFlavor.dbc")]
     public sealed class SoundAmbienceFlavorEntry
     {
@@ -3478,7 +3478,7 @@ namespace ADBC2.Structures.Version18179
         public int SoundEntriesIDDay;
         public int SoundEntriesIDNight;
     }
-    
+
     [DbFileInfo(18179, "SoundAmbience.dbc")]
     public sealed class SoundAmbienceEntry
     {
@@ -3488,7 +3488,7 @@ namespace ADBC2.Structures.Version18179
         [OLVColumn(AspectToStringFormat = "0x{0:X8}")]
         public uint Flags;
     }
-    
+
     [DbFileInfo(18179, "SoundFilterElem.dbc")]
     public sealed class SoundFilterElemEntry
     {
@@ -3506,14 +3506,14 @@ namespace ADBC2.Structures.Version18179
         public float params8;
         public float params9;
     }
-    
+
     [DbFileInfo(18179, "SoundFilter.dbc")]
     public sealed class SoundFilterEntry
     {
         public int ID;
         public string name;
     }
-    
+
     [DbFileInfo(18179, "SoundOverride.dbc")]
     public sealed class SoundOverrideEntry
     {
@@ -3525,7 +3525,7 @@ namespace ADBC2.Structures.Version18179
         public int SoundAmbienceID;
         public int SoundProviderPreferencesID;
     }
-    
+
     [DbFileInfo(18179, "SoundProviderPreferences.dbc")]
     public sealed class SoundProviderPreferencesEntry
     {
@@ -3554,14 +3554,14 @@ namespace ADBC2.Structures.Version18179
         public float EAX3HFReference;
         public float EAX3LFReference;
     }
-    
+
     [DbFileInfo(18179, "SpamMessages.dbc")]
     public sealed class SpamMessagesEntry
     {
         public int ID;
         public string text;
     }
-    
+
     [DbFileInfo(18179, "SpecializationSpells.dbc")]
     public sealed class SpecializationSpellsEntry
     {
@@ -3571,7 +3571,7 @@ namespace ADBC2.Structures.Version18179
         public int overridesSpellID;
         public string description_lang;
     }
-    
+
     [DbFileInfo(18179, "SpellActivationOverlay.dbc")]
     public sealed class SpellActivationOverlayEntry
     {
@@ -3588,7 +3588,7 @@ namespace ADBC2.Structures.Version18179
         public int triggerType;
         public int soundEntriesID;
     }
-    
+
     [DbFileInfo(18179, "SpellAuraOptions.dbc")]
     public sealed class SpellAuraOptionsEntry
     {
@@ -3602,7 +3602,7 @@ namespace ADBC2.Structures.Version18179
         public int procCategoryRecovery;
         public int spellProcsPerMinuteID;
     }
-    
+
     [DbFileInfo(18179, "SpellAuraVisibility.dbc")]
     public sealed class SpellAuraVisibilityEntry
     {
@@ -3612,7 +3612,7 @@ namespace ADBC2.Structures.Version18179
         [OLVColumn(AspectToStringFormat = "0x{0:X8}")]
         public uint Flags;
     }
-    
+
     [DbFileInfo(18179, "SpellAuraVisXChrSpec.dbc")]
     public sealed class SpellAuraVisXChrSpecEntry
     {
@@ -3620,7 +3620,7 @@ namespace ADBC2.Structures.Version18179
         public int spellAuraVisibilityID;
         public int chrSpecializationID;
     }
-    
+
     [DbFileInfo(18179, "SpellCastingRequirements.dbc")]
     public sealed class SpellCastingRequirementsEntry
     {
@@ -3632,7 +3632,7 @@ namespace ADBC2.Structures.Version18179
         public int requiredAuraVision;
         public int requiresSpellFocus;
     }
-    
+
     [DbFileInfo(18179, "SpellCastTimes.dbc")]
     public sealed class SpellCastTimesEntry
     {
@@ -3641,7 +3641,7 @@ namespace ADBC2.Structures.Version18179
         public int perLevel;
         public int minimum;
     }
-    
+
     [DbFileInfo(18179, "SpellCategories.dbc")]
     public sealed class SpellCategoriesEntry
     {
@@ -3656,7 +3656,7 @@ namespace ADBC2.Structures.Version18179
         public int startRecoveryCategory;
         public int chargeCategory;
     }
-    
+
     [DbFileInfo(18179, "SpellCategory.dbc")]
     public sealed class SpellCategoryEntry
     {
@@ -3668,7 +3668,7 @@ namespace ADBC2.Structures.Version18179
         public int maxCharges;
         public int chargeRecoveryTime;
     }
-    
+
     [DbFileInfo(18179, "SpellCooldowns.dbc")]
     public sealed class SpellCooldownsEntry
     {
@@ -3679,14 +3679,14 @@ namespace ADBC2.Structures.Version18179
         public int recoveryTime;
         public int startRecoveryTime;
     }
-    
+
     [DbFileInfo(18179, "SpellDescriptionVariables.dbc")]
     public sealed class SpellDescriptionVariablesEntry
     {
         public int ID;
         public string variables;
     }
-    
+
     [DbFileInfo(18179, "SpellDispelType.dbc")]
     public sealed class SpellDispelTypeEntry
     {
@@ -3696,7 +3696,7 @@ namespace ADBC2.Structures.Version18179
         public int immunityPossible;
         public string internalName;
     }
-    
+
     [DbFileInfo(18179, "SpellDuration.dbc")]
     public sealed class SpellDurationEntry
     {
@@ -3705,7 +3705,7 @@ namespace ADBC2.Structures.Version18179
         public int durationPerLevel;
         public int maxDuration;
     }
-    
+
     [DbFileInfo(18179, "SpellEffect.dbc")]
     public sealed class SpellEffectEntry
     {
@@ -3741,7 +3741,7 @@ namespace ADBC2.Structures.Version18179
         public int effectAttributes;
         public float bonusCoefficientFromAP;
     }
-    
+
     [DbFileInfo(18179, "SpellEffectScaling.dbc")]
     public sealed class SpellEffectScalingEntry
     {
@@ -3751,7 +3751,7 @@ namespace ADBC2.Structures.Version18179
         public float resourceCoefficient;
         public int spellEffectID;
     }
-    
+
     [DbFileInfo(18179, "SpellEquippedItems.dbc")]
     public sealed class SpellEquippedItemsEntry
     {
@@ -3762,7 +3762,7 @@ namespace ADBC2.Structures.Version18179
         public int equippedItemInvTypes;
         public int equippedItemSubclass;
     }
-    
+
     [DbFileInfo(18179, "SpellFlyoutItem.dbc")]
     public sealed class SpellFlyoutItemEntry
     {
@@ -3771,7 +3771,7 @@ namespace ADBC2.Structures.Version18179
         public int spellID;
         public int slot;
     }
-    
+
     [DbFileInfo(18179, "SpellFlyout.dbc")]
     public sealed class SpellFlyoutEntry
     {
@@ -3784,21 +3784,21 @@ namespace ADBC2.Structures.Version18179
         public string name_lang;
         public string description_lang;
     }
-    
+
     [DbFileInfo(18179, "SpellFocusObject.dbc")]
     public sealed class SpellFocusObjectEntry
     {
         public int ID;
         public string name_lang;
     }
-    
+
     [DbFileInfo(18179, "SpellIcon.dbc")]
     public sealed class SpellIconEntry
     {
         public int ID;
         public string textureFilename;
     }
-    
+
     [DbFileInfo(18179, "SpellInterrupts.dbc")]
     public sealed class SpellInterruptsEntry
     {
@@ -3811,7 +3811,7 @@ namespace ADBC2.Structures.Version18179
         public int channelInterruptFlags2;
         public int interruptFlags;
     }
-    
+
     [DbFileInfo(18179, "SpellItemEnchantmentCondition.dbc")]
     public sealed class SpellItemEnchantmentConditionEntry
     {
@@ -3831,7 +3831,7 @@ namespace ADBC2.Structures.Version18179
         public int rt_operand5;
         public int logic1;
     }
-    
+
     [DbFileInfo(18179, "SpellItemEnchantment.dbc")]
     public sealed class SpellItemEnchantmentEntry
     {
@@ -3863,14 +3863,14 @@ namespace ADBC2.Structures.Version18179
         public float effectScalingPoints2;
         public float effectScalingPoints3;
     }
-    
+
     [DbFileInfo(18179, "SpellKeyboundOverride.dbc")]
     public sealed class SpellKeyboundOverrideEntry
     {
         public int ID;
         public string function;
     }
-    
+
     [DbFileInfo(18179, "SpellLearnSpell.dbc")]
     public sealed class SpellLearnSpellEntry
     {
@@ -3879,7 +3879,7 @@ namespace ADBC2.Structures.Version18179
         public int overridesSpellID;
         public int spellID;
     }
-    
+
     [DbFileInfo(18179, "SpellLevels.dbc")]
     public sealed class SpellLevelsEntry
     {
@@ -3890,14 +3890,14 @@ namespace ADBC2.Structures.Version18179
         public int maxLevel;
         public int spellLevel;
     }
-    
+
     [DbFileInfo(18179, "SpellMechanic.dbc")]
     public sealed class SpellMechanicEntry
     {
         public int ID;
         public string stateName_lang;
     }
-    
+
     [DbFileInfo(18179, "SpellMisc.dbc")]
     public sealed class SpellMiscEntry
     {
@@ -3942,7 +3942,7 @@ namespace ADBC2.Structures.Version18179
         public int activeIconID;
         public int schoolMask;
     }
-    
+
     [DbFileInfo(18179, "SpellProcsPerMinuteMod.dbc")]
     public sealed class SpellProcsPerMinuteModEntry
     {
@@ -3952,7 +3952,7 @@ namespace ADBC2.Structures.Version18179
         public float coeff;
         public int spellProcsPerMinuteID;
     }
-    
+
     [DbFileInfo(18179, "SpellProcsPerMinute.dbc")]
     public sealed class SpellProcsPerMinuteEntry
     {
@@ -3961,7 +3961,7 @@ namespace ADBC2.Structures.Version18179
         [OLVColumn(AspectToStringFormat = "0x{0:X8}")]
         public uint Flags;
     }
-    
+
     [DbFileInfo(18179, "SpellRadius.dbc")]
     public sealed class SpellRadiusEntry
     {
@@ -3971,7 +3971,7 @@ namespace ADBC2.Structures.Version18179
         public float radiusMin;
         public float radiusMax;
     }
-    
+
     [DbFileInfo(18179, "SpellRange.dbc")]
     public sealed class SpellRangeEntry
     {
@@ -3985,7 +3985,7 @@ namespace ADBC2.Structures.Version18179
         public string displayName_lang;
         public string displayNameShort_lang;
     }
-    
+
     [DbFileInfo(18179, "Spell.dbc")]
     public sealed class SpellEntry
     {
@@ -4014,7 +4014,7 @@ namespace ADBC2.Structures.Version18179
         public int requiredProjectID;
         public int miscID;
     }
-    
+
     [DbFileInfo(18179, "SpellRuneCost.dbc")]
     public sealed class SpellRuneCostEntry
     {
@@ -4025,7 +4025,7 @@ namespace ADBC2.Structures.Version18179
         public int chromatic;
         public int runicPower;
     }
-    
+
     [DbFileInfo(18179, "SpellScaling.dbc")]
     public sealed class SpellScalingEntry
     {
@@ -4039,7 +4039,7 @@ namespace ADBC2.Structures.Version18179
         public int maxScalingLevel;
         public int scalesFromItemLevel;
     }
-    
+
     [DbFileInfo(18179, "SpellShapeshiftForm.dbc")]
     public sealed class SpellShapeshiftFormEntry
     {
@@ -4066,7 +4066,7 @@ namespace ADBC2.Structures.Version18179
         public int mountTypeID;
         public int exitSoundEntriesID;
     }
-    
+
     [DbFileInfo(18179, "SpellShapeshift.dbc")]
     public sealed class SpellShapeshiftEntry
     {
@@ -4077,14 +4077,14 @@ namespace ADBC2.Structures.Version18179
         public int shapeshiftMask2;
         public int stanceBarOrder;
     }
-    
+
     [DbFileInfo(18179, "SpellSpecialUnitEffect.dbc")]
     public sealed class SpellSpecialUnitEffectEntry
     {
         public int enumID;
         public int spellVisualEffectNameID;
     }
-    
+
     [DbFileInfo(18179, "SpellTargetRestrictions.dbc")]
     public sealed class SpellTargetRestrictionsEntry
     {
@@ -4098,7 +4098,7 @@ namespace ADBC2.Structures.Version18179
         public int targetCreatureType;
         public int targets;
     }
-    
+
     [DbFileInfo(18179, "SpellTotems.dbc")]
     public sealed class SpellTotemsEntry
     {
@@ -4108,7 +4108,7 @@ namespace ADBC2.Structures.Version18179
         public int totem1;
         public int totem2;
     }
-    
+
     [DbFileInfo(18179, "Stationery.dbc")]
     public sealed class StationeryEntry
     {
@@ -4118,14 +4118,14 @@ namespace ADBC2.Structures.Version18179
         [OLVColumn(AspectToStringFormat = "0x{0:X8}")]
         public uint Flags;
     }
-    
+
     [DbFileInfo(18179, "StringLookups.dbc")]
     public sealed class StringLookupsEntry
     {
         public int ID;
         public string String;
     }
-    
+
     [DbFileInfo(18179, "SummonProperties.dbc")]
     public sealed class SummonPropertiesEntry
     {
@@ -4137,7 +4137,7 @@ namespace ADBC2.Structures.Version18179
         [OLVColumn(AspectToStringFormat = "0x{0:X8}")]
         public uint Flags;
     }
-    
+
     [DbFileInfo(18179, "Talent.dbc")]
     public sealed class TalentEntry
     {
@@ -4154,7 +4154,7 @@ namespace ADBC2.Structures.Version18179
         public int overridesSpellID;
         public string description_lang;
     }
-    
+
     [DbFileInfo(18179, "TaxiNodes.dbc")]
     public sealed class TaxiNodesEntry
     {
@@ -4171,7 +4171,7 @@ namespace ADBC2.Structures.Version18179
         public float MapOffset1;
         public float MapOffset2;
     }
-    
+
     [DbFileInfo(18179, "TaxiPathNode.dbc")]
     public sealed class TaxiPathNodeEntry
     {
@@ -4188,7 +4188,7 @@ namespace ADBC2.Structures.Version18179
         public int arrivalEventID;
         public int departureEventID;
     }
-    
+
     [DbFileInfo(18179, "TaxiPath.dbc")]
     public sealed class TaxiPathEntry
     {
@@ -4197,13 +4197,13 @@ namespace ADBC2.Structures.Version18179
         public int ToTaxiNode;
         public int Cost;
     }
-    
+
     [DbFileInfo(18179, "TerrainTypeSounds.dbc")]
     public sealed class TerrainTypeSoundsEntry
     {
         public int ID;
     }
-    
+
     [DbFileInfo(18179, "TotemCategory.dbc")]
     public sealed class TotemCategoryEntry
     {
@@ -4212,7 +4212,7 @@ namespace ADBC2.Structures.Version18179
         public int totemCategoryType;
         public int totemCategoryMask;
     }
-    
+
     [DbFileInfo(18179, "TradeSkillCategory.dbc")]
     public sealed class TradeSkillCategoryEntry
     {
@@ -4224,7 +4224,7 @@ namespace ADBC2.Structures.Version18179
         [OLVColumn(AspectToStringFormat = "0x{0:X8}")]
         public uint Flags;
     }
-    
+
     [DbFileInfo(18179, "TransportAnimation.dbc")]
     public sealed class TransportAnimationEntry
     {
@@ -4236,7 +4236,7 @@ namespace ADBC2.Structures.Version18179
         public float Pos3;
         public int SequenceID;
     }
-    
+
     [DbFileInfo(18179, "TransportPhysics.dbc")]
     public sealed class TransportPhysicsEntry
     {
@@ -4252,7 +4252,7 @@ namespace ADBC2.Structures.Version18179
         public float speedDampThresh;
         public float speedDamp;
     }
-    
+
     [DbFileInfo(18179, "TransportRotation.dbc")]
     public sealed class TransportRotationEntry
     {
@@ -4264,7 +4264,7 @@ namespace ADBC2.Structures.Version18179
         public float Rot3;
         public float Rot4;
     }
-    
+
     [DbFileInfo(18179, "UnitBloodLevels.dbc")]
     public sealed class UnitBloodLevelsEntry
     {
@@ -4273,7 +4273,7 @@ namespace ADBC2.Structures.Version18179
         public int Violencelevel2;
         public int Violencelevel3;
     }
-    
+
     [DbFileInfo(18179, "UnitBlood.dbc")]
     public sealed class UnitBloodEntry
     {
@@ -4288,7 +4288,7 @@ namespace ADBC2.Structures.Version18179
         public string GroundBlood4;
         public string GroundBlood5;
     }
-    
+
     [DbFileInfo(18179, "UnitCondition.dbc")]
     public sealed class UnitConditionEntry
     {
@@ -4320,7 +4320,7 @@ namespace ADBC2.Structures.Version18179
         public int value7;
         public int value8;
     }
-    
+
     [DbFileInfo(18179, "UnitPowerBar.dbc")]
     public sealed class UnitPowerBarEntry
     {
@@ -4353,7 +4353,7 @@ namespace ADBC2.Structures.Version18179
         public float startInset;
         public float endInset;
     }
-    
+
     [DbFileInfo(18179, "Vehicle.dbc")]
     public sealed class VehicleEntry
     {
@@ -4400,7 +4400,7 @@ namespace ADBC2.Structures.Version18179
         public int powerDisplayID2;
         public int powerDisplayID3;
     }
-    
+
     [DbFileInfo(18179, "VehicleSeat.dbc")]
     public sealed class VehicleSeatEntry
     {
@@ -4472,14 +4472,14 @@ namespace ADBC2.Structures.Version18179
         public int flagsC;
         public int uiSkinFileDataID;
     }
-    
+
     [DbFileInfo(18179, "VehicleUIIndicator.dbc")]
     public sealed class VehicleUIIndicatorEntry
     {
         public int ID;
         public string backgroundTexture;
     }
-    
+
     [DbFileInfo(18179, "VehicleUIIndSeat.dbc")]
     public sealed class VehicleUIIndSeatEntry
     {
@@ -4489,7 +4489,7 @@ namespace ADBC2.Structures.Version18179
         public float xPos;
         public float yPos;
     }
-    
+
     [DbFileInfo(18179, "VocalUISounds.dbc")]
     public sealed class VocalUISoundsEntry
     {
@@ -4501,7 +4501,7 @@ namespace ADBC2.Structures.Version18179
         public int PissedSoundID1;
         public int PissedSoundID2;
     }
-    
+
     [DbFileInfo(18179, "WeaponImpactSounds.dbc")]
     public sealed class WeaponImpactSoundsEntry
     {
@@ -4529,7 +4529,7 @@ namespace ADBC2.Structures.Version18179
         public int critImpactSoundID9;
         public int critImpactSoundID10;
     }
-    
+
     [DbFileInfo(18179, "WeaponSwingSounds2.dbc")]
     public sealed class WeaponSwingSounds2Entry
     {
@@ -4538,7 +4538,7 @@ namespace ADBC2.Structures.Version18179
         public int Crit;
         public int SoundID;
     }
-    
+
     [DbFileInfo(18179, "World_PVP_Area.dbc")]
     public sealed class WorldPVPAreaEntry
     {
@@ -4550,7 +4550,7 @@ namespace ADBC2.Structures.Version18179
         public int min_level;
         public int max_level;
     }
-    
+
     [DbFileInfo(18179, "WorldChunkSounds.dbc")]
     public sealed class WorldChunkSoundsEntry
     {
@@ -4561,7 +4561,7 @@ namespace ADBC2.Structures.Version18179
         public int SubchunkY;
         public int SoundOverrideID;
     }
-    
+
     [DbFileInfo(18179, "WorldEffect.dbc")]
     public sealed class WorldEffectEntry
     {
@@ -4573,7 +4573,7 @@ namespace ADBC2.Structures.Version18179
         public int combatConditionID;
         public int whenToDisplay;
     }
-    
+
     [DbFileInfo(18179, "WorldElapsedTimer.dbc")]
     public sealed class WorldElapsedTimerEntry
     {
@@ -4583,7 +4583,7 @@ namespace ADBC2.Structures.Version18179
         public uint Flags;
         public int type;
     }
-    
+
     [DbFileInfo(18179, "WorldMapArea.dbc")]
     public sealed class WorldMapAreaEntry
     {
@@ -4603,7 +4603,7 @@ namespace ADBC2.Structures.Version18179
         public int levelRangeMin;
         public int levelRangeMax;
     }
-    
+
     [DbFileInfo(18179, "WorldMapContinent.dbc")]
     public sealed class WorldMapContinentEntry
     {
@@ -4622,7 +4622,7 @@ namespace ADBC2.Structures.Version18179
         public float taxiMax2;
         public int worldMapID;
     }
-    
+
     [DbFileInfo(18179, "WorldMapOverlay.dbc")]
     public sealed class WorldMapOverlayEntry
     {
@@ -4643,7 +4643,7 @@ namespace ADBC2.Structures.Version18179
         public int hitRectRight;
         public int playerConditionID;
     }
-    
+
     [DbFileInfo(18179, "WorldMapTransforms.dbc")]
     public sealed class WorldMapTransformsEntry
     {
@@ -4664,7 +4664,7 @@ namespace ADBC2.Structures.Version18179
         public int newAreaID;
         public float regionScale;
     }
-    
+
     [DbFileInfo(18179, "WorldSafeLocs.dbc")]
     public sealed class WorldSafeLocsEntry
     {
@@ -4676,20 +4676,20 @@ namespace ADBC2.Structures.Version18179
         public float facing;
         public string areaName_lang;
     }
-    
+
     [DbFileInfo(18179, "WorldStateExpression.dbc")]
     public sealed class WorldStateExpressionEntry
     {
         public int ID;
         public string expression;
     }
-    
+
     [DbFileInfo(18179, "WorldState.dbc")]
     public sealed class WorldStateEntry
     {
         public int ID;
     }
-    
+
     [DbFileInfo(18179, "WorldStateUI.dbc")]
     public sealed class WorldStateUIEntry
     {
@@ -4711,7 +4711,7 @@ namespace ADBC2.Structures.Version18179
         public int extendedUIStateVariable2;
         public int extendedUIStateVariable3;
     }
-    
+
     [DbFileInfo(18179, "WorldStateZoneSounds.dbc")]
     public sealed class WorldStateZoneSoundsEntry
     {
@@ -4724,7 +4724,7 @@ namespace ADBC2.Structures.Version18179
         public int SoundAmbienceID;
         public int SoundProviderPreferencesID;
     }
-    
+
     [DbFileInfo(18179, "ZoneIntroMusicTable.dbc")]
     public sealed class ZoneIntroMusicTableEntry
     {
@@ -4734,7 +4734,7 @@ namespace ADBC2.Structures.Version18179
         public int Priority;
         public int MinDelayMinutes;
     }
-    
+
     [DbFileInfo(18179, "ZoneMusic.dbc")]
     public sealed class ZoneMusicEntry
     {
@@ -4747,7 +4747,7 @@ namespace ADBC2.Structures.Version18179
         public int Sounds1;
         public int Sounds2;
     }
-    
+
     [DbFileInfo(18179, "AnimationData.dbc")]
     public sealed class AnimationDataEntry
     {
@@ -4758,7 +4758,7 @@ namespace ADBC2.Structures.Version18179
         public int BehaviorID;
         public int BehaviorTier;
     }
-    
+
     [DbFileInfo(18179, "AreaTable.dbc")]
     public sealed class AreaTableEntry
     {
@@ -4794,7 +4794,7 @@ namespace ADBC2.Structures.Version18179
         public int wildBattlePetLevelMax;
         public int windSettingsID;
     }
-    
+
     [DbFileInfo(18179, "FileData.dbc")]
     public sealed class FileDataEntry
     {
@@ -4802,14 +4802,14 @@ namespace ADBC2.Structures.Version18179
         public string filename;
         public string filepath;
     }
-    
+
     [DbFileInfo(18179, "FootprintTextures.dbc")]
     public sealed class FootprintTexturesEntry
     {
         public int ID;
         public string FootstepFilename;
     }
-    
+
     [DbFileInfo(18179, "GroundEffectDoodad.dbc")]
     public sealed class GroundEffectDoodadEntry
     {
@@ -4820,7 +4820,7 @@ namespace ADBC2.Structures.Version18179
         public float animscale;
         public float pushscale;
     }
-    
+
     [DbFileInfo(18179, "LightData.dbc")]
     public sealed class LightDataEntry
     {
@@ -4850,7 +4850,7 @@ namespace ADBC2.Structures.Version18179
         public float cloudDensity;
         public float fogDensity;
     }
-    
+
     [DbFileInfo(18179, "LightParams.dbc")]
     public sealed class LightParamsEntry
     {
@@ -4866,7 +4866,7 @@ namespace ADBC2.Structures.Version18179
         [OLVColumn(AspectToStringFormat = "0x{0:X8}")]
         public uint Flags;
     }
-    
+
     [DbFileInfo(18179, "Light.dbc")]
     public sealed class LightEntry
     {
@@ -4886,7 +4886,7 @@ namespace ADBC2.Structures.Version18179
         public int lightParamsID7;
         public int lightParamsID8;
     }
-    
+
     [DbFileInfo(18179, "LightSkybox.dbc")]
     public sealed class LightSkyboxEntry
     {
@@ -4895,7 +4895,7 @@ namespace ADBC2.Structures.Version18179
         [OLVColumn(AspectToStringFormat = "0x{0:X8}")]
         public uint Flags;
     }
-    
+
     [DbFileInfo(18179, "LiquidMaterial.dbc")]
     public sealed class LiquidMaterialEntry
     {
@@ -4904,7 +4904,7 @@ namespace ADBC2.Structures.Version18179
         [OLVColumn(AspectToStringFormat = "0x{0:X8}")]
         public uint Flags;
     }
-    
+
     [DbFileInfo(18179, "LiquidObject.dbc")]
     public sealed class LiquidObjectEntry
     {
@@ -4915,7 +4915,7 @@ namespace ADBC2.Structures.Version18179
         public int fishable;
         public int reflection;
     }
-    
+
     [DbFileInfo(18179, "LiquidType.dbc")]
     public sealed class LiquidTypeEntry
     {
@@ -4966,7 +4966,7 @@ namespace ADBC2.Structures.Version18179
         public int int3;
         public int int4;
     }
-    
+
     [DbFileInfo(18179, "Map.dbc")]
     public sealed class MapEntry
     {
@@ -4992,14 +4992,14 @@ namespace ADBC2.Structures.Version18179
         public int cosmeticParentMapID;
         public int timeOffset;
     }
-    
+
     [DbFileInfo(18179, "SoundBusName.dbc")]
     public sealed class SoundBusNameEntry
     {
         public int EnumID;
         public string Name;
     }
-    
+
     [DbFileInfo(18179, "SoundBus.dbc")]
     public sealed class SoundBusEntry
     {
@@ -5015,7 +5015,7 @@ namespace ADBC2.Structures.Version18179
         public int RaidPlaybackLimit;
         public int BusEnumID;
     }
-    
+
     [DbFileInfo(18179, "SoundEmitterPillPoints.dbc")]
     public sealed class SoundEmitterPillPointsEntry
     {
@@ -5025,7 +5025,7 @@ namespace ADBC2.Structures.Version18179
         public float position2;
         public float position3;
     }
-    
+
     [DbFileInfo(18179, "SoundEmitters.dbc")]
     public sealed class SoundEmittersEntry
     {
@@ -5047,7 +5047,7 @@ namespace ADBC2.Structures.Version18179
         public uint Flags;
         public int worldStateExpressionID;
     }
-    
+
     [DbFileInfo(18179, "SoundEntriesAdvanced.dbc")]
     public sealed class SoundEntriesAdvancedEntry
     {
@@ -5100,7 +5100,7 @@ namespace ADBC2.Structures.Version18179
         public float volume19;
         public float volume20;
     }
-    
+
     [DbFileInfo(18179, "SoundEntriesFallbacks.dbc")]
     public sealed class SoundEntriesFallbacksEntry
     {
@@ -5108,7 +5108,7 @@ namespace ADBC2.Structures.Version18179
         public int soundEntriesID;
         public int fallbackSoundEntriesID;
     }
-    
+
     [DbFileInfo(18179, "SoundEntries.dbc")]
     public sealed class SoundEntriesEntry
     {
@@ -5170,7 +5170,7 @@ namespace ADBC2.Structures.Version18179
         public int dialogtype;
         public int busOverwriteID;
     }
-    
+
     [DbFileInfo(18179, "SpellChainEffects.dbc")]
     public sealed class SpellChainEffectsEntry
     {
@@ -5233,7 +5233,7 @@ namespace ADBC2.Structures.Version18179
         public int SpellChainEffectID11;
         public string Texture;
     }
-    
+
     [DbFileInfo(18179, "Startup_Strings.dbc")]
     public sealed class StartupStringsEntry
     {
@@ -5241,7 +5241,7 @@ namespace ADBC2.Structures.Version18179
         public string name;
         public string message_lang;
     }
-    
+
     [DbFileInfo(18179, "TerrainMaterial.dbc")]
     public sealed class TerrainMaterialEntry
     {
@@ -5250,7 +5250,7 @@ namespace ADBC2.Structures.Version18179
         public int shader;
         public string envMapPath;
     }
-    
+
     [DbFileInfo(18179, "TerrainType.dbc")]
     public sealed class TerrainTypeEntry
     {
@@ -5261,7 +5261,7 @@ namespace ADBC2.Structures.Version18179
         public int SoundID;
         public int Flags;
     }
-    
+
     [DbFileInfo(18179, "VideoHardware.dbc")]
     public sealed class VideoHardwareEntry
     {
@@ -5289,7 +5289,7 @@ namespace ADBC2.Structures.Version18179
         public int multisample;
         public int atlasdisable;
     }
-    
+
     [DbFileInfo(18179, "Weather.dbc")]
     public sealed class WeatherEntry
     {
@@ -5307,7 +5307,7 @@ namespace ADBC2.Structures.Version18179
         public int soundAmbienceID;
         public int windSettingsID;
     }
-    
+
     [DbFileInfo(18179, "WMOAreaTable.dbc")]
     public sealed class WMOAreaTableEntry
     {
@@ -5328,7 +5328,7 @@ namespace ADBC2.Structures.Version18179
         public int uwZoneMusic;
         public int uwAmbience;
     }
-    
+
     [DbFileInfo(18179, "ZoneLightPoint.dbc")]
     public sealed class ZoneLightPointEntry
     {
@@ -5338,7 +5338,7 @@ namespace ADBC2.Structures.Version18179
         public float pos2;
         public int pointOrder;
     }
-    
+
     [DbFileInfo(18179, "ZoneLight.dbc")]
     public sealed class ZoneLightEntry
     {

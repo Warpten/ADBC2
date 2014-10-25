@@ -16,11 +16,11 @@ namespace ADBC2
     {
         string PathToFiles;
         Type SelectedFileType;
-        
+
         bool OverrideCoreDefinitions { get { return xMLOverridesToolStripMenuItem.Checked; } }
-        
+
         Dictionary<string, object> _structures = new Dictionary<string, object>();
-        
+
         public MainForm()
         {
             InitializeComponent();
@@ -161,7 +161,7 @@ namespace ADBC2
                 var arrayLength = isArray
                     ? (fieldInfo.GetCustomAttribute(typeof(StoragePresenceAttribute)) as StoragePresenceAttribute).ArraySize
                     : 0;
-                
+
                 if (isArray)
                     fieldType = fieldType.GetElementType();
 
@@ -198,13 +198,13 @@ namespace ADBC2
             Clipboard.SetText(String.Join(Environment.NewLine, structureText));
         }
         #endregion
-        
+
         void OnBuildSelection(object sender, ToolStripItemClickedEventArgs ea)
         {
             try {
                 var clientBuild = Convert.ToUInt32(ea.ClickedItem.Tag);
                 _structures.Clear();
-                
+
                 // Load XML Structures
                 XmlDefinitionReader.Load("./structures.xml", clientBuild);
 
@@ -214,7 +214,7 @@ namespace ADBC2
 
                 if (dbcNames == null || dbcNames.Length == 0)
                     throw new DbcNotFoundException();
-    
+
                 dbcNames = dbcNames.OrderBy(d => d).ToArray();
                 var structures = Assembly.GetExecutingAssembly().GetTypes()
                     .Where(t => {
@@ -223,10 +223,10 @@ namespace ADBC2
                            }).ToArray();
 
                 var xmlStructures = XmlDefinitionReader.GetStructures();
-                
+
                 if (structures.Length == 0)
                     throw new UnsupportedClientBuildException(clientBuild);
-                
+
                 var items = new string[structures.Length];
                 var coreStructuresCount = 0;
                 for (var i = 0; i < structures.Length; ++i)
@@ -239,7 +239,7 @@ namespace ADBC2
                     _structures.Add(items[i], structures[i]);
                     ++coreStructuresCount;
                 }
-                
+
                 // Overwrite with XML structures
                 for (var i = 0; i < xmlStructures.Count; ++i)
                 {
@@ -279,10 +279,10 @@ namespace ADBC2
             }
             catch (DbcNotFoundException)
             {
-                StatusLabel.Text = @"No DBC file found in the provided path. Action cancelled.";                
+                StatusLabel.Text = @"No DBC file found in the provided path. Action cancelled.";
             }
         }
-        
+
         /// <summary>
         /// Parses the selected file
         /// </summary>
@@ -294,9 +294,9 @@ namespace ADBC2
 
             var watch = new Stopwatch();
             watch.Start();
-            
+
             SelectedFileType = _structures[(string)sender.Items[sender.SelectedIndex]] as Type;
-            
+
             var storageType = typeof(DBCStorage<>);
             if (Path.GetExtension(sender.Text) == @".db2")
                 storageType = typeof(DB2Storage<>);
@@ -306,26 +306,20 @@ namespace ADBC2
 
             using (var strm = new FileStream(String.Format(PathToFiles + "{0}", sender.Text), FileMode.Open))
                 storageType.GetMethod("Load", new [] { typeof(FileStream) }).Invoke(store, new[] { (object)strm });
-            
+
             dynamic records = storageType.GetProperty("Records").GetValue(store);
 
-            PropertyInfo[] props = SelectedFileType.GetProperties(); 
+            PropertyInfo[] props = SelectedFileType.GetProperties();
             ContentView.ResetColumnFiltering();
             Generator.GenerateColumns(ContentView, SelectedFileType, false);
             ContentView.SetObjects(records, false);
             // Go over the columns and mark them as editable
-            
+
             watch.Stop();
             StatusLabel.Text = String.Format("Loaded {0} records in {1} ms.", records.Count, watch.ElapsedMilliseconds);
             SqlExport.Enabled = true;
             SqlFilteredExport.Enabled = true;
             IdaExport.Enabled = true;
-        }
-
-        void OnCellEditStart(object sender, CellEditEventArgs e)
-        {
-            // e.Cancel = true;
-            // NYI (Hitting F2 on a cell = copy cell value)
         }
 
         void ShowHelp(object sender, EventArgs e)
@@ -336,41 +330,40 @@ namespace ADBC2
 
         void OnTooltipShow(object sender, ToolTipShowingEventArgs e)
         {
-            var item = ContentView.GetItem(e.RowIndex);
-            if (item == null)
-                return;
-
-            var rowObject = item.RowObject;
-            if (rowObject == null)
-                return;
-                
-            var columnHeader = ContentView.GetColumn(e.ColumnIndex);
-            if (columnHeader == null)
-                return;
-
-            var cellInfo = rowObject.GetType().GetField(columnHeader.AspectName);
-            if (cellInfo == null)
-                throw new Exception(String.Format(@"Unexpected exception that should not happen: Type {0} does not contain a field named {1}.", rowObject.GetType(), columnHeader.AspectName));
-            
-            if (cellInfo.FieldType == typeof(string))
-                e.Text = cellInfo.GetValue(rowObject) as string;
-            else if (cellInfo.GetCustomAttribute(typeof(StoragePresenceAttribute), false) != null)
-            {
-                var items = ((Array)cellInfo.GetValue(rowObject)).Cast<object>().ToArray();
-                e.Text = @"[ " + String.Join(", ", items) + @" ]";
-            }
+            e.Text = GetUnderlyingObjectText(e);
         }
 
-        void OnDoubleClick(object sender, EventArgs e)
+        protected string GetUnderlyingObjectText(ToolTipShowingEventArgs e)
         {
-            // TODO: Can only single-click the first cell.
-            ContentView.FullRowSelect = !ContentView.FullRowSelect;
-            ContentView.RedrawItems(ContentView.HotRowIndex, ContentView.HotRowIndex, true);
+            return GetUnderlyingObjectText(ContentView.GetItem(e.RowIndex).RowObject, ContentView.GetColumn(e.ColumnIndex));
+        }
+
+        protected string GetUnderlyingObjectText(CellEditEventArgs e)
+        {
+            return GetUnderlyingObjectText(e.RowObject, e.Column);
+        }
+
+        protected string GetUnderlyingObjectText(object rowObject, OLVColumn column)
+        {
+            if (rowObject == null || column == null)
+                return null;
+
+            // This code works solely because we do not use aspect getters.
+            var cellValue = column.GetAspectByName(rowObject);
+            var cellInfo = rowObject.GetType().GetField(column.AspectName);
+            if (cellInfo.FieldType == typeof(string))
+                return cellInfo.GetValue(rowObject) as string;
+
+            if (cellInfo.GetCustomAttribute(typeof(StoragePresenceAttribute), false) == null)
+                return null;
+
+            var result = (cellInfo.GetValue(rowObject) as Array).Cast<object>().ToArray();
+            return @"[ " + String.Join(", ", result) + @" ]";
         }
 
         void OpenSearchForm(object sender, EventArgs e)
         {
-            
+
         }
 
         void OpenStructConverter(object sender, EventArgs e)
@@ -403,12 +396,19 @@ namespace ADBC2
             }
             return null;
         }
-        
+
+        #region Form event handlers
+        void OnStartCellEdit(object sender, CellEditEventArgs e)
+        {
+            // e.NewValue = GetUnderlyingObjectText(e);
+            // TODO: Create a custom control and pass it if the field is an array
+        }
+
         void OnXmlOverridesToggle(object sender, EventArgs e)
         {
             xMLOverridesToolStripMenuItem.Checked = !xMLOverridesToolStripMenuItem.Checked;
         }
-        
+
         void OnFormLoad(object sender, EventArgs e)
         {
             foreach (var buildStr in Properties.ADBC2.Default.ExtraBuilds.Split(new[] { ';' }))
@@ -420,5 +420,6 @@ namespace ADBC2
             // TODO Fix
             // ContentView.VirtualListDataSource = new ListDataSource(ContentView);
         }
+        #endregion
     }
 }

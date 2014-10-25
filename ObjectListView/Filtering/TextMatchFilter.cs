@@ -2,7 +2,7 @@
  * TextMatchFilter - Text based filtering on ObjectListViews
  *
  * Author: Phillip Piper
- * Date: 31/05/2011 7:45am 
+ * Date: 31/05/2011 7:45am
  *
  * Change log:
  * v2.6
@@ -51,7 +51,7 @@ namespace BrightIdeasSoftware {
         #region Life and death
 
         /// <summary>
-        /// Create a text filter that will include rows where any cell matches 
+        /// Create a text filter that will include rows where any cell matches
         /// any of the given regex expressions.
         /// </summary>
         /// <param name="olv"></param>
@@ -142,7 +142,7 @@ namespace BrightIdeasSoftware {
         private OLVColumn[] additionalColumns;
 
         /// <summary>
-        /// Gets or sets the collection of strings that will be used for 
+        /// Gets or sets the collection of strings that will be used for
         /// contains matching. Setting this replaces all previous texts
         /// of any kind.
         /// </summary>
@@ -183,7 +183,7 @@ namespace BrightIdeasSoftware {
         private ObjectListView listView;
 
         /// <summary>
-        /// Gets or sets the collection of strings that will be used for 
+        /// Gets or sets the collection of strings that will be used for
         /// prefix matching. Setting this replaces all previous texts
         /// of any kind.
         /// </summary>
@@ -241,7 +241,7 @@ namespace BrightIdeasSoftware {
         private RegexOptions? regexOptions;
 
         /// <summary>
-        /// Gets or sets the collection of strings that will be used for 
+        /// Gets or sets the collection of strings that will be used for
         /// regex pattern matching. Setting this replaces all previous texts
         /// of any kind.
         /// </summary>

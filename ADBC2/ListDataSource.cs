@@ -18,7 +18,7 @@ namespace ADBC2
         }
 
         private Dictionary<OLVColumn, SortOrder> sorters = new Dictionary<OLVColumn, SortOrder>();
-        
+
         public override void Sort(OLVColumn column, SortOrder sortOrder)
         {
             if (sortOrder != SortOrder.None && !sorters.ContainsKey(column))
@@ -32,7 +32,7 @@ namespace ADBC2
             this.RebuildIndexMap();
         }
     }
-    
+
     /// <summary>
     /// This comparer can be used to sort a collection of model objects by a given set of columns and orders
     /// </summary>
@@ -40,7 +40,7 @@ namespace ADBC2
     {
         private OLVColumn[] Columns;
         private SortOrder[] Orders;
-        
+
         public FancyModelObjectComparer(Dictionary<OLVColumn, SortOrder> pairs)
         {
             this.Columns = pairs.Keys.ToArray();
@@ -59,7 +59,7 @@ namespace ADBC2
 
                 object x1 = this.Columns[i].GetValue(x);
                 object y1 = this.Columns[i].GetValue(y);
-                
+
                 // Handle nulls. They come last.
                 bool xIsNull = (x1 == null || x1 == System.DBNull.Value);
                 bool yIsNull = (y1 == null || y1 == System.DBNull.Value);
@@ -72,14 +72,14 @@ namespace ADBC2
                 }
                 else
                     result = this.CompareValues(x1, y1);
-                
+
                 if (this.Orders[i] == SortOrder.Descending)
                     result = -result;
             }
-            
+
             return result;
         }
-        
+
         public int CompareValues(object x, object y)
         {
             // Force case insensitive compares on strings

@@ -153,7 +153,7 @@ namespace BrightIdeasSoftware.Design
         protected override void PreFilterProperties(IDictionary properties) {
             // Debug.WriteLine("ObjectListViewDesigner.PreFilterProperties");
 
-            // Always call the base PreFilterProperties implementation 
+            // Always call the base PreFilterProperties implementation
             // before you modify the properties collection.
             base.PreFilterProperties(properties);
 
@@ -168,8 +168,8 @@ namespace BrightIdeasSoftware.Design
             // So we shadow the unwanted properties, and give the replacement properties
             // non-browsable attributes so that they are hidden from the user
 
-            List<string> unwantedProperties = new List<string>(new string[] { 
-                "BackgroundImage", "BackgroundImageTiled", "HotTracking", "HoverSelection", 
+            List<string> unwantedProperties = new List<string>(new string[] {
+                "BackgroundImage", "BackgroundImageTiled", "HotTracking", "HoverSelection",
                 "LabelEdit", "VirtualListSize", "VirtualMode" });
 
             // Also hid Tooltip properties, since giving a tooltip to the control through the IDE
@@ -184,7 +184,7 @@ namespace BrightIdeasSoftware.Design
             // since TreeListViews can't show groups
             if (this.Control is TreeListView) {
                 unwantedProperties.AddRange(new string[] {
-                    "GroupImageList", "GroupWithItemCountFormat", "GroupWithItemCountSingularFormat", "HasCollapsibleGroups", 
+                    "GroupImageList", "GroupWithItemCountFormat", "GroupWithItemCountSingularFormat", "HasCollapsibleGroups",
                     "SpaceBetweenGroups", "ShowGroups", "SortGroupItemsByPrimaryColumn", "ShowItemCountOnGroups"
                 });
             }
@@ -226,7 +226,7 @@ namespace BrightIdeasSoftware.Design
                     "AfterCreatingGroups",
                     "BeforeCreatingGroups",
                     "GroupTaskClicked",
-                    "GroupExpandingCollapsing", 
+                    "GroupExpandingCollapsing",
                     "GroupStateChanged"
                 });
             }
@@ -357,7 +357,7 @@ namespace BrightIdeasSoftware.Design
             }
 
             private void EditValue(ComponentDesigner componentDesigner, IComponent iComponent, string propertyName) {
-                // One more complication. The ListViewActionList classes uses an internal class, EditorServiceContext, to 
+                // One more complication. The ListViewActionList classes uses an internal class, EditorServiceContext, to
                 // edit the items/columns/groups collections. So, we use reflection to bypass the data hiding.
                 Type tEditorServiceContext = Type.GetType("System.Windows.Forms.Design.EditorServiceContext, System.Design");
                 tEditorServiceContext.InvokeMember("EditValue", BindingFlags.InvokeMethod | BindingFlags.Static, null, null, new object[] { componentDesigner, iComponent, propertyName });

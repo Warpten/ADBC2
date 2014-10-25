@@ -14,7 +14,7 @@
  * To do:
  * - Implement subseting
  * - Implement footer items
- * 
+ *
  * Copyright (C) 2009-2012 Phillip Piper
  *
  * This program is free software: you can redistribute it and/or modify
@@ -128,59 +128,59 @@ namespace BrightIdeasSoftware
         LVGF_STATE = 4,
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         LVGF_ALIGN = 8,
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         LVGF_GROUPID = 0x10,
 
         /// <summary>
         /// pszSubtitle is valid
         /// </summary>
-        LVGF_SUBTITLE = 0x00100,  
+        LVGF_SUBTITLE = 0x00100,
 
         /// <summary>
         /// pszTask is valid
         /// </summary>
-        LVGF_TASK = 0x00200, 
+        LVGF_TASK = 0x00200,
 
         /// <summary>
         /// pszDescriptionTop is valid
         /// </summary>
-        LVGF_DESCRIPTIONTOP = 0x00400,  
+        LVGF_DESCRIPTIONTOP = 0x00400,
 
         /// <summary>
         /// pszDescriptionBottom is valid
         /// </summary>
-        LVGF_DESCRIPTIONBOTTOM = 0x00800,  
+        LVGF_DESCRIPTIONBOTTOM = 0x00800,
 
         /// <summary>
         /// iTitleImage is valid
         /// </summary>
-        LVGF_TITLEIMAGE = 0x01000,  
+        LVGF_TITLEIMAGE = 0x01000,
 
         /// <summary>
         /// iExtendedImage is valid
         /// </summary>
-        LVGF_EXTENDEDIMAGE = 0x02000,  
-        
+        LVGF_EXTENDEDIMAGE = 0x02000,
+
         /// <summary>
         /// iFirstItem and cItems are valid
         /// </summary>
-        LVGF_ITEMS = 0x04000,  
-        
+        LVGF_ITEMS = 0x04000,
+
         /// <summary>
         /// pszSubsetTitle is valid
         /// </summary>
-        LVGF_SUBSET = 0x08000,  
-     
+        LVGF_SUBSET = 0x08000,
+
         /// <summary>
         /// readonly, cItems holds count of items in visible subset, iFirstItem is valid
         /// </summary>
-        LVGF_SUBSETITEMS = 0x10000  
+        LVGF_SUBSETITEMS = 0x10000
     }
 
     /// <summary>
@@ -190,22 +190,22 @@ namespace BrightIdeasSoftware
     public enum GroupMetricsMask
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         LVGMF_NONE = 0,
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         LVGMF_BORDERSIZE = 1,
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         LVGMF_BORDERCOLOR = 2,
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         LVGMF_TEXTCOLOR = 4
     }
@@ -218,11 +218,11 @@ namespace BrightIdeasSoftware
     /// <para>
     /// In this implementation (2009-09), these objects are essentially passive.
     /// Setting properties does not automatically change the associated group in
-    /// the listview. Collapsed and Collapsible are two exceptions to this and 
+    /// the listview. Collapsed and Collapsible are two exceptions to this and
     /// give immediate results.
     /// </para>
     /// <para>
-    /// This really should be a subclass of ListViewGroup, but that class is 
+    /// This really should be a subclass of ListViewGroup, but that class is
     /// sealed (why is that?). So this class provides the same interface as a
     /// ListViewGroup, plus many other new properties.
     /// </para>
@@ -326,11 +326,11 @@ namespace BrightIdeasSoftware
 
                 // Use reflection to get around the access control on the ID property
                 if (OLVGroup.groupIdPropInfo == null) {
-                    OLVGroup.groupIdPropInfo = typeof(ListViewGroup).GetProperty("ID", 
+                    OLVGroup.groupIdPropInfo = typeof(ListViewGroup).GetProperty("ID",
                         BindingFlags.NonPublic | BindingFlags.Instance);
                     System.Diagnostics.Debug.Assert(OLVGroup.groupIdPropInfo != null);
                 }
-                
+
                 int? groupId = OLVGroup.groupIdPropInfo.GetValue(this.ListViewGroup, null) as int?;
                 return groupId.HasValue ? groupId.Value : -1;
             }
@@ -608,8 +608,8 @@ namespace BrightIdeasSoftware
             this.ListViewGroup.Name = this.Name;
 
             // Remember which OLVGroup created the ListViewGroup
-            this.ListViewGroup.Tag = this; 
-            
+            this.ListViewGroup.Tag = this;
+
             // Add the group to the control
             olv.Groups.Add(this.ListViewGroup);
 

@@ -63,7 +63,7 @@ namespace ADBC2.Structures.Version12340
         public string m_description_lang_16;
         public uint m_description_flag;
     };
-    
+
     [DbFileInfo(12340, "FactionTemplate.dbc")]
     public sealed class FactionTemplateEntry
     {
@@ -82,7 +82,7 @@ namespace ADBC2.Structures.Version12340
         public uint m_friend_3;
         public uint m_friend_4;
     };
-    
+
     [DbFileInfo(12340, "Spell.dbc")]
     public sealed class SpellEntry
     {
@@ -319,7 +319,7 @@ namespace ADBC2.Structures.Version12340
         public uint m_spellDescriptionVariableID;
         public uint m_spellDifficultyID;
     };
-    
+
     [DbFileInfo(12340, "SpellCastTimes.dbc")]
     public sealed class SpellCastTimesEntry
     {
@@ -328,14 +328,14 @@ namespace ADBC2.Structures.Version12340
         public int CastTimePerLevel;
         public int MinCastTime;
     };
-    
+
     [DbFileInfo(12340, "SpellIcon.dbc")]
     public sealed class SpellIconEntry
     {
         public int id;
         public string icon;
     };
-    
+
     [DbFileInfo(12340, "SpellItemEnchantmentCondition.dbc")]
     public sealed class SpellItemEnchantmentConditionEntry
     {
@@ -371,7 +371,7 @@ namespace ADBC2.Structures.Version12340
         public byte m_logic4;
         public byte m_logic5;
     };
-    
+
     [DbFileInfo(12340, "WorldSafeLocs.dbc")]
     public sealed class WorldSafeLocsEntry
     {
@@ -398,13 +398,13 @@ namespace ADBC2.Structures.Version12340
         public string m_name_lang_16;
         public int m_name_lang_flags;
     };
-    
+
     [DbFileInfo(12340, "gtBarberShopCostBase.dbc")]
     public sealed class gtBarberShopCostBaseEntry
     {
         public float m_cost;
     };
-    
+
     [DbFileInfo(12340, "AnimationData.dbc")]
     public sealed class AnimationDataEntry
     {
@@ -417,14 +417,14 @@ namespace ADBC2.Structures.Version12340
         public int newField6;
         public int newField7;
     };
-    
+
     [DbFileInfo(12340, "TeamContributionPoints.dbc")]
     public sealed class TeamContributionPointsEntry
     {
         public uint m_level;
         public float m_multiplier;
     };
-    
+
     [DbFileInfo(12340, "Map.dbc")]
     public sealed class MapEntry
     {
@@ -495,13 +495,13 @@ namespace ADBC2.Structures.Version12340
         public int m_raidOffset;
         public int m_maxPlayers;
     };
-    
+
     [DbFileInfo(12340, "gtCombatRatings.dbc")]
     public sealed class gtCombatRatingsEntry
     {
         public float field0;
     };
-    
+
     [DbFileInfo(12340, "Holidays.dbc")]
     public sealed class HolidaysEntry
     {
@@ -561,7 +561,7 @@ namespace ADBC2.Structures.Version12340
         public int field53;
         public int field54;
     };
-    
+
     [DbFileInfo(12340, "HolidayDescriptions.dbc")]
     public sealed class HolidayDescriptionsEntry
     {
@@ -584,7 +584,7 @@ namespace ADBC2.Structures.Version12340
         public string field16;
         public int field17;
     };
-    
+
     [DbFileInfo(12340, "HolidayNames.dbc")]
     public sealed class HolidayNamesEntry
     {
@@ -607,7 +607,7 @@ namespace ADBC2.Structures.Version12340
         public string field16;
         public int field17;
     };
-    
+
     [DbFileInfo(12340, "SpellRadius.dbc")]
     public sealed class SpellRadiusEntry
     {
@@ -616,7 +616,7 @@ namespace ADBC2.Structures.Version12340
         public float m_radiusPerLevel;
         public float m_radiusMax;
     };
-    
+
     [DbFileInfo(12340, "SpellItemEnchantment.dbc")]
     public sealed class SpellItemEnchantmentEntry
     {
@@ -659,7 +659,7 @@ namespace ADBC2.Structures.Version12340
         public int m_requiredSkillRank;
         public int m_minLevel;
     };
-    
+
     [DbFileInfo(12340, "GemProperties.dbc")]
     public sealed class GemPropertiesEntry
     {
@@ -669,7 +669,7 @@ namespace ADBC2.Structures.Version12340
         public int field3;
         public int field4;
     };
-    
+
     [DbFileInfo(12340, "EmotesText.dbc")]
     public sealed class EmotesTextEntry
     {
@@ -693,7 +693,7 @@ namespace ADBC2.Structures.Version12340
         public int field17;
         public int field18;
     };
-    
+
     [DbFileInfo(12340, "ChrRaces.dbc")]
     public sealed class ChrRacesEntry
     {
@@ -767,7 +767,7 @@ namespace ADBC2.Structures.Version12340
         public string field67;
         public int field68;
     };
-    
+
     [DbFileInfo(12340, "AreaTable.dbc")]
     public sealed class AreaTableEntry
     {
@@ -808,7 +808,7 @@ namespace ADBC2.Structures.Version12340
         public float m_ambient_multiplier;
         public int m_lightid;
     };
-    
+
     [DbFileInfo(12340, "LFGDungeons.dbc")]
     public sealed class LFGDungeonsEntry
     {
@@ -862,7 +862,7 @@ namespace ADBC2.Structures.Version12340
         public string m_description_lang16;
         public int m_description_lang_flags;
     };
-    
+
     [DbFileInfo(12340, "AuctionHouse.dbc")]
     public sealed class AuctionHouseEntry
     {
@@ -888,7 +888,7 @@ namespace ADBC2.Structures.Version12340
         public int field19;
         public int field20;
     };
-    
+
     [DbFileInfo(12340, "SpellDifficulty.dbc")]
     public sealed class SpellDifficultyEntry
     {
@@ -898,7 +898,7 @@ namespace ADBC2.Structures.Version12340
         public int m_spell_3;
         public int m_spell_4;
     };
-    
+
     [DbFileInfo(12340, "SkillTiers.dbc")]
     public sealed class SkillTiersEntry
     {
@@ -936,7 +936,7 @@ namespace ADBC2.Structures.Version12340
         public int field31;
         public int field32;
     };
-    
+
     [DbFileInfo(12340, "SkillLineAbility.dbc")]
     public sealed class SkillLineAbilityEntry
     {
@@ -955,7 +955,7 @@ namespace ADBC2.Structures.Version12340
         public int field12;
         public int field13;
     };
-    
+
     [DbFileInfo(12340, "SkillLine.dbc")]
     public sealed class SkillLineEntry
     {
@@ -1016,7 +1016,7 @@ namespace ADBC2.Structures.Version12340
         public int field54;
         public int field55;
     };
-    
+
     [DbFileInfo(12340, "ItemRandomProperties.dbc")]
     public sealed class ItemRandomPropertiesEntry
     {
@@ -1045,7 +1045,7 @@ namespace ADBC2.Structures.Version12340
         public int field22;
         public int field23;
     };
-    
+
     [DbFileInfo(12340, "ItemRandomSuffix.dbc")]
     public sealed class ItemRandomSuffixEntry
     {
@@ -1079,7 +1079,7 @@ namespace ADBC2.Structures.Version12340
         public int field27;
         public int field28;
     };
-    
+
     [DbFileInfo(12340, "SpellVisualEffectName.dbc")]
     public sealed class SpellVisualEffectNameEntry
     {
@@ -1091,7 +1091,7 @@ namespace ADBC2.Structures.Version12340
         public float field5;
         public float field6;
     };
-    
+
     [DbFileInfo(12340, "WorldStateUI.dbc")]
     public sealed class WorldStateUIEntry
     {
@@ -1159,7 +1159,7 @@ namespace ADBC2.Structures.Version12340
         public int field61;
         public int field62;
     };
-    
+
     [DbFileInfo(12340, "WorldStateZoneSounds.dbc")]
     public sealed class WorldStateZoneSoundsEntry
     {

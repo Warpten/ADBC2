@@ -2,7 +2,7 @@
  * Munger - An Interface pattern on getting and setting values from object through Reflection
  *
  * Author: Phillip Piper
- * Date: 28/11/2008 17:15 
+ * Date: 28/11/2008 17:15
  *
  * Change log:
  * v2.5.1
@@ -54,7 +54,7 @@ namespace BrightIdeasSoftware
     /// Name of the aspect to be peeked can be a field, property or parameterless method. The name of an
     /// aspect to poke can be a field, writable property or single parameter method.
     /// <para>
-    /// Aspect names can be dotted to chain a series of references. 
+    /// Aspect names can be dotted to chain a series of references.
     /// </para>
     /// <example>Order.Customer.HomeAddress.State</example>
     /// </remarks>
@@ -101,10 +101,10 @@ namespace BrightIdeasSoftware
                 // of the property. Let's take the ostrich approach and just ignore it :-)
 
                 // Normally, we would never just silently ignore an exception.
-                // However, in this case, this is a utility method that explicitly 
+                // However, in this case, this is a utility method that explicitly
                 // contracts to catch and ignore errors. If this is not acceptible,
                 // the programmer should not use this method.
-            } 
+            }
 
             return false;
         }
@@ -115,7 +115,7 @@ namespace BrightIdeasSoftware
         /// <remarks>
         /// <para>
         /// By default, if a Munger is asked to fetch a field/property/method
-        /// that does not exist from a model, it returns an error message, since that 
+        /// that does not exist from a model, it returns an error message, since that
         /// condition is normally a programming error. There are some use cases where
         /// this is not an error, and the munger should simply keep quiet.
         /// </para>
@@ -152,7 +152,7 @@ namespace BrightIdeasSoftware
         public string AspectName
         {
             get { return aspectName; }
-            set { 
+            set {
                 aspectName = value;
 
                 // Clear any cache
@@ -179,9 +179,9 @@ namespace BrightIdeasSoftware
             try {
                 return this.EvaluateParts(target, this.Parts);
             } catch (MungerException ex) {
-                if (Munger.IgnoreMissingAspects) 
+                if (Munger.IgnoreMissingAspects)
                     return null;
-                
+
                 return String.Format("'{0}' is not a parameter-less method, property or field of type '{1}'",
                                          ex.Munger.AspectName, ex.Target.GetType());
             }
@@ -333,7 +333,7 @@ namespace BrightIdeasSoftware
         /// </summary>
         /// <remarks>
         /// <para>
-        /// This name can be a field, property or method. 
+        /// This name can be a field, property or method.
         /// When using a method to get a value, the method must be parameter-less.
         /// When using a method to set a value, the method must accept 1 parameter.
         /// </para>
@@ -371,7 +371,7 @@ namespace BrightIdeasSoftware
                 if (this.resolvedFieldInfo != null)
                     return this.resolvedFieldInfo.GetValue(target);
 
-                // If that didn't work, try to use the indexer property. 
+                // If that didn't work, try to use the indexer property.
                 // This covers things like dictionaries and DataRows.
                 if (this.indexerPropertyInfo != null)
                     return this.indexerPropertyInfo.GetValue(target, new object[] { this.AspectName });
@@ -412,7 +412,7 @@ namespace BrightIdeasSoftware
                     return true;
                 }
 
-                // If that didn't work, try to use the indexer property. 
+                // If that didn't work, try to use the indexer property.
                 // This covers things like dictionaries and DataRows.
                 if (this.indexerPropertyInfo != null) {
                     this.indexerPropertyInfo.SetValue(target, value, new object[] { this.AspectName });
@@ -451,7 +451,7 @@ namespace BrightIdeasSoftware
                     resolvedPropertyInfo = pinfo;
                     return;
                 }
-                
+
                 // See if we can find an string indexer property while we are here.
                 // We also need to allow for old style <object> keyed collections.
                 if (indexerPropertyInfo == null && pinfo.Name == "Item") {
@@ -487,7 +487,7 @@ namespace BrightIdeasSoftware
         private PropertyInfo resolvedPropertyInfo;
         private MethodInfo resolvedMethodInfo;
         private PropertyInfo indexerPropertyInfo;
-        
+
         #endregion
     }
 
@@ -528,8 +528,8 @@ namespace BrightIdeasSoftware
     /*
      * We don't currently need this
      * 2010-08-06
-     * 
-     
+     *
+
     internal class SimpleBinder : Binder
     {
         public override FieldInfo BindToField(BindingFlags bindingAttr, FieldInfo[] match, object value, System.Globalization.CultureInfo culture) {

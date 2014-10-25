@@ -20,7 +20,7 @@
  * 2009-08-15  JPP  - Initial version
  *
  * To do:
- * 
+ *
  * Copyright (C) 2009-2012 Phillip Piper
  *
  * This program is free software: you can redistribute it and/or modify
@@ -52,15 +52,15 @@ using System.Windows.Forms;
 namespace BrightIdeasSoftware
 {
     /// <summary>
-    /// An object that implements the IGenerator interface provides the ability 
+    /// An object that implements the IGenerator interface provides the ability
     /// to dynamically create columns
     /// for an ObjectListView based on the characteristics of a given collection
     /// of model objects.
     /// </summary>
     public interface IGenerator {
         /// <summary>
-        /// Generate columns into the given ObjectListView that come from the given 
-        /// model object type. 
+        /// Generate columns into the given ObjectListView that come from the given
+        /// model object type.
         /// </summary>
         /// <param name="olv">The ObjectListView to modify</param>
         /// <param name="type">The model type whose attributes will be considered.</param>
@@ -94,7 +94,7 @@ namespace BrightIdeasSoftware
         /// <summary>
         /// Gets or sets the actual generator used by the static convinence methods.
         /// </summary>
-        /// <remarks>If you subclass the standard generator or implement IGenerator yourself, 
+        /// <remarks>If you subclass the standard generator or implement IGenerator yourself,
         /// you should install an instance of your subclass/implementation here.</remarks>
         public static IGenerator Instance {
             get { return Generator.instance ?? (Generator.instance = new Generator()); }
@@ -104,7 +104,7 @@ namespace BrightIdeasSoftware
 
         /// <summary>
         /// Replace all columns of the given ObjectListView with columns generated
-        /// from the first member of the given enumerable. If the enumerable is 
+        /// from the first member of the given enumerable. If the enumerable is
         /// empty or null, the ObjectListView will be cleared.
         /// </summary>
         /// <param name="olv">The ObjectListView to modify</param>
@@ -115,7 +115,7 @@ namespace BrightIdeasSoftware
 
         /// <summary>
         /// Replace all columns of the given ObjectListView with columns generated
-        /// from the first member of the given enumerable. If the enumerable is 
+        /// from the first member of the given enumerable. If the enumerable is
         /// empty or null, the ObjectListView will be cleared.
         /// </summary>
         /// <param name="olv">The ObjectListView to modify</param>
@@ -135,8 +135,8 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// Generate columns into the given ObjectListView that come from the public properties of the given 
-        /// model object type. 
+        /// Generate columns into the given ObjectListView that come from the public properties of the given
+        /// model object type.
         /// </summary>
         /// <param name="olv">The ObjectListView to modify</param>
         /// <param name="type">The model type whose attributes will be considered.</param>
@@ -145,8 +145,8 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// Generate columns into the given ObjectListView that come from the public properties of the given 
-        /// model object type. 
+        /// Generate columns into the given ObjectListView that come from the public properties of the given
+        /// model object type.
         /// </summary>
         /// <param name="olv">The ObjectListView to modify</param>
         /// <param name="type">The model type whose attributes will be considered.</param>
@@ -170,8 +170,8 @@ namespace BrightIdeasSoftware
         #region Public interface
 
         /// <summary>
-        /// Generate columns into the given ObjectListView that come from the given 
-        /// model object type. 
+        /// Generate columns into the given ObjectListView that come from the given
+        /// model object type.
         /// </summary>
         /// <param name="olv">The ObjectListView to modify</param>
         /// <param name="type">The model type whose attributes will be considered.</param>
@@ -194,7 +194,7 @@ namespace BrightIdeasSoftware
         /// <returns>A collection of OLVColumns matching the attributes of Type that have OLVColumnAttributes.</returns>
         public virtual IList<OLVColumn> GenerateColumns(Type type, bool useProperties) {
             List<OLVColumn> columns = new List<OLVColumn>();
-            
+
             // Sanity
             if (type == null)
                 return columns;
@@ -206,7 +206,7 @@ namespace BrightIdeasSoftware
                 foreach (PropertyInfo pinfo in type.GetProperties()) {
                     if (Attribute.GetCustomAttribute(pinfo, typeof(OLVIgnoreAttribute)) != null)
                         continue;
-    
+
                     OLVColumnAttribute attr = Attribute.GetCustomAttribute(pinfo, typeof(OLVColumnAttribute)) as OLVColumnAttribute;
                     if (attr == null) {
                         if (useProperties)
@@ -225,7 +225,7 @@ namespace BrightIdeasSoftware
                 foreach (FieldInfo pinfo in type.GetFields(flags)) {
                     if (Attribute.GetCustomAttribute(pinfo, typeof(OLVIgnoreAttribute)) != null)
                         continue;
-    
+
                     OLVColumnAttribute attr = Attribute.GetCustomAttribute(pinfo, typeof(OLVColumnAttribute)) as OLVColumnAttribute;
                     if (attr == null) {
                         if (!useProperties)
@@ -269,7 +269,7 @@ namespace BrightIdeasSoftware
             olv.Reset();
 
             // Are there new columns to add?
-            if (columns == null || columns.Count == 0) 
+            if (columns == null || columns.Count == 0)
                 return;
 
             // Setup the columns
@@ -299,7 +299,7 @@ namespace BrightIdeasSoftware
         protected virtual OLVColumn MakeColumnFromAttribute(FieldInfo pinfo, OLVColumnAttribute attr) {
             return MakeColumn(pinfo.Name, DisplayNameToColumnTitle(pinfo.Name), false, pinfo.GetType(), attr);
         }
-        
+
         /// <summary>
         /// Create a column from the given PropertyInfo and OLVColumn attribute
         /// </summary>
@@ -318,7 +318,7 @@ namespace BrightIdeasSoftware
         protected virtual OLVColumn MakeColumnFromPropertyInfo(PropertyInfo pinfo) {
             return MakeColumn(pinfo.Name, DisplayNameToColumnTitle(pinfo.Name), pinfo.CanWrite, pinfo.PropertyType, null);
         }
-        
+
         /// <summary>
         /// Make a column from the given FieldInfo
         /// </summary>
@@ -346,7 +346,7 @@ namespace BrightIdeasSoftware
 
             if (attr == null) {
                 column.IsEditable = editable;
-                return column;                
+                return column;
             }
 
             column.AspectToStringFormat = attr.AspectToStringFormat;
@@ -408,7 +408,7 @@ namespace BrightIdeasSoftware
         /// <param name="column"></param>
         /// <param name="propertyType"></param>
         protected virtual void ConfigurePossibleBooleanColumn(OLVColumn column, Type propertyType) {
-            if (propertyType != typeof(bool) && propertyType != typeof(bool?) && propertyType != typeof(CheckState)) 
+            if (propertyType != typeof(bool) && propertyType != typeof(bool?) && propertyType != typeof(CheckState))
                 return;
 
             column.CheckBoxes = true;
@@ -486,7 +486,7 @@ namespace BrightIdeasSoftware
         /// the given dotted chain of selectors against a model object given at runtime.
         /// </summary>
         /// <param name="type">The type of model object to be passed to the generated method</param>
-        /// <param name="path">A dotted chain of selectors. Each selector can be the name of a 
+        /// <param name="path">A dotted chain of selectors. Each selector can be the name of a
         /// field, property or parameter-less method.</param>
         /// <returns>A typed delegate</returns>
         /// <remarks>
@@ -588,6 +588,6 @@ namespace BrightIdeasSoftware
         }
 
         #endregion
-         */ 
+         */
     }
 }

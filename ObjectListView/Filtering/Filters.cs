@@ -2,7 +2,7 @@
  * Filters - Filtering on ObjectListViews
  *
  * Author: Phillip Piper
- * Date: 03/03/2010 17:00 
+ * Date: 03/03/2010 17:00
  *
  * Change log:
  * 2011-03-01  JPP  Added CompositeAllFilter, CompositeAnyFilter and OneOfFilter
@@ -311,7 +311,7 @@ namespace BrightIdeasSoftware
     /// a list of bit flags. The property should be an xor-ed collection
     /// of bits flags.
     /// </summary>
-    /// <remarks>Both the property compared and the list of possible values 
+    /// <remarks>Both the property compared and the list of possible values
     /// must be convertible to ulongs.</remarks>
     public class FlagBitSetFilter : OneOfFilter {
 
@@ -445,7 +445,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// Gets or sets the number of model objects that will be 
+        /// Gets or sets the number of model objects that will be
         /// returned from the tail of the list
         /// </summary>
         public int Count {

@@ -6,7 +6,7 @@
  *
  * Change log:
  * 2011-03-31  JPP  - Split into its own file
- * 
+ *
  * Copyright (C) 2011-2012 Phillip Piper
  *
  * This program is free software: you can redistribute it and/or modify
@@ -241,7 +241,7 @@ namespace BrightIdeasSoftware {
         public virtual OLVListSubItem GetSubItem(int index) {
             if (index >= 0 && index < this.SubItems.Count)
                 return (OLVListSubItem)this.SubItems[index];
-            
+
             return null;
         }
 

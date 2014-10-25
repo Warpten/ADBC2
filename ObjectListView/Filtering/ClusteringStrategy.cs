@@ -6,7 +6,7 @@
  *
  * Change log:
  * 2011-03-03  JPP  - First version
- * 
+ *
  * Copyright (C) 2011-2012 Phillip Piper
  *
  * This program is free software: you can redistribute it and/or modify
@@ -64,7 +64,7 @@ namespace BrightIdeasSoftware {
         static private string defaultDisplayLabelFormatSingular = "{0} ({1} item)";
 
         /// <summary>
-        /// Gets or sets the format that will be used by default for clusters that 
+        /// Gets or sets the format that will be used by default for clusters that
         /// contain 0 or two or more items. The format string must accept two placeholders:
         /// - {0} is the cluster key converted to a string
         /// - {1} is the number of items in the cluster
@@ -106,7 +106,7 @@ namespace BrightIdeasSoftware {
         /// - {0} is the cluster key converted to a string
         /// - {1} is the number of items in the cluster (always 1 in this case)
         /// </summary>
-        /// <remarks>If this is not set, the value from 
+        /// <remarks>If this is not set, the value from
         /// ClusteringStrategy.DefaultDisplayLabelFormatSingular will be used</remarks>
         public string DisplayLabelFormatSingular {
             get { return displayLabelFormatSingular; }
@@ -115,12 +115,12 @@ namespace BrightIdeasSoftware {
         private string displayLabelFormatSingular;
 
         /// <summary>
-        /// Gets or sets the format that will be used when the cluster 
+        /// Gets or sets the format that will be used when the cluster
         /// contains 0 or two or more items. The format string must accept two placeholders:
         /// - {0} is the cluster key converted to a string
         /// - {1} is the number of items in the cluster
         /// </summary>
-        /// <remarks>If this is not set, the value from 
+        /// <remarks>If this is not set, the value from
         /// ClusteringStrategy.DefaultDisplayLabelFormatPlural will be used</remarks>
         public string DisplayLabelFormatPlural {
             get { return displayLabelFormatPural; }
@@ -157,7 +157,7 @@ namespace BrightIdeasSoftware {
         /// <returns></returns>
         virtual public string GetClusterDisplayLabel(ICluster cluster) {
             string s = this.Column.ValueToString(cluster.ClusterKey) ?? NULL_LABEL;
-            if (String.IsNullOrEmpty(s)) 
+            if (String.IsNullOrEmpty(s))
                 s = EMPTY_LABEL;
             return this.ApplyDisplayFormat(cluster, s);
         }

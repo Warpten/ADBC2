@@ -6,7 +6,7 @@
  *
  * Change log:
  * 2011-03-31  JPP  - Split into its own file
- * 
+ *
  * Copyright (C) 2011-2012 Phillip Piper
  *
  * This program is free software: you can redistribute it and/or modify
@@ -45,7 +45,7 @@ namespace BrightIdeasSoftware {
 
         new public TValue this[TKey key] {
             get {
-                if (key != null) 
+                if (key != null)
                     return base[key];
 
                 if (this.hasNullKey)

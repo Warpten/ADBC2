@@ -10,7 +10,7 @@
  *                    the cell being edited.
  * 2.5
  * 2011-03-03  JPP  - First version
- * 
+ *
  * Copyright (C) 2011-2012 Phillip Piper
  *
  * This program is free software: you can redistribute it and/or modify
@@ -39,7 +39,7 @@ namespace BrightIdeasSoftware {
     /// <summary>
     /// Indicates the behavior of a key when a cell "on the edge" is being edited.
     /// and the normal behavior of that key would exceed the edge. For example,
-    /// for a key that normally moves one column to the left, the "edge" would be 
+    /// for a key that normally moves one column to the left, the "edge" would be
     /// the left most column, since the normal action of the key cannot be taken
     /// (since there are no more columns to the left).
     /// </summary>
@@ -50,23 +50,23 @@ namespace BrightIdeasSoftware {
         Ignore,
 
         /// <summary>
-        /// The key press will result in the cell editing wrapping to the 
+        /// The key press will result in the cell editing wrapping to the
         /// cell on the opposite edge.
         /// </summary>
         Wrap,
 
         /// <summary>
-        /// The key press will wrap, but the column will be changed to the 
+        /// The key press will wrap, but the column will be changed to the
         /// appropiate adjacent column. This only makes sense for keys where
         /// the normal action is ChangeRow.
         /// </summary>
         ChangeColumn,
 
         /// <summary>
-        /// The key press will wrap, but the row will be changed to the 
+        /// The key press will wrap, but the row will be changed to the
         /// appropiate adjacent row. This only makes sense for keys where
         /// the normal action is ChangeColumn.
-        /// </summary>        
+        /// </summary>
         ChangeRow,
 
         /// <summary>
@@ -226,7 +226,7 @@ namespace BrightIdeasSoftware {
 
             return true;
         }
-        
+
         #endregion
 
         #region Implementation properties
@@ -275,7 +275,7 @@ namespace BrightIdeasSoftware {
         private IDictionary<Keys, CellEditCharacterBehaviour> cellEditKeyMap;
 
         /// <summary>
-        /// Gets or sets the map that remembers the desired behaviour of keys 
+        /// Gets or sets the map that remembers the desired behaviour of keys
         /// on edge cases.
         /// </summary>
         protected IDictionary<Keys, CellEditAtEdgeBehaviour> CellEditKeyAtEdgeBehaviourMap {

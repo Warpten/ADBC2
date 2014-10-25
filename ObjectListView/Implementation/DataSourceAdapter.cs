@@ -7,9 +7,9 @@
  * Change log:
  * v2.6
  * 2012-08-16  JPP  - Unify common column creation functionality with Generator when possible
- * 
+ *
  * 2010-09-20  JPP  - Initial version
- * 
+ *
  * Copyright (C) 2010-2012 Phillip Piper
  *
  * This program is free software: you can redistribute it and/or modify
@@ -86,7 +86,7 @@ namespace BrightIdeasSoftware
 
         /// <summary>
         /// Gets or sets whether or not columns will be automatically generated to show the
-        /// columns when the DataSource is set. 
+        /// columns when the DataSource is set.
         /// </summary>
         /// <remarks>This must be set before the DataSource is set. It has no effect afterwards.</remarks>
         public bool AutoGenerateColumns {
@@ -329,7 +329,7 @@ namespace BrightIdeasSoftware
                     column.AspectGetter = delegate(object row) {
                         // In most cases, rows will be DataRowView objects
                         DataRowView drv = row as DataRowView;
-                        if (drv == null) 
+                        if (drv == null)
                             return column.GetAspectByName(row);
                         return (drv.Row.RowState == DataRowState.Detached) ? null : drv[column.AspectName];
                     };
@@ -476,7 +476,7 @@ namespace BrightIdeasSoftware
         protected virtual void HandleListChangedItemChanged(ListChangedEventArgs e) {
             // A single item has changed, so just refresh that.
             //System.Diagnostics.Debug.WriteLine(String.Format("HandleListChangedItemChanged: {0}, {1}", e.NewIndex, e.PropertyDescriptor.Name));
-           
+
             Object changedRow = this.CurrencyManager.List[e.NewIndex];
             this.ListView.RefreshObject(changedRow);
         }
@@ -569,7 +569,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// Handle the frozenness of our ListView changing. 
+        /// Handle the frozenness of our ListView changing.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

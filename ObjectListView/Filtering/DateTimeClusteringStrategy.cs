@@ -6,7 +6,7 @@
  *
  * Change log:
  * 2011-03-30  JPP  - First version
- * 
+ *
  * Copyright (C) 2011-2012 Phillip Piper
  *
  * This program is free software: you can redistribute it and/or modify
@@ -39,22 +39,22 @@ namespace BrightIdeasSoftware {
         /// Year
         /// </summary>
         Year = 0x01,
-        
+
         /// <summary>
         /// Month
         /// </summary>
         Month = 0x02,
-        
+
         /// <summary>
         /// Day of the month
         /// </summary>
         Day = 0x04,
-        
+
         /// <summary>
         /// Hour
         /// </summary>
         Hour = 0x08,
-        
+
         /// <summary>
         /// Minute
         /// </summary>
@@ -160,7 +160,7 @@ namespace BrightIdeasSoftware {
         /// <param name="cluster"></param>
         /// <returns></returns>
         public override string GetClusterDisplayLabel(ICluster cluster) {
-            DateTime? dateTime = cluster.ClusterKey as DateTime?; 
+            DateTime? dateTime = cluster.ClusterKey as DateTime?;
 
             return this.ApplyDisplayFormat(cluster, dateTime.HasValue ? this.DateToString(dateTime.Value) : NULL_LABEL);
         }
@@ -181,7 +181,7 @@ namespace BrightIdeasSoftware {
                 return String.Format("Bad format string '{0}' for value '{1}'", this.Format, dateTime);
             }
         }
-    
+
         #endregion
     }
 }

@@ -218,7 +218,7 @@ namespace BrightIdeasSoftware
         private List<int> indexToGroupMap;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="group"></param>
         /// <param name="indexWithinGroup"></param>
@@ -228,7 +228,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="itemIndex"></param>
         /// <returns></returns>
@@ -237,7 +237,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="group"></param>
         /// <param name="itemIndex"></param>

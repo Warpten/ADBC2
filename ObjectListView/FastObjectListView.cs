@@ -144,7 +144,7 @@ namespace BrightIdeasSoftware
         public override object GetNthObject(int n) {
             if (n >= 0 && n < this.filteredObjectList.Count)
                 return this.filteredObjectList[n];
-            
+
             return null;
         }
 
@@ -166,12 +166,12 @@ namespace BrightIdeasSoftware
 
             if (model != null && this.objectsToIndexMap.TryGetValue(model, out index))
                 return index;
-            
+
             return -1;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="text"></param>
         /// <param name="first"></param>
@@ -197,7 +197,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="column"></param>
         /// <param name="sortOrder"></param>
@@ -211,7 +211,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="modelObjects"></param>
         public override void AddObjects(ICollection modelObjects) {
@@ -244,7 +244,7 @@ namespace BrightIdeasSoftware
             indicesToRemove.Sort();
             indicesToRemove.Reverse();
 
-            foreach (int i in indicesToRemove) 
+            foreach (int i in indicesToRemove)
                 this.listView.SelectedIndices.Remove(i);
 
             this.FilterObjects();
@@ -252,7 +252,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="collection"></param>
         public override void SetObjects(IEnumerable collection) {
@@ -306,7 +306,7 @@ namespace BrightIdeasSoftware
         #region Implementation
 
         /// <summary>
-        /// Gets the full list of objects being used for this fast list. 
+        /// Gets the full list of objects being used for this fast list.
         /// This list is unfiltered.
         /// </summary>
         public ArrayList ObjectList {

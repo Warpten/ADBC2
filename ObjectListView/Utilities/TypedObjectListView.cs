@@ -14,7 +14,7 @@
  * 2008-10-24   JPP  - Generate dynamic methods MkII. This one handles value types
  * 2008-10-21   JPP  - Generate dynamic methods
  * 2008-09-27   JPP  - Separated from ObjectListView.cs
- * 
+ *
  * Copyright (C) 2006-2012 Phillip Piper
  *
  * This program is free software: you can redistribute it and/or modify
@@ -49,7 +49,7 @@ namespace BrightIdeasSoftware
     /// <remarks>
     /// <para>VCS does not support generics on controls. It can be faked to some degree, but it
     /// cannot be completely overcome. In our case in particular, there is no way to create
-    /// the custom OLVColumn's that we need to truly be generic. So this wrapper is an 
+    /// the custom OLVColumn's that we need to truly be generic. So this wrapper is an
     /// experiment in providing some type-safe access in a way that is useful and available today.</para>
     /// <para>A TypedObjectListView is not more efficient than a normal ObjectListView.
     /// Underneath, the same name of casts are performed. But it is easier to use since you
@@ -337,35 +337,35 @@ namespace BrightIdeasSoftware
         private OLVColumn column;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="rowObject"></param>
         /// <returns></returns>
         public delegate Object TypedAspectGetterDelegate(T rowObject);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="rowObject"></param>
         /// <param name="newValue"></param>
         public delegate void TypedAspectPutterDelegate(T rowObject, Object newValue);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="rowObject"></param>
         /// <returns></returns>
         public delegate Object TypedGroupKeyGetterDelegate(T rowObject);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="rowObject"></param>
         /// <returns></returns>
         public delegate Object TypedImageGetterDelegate(T rowObject);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TypedAspectGetterDelegate AspectGetter {
             get { return this.aspectGetter; }
@@ -382,7 +382,7 @@ namespace BrightIdeasSoftware
         private TypedAspectGetterDelegate aspectGetter;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TypedAspectPutterDelegate AspectPutter {
             get { return aspectPutter; }
@@ -399,7 +399,7 @@ namespace BrightIdeasSoftware
         private TypedAspectPutterDelegate aspectPutter;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TypedImageGetterDelegate ImageGetter {
             get { return imageGetter; }
@@ -416,7 +416,7 @@ namespace BrightIdeasSoftware
         private TypedImageGetterDelegate imageGetter;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TypedGroupKeyGetterDelegate GroupKeyGetter {
             get { return groupKeyGetter; }
@@ -447,7 +447,7 @@ namespace BrightIdeasSoftware
         /// </code>
         /// </para>
         /// <para>
-        /// If AspectName is empty, this method will do nothing, otherwise 
+        /// If AspectName is empty, this method will do nothing, otherwise
         /// this will replace any existing AspectGetter.
         /// </para>
         /// </remarks>
@@ -461,7 +461,7 @@ namespace BrightIdeasSoftware
         /// the given dotted chain of selectors against a model object given at runtime.
         /// </summary>
         /// <param name="type">The type of model object to be passed to the generated method</param>
-        /// <param name="path">A dotted chain of selectors. Each selector can be the name of a 
+        /// <param name="path">A dotted chain of selectors. Each selector can be the name of a
         /// field, property or parameter-less method.</param>
         /// <returns>A typed delegate</returns>
         private TypedAspectGetterDelegate GenerateAspectGetter(Type type, string path) {

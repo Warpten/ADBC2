@@ -109,7 +109,7 @@ namespace BrightIdeasSoftware
 
         #endregion
 
-        #region Implementation 
+        #region Implementation
 
         /// <summary>
         /// Create the DataSourceAdapter that this control will use.

@@ -67,7 +67,7 @@ namespace BrightIdeasSoftware
     public interface ITransparentOverlay : IOverlay
     {
         /// <summary>
-        /// Gets or sets the transparency of the overlay. 
+        /// Gets or sets the transparency of the overlay.
         /// 0 is completely transparent, 255 is completely opaque.
         /// </summary>
         int Transparency { get; set; }
@@ -108,7 +108,7 @@ namespace BrightIdeasSoftware
 
         #endregion
     }
-    
+
     /// <summary>
     /// An overlay that will draw an image over the top of the ObjectListView
     /// </summary>

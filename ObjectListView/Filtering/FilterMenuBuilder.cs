@@ -13,7 +13,7 @@
  * v2.5
  * 2011-04-12  JPP  - Added some images to menu
  * 2011-03-04  JPP  - First version
- * 
+ *
  * Copyright (C) 2011-2012 Phillip Piper
  *
  * This program is free software: you can redistribute it and/or modify
@@ -231,14 +231,14 @@ namespace BrightIdeasSoftware {
             ToolStripMenuItem apply = new ToolStripMenuItem(APPLY_LABEL, FilteringImage, delegate(object sender, EventArgs args) {
                 this.EnactFilter(checkedList, column);
             });
-            ToolStripMenuItem subMenu = new ToolStripMenuItem(FILTERING_LABEL, null, new ToolStripItem[] { 
+            ToolStripMenuItem subMenu = new ToolStripMenuItem(FILTERING_LABEL, null, new ToolStripItem[] {
                 clearAll, new ToolStripSeparator(), checkedList, apply });
             return subMenu;
         }
 
         /// <summary>
         /// Wrap a protected section around the real HandleItemChecked method, so that if
-        /// that method tries to change a "checkedness" of an item, we don't get a recursive 
+        /// that method tries to change a "checkedness" of an item, we don't get a recursive
         /// stack error. Effectively, this ensure that HandleItemChecked is only called
         /// in response to a user action.
         /// </summary>
@@ -301,7 +301,7 @@ namespace BrightIdeasSoftware {
             // If no clusters are checked, the uncheck the Select All.
             // For everything else, Select All is set to indeterminate.
 
-            // How many items are currenty checked? 
+            // How many items are currenty checked?
             int count = checkedList.CheckedItems.Count;
 
             // First complication.
@@ -348,7 +348,7 @@ namespace BrightIdeasSoftware {
         /// <param name="checkedList">A list in which the checked items should be used as filters</param>
         /// <param name="column">The column for which a filter should be generated</param>
         virtual protected void EnactFilter(ToolStripCheckedListBox checkedList, OLVColumn column) {
-            
+
             ObjectListView olv = column.ListView as ObjectListView;
             if (olv == null || olv.IsDisposed)
                 return;

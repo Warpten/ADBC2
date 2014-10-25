@@ -345,7 +345,7 @@ namespace BrightIdeasSoftware
         #region IOverlay Members
 
         /// <summary>
-        /// Draw a filled border 
+        /// Draw a filled border
         /// </summary>
         /// <param name="olv"></param>
         /// <param name="g"></param>
@@ -355,7 +355,7 @@ namespace BrightIdeasSoftware
             if (!bounds.IsEmpty)
                 this.DrawFilledBorder(g, bounds);
         }
-        
+
         #endregion
 
         #region Subclass responsibility
@@ -513,7 +513,7 @@ namespace BrightIdeasSoftware
             this.UseLightbox = useLightbox;
         }
 
-        #endregion 
+        #endregion
 
         #region Configuration properties
 
@@ -548,7 +548,7 @@ namespace BrightIdeasSoftware
         /// <param name="g"></param>
         /// <param name="r"></param>
         public override void Draw(ObjectListView olv, Graphics g, Rectangle r) {
-            if (!olv.IsCellEditing) 
+            if (!olv.IsCellEditing)
                 return;
 
             Rectangle bounds = olv.CellEditor.Bounds;
@@ -595,7 +595,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// Draw a tint over everything in the ObjectListView except the 
+        /// Draw a tint over everything in the ObjectListView except the
         /// row under the mouse.
         /// </summary>
         /// <param name="olv"></param>
@@ -742,7 +742,7 @@ namespace BrightIdeasSoftware
             : this() {
             this.Text = text;
         }
-        
+
         /// <summary>
         /// Create a TextDecoration
         /// </summary>

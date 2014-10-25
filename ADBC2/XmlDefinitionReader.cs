@@ -13,18 +13,18 @@ namespace ADBC2
     {
         static XmlDocument _reader = null;
         static IDictionary<string, Type> _structures = new Dictionary<string, Type>();
-    
+
         public static void Load(string fileName, uint clientBuild)
         {
             _structures.Clear();
-            
+
             _reader = new XmlDocument();
             _reader.Load(fileName);
             GenerateTypes(clientBuild);
         }
 
         public static int Count { get { return _structures.Count; } }
-        
+
         public static IDictionary<string, Type> GetStructures()
         {
             return _structures;
@@ -34,7 +34,7 @@ namespace ADBC2
         {
             return _structures[dbcName];
         }
-        
+
         static bool GenerateTypes(uint build)
         {
             _structures.Clear();
@@ -53,12 +53,12 @@ namespace ADBC2
             for (var i = 0; i < nodes.Count; ++i)
                 if (nodes[i].Attributes["build"].Value == build.ToString())
                     filteredNodes.Add(nodes[i]);
-            
+
             if (filteredNodes.Count == 0)
                 return false;
 
             var builders = new Dictionary<string, TypeBuilder>();
-                
+
             #region Construct type infos
             foreach (var node in filteredNodes) {
                 var childNodes = node.ChildNodes;
@@ -69,7 +69,7 @@ namespace ADBC2
                 {
                     if (childNode.Name != "field")
                         continue;
-                    
+
                     var arraySize = 0;
                     if (childNode.Attributes["array"] != null)
                         arraySize = Convert.ToInt32(childNode.Attributes["array"].Value);
@@ -133,7 +133,7 @@ namespace ADBC2
 
             for (var i = 0; i < builders.Count; ++i)
                 _structures.Add(builders.Keys.ElementAt(i), builders.Values.ElementAt(i).CreateType());
-            
+
             return true;
         }
 
@@ -217,38 +217,38 @@ namespace ADBC2
         {
             return GetType(GetModule(GetAssemblyBuilder("EmittedStructures")), structureName, TypeAttributes.Public | TypeAttributes.Sealed);
         }
-        
+
         static AssemblyBuilder GetAssemblyBuilder(string assemblyName)
         {
             var aname = new AssemblyName(assemblyName);
             var currentDomain = AppDomain.CurrentDomain; // Thread.GetDomain();
             return currentDomain.DefineDynamicAssembly(aname, AssemblyBuilderAccess.Run);
         }
-        
+
         static ModuleBuilder GetModule(AssemblyBuilder asmBuilder)
         {
             // Build debug symbols for now
             return asmBuilder.DefineDynamicModule("EmitMethods", true);
         }
-        
+
         static TypeBuilder GetType(ModuleBuilder modBuilder, string className)
         {
             return modBuilder.DefineType(className, TypeAttributes.Public);
         }
-        
+
         static TypeBuilder GetType(ModuleBuilder modBuilder, string className, TypeAttributes attrs)
         {
-            return modBuilder.DefineType(className, attrs);        
+            return modBuilder.DefineType(className, attrs);
         }
 
         static TypeBuilder GetType(ModuleBuilder modBuilder, string className, params string[] genericparameters)
         {
             TypeBuilder builder = modBuilder.DefineType(className, TypeAttributes.Public);
             GenericTypeParameterBuilder[] genBuilders = builder.DefineGenericParameters(genericparameters);
-        
+
             foreach (GenericTypeParameterBuilder genBuilder in genBuilders) // We take each generic type T : class, new()
                 genBuilder.SetGenericParameterAttributes(GenericParameterAttributes.ReferenceTypeConstraint | GenericParameterAttributes.DefaultConstructorConstraint);
-        
+
             return builder;
         }
     }

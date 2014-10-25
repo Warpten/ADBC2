@@ -4,9 +4,9 @@
  * For some reason, the ToolTip class in the .NET framework is implemented in a significantly
  * different manner to other controls. For our purposes, the worst of these problems
  * is that we cannot get the Handle, so we cannot send Windows level messages to the control.
- * 
+ *
  * Author: Phillip Piper
- * Date: 2009-05-17 7:22PM 
+ * Date: 2009-05-17 7:22PM
  *
  * Change log:
  * v2.3
@@ -132,22 +132,22 @@ namespace BrightIdeasSoftware
         const int TTN_FIRST = -520;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public const int TTN_SHOW = (TTN_FIRST - 1);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public const int TTN_POP = (TTN_FIRST - 2);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public const int TTN_LINKCLICK = (TTN_FIRST - 3);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public const int TTN_GETDISPINFO = (TTN_FIRST - 10);
 
@@ -188,7 +188,7 @@ namespace BrightIdeasSoftware
                     windowStyle |= (TTS_BALLOON | TTS_USEVISUALSTYLE);
                     // On XP, a border makes the ballon look wrong
                     if (!ObjectListView.IsVistaOrLater)
-                        windowStyle &= ~WS_BORDER; 
+                        windowStyle &= ~WS_BORDER;
                 } else {
                     windowStyle &= ~(TTS_BALLOON | TTS_USEVISUALSTYLE);
                     if (!ObjectListView.IsVistaOrLater) {
@@ -370,13 +370,13 @@ namespace BrightIdeasSoftware
             cp.ExStyle = WS_EX_TOPMOST;
             cp.Parent = parentHandle;
             this.CreateHandle(cp);
-            
+
             // Ensure that multiline tooltips work correctly
             this.SetMaxWidth();
         }
 
         /// <summary>
-        /// Take a copy of the current settings and restore them when the 
+        /// Take a copy of the current settings and restore them when the
         /// tooltip is poppped.
         /// </summary>
         /// <remarks>
@@ -449,7 +449,7 @@ namespace BrightIdeasSoftware
         //    System.Diagnostics.Trace.WriteLine(String.Format("{0} {1}", result.ToInt32() >> 16, result.ToInt32() & 0xFFFF));
         //    NativeMethods.ChangeSize(this, result.ToInt32() & 0xFFFF, result.ToInt32() >> 16);
         //    //NativeMethods.RECT r = new NativeMethods.RECT();
-        //    //r.right 
+        //    //r.right
         //    //IntPtr x = NativeMethods.SendMessageRECT(this.Handle, TTM_ADJUSTRECT, true, ref r);
 
         //    //System.Diagnostics.Trace.WriteLine(String.Format("{0} {1} {2} {3}", r.left, r.top, r.right, r.bottom));
@@ -643,7 +643,7 @@ namespace BrightIdeasSoftware
         /// Mess with the basic message pump of the tooltip
         /// </summary>
         /// <param name="msg"></param>
-        [SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]       
+        [SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
         override protected void WndProc(ref Message msg) {
             //System.Diagnostics.Trace.WriteLine(String.Format("xx {0:x}", msg.Msg));
             switch (msg.Msg) {
@@ -676,7 +676,7 @@ namespace BrightIdeasSoftware
         public event EventHandler<EventArgs> Pop;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="e"></param>
         protected virtual void OnShowing(ToolTipShowingEventArgs e) {
@@ -685,7 +685,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="e"></param>
         protected virtual void OnPop(EventArgs e) {

@@ -9,20 +9,20 @@
 //------------------------------------------------------------------------------
 
 namespace ADBC2.Properties {
-    
-    
+
+
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ICSharpCode.SettingsEditor.SettingsCodeGeneratorTool", "4.4.1.9729")]
     internal sealed partial class ADBC2 : global::System.Configuration.ApplicationSettingsBase {
-        
+    
         private static ADBC2 defaultInstance = ((ADBC2)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new ADBC2())));
-        
+    
         public static ADBC2 Default {
             get {
                 return defaultInstance;
             }
         }
-        
+    
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("3.3.5.12340;4.3.4.15595;6.0.1.18179")]

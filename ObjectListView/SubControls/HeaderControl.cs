@@ -2,7 +2,7 @@
  * HeaderControl - A limited implementation of HeaderControl
  *
  * Author: Phillip Piper
- * Date: 25/11/2008 17:15 
+ * Date: 25/11/2008 17:15
  *
  * Change log:
  * 2011-05-11  JPP  - Fixed bug that prevented columns from being resized in IDE Designer
@@ -29,7 +29,7 @@
  *
  * TO DO:
  * - Put drawing code into header style object, so that it can be easily customized.
- * 
+ *
  * Copyright (C) 2006-2012 Phillip Piper
  *
  * This program is free software: you can redistribute it and/or modify
@@ -171,7 +171,7 @@ namespace BrightIdeasSoftware
             set { this.wordWrap = value; }
         }
         private bool wordWrap;
-        
+
         #endregion
 
         #region Commands
@@ -348,7 +348,7 @@ namespace BrightIdeasSoftware
             int columnIndex = this.ColumnIndexUnderCursor;
 
             // If the mouse has moved to a different header, pop the current tip (if any)
-            // For some reason, references this.ToolTip when in design mode, causes the 
+            // For some reason, references this.ToolTip when in design mode, causes the
             // columns to not be resizable by dragging the divider in the Designer. No idea why.
             if (columnIndex != this.columnShowingTip && !this.ListView.IsDesignMode) {
                 this.ToolTip.PopToolTip(this);
@@ -520,17 +520,17 @@ namespace BrightIdeasSoftware
         protected bool NeedsCustomDraw() {
             if (this.WordWrap)
                 return true;
-            
+
             if (this.ListView.HeaderUsesThemes)
                 return false;
 
             if (this.NeedsCustomDraw(this.ListView.HeaderFormatStyle))
                 return true;
-            
+
             foreach (OLVColumn column in this.ListView.Columns) {
                 if (column.HasHeaderImage ||
                     !column.ShowTextInHeader ||
-                    column.IsHeaderVertical || 
+                    column.IsHeaderVertical ||
                     this.HasFilterIndicator(column) ||
                     column.TextAlign != column.HeaderTextAlign ||
                     this.NeedsCustomDraw(column.HeaderFormatStyle))
@@ -543,7 +543,7 @@ namespace BrightIdeasSoftware
             if (style == null)
                 return false;
 
-            return (this.NeedsCustomDraw(style.Normal) || 
+            return (this.NeedsCustomDraw(style.Normal) ||
                 this.NeedsCustomDraw(style.Hot) ||
                 this.NeedsCustomDraw(style.Pressed));
         }
@@ -552,11 +552,11 @@ namespace BrightIdeasSoftware
             if (style == null)
                 return false;
 
-            // If we want fancy colors or frames, we have to custom draw. Oddly enough, we 
+            // If we want fancy colors or frames, we have to custom draw. Oddly enough, we
             // can handle font changes without custom drawing.
             if (!style.BackColor.IsEmpty)
                 return true;
-            
+
             if (style.FrameWidth > 0f && !style.FrameColor.IsEmpty)
                 return true;
 
@@ -591,7 +591,7 @@ namespace BrightIdeasSoftware
                 this.DrawThemedBackground(g, r, columnIndex, isPressed);
             else
                 this.DrawUnthemedBackground(g, r, columnIndex, isPressed, stateStyle);
-            
+
 
             // Draw the sort indicator if this column has one
             if (this.HasSortIndicator(column)) {
@@ -636,7 +636,7 @@ namespace BrightIdeasSoftware
             if (!stateStyle.FrameColor.IsEmpty && stateStyle.FrameWidth > 0f) {
                 RectangleF r2 = r;
                 r2.Inflate(-stateStyle.FrameWidth, -stateStyle.FrameWidth);
-                g.DrawRectangle(new Pen(stateStyle.FrameColor, stateStyle.FrameWidth), 
+                g.DrawRectangle(new Pen(stateStyle.FrameColor, stateStyle.FrameWidth),
                     r2.X, r2.Y, r2.Width, r2.Height);
             }
         }
@@ -847,9 +847,9 @@ namespace BrightIdeasSoftware
         /// <param name="isPressed"></param>
         /// <returns></returns>
         protected HeaderStateStyle CalculateStyle(OLVColumn column, bool isHot, bool isPressed) {
-            HeaderFormatStyle headerStyle = 
+            HeaderFormatStyle headerStyle =
                 column.HeaderFormatStyle ?? this.ListView.HeaderFormatStyle ?? new HeaderFormatStyle();
-            if (this.ListView.IsDesignMode) 
+            if (this.ListView.IsDesignMode)
                 return headerStyle.Normal;
             if (isPressed)
                 return headerStyle.Pressed;
@@ -875,9 +875,9 @@ namespace BrightIdeasSoftware
         /// </summary>
         protected TextFormatFlags TextFormatFlags {
             get {
-                TextFormatFlags flags = TextFormatFlags.EndEllipsis | 
+                TextFormatFlags flags = TextFormatFlags.EndEllipsis |
                     TextFormatFlags.NoPrefix |
-                    TextFormatFlags.WordEllipsis | 
+                    TextFormatFlags.WordEllipsis |
                     TextFormatFlags.PreserveGraphicsTranslateTransform;
                 if (this.WordWrap)
                     flags |= TextFormatFlags.WordBreak;

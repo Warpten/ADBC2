@@ -23,7 +23,7 @@
  * 2009-04-14   JPP  - Initial version
  *
  * To do:
- * 
+ *
  * Copyright (C) 2009-2012 Phillip Piper
  *
  * This program is free software: you can redistribute it and/or modify
@@ -70,7 +70,7 @@ namespace BrightIdeasSoftware
             FormBorderStyle = FormBorderStyle.None;
 
             SetStyle(ControlStyles.Selectable, false);
-            
+
             this.Opacity = 0.5f;
             this.BackColor = Color.FromArgb(255, 254, 254, 254);
             this.TransparencyKey = this.BackColor;
@@ -94,7 +94,7 @@ namespace BrightIdeasSoftware
             get {
                 CreateParams cp = base.CreateParams;
                 cp.ExStyle |= 0x20; // WS_EX_TRANSPARENT
-                cp.ExStyle |= 0x80; // WS_EX_TOOLWINDOW 
+                cp.ExStyle |= 0x80; // WS_EX_TOOLWINDOW
                 return cp;
             }
         }
@@ -105,7 +105,7 @@ namespace BrightIdeasSoftware
 
         /// <summary>
         /// Attach this form to the given ObjectListView
-        /// </summary>        
+        /// </summary>
         public void Bind(ObjectListView olv, IOverlay overlay) {
             if (this.objectListView != null)
                 this.Unbind();
@@ -133,7 +133,7 @@ namespace BrightIdeasSoftware
             while (parent != null) {
                 this.ancestors.Add(parent);
                 parent = parent.Parent;
-            } 
+            }
 
             // Listen for changes in the hierachy
             foreach (Control ancestor in this.ancestors) {
@@ -214,9 +214,9 @@ namespace BrightIdeasSoftware
 
         /// <summary>
         /// Detach this glass panel from its previous ObjectListView
-        /// </summary>        
+        /// </summary>
         /// <remarks>
-        /// You should unbind the overlay panel before making any changes to the 
+        /// You should unbind the overlay panel before making any changes to the
         /// widget hierarchy.
         /// </remarks>
         public void Unbind() {
@@ -317,7 +317,7 @@ namespace BrightIdeasSoftware
 
 
         /// <summary>
-        /// Handle when the bound OLV changes its location. The overlay panel must 
+        /// Handle when the bound OLV changes its location. The overlay panel must
         /// be moved too, IFF it is currently visible.
         /// </summary>
         /// <param name="sender"></param>
@@ -329,7 +329,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// Handle when the bound OLV changes size. The overlay panel must 
+        /// Handle when the bound OLV changes size. The overlay panel must
         /// resize too, IFF it is currently visible.
         /// </summary>
         /// <param name="sender"></param>
@@ -433,7 +433,7 @@ namespace BrightIdeasSoftware
         }
 
         #endregion
-        
+
         #region Implementation variables
 
         internal IOverlay Overlay;

@@ -6,7 +6,7 @@
  *
  * Change log:
  * 2011-03-31  JPP  - Split into its own file
- * 
+ *
  * Copyright (C) 2011-2012 Phillip Piper
  *
  * This program is free software: you can redistribute it and/or modify
@@ -88,11 +88,11 @@ namespace BrightIdeasSoftware {
     [Flags]
     public enum HitTestLocationEx {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         LVHT_NOWHERE = 0x00000001,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         LVHT_ONITEMICON = 0x00000002,
         LVHT_ONITEMLABEL = 0x00000004,
@@ -256,7 +256,7 @@ namespace BrightIdeasSoftware {
             get {
                 if (this.Item == null || this.SubItem == null)
                     return -1;
-                
+
                 return this.Item.SubItems.IndexOf(this.SubItem);
             }
         }

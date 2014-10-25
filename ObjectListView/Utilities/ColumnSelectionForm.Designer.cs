@@ -38,9 +38,9 @@ namespace BrightIdeasSoftware
             this.olvColumn1 = new BrightIdeasSoftware.OLVColumn();
             ((System.ComponentModel.ISupportInitialize)(this.objectListView1)).BeginInit();
             this.SuspendLayout();
-            // 
+            //
             // buttonMoveUp
-            // 
+            //
             this.buttonMoveUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonMoveUp.Location = new System.Drawing.Point(295, 31);
             this.buttonMoveUp.Name = "buttonMoveUp";
@@ -49,9 +49,9 @@ namespace BrightIdeasSoftware
             this.buttonMoveUp.Text = "Move &Up";
             this.buttonMoveUp.UseVisualStyleBackColor = true;
             this.buttonMoveUp.Click += new System.EventHandler(this.buttonMoveUp_Click);
-            // 
+            //
             // buttonMoveDown
-            // 
+            //
             this.buttonMoveDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonMoveDown.Location = new System.Drawing.Point(295, 60);
             this.buttonMoveDown.Name = "buttonMoveDown";
@@ -60,9 +60,9 @@ namespace BrightIdeasSoftware
             this.buttonMoveDown.Text = "Move &Down";
             this.buttonMoveDown.UseVisualStyleBackColor = true;
             this.buttonMoveDown.Click += new System.EventHandler(this.buttonMoveDown_Click);
-            // 
+            //
             // buttonShow
-            // 
+            //
             this.buttonShow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonShow.Location = new System.Drawing.Point(295, 89);
             this.buttonShow.Name = "buttonShow";
@@ -71,9 +71,9 @@ namespace BrightIdeasSoftware
             this.buttonShow.Text = "&Show";
             this.buttonShow.UseVisualStyleBackColor = true;
             this.buttonShow.Click += new System.EventHandler(this.buttonShow_Click);
-            // 
+            //
             // buttonHide
-            // 
+            //
             this.buttonHide.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonHide.Location = new System.Drawing.Point(295, 118);
             this.buttonHide.Name = "buttonHide";
@@ -82,9 +82,9 @@ namespace BrightIdeasSoftware
             this.buttonHide.Text = "&Hide";
             this.buttonHide.UseVisualStyleBackColor = true;
             this.buttonHide.Click += new System.EventHandler(this.buttonHide_Click);
-            // 
+            //
             // label1
-            // 
+            //
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.BackColor = System.Drawing.SystemColors.Control;
@@ -93,9 +93,9 @@ namespace BrightIdeasSoftware
             this.label1.Size = new System.Drawing.Size(366, 19);
             this.label1.TabIndex = 5;
             this.label1.Text = "Choose the columns you want to see in this list. ";
-            // 
+            //
             // buttonOK
-            // 
+            //
             this.buttonOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonOK.Location = new System.Drawing.Point(198, 304);
             this.buttonOK.Name = "buttonOK";
@@ -104,9 +104,9 @@ namespace BrightIdeasSoftware
             this.buttonOK.Text = "&OK";
             this.buttonOK.UseVisualStyleBackColor = true;
             this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
-            // 
+            //
             // buttonCancel
-            // 
+            //
             this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonCancel.Location = new System.Drawing.Point(295, 304);
@@ -116,9 +116,9 @@ namespace BrightIdeasSoftware
             this.buttonCancel.Text = "&Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
-            // 
+            //
             // objectListView1
-            // 
+            //
             this.objectListView1.AllColumns.Add(this.olvColumn1);
             this.objectListView1.AlternateRowBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.objectListView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
@@ -141,16 +141,16 @@ namespace BrightIdeasSoftware
             this.objectListView1.UseCompatibleStateImageBehavior = false;
             this.objectListView1.View = System.Windows.Forms.View.Details;
             this.objectListView1.SelectionChanged += new System.EventHandler(this.objectListView1_SelectionChanged);
-            // 
+            //
             // olvColumn1
-            // 
+            //
             this.olvColumn1.AspectName = "Text";
             this.olvColumn1.IsVisible = true;
             this.olvColumn1.Text = "Column";
             this.olvColumn1.Width = 267;
-            // 
+            //
             // ColumnSelectionForm
-            // 
+            //
             this.AcceptButton = this.buttonOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;

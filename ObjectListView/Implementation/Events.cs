@@ -29,7 +29,7 @@
  * 2008-12-06   JPP  - Added searching events
  * 2008-12-01   JPP  - Added secondary sort information to Before/AfterSorting events
  * 2008-10-17   JPP  - Separated from ObjectListView.cs
- * 
+ *
  * Copyright (C) 2006-2012 Phillip Piper
  *
  * This program is free software: you can redistribute it and/or modify
@@ -60,7 +60,7 @@ namespace BrightIdeasSoftware
     /// <summary>
     /// The callbacks for CellEditing events
     /// </summary>
-    /// <remarks> this 
+    /// <remarks> this
     /// We could replace this with EventHandler&lt;CellEditEventArgs&gt; but that would break all
     /// cell editing event code from v1.x.
     /// </remarks>
@@ -381,7 +381,7 @@ namespace BrightIdeasSoftware
         #region OnEvents
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="e"></param>
         protected virtual void OnAboutToCreateGroups(CreateGroupsEventArgs e) {
@@ -390,7 +390,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="e"></param>
         protected virtual void OnBeforeCreatingGroups(CreateGroupsEventArgs e) {
@@ -399,7 +399,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="e"></param>
         protected virtual void OnAfterCreatingGroups(CreateGroupsEventArgs e) {
@@ -408,7 +408,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="e"></param>
         protected virtual void OnAfterSearching(AfterSearchingEventArgs e) {
@@ -417,7 +417,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="e"></param>
         protected virtual void OnAfterSorting(AfterSortingEventArgs e) {
@@ -426,7 +426,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="e"></param>
         protected virtual void OnBeforeSearching(BeforeSearchingEventArgs e) {
@@ -435,7 +435,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="e"></param>
         protected virtual void OnBeforeSorting(BeforeSortingEventArgs e) {
@@ -444,7 +444,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="args"></param>
         protected virtual void OnCanDrop(OlvDropEventArgs args) {
@@ -453,7 +453,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="args"></param>
         protected virtual void OnCellClick(CellClickEventArgs args) {
@@ -462,7 +462,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="args"></param>
         protected virtual void OnCellOver(CellOverEventArgs args) {
@@ -471,7 +471,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="args"></param>
         protected virtual void OnCellRightClick(CellRightClickEventArgs args) {
@@ -480,16 +480,16 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="args"></param>
         protected virtual void OnCellToolTip(ToolTipShowingEventArgs args) {
             if (this.CellToolTipShowing != null)
                 this.CellToolTipShowing(this, args);
         }
-        
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="args"></param>
         protected virtual void OnSubItemChecking(SubItemCheckingEventArgs args) {
@@ -498,7 +498,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="e"></param>
         protected virtual void OnColumnRightClick(ColumnClickEventArgs e) {
@@ -507,7 +507,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="args"></param>
         protected virtual void OnDropped(OlvDropEventArgs args) {
@@ -516,7 +516,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="e"></param>
         protected virtual void OnFilter(FilterEventArgs e) {
@@ -525,7 +525,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="args"></param>
         protected virtual void OnFormatCell(FormatCellEventArgs args) {
@@ -534,7 +534,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="args"></param>
         protected virtual void OnFormatRow(FormatRowEventArgs args) {
@@ -543,7 +543,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="args"></param>
         protected virtual void OnFreezing(FreezeEventArgs args) {
@@ -552,7 +552,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="args"></param>
         protected virtual void OnGroupExpandingCollapsing(GroupExpandingCollapsingEventArgs args)
@@ -562,7 +562,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="args"></param>
         protected virtual void OnGroupStateChanged(GroupStateChangedEventArgs args)
@@ -572,7 +572,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="args"></param>
         protected virtual void OnHeaderToolTip(ToolTipShowingEventArgs args)
@@ -582,7 +582,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="e"></param>
         protected virtual void OnHotItemChanged(HotItemChangedEventArgs e) {
@@ -591,7 +591,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="e"></param>
         protected virtual void OnHyperlinkClicked(HyperlinkClickedEventArgs e) {
@@ -600,7 +600,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="e"></param>
         protected virtual void OnGroupTaskClicked(GroupTaskClickedEventArgs e) {
@@ -609,7 +609,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="e"></param>
         protected virtual void OnIsHyperlink(IsHyperlinkEventArgs e) {
@@ -618,7 +618,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="e"></param>
         protected virtual void OnItemsAdding(ItemsAddingEventArgs e) {
@@ -627,7 +627,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="e"></param>
         protected virtual void OnItemsChanged(ItemsChangedEventArgs e) {
@@ -636,7 +636,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="e"></param>
         protected virtual void OnItemsChanging(ItemsChangingEventArgs e) {
@@ -645,7 +645,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="e"></param>
         protected virtual void OnItemsRemoving(ItemsRemovingEventArgs e) {
@@ -654,7 +654,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="args"></param>
         protected virtual void OnModelCanDrop(ModelDropEventArgs args) {
@@ -663,7 +663,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="args"></param>
         protected virtual void OnModelDropped(ModelDropEventArgs args) {
@@ -672,7 +672,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="e"></param>
         protected virtual void OnSelectionChanged(EventArgs e) {
@@ -681,7 +681,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="e"></param>
         protected virtual void OnScroll(ScrollEventArgs e) {
@@ -711,7 +711,7 @@ namespace BrightIdeasSoftware
             // controls, DateTimePicker and ComboBoxes do not work properly. Specifically,
             // keyboard input still works fine, but the controls do not respond to mouse
             // input. SO, if the validation fails, we have to specifically give focus back to
-            // the cell editor. (this is the Select() call in the code below). 
+            // the cell editor. (this is the Select() call in the code below).
             // But (there is always a 'but'), doing that changes the focus so the cell editor
             // triggers another Validating event -- which fails again. From the user's point
             // of view, they click away from the cell editor, and the validating code
@@ -743,7 +743,7 @@ namespace BrightIdeasSoftware
 
         #endregion
     }
-    
+
     public partial class TreeListView
     {
 
@@ -755,30 +755,30 @@ namespace BrightIdeasSoftware
         [Category("ObjectListView"),
         Description("This event is triggered when a branch is about to expand.")]
         public event EventHandler<TreeBranchExpandingEventArgs> Expanding;
- 
+
         /// <summary>
         /// This event is triggered when user input requests the collapse of a list item.
         /// </summary>
         [Category("ObjectListView"),
         Description("This event is triggered when a branch is about to collapsed.")]
         public event EventHandler<TreeBranchCollapsingEventArgs> Collapsing;
- 
+
         /// <summary>
         /// This event is triggered after the expansion of a list item due to user input.
         /// </summary>
         [Category("ObjectListView"),
         Description("This event is triggered when a branch has been expanded.")]
         public event EventHandler<TreeBranchExpandedEventArgs> Expanded;
- 
+
         /// <summary>
         /// This event is triggered after the collapse of a list item due to user input.
         /// </summary>
         [Category("ObjectListView"),
         Description("This event is triggered when a branch has been collapsed.")]
         public event EventHandler<TreeBranchCollapsedEventArgs> Collapsed;
- 
+
         #endregion
- 
+
         #region OnEvents
 
         /// <summary>
@@ -816,7 +816,7 @@ namespace BrightIdeasSoftware
             if (this.Collapsed != null)
                 this.Collapsed(this, e);
         }
- 
+
          #endregion
     }
 
@@ -1108,7 +1108,7 @@ namespace BrightIdeasSoftware
         }
         private SortOrder secondarySortOrder;
     }
-    
+
     /// <summary>
     /// This event is triggered when the contents of a list have changed
     /// and we want the world to have a chance to filter the list.
@@ -1300,8 +1300,8 @@ namespace BrightIdeasSoftware
         /// <summary>
         /// Gets or sets the string that will be found by the search routine
         /// </summary>
-        /// <remarks>Modifying this value does not modify the memory of what the user has typed. 
-        /// When the user next presses a character, the search string will revert to what 
+        /// <remarks>Modifying this value does not modify the memory of what the user has typed.
+        /// When the user next presses a character, the search string will revert to what
         /// the user has actually typed.</remarks>
         public string StringToFind;
 
@@ -1356,7 +1356,7 @@ namespace BrightIdeasSoftware
         private int columnIndex = -1;
 
         /// <summary>
-        /// Gets the column of the cell 
+        /// Gets the column of the cell
         /// </summary>
         /// <remarks>This is null when the view is not in details view.</remarks>
         public OLVColumn Column {
@@ -1395,7 +1395,7 @@ namespace BrightIdeasSoftware
         /// <summary>
         /// Gets the subitem of the cell
         /// </summary>
-        /// <remarks>This is null when the view is not in details view and 
+        /// <remarks>This is null when the view is not in details view and
         /// for event triggered by the header</remarks>
         public OLVListSubItem SubItem {
             get { return subItem; }
@@ -1468,7 +1468,7 @@ namespace BrightIdeasSoftware
         }
 
         /// <summary>
-        /// How frozen is the control? 0 means that the control is unfrozen, 
+        /// How frozen is the control? 0 means that the control is unfrozen,
         /// more than 0 indicates froze.
         /// </summary>
         public int FreezeLevel {
@@ -1588,7 +1588,7 @@ namespace BrightIdeasSoftware
         private int columnIndex = -1;
 
         /// <summary>
-        /// Gets the column of the cell 
+        /// Gets the column of the cell
         /// </summary>
         /// <remarks>This is null when the view is not in details view.</remarks>
         public OLVColumn Column {
@@ -1635,11 +1635,11 @@ namespace BrightIdeasSoftware
             set { handled = value; }
         }
         private bool handled;
-        
+
     }
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public class IsHyperlinkEventArgs : EventArgs
     {
@@ -1662,7 +1662,7 @@ namespace BrightIdeasSoftware
         private object model;
 
         /// <summary>
-        /// Gets the column of the cell 
+        /// Gets the column of the cell
         /// </summary>
         /// <remarks>This is null when the view is not in details view.</remarks>
         public OLVColumn Column {
@@ -1672,21 +1672,21 @@ namespace BrightIdeasSoftware
         private OLVColumn column;
 
         /// <summary>
-        /// Gets the text of the cell 
+        /// Gets the text of the cell
         /// </summary>
         public string Text {
             get { return this.text; }
             internal set { this.text = value; }
         }
         private string text;
-        
+
         /// <summary>
         /// Gets or sets the url that should be invoked when this cell is clicked.
         /// </summary>
         /// <remarks>Setting this to None or String.Empty means that this cell is not a hyperlink</remarks>
         public string Url;
     }
-    
+
     /// <summary>
     /// </summary>
     public class FormatRowEventArgs : EventArgs
@@ -1733,7 +1733,7 @@ namespace BrightIdeasSoftware
         public int DisplayIndex {
             get { return this.displayIndex; }
             internal set { this.displayIndex = value; }
-        }   
+        }
         private int displayIndex = -1;
 
         /// <summary>
@@ -1763,7 +1763,7 @@ namespace BrightIdeasSoftware
         private int columnIndex = -1;
 
         /// <summary>
-        /// Gets the column of the cell 
+        /// Gets the column of the cell
         /// </summary>
         /// <remarks>This is null when the view is not in details view.</remarks>
         public OLVColumn Column {
@@ -1805,7 +1805,7 @@ namespace BrightIdeasSoftware
             set { url = value; }
         }
         private string url;
-        
+
     }
 
 
@@ -1824,7 +1824,7 @@ namespace BrightIdeasSoftware
             set { handled = value; }
         }
         private bool handled;
-            
+
         /// <summary>
         /// Gets the part of the cell that the mouse is over
         /// </summary>
@@ -1924,7 +1924,7 @@ namespace BrightIdeasSoftware
             return string.Format("NewHotCellHitLocation: {0}, HotCellHitLocationEx: {1}, NewHotColumnIndex: {2}, NewHotRowIndex: {3}, HotGroup: {4}", this.newHotCellHitLocation, this.hotCellHitLocationEx, this.newHotColumnIndex, this.newHotRowIndex, this.hotGroup);
         }
     }
-    
+
     /// <summary>
     /// Let the world know that a checkbox on a subitem is changing
     /// </summary>
@@ -2034,7 +2034,7 @@ namespace BrightIdeasSoftware
             set { canceled = value; }
         }
         private bool canceled;
-        
+
     }
 
     /// <summary>

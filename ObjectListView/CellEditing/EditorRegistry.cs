@@ -7,7 +7,7 @@
  * Change log:
  * 2011-03-31  JPP  - Use OLVColumn.DataType if the value to be edited is null
  * 2011-03-06  JPP  - Separated from CellEditors.cs
- * 
+ *
  * Copyright (C) 2011-2012 Phillip Piper
  *
  * This program is free software: you can redistribute it and/or modify
@@ -47,8 +47,8 @@ namespace BrightIdeasSoftware {
 
     /// <summary>
     /// An editor registry gives a way to decide what cell editor should be used to edit
-    /// the value of a cell. Programmers can register non-standard types and the control that 
-    /// should be used to edit instances of that type. 
+    /// the value of a cell. Programmers can register non-standard types and the control that
+    /// should be used to edit instances of that type.
     /// </summary>
     /// <remarks>
     /// <para>All ObjectListViews share the same editor registry.</para>

@@ -10,7 +10,7 @@
  *
  * TO DO:
 
- * 
+ *
  * Copyright (C) 2012 Phillip Piper
  *
  * This program is free software: you can redistribute it and/or modify
@@ -45,9 +45,9 @@ namespace BrightIdeasSoftware
     /// </summary>
     /// <remarks>
     /// <para>Like a <see cref="DataListView"/>, a DataTreeListView sources all its information
-    /// from a combination of <see cref="DataSource"/> and <see cref="DataMember"/>. 
+    /// from a combination of <see cref="DataSource"/> and <see cref="DataMember"/>.
     /// <see cref="DataSource"/> can be a DataTable, DataSet,
-    /// or anything that implements <see cref="IList"/>. 
+    /// or anything that implements <see cref="IList"/>.
     /// </para>
     /// <para>
     /// To function properly, the DataTreeListView requires:
@@ -109,7 +109,7 @@ namespace BrightIdeasSoftware
         /// </summary>
         /// <remarks>
         /// <para>
-        /// The value contained by this column must be unique across all rows 
+        /// The value contained by this column must be unique across all rows
         /// in the data source. Odd and unpredictable things will happen if two
         /// rows have the same id.
         /// </para>
@@ -159,7 +159,7 @@ namespace BrightIdeasSoftware
         /// Object.Equals(candidateRow[this.ParentKeyAspectName], this.RootKeyValue)
         /// </code>
         /// </para>
-        /// <para>The RootKeyValue can be null. Actually, it can be any value that can 
+        /// <para>The RootKeyValue can be null. Actually, it can be any value that can
         /// be compared for equality against a basic type.</para>
         /// <para>If this is set to the wrong value (i.e. to a value that no row
         /// has in the parent id column), the list will be empty.</para>

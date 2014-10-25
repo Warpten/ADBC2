@@ -8,7 +8,7 @@ namespace ADBC2.Structures
         public string FileName;
         public int Build;
         public bool Enabled;
-        
+    
         public enum ClientBuild
         {
             V3_3_5_12340 = 12340,

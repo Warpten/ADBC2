@@ -15,7 +15,7 @@
  * To do:
  * - Use IPointLocator rather than Corners
  * - Add RotationCenter property ratherr than always using middle center
- * 
+ *
  * Copyright (C) 2009-2012 Phillip Piper
  *
  * This program is free software: you can redistribute it and/or modify
@@ -70,7 +70,7 @@ namespace BrightIdeasSoftware
          NotifyParentProperty(true)]
         public System.Drawing.ContentAlignment Alignment {
             get { return this.alignment; }
-            set { 
+            set {
                 this.alignment = value;
                 this.ReferenceCorner = value;
                 this.AdornmentCorner = value;
@@ -116,7 +116,7 @@ namespace BrightIdeasSoftware
         private int rotation;
 
         /// <summary>
-        /// Gets or sets the transparency of the overlay. 
+        /// Gets or sets the transparency of the overlay.
         /// 0 is completely transparent, 255 is completely opaque.
         /// </summary>
         [Category("ObjectListView"),
@@ -234,7 +234,7 @@ namespace BrightIdeasSoftware
                 case System.Drawing.ContentAlignment.BottomRight:
                     return new Point(r.Right, r.Bottom);
             }
-            
+
             // Should never reach here
             return r.Location;
         }
@@ -251,7 +251,7 @@ namespace BrightIdeasSoftware
 
             if (subItem == null)
                 return item.Bounds;
-            
+
             return item.GetSubItemBounds(item.SubItems.IndexOf(subItem));
         }
 
@@ -332,7 +332,7 @@ namespace BrightIdeasSoftware
             if (this.ShrinkToWidth)
                 this.DrawScaledImage(g, r, this.Image, this.Transparency);
             else
-                this.DrawImage(g, r, this.Image, this.Transparency); 
+                this.DrawImage(g, r, this.Image, this.Transparency);
         }
 
         /// <summary>
@@ -575,7 +575,7 @@ namespace BrightIdeasSoftware
                     if (!this.Wrap)
                         this.stringFormat.FormatFlags = StringFormatFlags.NoWrap;
                 }
-                return this.stringFormat; 
+                return this.stringFormat;
             }
             set { this.stringFormat = value; }
         }
