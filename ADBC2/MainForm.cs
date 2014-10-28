@@ -391,7 +391,7 @@ namespace ADBC2
                 ofd.Description = "Indicate the path to your *.dbc and *.db2 files";
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
-                    PathToFiles = ofd.SelectedPath;
+                    PathToFiles = ofd.SelectedPath + "\";
                     return FindFiles(ofd.SelectedPath);
                 }
             }
