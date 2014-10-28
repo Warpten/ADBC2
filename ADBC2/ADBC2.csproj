@@ -64,6 +64,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArrayEditor.cs" />
+    <Compile Include="ArrayEditor.Designer.cs">
+      <DependentUpon>ArrayEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Exceptions.cs" />
     <Compile Include="ExportWorkerParameters.cs" />
     <Compile Include="Extensions.cs" />
@@ -154,6 +158,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ArrayEditor.resx">
+      <DependentUpon>ArrayEditor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HelpForm.resx">
       <DependentUpon>HelpForm.cs</DependentUpon>
     </EmbeddedResource>

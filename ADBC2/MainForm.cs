@@ -227,20 +227,20 @@ namespace ADBC2
                 if (structures.Length == 0)
                     throw new UnsupportedClientBuildException(clientBuild);
 
-                var items = new string[structures.Length];
+                var items = new List<string>();
                 var coreStructuresCount = 0;
                 for (var i = 0; i < structures.Length; ++i)
                 {
                     var attr = structures[i].GetCustomAttributes(typeof(DbFileInfoAttribute), false).First() as DbFileInfoAttribute;
                     if (attr == null || !dbcNames.Contains(attr.FileName))
-                        throw new DbcFileNameNotFoundException(attr.FileName);
+                        continue;
 
-                    items[i] = attr.FileName;
-                    _structures.Add(items[i], structures[i]);
+                    items.Add(attr.FileName);
+                    _structures.Add(attr.FileName, structures[i]);
                     ++coreStructuresCount;
                 }
 
-                // Overwrite with XML structures
+                // Override with XML structures
                 for (var i = 0; i < xmlStructures.Count; ++i)
                 {
                     if (_structures.ContainsKey(xmlStructures.Keys.ElementAt(i)))
@@ -253,6 +253,7 @@ namespace ADBC2
                     }
                     else
                     {
+                        items.Add(xmlStructures.Keys.ElementAt(i));
                         _structures.Add(xmlStructures.Keys.ElementAt(i), xmlStructures.Values.ElementAt(i));
                         --coreStructuresCount;
                     }
@@ -260,8 +261,8 @@ namespace ADBC2
 
                 FileSelectionBox.Enabled = true;
                 FileSelectionBox.Items.Clear();
-                FileSelectionBox.Items.AddRange(items);
-                StatusLabel.Text = String.Format(@"Version: {2}. {0} Core Definition(s) loaded. {1} XML Definition(s) loaded.", coreStructuresCount, items.Length - coreStructuresCount, clientBuild);
+                FileSelectionBox.Items.AddRange(items.ToArray());
+                StatusLabel.Text = String.Format(@"Version: {2}. {0} Core Definition(s) loaded. {1} XML Definition(s) loaded.", coreStructuresCount, items.Count - coreStructuresCount, clientBuild);
             }
             catch (DirectoryNotFoundException dnfe)
             {
@@ -400,8 +401,9 @@ namespace ADBC2
         #region Form event handlers
         void OnStartCellEdit(object sender, CellEditEventArgs e)
         {
-            // e.NewValue = GetUnderlyingObjectText(e);
-            // TODO: Create a custom control and pass it if the field is an array
+            // if (GetUnderlyingObjectText(e)
+            //if (e.Column.GetValue(e.RowObject) == @"Array")
+            //    e.Control = new ArrayEditor(e);
         }
 
         void OnXmlOverridesToggle(object sender, EventArgs e)

@@ -18,9 +18,14 @@ namespace ADBC2
         {
             _structures.Clear();
 
-            _reader = new XmlDocument();
-            _reader.Load(fileName);
-            GenerateTypes(clientBuild);
+            try {
+                _reader = new XmlDocument();
+                _reader.Load(fileName);
+                GenerateTypes(clientBuild);
+            } catch (FileNotFoundException)
+            {
+                
+            }
         }
 
         public static int Count { get { return _structures.Count; } }
