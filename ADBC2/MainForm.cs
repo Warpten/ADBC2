@@ -392,7 +392,7 @@ namespace ADBC2
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
                     PathToFiles = ofd.SelectedPath + "\";
-                    return FindFiles(ofd.SelectedPath);
+                    return FindFiles(PathToFiles);
                 }
             }
             return null;
