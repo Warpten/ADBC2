@@ -24,6 +24,10 @@ namespace ADBC2
         public MainForm()
         {
             InitializeComponent();
+            /*ObjectListView.EditorRegistry.Register(typeof(int[]), typeof(ArrayEditor<int>));
+            ObjectListView.EditorRegistry.Register(typeof(uint[]), typeof(ArrayEditor<uint>));
+            ObjectListView.EditorRegistry.Register(typeof(short[]), typeof(ArrayEditor<short>));
+            ObjectListView.EditorRegistry.Register(typeof(ushort[]), typeof(ArrayEditor<ushort>));*/
         }
 
         protected string GenerateSqlHeader()
@@ -97,8 +101,8 @@ namespace ADBC2
             {
                 var recordCount = 0;
                 fileStream.WriteLine(String.Join(Environment.NewLine, new string[] {
-                    @"DROP TABLE IF EXISTS `DBC_" + FileSelectionBox.Text + @"`;",
-                    @"CREATE TABLE `DBC_" + FileSelectionBox.Text + @"` (",
+                    @"DROP TABLE IF EXISTS `" + Path.GetFileNameWithoutExtension(FileSelectionBox.Text) + @"Records`;",
+                    @"CREATE TABLE `" + Path.GetFileNameWithoutExtension(FileSelectionBox.Text) + @"Records` (",
                     GenerateSqlHeader(),
                     @");",
                     ""
@@ -110,7 +114,7 @@ namespace ADBC2
                 foreach (var record in objects)
                 {
                     if (recordCount % 500 == 0)
-                        fileStream.WriteLine("INSERT INTO `DBC_" + FileSelectionBox.Text + @"` VALUES");
+                        fileStream.WriteLine("INSERT INTO `" + Path.GetFileNameWithoutExtension(FileSelectionBox.Text) + @"Records` VALUES");
 
                     recordLine.Clear();
                     foreach (var field in fields)
@@ -130,7 +134,10 @@ namespace ADBC2
                         for (var i = 0; i < arraySize; ++i)
                         {
                             var fieldFormat = (fieldType == typeof(string)) ? @"""{0}""" : @"{0}";
-                            recordLine.Add(String.Format(fieldFormat, arraySize > 1 ? fValue[i] : fValue));
+                            var asString = String.Format(fieldFormat, arraySize > 1 ? fValue[i] : fValue);
+                            if (fieldType == typeof(float))
+                                asString = asString.Replace(@",", @".");
+                            recordLine.Add(asString);
                         }
                     }
 
@@ -165,7 +172,7 @@ namespace ADBC2
                 if (isArray)
                     fieldType = fieldType.GetElementType();
 
-                var fmt = (isArray ? @"    {0} {1}[{2}];" : @"    {0} {1};") + Environment.NewLine;
+                var fmt = (isArray ? @"    {0} {1}[{2}];" : @"    {0} {1};");
                 switch (fieldType.ToString())
                 {
                     case "System.Byte":
@@ -314,7 +321,6 @@ namespace ADBC2
             ContentView.ResetColumnFiltering();
             Generator.GenerateColumns(ContentView, SelectedFileType, false);
             ContentView.SetObjects(records, false);
-            // Go over the columns and mark them as editable
 
             watch.Stop();
             StatusLabel.Text = String.Format("Loaded {0} records in {1} ms.", records.Count, watch.ElapsedMilliseconds);
@@ -401,9 +407,9 @@ namespace ADBC2
         #region Form event handlers
         void OnStartCellEdit(object sender, CellEditEventArgs e)
         {
-            // if (GetUnderlyingObjectText(e)
-            //if (e.Column.GetValue(e.RowObject) == @"Array")
-            //    e.Control = new ArrayEditor(e);
+            var value = e.Column.GetValue(e.RowObject);
+            if (value.GetType().IsArray)
+                e.Control.Text = GetUnderlyingObjectText(e);
         }
 
         void OnXmlOverridesToggle(object sender, EventArgs e)

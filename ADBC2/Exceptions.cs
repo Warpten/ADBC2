@@ -57,16 +57,18 @@ namespace ADBC2
 
     public class InvalidCoreStructure : Exception
     {
-        protected string Message;
+        protected object[] fmtv;
+        protected string fmt;
 
         public InvalidCoreStructure(string message, params object[] args)
         {
-            this.Message = String.Format(message, args);
+            fmt = message;
+            fmtv = args;
         }
 
         public override string ToString()
         {
-            return Message;
+            return String.Format(fmt, fmtv);
         }
     }
 }

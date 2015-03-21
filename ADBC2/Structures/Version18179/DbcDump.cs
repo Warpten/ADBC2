@@ -3,6 +3,16 @@ using BrightIdeasSoftware;
 
 namespace ADBC2.Structures.Version18179
 {
+    [DbFileInfo(18179, "SceneScript.db2")]
+    public sealed class SceneScriptEntry
+    {
+        public int ID;
+        public string UnkString;
+        public string UnkString2;
+        public int UnkInt0;
+        public int UnkInt1;
+    }
+
     [DbFileInfo(18179, "Achievement_Category.dbc")]
     public sealed class AchievementCategoryEntry
     {
@@ -5346,5 +5356,112 @@ namespace ADBC2.Structures.Version18179
         public string name;
         public int mapID;
         public int lightID;
+    }
+
+    [DbFileInfo(18179, "Item-sparse.db2")]
+    public sealed class ItemSparseEntry
+    {
+        public int ID;
+        public int Quality;
+        public int Flags1;
+        public int Flags2;
+        public int Flags3;
+        public float Unk1;
+        public float Unk2;
+        public int BuyCount;
+        public int BuyPrice;
+        public int SellPrice;
+        public int InventoryType;
+        public int AllowableClass;
+        public int AllowableRace;
+        public int ItemLevel;
+        public int RequiredLevel;
+        public int RequiredSkill;
+        public int RequiredSkillRank;
+        public int RequiredSpell;
+        public int RequiredHonorRank;
+        public int RequiredCityRank;
+        public int RequiredReputationFaction;
+        public int RequiredReputationRank;
+        public int MaxCount;
+        public int Stackable;
+        public int ContainerSlots;
+        public int ItemStatType1;
+        public int ItemStatType2;
+        public int ItemStatType3;
+        public int ItemStatType4;
+        public int ItemStatType5;
+        public int ItemStatType6;
+        public int ItemStatType7;
+        public int ItemStatType8;
+        public int ItemStatType9;
+        public int ItemStatType10;
+        public int ItemStatValue1;
+        public int ItemStatValue2;
+        public int ItemStatValue3;
+        public int ItemStatValue4;
+        public int ItemStatValue5;
+        public int ItemStatValue6;
+        public int ItemStatValue7;
+        public int ItemStatValue8;
+        public int ItemStatValue9;
+        public int ItemStatValue10;
+        public int ItemStatAllocation1;
+        public int ItemStatAllocation2;
+        public int ItemStatAllocation3;
+        public int ItemStatAllocation4;
+        public int ItemStatAllocation5;
+        public int ItemStatAllocation6;
+        public int ItemStatAllocation7;
+        public int ItemStatAllocation8;
+        public int ItemStatAllocation9;
+        public int ItemStatAllocation10;
+        public float ItemStatSocketCostMultiplier1;
+        public float ItemStatSocketCostMultiplier2;
+        public float ItemStatSocketCostMultiplier3;
+        public float ItemStatSocketCostMultiplier4;
+        public float ItemStatSocketCostMultiplier5;
+        public float ItemStatSocketCostMultiplier6;
+        public float ItemStatSocketCostMultiplier7;
+        public float ItemStatSocketCostMultiplier8;
+        public float ItemStatSocketCostMultiplier9;
+        public float ItemStatSocketCostMultiplier10;
+        public int ScalingStatDistribution;
+        public int DamageType;
+        public int Delay;
+        public float RangedModRange;
+        public int Bonding;
+        public string Name;
+        public string Name2;
+        public string Name3;
+        public string Name4;
+        public string Description;
+        public int PageText;
+        public int LanguageID;
+        public int PageMaterial;
+        public int StartQuest;
+        public int LockID;
+        public int Material;
+        public int Sheath;
+        public int RandomProperty;
+        public int RandomSuffix;
+        public int ItemSet;
+        public int Area;
+        public int Map;
+        public int BagFamily;
+        public int TotemCategory;
+        public int SocketColor1;
+        public int SocketColor2;
+        public int SocketColor3;
+        public int SocketBonus;
+        public int GemProperties;
+        public float ArmorDamageModifier;
+        public int Duration;
+        public int ItemLimitCategory;
+        public int HolidayID;
+        public float StatScalingFactor;
+        public int CurrencySubstitutionID;
+        public int CurrencySubstitutionCount;
+        public int ItemNameDescriptionID;
     }
 }

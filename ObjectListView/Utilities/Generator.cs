@@ -296,8 +296,8 @@ namespace BrightIdeasSoftware
         /// <param name="pinfo"></param>
         /// <param name="attr"></param>
         /// <returns></returns>
-        protected virtual OLVColumn MakeColumnFromAttribute(FieldInfo pinfo, OLVColumnAttribute attr) {
-            return MakeColumn(pinfo.Name, DisplayNameToColumnTitle(pinfo.Name), false, pinfo.GetType(), attr);
+        protected virtual OLVColumn MakeColumnFromAttribute(FieldInfo finfo, OLVColumnAttribute attr) {
+            return MakeColumn(finfo.Name, DisplayNameToColumnTitle(finfo.Name), false, finfo.GetType(), attr);
         }
 
         /// <summary>
@@ -324,8 +324,8 @@ namespace BrightIdeasSoftware
         /// </summary>
         /// <param name="pinfo"></param>
         /// <returns></returns>
-        protected virtual OLVColumn MakeColumnFromFieldInfo(FieldInfo pinfo) {
-            return MakeColumn(pinfo.Name, DisplayNameToColumnTitle(pinfo.Name), true, pinfo.GetType(), null);
+        protected virtual OLVColumn MakeColumnFromFieldInfo(FieldInfo finfo) {
+            return MakeColumn(finfo.Name, DisplayNameToColumnTitle(finfo.Name), true, finfo.GetType(), null);
         }
 
         /// <summary>

@@ -64,19 +64,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ArrayEditor.cs" />
-    <Compile Include="ArrayEditor.Designer.cs">
-      <DependentUpon>ArrayEditor.cs</DependentUpon>
-    </Compile>
     <Compile Include="Exceptions.cs" />
     <Compile Include="ExportWorkerParameters.cs" />
     <Compile Include="Extensions.cs" />
-    <Compile Include="HelpForm.cs" />
+    <Compile Include="HelpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="HelpForm.Designer.cs">
       <DependentUpon>HelpForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ListDataSource.cs" />
-    <Compile Include="MainForm.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
@@ -86,7 +86,9 @@
       <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StructConvertionForm.cs" />
+    <Compile Include="StructConvertionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="StructConvertionForm.Designer.cs">
       <DependentUpon>StructConvertionForm.cs</DependentUpon>
     </Compile>
@@ -158,9 +160,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ArrayEditor.resx">
-      <DependentUpon>ArrayEditor.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="HelpForm.resx">
       <DependentUpon>HelpForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -171,12 +170,7 @@
       <DependentUpon>StructConvertionForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Structures" />
-    <Folder Include="Structures\Version12340" />
-    <Folder Include="Structures\Version15595" />
-    <Folder Include="Structures\Version18179" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\DBFilesClient.NET\DBFilesClient.NET.csproj">
       <Project>{1DC6FA75-FB06-4395-B27A-52977F58AAEB}</Project>
